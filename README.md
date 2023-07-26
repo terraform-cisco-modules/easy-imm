@@ -26,10 +26,10 @@ If you would like to utilize Autocompletion, Help Context, and Error Validation,
 
 #### Notes for the `variables.auto.tfvars`:
 
-* intersight_fqdn: SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
-* moids_policies: Consume Policies from a Data Source instead of a Resource.  This is helpful if you separate the `policies` module from `profiles/templates`.
-* moids_pools: Consume Pools from a Data Source instead of a Resource.  This is helpful if you seperate the `pools` Module from the `policies` module.
-* tags: Not Required, but by default the version of the script is being flagged here.
+* `intersight_fqdn`: SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
+* `moids_policies`: Consume Policies from a Data Source instead of a Resource.  This is helpful if you separate the `policies` module from `profiles/templates`.
+* `moids_pools`: Consume Pools from a Data Source instead of a Resource.  This is helpful if you seperate the `pools` Module from the `policies` module.
+* `tags`: Not Required, but by default the version of the script is being flagged here.
 
 ## Environment Variables
 
