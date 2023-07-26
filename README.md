@@ -63,7 +63,9 @@ alias tfu='terraform init -upgrade'
 alias tfv='terraform validate'
 ```
 
-## IMPORTANT: ALL EXAMPLES BELOW ASSUME USING `tfenv` in LINUX
+## IMPORTANT:
+
+ALL EXAMPLES BELOW ASSUME USING `tfenv` in LINUX
 
 #### Linux
 
