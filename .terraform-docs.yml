@@ -20,7 +20,7 @@ content: |-
 
   Notice the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
 
-  ## YAML Schema Notes for Autocompletion, Help, and Error Validation:
+  ## YAML Schema Notes for auto-completion, Help, and Error Validation:
 
   If you would like to utilize Autocompletion, Help Context, and Error Validation, `(HIGHLY RECOMMENDED)` make sure the files all utilize the `.ezi.yaml` file extension.
 
@@ -28,7 +28,7 @@ content: |-
 
   `variables.auto.tfvars` contains Terraform variables that I felt fit better outside of the YAML Data Model.  These variables should be configured to be unique to the deployment environment, but examples are shown for the Richfield environemnt in the module.
 
-  #### Notes for the `variables.auto.tfvars`
+  #### Notes for the `variables.auto.tfvars`:
 
     * endpoint: SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
     * moids_policies: Consume Policies from a Data Source instead of a Resource.  This is helpful if you separate the `policies` module from `profiles/templates`.  
