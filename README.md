@@ -12,7 +12,7 @@ Examples are Shown in the Following Directories:
 * `profiles`
 * `templates`
 
-# IMPORTANT NOTE
+### IMPORTANT NOTE
 
 Notice the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
 
