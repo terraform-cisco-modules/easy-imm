@@ -2,7 +2,8 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Developed by: Cisco](https://img.shields.io/badge/Developed%20by-Cisco-blue)](https://developer.cisco.com)
 
-# Easy IMM - Comprehensive example for Intersight
+# Easy IMM
+## Examples for Using the Easy IMM Terraform Modules
 
 Examples are Shown in the Following Directories:
 
@@ -11,7 +12,13 @@ Examples are Shown in the Following Directories:
 * `profiles`
 * `templates`
 
-The Structure of the YAML Files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
+# IMPORTANT NOTE
+
+Notice the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
+
+## YAML Schema Notes for Autocompletion, Help, and Error Validation:
+
+If you would like to utilize Autocompletion, Help Context, and Error Validation, `(HIGHLY RECOMMENDED)` make sure the files all utilize the `.ezi.yaml` file extension.
 
 ### Modify `variables.auto.tfvars` to match environment
 
@@ -24,28 +31,6 @@ The Structure of the YAML Files is very flexible.  You can have all the YAML Dat
 * moids_pools: Consume Pools from a Data Source instead of a Resource.  This is helpful if you seperate the `pools` Module from the `policies` module.
 * tags: Not Required, but by default the version of the script is being flagged here.
 
-## YAML Schema Notes for Autocompletion, Help, and Error Validation:
-
-If you would like to enable Autocompletion, Help Context, and Error Validation, (`HIGHLY RECOMMENDED`) perform the following configuration in Visual Studio Code.
-
-### Install the YAML extension by Red Hat
-`Extensions`: Search for YAML and Select the 'YAML Language Support by Red Hat'
-
-### Add the YAML Schema's below to the Visual Studio Code Settings
-
-`Settings` » `Settings`: Search for `YAML:Schemas`.
-
-Click: `Edit in settings.json`
-
-Configure the following in `yaml.schemas`
-```bash
-"https://raw.githubusercontent.com/terraform-cisco-modules/easy-imm-comprehensive-example/main/yaml_schemas/easy_imm.json": [
-    "pools/*.yaml",
-    "policies/*.yaml",
-    "profiles/*.yaml",
-    "templates/*.yaml"
-],
-```
 ## Environment Variables
 
 ### Terraform Cloud/Enterprise - Workspace Variables
@@ -226,8 +211,8 @@ $env:TF_VAR_cco_password='<cco_password>'
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_deploy_profiles"></a> [deploy\_profiles](#input\_deploy\_profiles) | Flag to Determine if Profiles Should be deployed. | `string` | `false` | no |
-| <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | Intersight Endpoint Hostname. | `string` | `"intersight.com"` | no |
 | <a name="input_intersight_api_key_id"></a> [intersight\_api\_key\_id](#input\_intersight\_api\_key\_id) | Intersight API Key. | `string` | n/a | yes |
+| <a name="input_intersight_fqdn"></a> [intersight\_fqdn](#input\_intersight\_fqdn) | Intersight Fully Qualified Domain Name. | `string` | `"intersight.com"` | no |
 | <a name="input_intersight_secret_key"></a> [intersight\_secret\_key](#input\_intersight\_secret\_key) | Intersight Secret Key. | `string` | `"blah.txt"` | no |
 | <a name="input_moids_policies"></a> [moids\_policies](#input\_moids\_policies) | Flag to Determine if Policies Should be associated using resource or data object. | `bool` | `false` | no |
 | <a name="input_moids_pools"></a> [moids\_pools](#input\_moids\_pools) | Flag to Determine if Pools Should be associated using data object or from var.pools. | `bool` | `false` | no |

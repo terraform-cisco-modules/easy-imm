@@ -11,10 +11,8 @@ data "intersight_organization_organization" "orgs" {
 #_________________________________________________________________________________________
 data "utils_yaml_merge" "model" {
   input = concat([
-    for file in fileset(path.module, "policies/*.yaml") : file(file)], [
-    for file in fileset(path.module, "pools/*.yaml") : file(file)], [
-    for file in fileset(path.module, "profiles/*.yaml") : file(file)], [
-    for file in fileset(path.module, "templates/*.yaml") : file(file)]
+    for file in fileset(path.module, "*.ezi.yaml") : file(file)], [
+    for file in fileset(path.module, "*/*.ezi.yaml") : file(file)]
   )
   merge_list_items = false
 }

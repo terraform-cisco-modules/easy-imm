@@ -9,16 +9,16 @@ variable "deploy_profiles" {
   type        = string
 }
 
-variable "endpoint" {
-  default     = "intersight.com"
-  description = "Intersight Endpoint Hostname."
-  type        = string
-}
-
 variable "intersight_api_key_id" {
   description = "Intersight API Key."
   #sensitive   = true
   type = string
+}
+
+variable "intersight_fqdn" {
+  default     = "intersight.com"
+  description = "Intersight Fully Qualified Domain Name."
+  type        = string
 }
 
 variable "intersight_secret_key" {

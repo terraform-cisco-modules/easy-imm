@@ -4,9 +4,9 @@
 #____________________________________________________________
 
 # Begin Variables
-endpoint       = "intersight.com"
-moids_policies = false
-moids_pools    = false
+intersight_fqdn = "intersight.com"
+moids_policies  = false
+moids_pools     = false
 tags = [
   {
     key   = "Module"
