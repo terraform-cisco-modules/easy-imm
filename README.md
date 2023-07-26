@@ -35,8 +35,8 @@ If you would like to utilize Autocompletion, Help Context, and Error Validation,
 
 ### Terraform Cloud/Enterprise - Workspace Variables
 
-- Add variable `intersight_api_key_id` with the value of [your-api-key]
-- Add variable `intersight_secret_key` with the value of [your-secret-file-content]
+- Add variable `intersight_api_key_id` with the value of <your-api-key>
+- Add variable `intersight_secret_key` with the value of <your-secret-file-content>
 
 #### Add Other Variables as discussed below based on use cases
 
