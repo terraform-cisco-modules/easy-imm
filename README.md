@@ -283,17 +283,13 @@ If you want to see documentation on Variables for Submodules use the links below
 
 ## Terraform Registry
 
-### Policies
+### [Policies](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
 
-[*Policies*](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
-
-### Pools
-
-[*Pools*](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
+### [Pools](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
 
 ### Profiles
 
-[*Domain*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles-domain/intersight/latest)
+### [Domain](https://registry.terraform.io/modules/terraform-cisco-modules/profiles-domain/intersight/latest)
 
-[*Chassis and Server + Server Templates*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
+### [Chassis/Server + Templates](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
 <!-- END_TF_DOCS -->
