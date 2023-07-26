@@ -1,0 +1,25 @@
+---
+#=======================================
+#   Policies -> storage - Variables
+#=======================================
+default: # Name of the Organization
+  policies:
+    storage:
+      - m2_raid_configuration:
+          slot: MSTOR-RAID-1
+        name: M2-Raid
+        use_jbod_for_vd_creation: true
+      - description: Raid1 Storage Policy
+        drive_groups:
+          - manual_drive_group:
+              drive_array_spans:
+                - slots: 1-2
+            name: dg0
+            raid_level: Raid1
+            virtual_drives:
+              - boot_drive: true
+                expand_to_available: true
+                name: vd0
+        name: Raid1
+        unused_disks_state: Jbod
+        use_jbod_for_vd_creation: true

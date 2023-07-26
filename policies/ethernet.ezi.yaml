@@ -1,0 +1,108 @@
+---
+#========================================
+#   Policies -> ethernet - Variables
+#========================================
+default: # Name of the Organization
+  policies:
+    adapter_configuration:
+      - add_vic_adapter_configuration:
+          - dce_interface_settings:
+              dce_interface_fec_modes:
+                - cl91
+            enable_fip: true
+            enable_lldp: true
+            enable_port_channel: true
+            pci_slot: MLOM
+        description: adapter Adapter Configuration Policy
+        name: adapter
+    ethernet_adapter:
+      - adapter_template: VMware
+        description: VMware Ethernet Adapter
+        name: VMware
+    ethernet_network:
+      - default_vlan: 4
+        description: network Ethernet Network Policy
+        name: network
+        vlan_mode: ACCESS
+    ethernet_network_control:
+      - action_on_uplink_fail: linkDown
+        cdp_enable: false
+        description: cdp Ethernet Network Control Policy
+        lldp_enable_receive: true
+        lldp_enable_transmit: true
+        mac_register_mode: nativeVlanOnly
+        mac_security_forge: allow
+        name: cdp
+      - action_on_uplink_fail: linkDown
+        cdp_enable: true
+        description: lldp Ethernet Network Control Policy
+        lldp_enable_receive: false
+        lldp_enable_transmit: false
+        mac_register_mode: nativeVlanOnly
+        mac_security_forge: allow
+        name: lldp
+    ethernet_network_group:
+      - allowed_vlans: 101-103,1000-1199
+        name: uplink
+      - allowed_vlans: '101'
+        name: mgmt
+        native_vlan: 101
+      - allowed_vlans: '102'
+        name: migration
+        native_vlan: 102
+      - allowed_vlans: '103'
+        name: storage
+        native_vlan: 103
+      - allowed_vlans: 101-103,1000-1199
+        name: dvs
+        native_vlan: 1
+    ethernet_qos:
+      - burst: 10240
+        description: Bronze Ethernet QoS Policy
+        enable_trust_host_cos: false
+        mtu: 9000
+        name: Bronze
+        priority: Bronze
+        rate_limit: 0
+      - burst: 10240
+        description: Gold Ethernet QoS Policy
+        enable_trust_host_cos: false
+        mtu: 9000
+        name: Gold
+        priority: Gold
+        rate_limit: 0
+      - burst: 10240
+        description: Platinum Ethernet QoS Policy
+        enable_trust_host_cos: false
+        mtu: 9000
+        name: Platinum
+        priority: Platinum
+        rate_limit: 0
+      - burst: 10240
+        description: Silver Ethernet QoS Policy
+        enable_trust_host_cos: false
+        mtu: 9000
+        name: Silver
+        priority: Silver
+        rate_limit: 0
+    iscsi_adapter:
+      - description: adapter iSCSI Adapter Policy
+        dhcp_timeout: 60
+        lun_busy_retry_count: 15
+        name: adapter
+        tcp_connection_timeout: 15
+    iscsi_boot:
+      - authentication: none
+        description: boot iSCSI Boot Policy
+        initiator_ip_source: DHCP
+        iscsi_adapter_policy: adapter
+        name: boot
+        primary_target_policy: target
+        target_source_type: Static
+    iscsi_static_target:
+      - description: target iSCSI Static Target Policy
+        ip_address: 198.18.32.60
+        lun_id: 0
+        name: target
+        port: 3260
+        target_name: iqn.1984-12.com.cisco:lnx1

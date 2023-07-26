@@ -1,0 +1,137 @@
+---
+#=========================
+#   Pools - Variables
+#=========================
+default: # Name of the Organization
+  pools:
+    ip:
+      - ipv4_blocks:
+          - from: 198.18.1.10
+            size: 245
+        ipv4_configuration:
+          gateway: 198.18.1.1
+          netmask: 255.255.255.0
+          primary_dns: 208.67.222.222
+          secondary_dns: 208.67.220.220
+        name: kvm-inband
+      - ipv4_blocks:
+          - from: 198.18.2.10
+            size: 245
+        ipv4_configuration:
+          gateway: 198.18.2.1
+          netmask: 255.255.255.0
+          primary_dns: 208.67.220.220
+          secondary_dns: 208.67.222.222
+        name: kvm-ooband
+      - ipv4_blocks:
+          - from: 10.92.101.101
+            size: 16
+        ipv4_configuration:
+          gateway: 10.92.101.1
+          netmask: 255.255.255.0
+          primary_dns: 10.101.128.15
+          secondary_dns: 10.101.128.16
+        name: inband
+      - ipv4_blocks:
+          - from: 192.168.64.128
+            size: 16
+        ipv4_configuration:
+          gateway: 192.168.64.1
+          netmask: 255.255.254.0
+          primary_dns: 208.67.222.222
+          secondary_dns: 208.67.220.220
+        name: ooband
+    iqn:
+      - assignment_order: sequential
+        description: default
+        name: default
+        iqn_blocks:
+          - from: 0
+            size: 1024
+            suffix: ucs-host
+        prefix: iqn.1984-12.com.cisco
+        reservations:
+          allocation_type: static
+          identities:
+            - "iqn.2001-04.com.example:uefi-13021088"
+    mac:
+      - mac_blocks:
+          - from: 00:25:B5:00:10:00
+            size: 1024
+        name: dvs-a
+      - mac_blocks:
+          - from: 00:25:B5:00:20:00
+            size: 1024
+        name: dvs-b
+      - mac_blocks:
+          - from: 00:25:B5:00:A0:00
+            size: 1024
+        name: mgmt-a
+      - mac_blocks:
+          - from: 00:25:B5:00:B0:00
+            size: 1024
+        name: mgmt-b
+      - mac_blocks:
+          - from: 00:25:B5:00:C0:00
+            size: 1024
+        name: migration-a
+      - mac_blocks:
+          - from: 00:25:B5:00:D0:00
+            size: 1024
+        name: migration-b
+      - mac_blocks:
+          - from: 00:25:B5:00:E0:00
+            size: 1024
+        name: storage-a
+      - mac_blocks:
+          - from: 00:25:B5:00:F0:00
+            size: 1024
+        name: storage-b
+    name_prefix:
+      default: ''
+      ip: ''
+      iqn: ''
+      mac: ''
+      resource: ''
+      uuid: ''
+      wwnn: ''
+      wwpn: ''
+    name_suffix:
+      default: ''
+      ip: ''
+      iqn: ''
+      mac: ''
+      resource: ''
+      uuid: ''
+      wwnn: ''
+      wwpn: ''
+    resource:
+      - assignment_order: sequential
+        description: default
+        name: default
+        pool_type: Static
+        resource_type: Server
+        serial_number_list:
+          - FCH26407CXM
+        server_type: Blades
+    uuid:
+      - description: uuid UUID Pool
+        name: uuid
+        prefix: 000025B5-0000-0000
+        uuid_blocks:
+          - from: 0000-000000000000
+            size: 1024
+    wwnn:
+      - id_blocks:
+          - from: 20:00:00:25:B5:00:00:00
+            size: 1024
+        name: wwnn
+    wwpn:
+      - id_blocks:
+          - from: 20:00:00:25:B5:00:A0:00
+            size: 1024
+        name: wwpn-a
+      - id_blocks:
+          - from: 20:00:00:25:B5:00:B0:00
+            size: 1024
+        name: wwpn-b

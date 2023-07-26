@@ -1,0 +1,19 @@
+---
+#====================================
+#   Policies -> vlan - Variables
+#====================================
+default: # Name of the Organization
+  policies:
+    multicast:
+      - name: mcast
+    vlan:
+      - name: vlans
+        vlans:
+          - auto_allow_on_uplinks: true
+            multicast_policy: mcast
+            name: vlan
+            native_vlan: true
+            vlan_list: '1'
+          - multicast_policy: mcast
+            name: vlan
+            vlan_list: 101-103,1000-1199

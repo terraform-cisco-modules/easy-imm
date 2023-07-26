@@ -1,0 +1,142 @@
+---
+#==========================================
+#   Policies -> management - Variables
+#==========================================
+default: # Name of the Organization
+  policies:
+    device_connector:
+      - configuration_lockout: false
+        description: devcon Device Connector Policy
+        name: devcon
+    imc_access:
+      - description: kvm IMC Access Policy
+        inband_ip_pool: inband
+        inband_vlan_id: 101
+        ipv4_address_configuration: true
+        name: kvm
+        out_of_band_ip_pool: ooband
+    ipmi_over_lan:
+      - description: ipmi IPMI over LAN Policy
+        name: ipmi
+        privilege: admin
+    ldap:
+      - base_settings:
+          base_dn: DC=example,DC=com
+          domain: example.com
+          timeout: 0
+        binding_parameters:
+          bind_method: LoginCredentials
+        description: ldap LDAP Policy
+        enable_encryption: true
+        enable_group_authorization: true
+        enable_ldap: true
+        ldap_groups:
+          - name: ucs-admins
+            role: admin
+          - name: netops
+            role: user
+        ldap_servers:
+          - port: 636
+            server: 198.18.6.36
+        name: ldap
+        nested_group_search_depth: 128
+        search_parameters:
+          attribute: CiscoAvPair
+          filter: sAMAccountName
+          group_attribute: memberOf
+        user_search_precedence: LocalUserDb
+    local_user:
+      - description: users Local User Policy
+        name: users
+        password_properties:
+          always_send_user_password: false
+          enable_password_expiry: true
+          enforce_strong_password: true
+          grace_period: 0
+          notification_period: 15
+          password_expiry_duration: 90
+          password_history: 0
+        users:
+          - enabled: true
+            password: 1
+            role: admin
+            username: admin
+    network_connectivity:
+      - description: dns Network Connectivity Policy
+        dns_servers_v4:
+          - 208.67.220.220
+          - 208.67.222.222
+        dns_servers_v6:
+          - 2620:119:35::35
+          - 2620:119:53::53
+        enable_ipv6: true
+        name: dns
+    ntp:
+      - description: ntp NTP Policy
+        enabled: true
+        name: ntp
+        ntp_servers:
+          - 0.north-america.pool.ntp.org
+          - 1.north-america.pool.ntp.org
+        timezone: America/New_York
+    serial_over_lan:
+      - baud_rate: 115200
+        com_port: com0
+        description: sol Serial over LAN Policy
+        name: sol
+        ssh_port: 2400
+    smtp:
+      - description: smtp SMTP Policy
+        mail_alert_recipients:
+          - admin@example.com
+          - infra-ops@example.com
+        minimum_severity: critical
+        name: smtp
+        smtp_alert_sender_address: intersight@example.com
+        smtp_port: 25
+        smtp_server_address: mail.example.com
+    snmp:
+      - description: snmp SNMP Policy
+        name: snmp
+        snmp_port: 161
+        snmp_trap_destinations:
+          - destination_address: 198.18.1.61
+            port: 162
+            user: snmpadmin
+        snmp_users:
+          - auth_password: 1
+            auth_type: SHA
+            name: snmpadmin
+            privacy_password: 1
+            privacy_type: AES
+            security_level: AuthPriv
+        system_contact: admin@example.com
+        system_location: Example Corporation
+    ssh:
+      - description: ssh SSH Policy
+        name: ssh
+        ssh_port: 22
+        ssh_timeout: 1800
+    syslog:
+      - description: syslog Syslog Policy
+        local_logging:
+          minimum_severity: warning
+        name: syslog
+        remote_logging:
+          - enable: true
+            hostname: 198.18.5.14
+            minimum_severity: warning
+            port: 514
+            protocol: udp
+          - enable: true
+            hostname: 198.18.5.15
+            minimum_severity: warning
+            port: 514
+            protocol: udp
+    virtual_kvm:
+      - allow_tunneled_vkvm: true
+        description: vkvm Virtual KVM Policy
+        enable_local_server_video: true
+        enable_video_encryption: true
+        name: vkvm
+        remote_port: 2068

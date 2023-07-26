@@ -1,0 +1,147 @@
+---
+#=======================================
+#   Policies -> compute - Variables
+#=======================================
+default: # Name of the Organization
+  policies:
+    bios:
+      - baud_rate: "115200"
+        bios_template: Virtualization
+        console_redirection: serial-port-a
+        description: M5-virtualization BIOS Policy
+        execute_disable_bit: disabled
+        lv_ddr_mode: auto
+        name: M5-virtualization
+        serial_port_aenable: enabled
+        terminal_type: vt100
+      - baud_rate: "115200"
+        bios_template: Virtualization_tpm
+        console_redirection: serial-port-a
+        description: M5-virtualization-tpm BIOS Policy
+        execute_disable_bit: disabled
+        lv_ddr_mode: auto
+        name: M5-virtualization-tpm
+        serial_port_aenable: enabled
+        terminal_type: vt100
+      - baud_rate: "115200"
+        bios_template: M6_Virtualization_tpm
+        console_redirection: serial-port-a
+        description: M6-virtualization-tpm BIOS Policy
+        execute_disable_bit: disabled
+        lv_ddr_mode: auto
+        name: M6-virtualization-tpm
+        serial_port_aenable: enabled
+        terminal_type: vt100
+    boot_order:
+        - name: M2-pxe
+          boot_devices:
+            - name: KVM-DVD
+              object_type: boot.VirtualMedia
+              sub_type: kvm-mapped-dvd
+            - name: M2
+              object_type: boot.LocalDisk
+              slot: MSTOR-RAID
+            - name: PXE
+              interface_name: MGMT-A
+              object_type: boot.Pxe
+              slot: MLOM
+          boot_mode: Uefi
+          # description: M2-pxe Boot Policy.
+          enable_secure_boot: false
+        - name: M2
+          boot_devices:
+            - name: KVM-DVD
+              object_type: boot.VirtualMedia
+              sub_type: kvm-mapped-dvd
+            - name: M2
+              object_type: boot.LocalDisk
+              slot: MSTOR-RAID
+          boot_mode: Uefi
+          # description: M2 Boot Policy.
+          enable_secure_boot: true
+        - name: Raid-pxe
+          boot_devices:
+            - name: KVM-DVD
+              object_type: boot.VirtualMedia
+              sub_type: kvm-mapped-dvd
+            - name: Raid1
+              object_type: boot.LocalDisk
+              slot: MRAID
+            - name: PXE
+              interface_name: MGMT-A
+              object_type: boot.Pxe
+              slot: MLOM
+          boot_mode: Uefi
+          # description: Raid-pxe Boot Policy.
+          enable_secure_boot: false
+        - name: Raid1
+          boot_devices:
+            - name: KVM-DVD
+              object_type: boot.VirtualMedia
+              sub_type: kvm-mapped-dvd
+            - name: Raid1
+              object_type: boot.LocalDisk
+              slot: MRAID
+          boot_mode: Uefi
+          # description: Raid1 Boot Policy.
+          enable_secure_boot: true
+        - name: examples
+          boot_devices:
+            - name: KVM-DVD
+              object_type: boot.VirtualMedia
+              sub_type: kvm-mapped-dvd
+            - name: CIMC-DVD
+              object_type: boot.VirtualMedia
+              sub_type: cimc-mapped-dvd
+            - name: M2
+              object_type: boot.LocalDisk
+              slot: MSTOR-RAID
+            - name: Raid1
+              object_type: boot.LocalDisk
+              slot: MRAID
+            - name: PXE
+              interface_name: MGMT-A
+              object_type: boot.Pxe
+              slot: MLOM
+            - name: iSCSI
+              interface_name: iSCSI-A
+              object_type: boot.Iscsi
+              slot: MLOM
+            - name: Primary-A
+              interface_name: vHBA-A
+              lun: 0
+              object_type: boot.San
+              slot: MLOM
+              wwpn: 50:00:00:25:B5:0A:00:01
+            - name: Primary-B
+              interface_name: vHBA-B
+              lun: 0
+              object_type: boot.San
+              slot: MLOM
+              wwpn: 50:00:00:25:B5:0B:00:01
+            - name: Secondary-A
+              interface_name: vHBA-A
+              lun: 0
+              object_type: boot.San
+              slot: MLOM
+              wwpn: 50:00:00:25:B5:0A:00:02
+            - name: Secondary-B
+              interface_name: vHBA-B
+              lun: 0
+              object_type: boot.San
+              slot: MLOM
+              wwpn: 50:00:00:25:B5:0B:00:02
+          boot_mode: Uefi
+          # description: examples Boot Policy.
+          enable_secure_boot: false
+    virtual_media:
+      - add_virtual_media:
+          - device_type: cdd
+            file_location: https://198.18.1.1/vmware.iso
+            mount_options: noauto
+            name: https-map
+            protocol: https
+        description: vmedia Virtual Media Policy
+        enable_low_power_usb: true
+        enable_virtual_media_encryption: true
+        name: vmedia
