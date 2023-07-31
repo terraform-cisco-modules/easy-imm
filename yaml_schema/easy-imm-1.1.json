@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Cisco Intersight-Managed-Mode Schema",
-    "$id": "https://github.com/terraform-cisco-modules/easy-imm-comprehensive-example/yaml_schemas/easy_imm.json",
+    "$id": "https://github.com/terraform-cisco-modules/easy-imm/yaml_schema/easy_imm-1-1.json",
     "description": "Cisco Easy IMM Data Model JSON Schema.  See: https://github.com/terraform-cisco-modules/easy-imm",
     "$ref": "#/definitions/easyIMM",
     "definitions": {
