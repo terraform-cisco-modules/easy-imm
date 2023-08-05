@@ -6,24 +6,6 @@ default: # Name of the Organization
   pools:
     ip:
       - ipv4_blocks:
-          - from: 198.18.1.10
-            size: 245
-        ipv4_configuration:
-          gateway: 198.18.1.1
-          netmask: 255.255.255.0
-          primary_dns: 208.67.222.222
-          secondary_dns: 208.67.220.220
-        name: kvm-inband
-      - ipv4_blocks:
-          - from: 198.18.2.10
-            size: 245
-        ipv4_configuration:
-          gateway: 198.18.2.1
-          netmask: 255.255.255.0
-          primary_dns: 208.67.220.220
-          secondary_dns: 208.67.222.222
-        name: kvm-ooband
-      - ipv4_blocks:
           - from: 10.92.101.101
             size: 16
         ipv4_configuration:
@@ -31,16 +13,16 @@ default: # Name of the Organization
           netmask: 255.255.255.0
           primary_dns: 10.101.128.15
           secondary_dns: 10.101.128.16
-        name: inband
+        name: kvm-inband
       - ipv4_blocks:
           - from: 192.168.64.128
             size: 16
         ipv4_configuration:
           gateway: 192.168.64.1
           netmask: 255.255.254.0
-          primary_dns: 208.67.222.222
-          secondary_dns: 208.67.220.220
-        name: ooband
+          primary_dns: 10.101.128.15
+          secondary_dns: 10.101.128.16
+        name: kvm-ooband
     iqn:
       - assignment_order: sequential
         description: default

@@ -42,7 +42,7 @@ default: # Name of the Organization
               object_type: boot.LocalDisk
               slot: MSTOR-RAID
             - name: PXE
-              interface_name: MGMT-A
+              interface_name: mgmt-a
               object_type: boot.Pxe
               slot: MLOM
           boot_mode: Uefi
@@ -134,6 +134,15 @@ default: # Name of the Organization
           boot_mode: Uefi
           # description: examples Boot Policy.
           enable_secure_boot: false
+    firmware:
+      - description: example-ucs Firmware Policy
+        name: '5.1'
+        models:
+          - firmware_version: "5.1(0.230054)"
+            server_model: UCSX-210C-M6
+          - firmware_version: "5.1(0.230054)"
+            server_model: UCSB-B200-M5
+        target_platform: FIAttached
     virtual_media:
       - add_virtual_media:
           - device_type: cdd

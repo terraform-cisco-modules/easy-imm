@@ -18,52 +18,18 @@ data "utils_yaml_merge" "model" {
 }
 
 locals {
-  chassis = { for i in flatten([for key, value in module.profiles : [
-    for k, v in value.chassis : {
-      action          = v.action
-      moid            = v.moid
-      name            = k
-      organization    = key
-      serial_number   = v.serial_number
-      target_platform = v.target_platform
-    }
-    ]
+  chassis = { for i in flatten([for key, value in module.profiles : [for k, v in value.chassis : v]
   ]) : "${i.organization}:${i.name}" => i }
   model = yamldecode(data.utils_yaml_merge.model.output)
   orgs  = { for k, v in data.intersight_organization_organization.orgs.results : v.name => v.moid }
-  server = { for i in flatten([for key, value in module.profiles : [
-    for k, v in value.server : {
-      action               = v.action
-      create_from_template = v.create_from_template
-      moid                 = v.moid
-      name                 = k
-      organization         = key
-      serial_number        = v.serial_number
-      target_platform      = v.target_platform
-    }
-    ]
+  server = { for i in flatten([for key, value in module.profiles : [for k, v in value.server : v]
   ]) : "${i.organization}:${i.name}" => i }
   switch_profiles = { for i in flatten([for key, value in module.domain_profiles : [
-    for k, v in value.switch_profiles : {
-      action        = v.action
-      domain_moid   = module.domain_profiles[key].domains[v.domain_profile]
-      moid          = v.moid
-      name          = k
-      organization  = key
-      serial_number = v.serial_number
-    }
-    ]
+    for k, v in value.switch_profiles : merge(v, { domain_moid = module.domain_profiles[key].domains[v.domain_profile] }
+    )]
   ]) : "${i.organization}:${i.name}" => i }
   wait_for_domain = distinct(compact([for i in local.switch_profiles : i.action if i.action != "No-op"]))
-  template = { for i in flatten([for key, value in module.profiles : [
-    for k, v in value.template : {
-      create_template = v.create_template
-      moid            = v.moid
-      name            = k
-      organization    = key
-      target_platform = v.target_platform
-    }
-    ]
+  template = { for i in flatten([for key, value in module.profiles : [for k, v in value.template : v]
   ]) : "${i.organization}:${i.name}" => i }
   create_template = [for v in local.template : true if v.create_template == true]
 }
@@ -92,7 +58,7 @@ module "pools" {
 module "policies" {
   #source = "../terraform-intersight-policies"
   source         = "terraform-cisco-modules/policies/intersight"
-  version        = "2.1.5"
+  version        = "2.2.1"
   for_each       = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "policies", {}) if i != "intersight" }
   moids_policies = var.moids_policies
   moids_pools    = var.moids_pools
@@ -293,7 +259,7 @@ resource "time_sleep" "wait_for_server_discovery" {
 module "profiles" {
   #source = "../terraform-intersight-profiles"
   source         = "terraform-cisco-modules/profiles/intersight"
-  version        = "2.1.5"
+  version        = "2.2.1"
   for_each       = { for i in sort(keys(local.model)) : i => local.model[i] if i != "intersight" }
   moids_policies = var.moids_policies
   moids_pools    = var.moids_pools
@@ -395,4 +361,3 @@ resource "intersight_server_profile" "server" {
     moid = local.orgs[each.value.organization]
   }
 }
-

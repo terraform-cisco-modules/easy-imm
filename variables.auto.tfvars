@@ -14,6 +14,6 @@ tags = [
   },
   {
     key   = "Version"
-    value = "2.1.9"
+    value = "2.2.1"
   }
 ]

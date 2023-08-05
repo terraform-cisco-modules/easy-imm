@@ -10,11 +10,11 @@ default: # Name of the Organization
         name: devcon
     imc_access:
       - description: kvm IMC Access Policy
-        inband_ip_pool: inband
+        inband_ip_pool: kvm-inband
         inband_vlan_id: 101
         ipv4_address_configuration: true
         name: kvm
-        out_of_band_ip_pool: ooband
+        out_of_band_ip_pool: kvm-ooband
     ipmi_over_lan:
       - description: ipmi IPMI over LAN Policy
         name: ipmi

@@ -201,7 +201,7 @@ $env:TF_VAR_cco_password='<cco_password>'
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 2.1.5 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 2.1.5 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 2.1.6 |
 | <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 2.1.6 |
 | <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 2.1.5 |
 
