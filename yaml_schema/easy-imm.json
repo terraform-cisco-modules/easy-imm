@@ -8644,7 +8644,7 @@
         "firmware.Authenticate": {
             "type": "object",
             "additionalProperties": false,
-            "description": "The Credentials to use to Authenticate to Download Firmware for the Environemtn.\n\nRequired:\n  * cco_password\n  * cco_user",
+            "description": "The Credentials to use to Authenticate to Download Firmware for the Environemnt.\n\nRequired:\n  * cco_password\n  * cco_user",
             "intersightUri": "not_applicable",
             "ObjectType": "not_applicable",
             "properties": {
