@@ -6,7 +6,7 @@ default: # Name of the Organization
   pools:
     ip:
       - ipv4_blocks:
-          - from: 198.18.101.101
+          - from: 198.18.101.68
             size: 16
         ipv4_configuration:
           gateway: 198.18.101.254
