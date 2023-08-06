@@ -5999,40 +5999,24 @@
                 "assigned_sensitive_data": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Flag to confirm that you have set the file location of the PEM Certificate File.  If false the Drive Security Policy will not run.",
+                    "description": "Default is `false`.  Flag to confirm that you have set the file location of the PEM Certificate File.  If false the Drive Security Policy will not run.",
                     "intersightApi": "not_applicable",
                     "title": "assigned_sensitive_data"
                 },
-                "enabled": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Default is true.  Enable/Disable the certificate in Certificate Management policy.",
-                    "intersightApi": "$ref:certificatemanagement.CertificateBase:Enabled",
-                    "title": "enabled"
-                },
-                "certificate": {
-                    "type": "integer",
-                    "default": 1,
-                    "description": "Default is 1.  Certificate that is used for verifying the authorization.",
-                    "intersightApi": "$ref:certificatemanagement.CertificateBase:Certificate",
-                    "minimum": 1,
-                    "maximum": 64,
-                    "title": "certificate"
+                "certificates": {
+                    "type": "array",
+                    "additionalProperties": false,
+                    "description": "List of Certificates and their Properties.\nRequired Attributes are:\n  * cert_type\n  * type\n  * variable_id\n\nOptional Attributes:\n  * enabled",
+                    "items": {
+                        "$ref": "#/definitions/certificatemanagement.Policy.Certificates"
+                    },
+                    "title": "certificates"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
-                },
-                "private_key": {
-                    "type": "integer",
-                    "default": 1,
-                    "description": "Default is 1.  Private Key which is used to validate the certificate.",
-                    "intersightApi": "$ref:certificatemanagement.CertificateBase:Privatekey",
-                    "minimum": 1,
-                    "maximum": 64,
-                    "title": "private_key"
                 },
                 "tags": {
                     "type": "array",
@@ -6045,11 +6029,64 @@
             },
             "required": [
                 "assigned_sensitive_data",
-                "certificate",
-                "name",
-                "private_key"
+                "certificates",
+                "name"
             ],
             "title": "certificate_management - Certificate Management - Intersight Uri: certificatemanagement/Policies"
+        },
+        "certificatemanagement.Policy.Certificates": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "",
+            "easyimm": "certificate_management:certificates",
+            "intersightUri": "certificatemanagement/Policies",
+            "ObjectType": "certificatemanagement.Policy",
+            "properties": {
+                "cert_type": {
+                    "type": "string",
+                    "default": "None",
+                    "description": "Default is `None`.  Certificate Type for the certificate management.\n* `None` - Set certificate on the selected end point .\n* `KMIPClient` - Set KMIP certificate on the selected end point.",
+                    "enum": [
+                        "KMIPClient",
+                        "None"
+                    ],
+                    "intersightApi": "CertType",
+                    "title": "cert_type"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Default is `true`.  Enable/Disable the certificate in Certificate Management policy.",
+                    "intersightApi": "$ref:certificatemanagement.CertificateBase:Enabled",
+                    "title": "enabled"
+                },
+                "type": {
+                    "type": "string",
+                    "default": "None",
+                    "description": "Default is `IMC`.  Certificate Object Type to Assign.\n* `IMC` - Set the object_type to `certificatemanagement.Imc`.\n* `RootCa` -  Set the object_type to `certificatemanagement.RootCaCertificate`.",
+                    "enum": [
+                        "IMC",
+                        "RootCa"
+                    ],
+                    "intersightApi": "not_applicable",
+                    "title": "type"
+                },
+                "variable_id": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Sensitive Variable Identifier to be used with this Certificate. i.e. `var.cert_mgmt_certificate_1` and `var.cert_mgmt_private_key_1`, when the Type is `IMC` or just `var.cert_mgmt_private_key_1` for `RootCA` Type.",
+                    "intersightApi": "$ref:certificatemanagement.CertificateBase:Certificate",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "variable_id"
+                }
+            },
+            "required": [
+                "cert_type",
+                "type",
+                "variable_id"
+            ],
+            "title": "certificates"
         },
         "chassis.Profile": {
             "type": "object",
@@ -8604,6 +8641,38 @@
             ],
             "title": "advanced_mode - Firmware Exclude Components"
         },
+        "firmware.Authenticate": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The Credentials to use to Authenticate to Download Firmware for the Environemtn.\n\nRequired:\n  * cco_password\n  * cco_user",
+            "intersightUri": "not_applicable",
+            "ObjectType": "not_applicable",
+            "properties": {
+                "cco_password": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Cisco Software Download User Password.  i.e. `var.cco_password`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "cco_password"
+                },
+                "cco_user": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Cisco Software Download User.  i.e. `var.cco_user`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "cco_user"
+                }
+            },
+            "required": [
+                "cco_password",
+                "cco_user"
+            ],
+            "title": "firmware_authenticate"
+        },
         "firmware.Policy": {
             "type": "object",
             "additionalProperties": false,
@@ -8722,7 +8791,7 @@
                 "password": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Valid login password of the user.",
+                    "description": "Default is `1`.  The Local User Authentication Password Sensitive Variable Identifier.  i.e. `var.local_user_password_1`.",
                     "intersightApi": "$ref:iam.EndPointUserRole:Password",
                     "minimum": 1,
                     "maximum": 64,
@@ -8947,6 +9016,15 @@
                         "LoginCredentials"
                     ],
                     "title": "bind_method"
+                },
+                "password": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The LDAP Binding Parameter Password Sensitive Variable Identifier.  i.e. `var.binding_parameters_password`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "password"
                 }
             },
             "required": [
@@ -9235,6 +9313,15 @@
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
+                },
+                "encryption_key": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Encryption Key Sensitive Variable Identifier.  i.e. `var.ipmi_key`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "encryption_key"
                 },
                 "privilege": {
                     "type": "string",
@@ -9932,6 +10019,15 @@
                     },
                     "objectType": "memory.PersistentMemoryLogicalNamespace",
                     "title": "namespaces - Persistent Memory Logical Namespaces - Intersight Uri: memory/PersistentMemoryLogicalNamespaces"
+                },
+                "passphrase": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Persisentent Memory Passphrase Sensitive Variable Identifier.  i.e. `var.persistent_passphrase`.",
+                    "intersightApi": "$ref:iam.EndPointUserRole:Password",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "passphrase"
                 },
                 "retain_namespaces": {
                     "type": "boolean",
@@ -11277,6 +11373,9 @@
                     },
                     "objectType": "firmware.Policy",
                     "title": "firmware - Firmware - Intersight Uri: firmware/Policies"
+                },
+                "firmware_authenticate": {
+                    "$ref": "#/definitions/firmware.Authenticate"
                 },
                 "flow_control": {
                     "type": "array",
@@ -12957,7 +13056,7 @@
                 "access_community_string": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long.",
+                    "description": "Default is `1`.  The Sensitive Variable Identifier for the Access Community String.  i.e. `var.access_community_string_1`.  The SNMP Access Community String for devices performing SNMP Queries against the appliance for SNMPv1/v2c. The value can be 18 characters long.",
                     "intersightApi": "AccessCommunityString",
                     "minimum": 1,
                     "maximum": 64,
@@ -13058,7 +13157,7 @@
                 "trap_community_string": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  SNMP community group used for sending SNMP trap to other devices. Valid only for SNMPv2c users.",
+                    "description": "Default is `1`.  The Sensitive Variable Identifier for the Trap Community String.  i.e. `var.snmp_trap_community_1`.  The SNMP Trap Community String will be used for sending Trap notification to devices utilizing SNMPv1/v2c. The value can be 18 characters long.",
                     "intersightApi": "TrapCommunity",
                     "minimum": 1,
                     "maximum": 64,
@@ -13149,10 +13248,10 @@
                 "auth_password": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 0.  A number Between 1-5 to denote to use one of the variables snmp_auth_password_[1-5].  Any other number means no authentication password.",
+                    "description": "Default is `1`.  A number Between to denote to use one of the variables, i.e. `var.snmp_auth_password_[1-5]`.",
                     "intersightApi": "not_applicable",
                     "minimum": 1,
-                    "maximum": 5,
+                    "maximum": 64,
                     "title": "auth_password"
                 },
                 "auth_type": {
@@ -13184,10 +13283,10 @@
                 "privacy_password": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 0.  A number Between 1-5 to denote to use one of the variables snmp_privacy_password_[1-5].  Any other number means no Privacy password.",
+                    "description": "Default is `1`.  A number Between to denote to use one of the variables, i.e. `var.snmp_privacy_password_[1-5]`.",
                     "intersightApi": "not_applicable",
                     "minimum": 1,
-                    "maximum": 5,
+                    "maximum": 64,
                     "title": "privacy_password"
                 },
                 "privacy_type": {
@@ -13494,11 +13593,29 @@
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
+                "password": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Password Sensitive Variable Identifier.  i.e. `var.drive_security_password`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "password"
+                },
                 "primary_kmip_server": {
                     "$ref": "#/definitions/storage.KmipServer"
                 },
                 "secondary_kmip_server": {
                     "$ref": "#/definitions/storage.KmipServer"
+                },
+                "server_public_root_ca_certificate": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Password Sensitive Variable Identifier.  i.e. `var.drive_security_server_ca_certificate`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "server_public_root_ca_certificate"
                 },
                 "tags": {
                     "type": "array",
@@ -14270,6 +14387,15 @@
                     "pattern": "^[a-zA-Z0-9_\\. :-]+$",
                     "title": "protocol"
                 },
+                "password": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  A number Between to denote to use one of the variables, i.e. `var.vmedia_password_[1-5]`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "password"
+                },
                 "protocol": {
                     "type": "string",
                     "default": "https",
@@ -14282,15 +14408,6 @@
                         "https"
                     ],
                     "title": "protocol"
-                },
-                "password": {
-                    "type": "integer",
-                    "default": 1,
-                    "description": "If doing CHAP or Mutual Chap authentication set this to 1 and configure the iscsi_boot_password.",
-                    "intersightApi": "not_applicable",
-                    "minimum": 1,
-                    "maximum": 5,
-                    "title": "password"
                 },
                 "username": {
                     "type": "string",
@@ -15592,13 +15709,14 @@
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
-                "tags": {
-                    "type": "array",
-                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
-                    "items": {
-                        "$ref": "#/definitions/mo.Tag"
-                    },
-                    "title": "tags - Tags"
+                "password": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The iSCSI Remote Target Password Sensitive Variable Identifier.  i.e. `var.iscsi_boot_password`.",
+                    "intersightApi": "not_applicable",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "password"
                 },
                 "primary_target_policy": {
                     "type": "string",
@@ -15619,6 +15737,14 @@
                     "maxLength": 64,
                     "pattern": "^[a-zA-Z0-9_\\. :-]+$",
                     "title": "secondary_target_policy"
+                },
+                "tags": {
+                    "type": "array",
+                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/mo.Tag"
+                    },
+                    "title": "tags - Tags"
                 },
                 "target_source_type": {
                     "type": "string",

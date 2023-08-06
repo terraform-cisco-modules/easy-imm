@@ -1,0 +1,62 @@
+---
+#======================================
+#   Policies -> domain - Variables
+#======================================
+Wakanda: # Name of the Organization
+  policies:
+    flow_control:
+      - description: flow-ctrl Flow Control Policy
+        name: flow-ctrl
+    link_aggregation:
+      - description: link-agg Link Aggregation Policy
+        name: link-agg
+    link_control:
+      - description: link-ctrl Link Control Policy
+        name: link-ctrl
+    switch_control:
+      - description: sw-ctrl Switch Control Policy
+        ethernet_switching_mode: end-host
+        fc_switching_mode: end-host
+        name: sw-ctrl
+        vlan_port_count_optimization: false
+    system_qos:
+      - classes:
+          - bandwidth_percent: 10
+            cos: 255
+            packet_drop: true
+            priority: Best Effort
+            state: Enabled
+            weight: 5
+          - bandwidth_percent: 14
+            cos: 1
+            packet_drop: true
+            priority: Bronze
+            state: Enabled
+            weight: 7
+          - bandwidth_percent: 18
+            cos: 4
+            packet_drop: true
+            priority: Gold
+            state: Enabled
+            weight: 9
+          - bandwidth_percent: 20
+            cos: 3
+            packet_drop: false
+            priority: FC
+            state: Enabled
+            weight: 10
+          - bandwidth_percent: 20
+            cos: 5
+            packet_drop: false
+            priority: Platinum
+            state: Enabled
+            weight: 10
+          - bandwidth_percent: 18
+            cos: 2
+            packet_drop: true
+            priority: Silver
+            state: Enabled
+            weight: 8
+        jumbo_mtu: true
+        description: qos System QoS Policy
+        name: qos

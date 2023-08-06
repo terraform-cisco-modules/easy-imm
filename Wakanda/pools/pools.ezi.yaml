@@ -1,0 +1,79 @@
+---
+#=========================
+#   Pools - Variables
+#=========================
+Wakanda: # Name of the Organization
+  pools:
+    ip:
+      - ipv4_blocks:
+          - from: 198.18.101.84
+            size: 16
+        ipv4_configuration:
+          gateway: 198.18.101.254
+          netmask: 255.255.255.0
+          primary_dns: 10.101.128.15
+          secondary_dns: 10.101.128.16
+        name: kvm-inband
+      - ipv4_blocks:
+          - from: 192.168.64.160
+            size: 16
+        ipv4_configuration:
+          gateway: 192.168.64.1
+          netmask: 255.255.254.0
+          primary_dns: 10.101.128.15
+          secondary_dns: 10.101.128.16
+        name: kvm-ooband
+    mac:
+      - mac_blocks:
+          - from: 00:25:B5:E2:10:00
+            size: 255
+        name: dvs-a
+      - mac_blocks:
+          - from: 00:25:B5:E2:20:00
+            size: 255
+        name: dvs-b
+      - mac_blocks:
+          - from: 00:25:B5:E2:A0:00
+            size: 255
+        name: mgmt-a
+      - mac_blocks:
+          - from: 00:25:B5:E2:B0:00
+            size: 255
+        name: mgmt-b
+      - mac_blocks:
+          - from: 00:25:B5:E2:C0:00
+            size: 255
+        name: migration-a
+      - mac_blocks:
+          - from: 00:25:B5:E2:D0:00
+            size: 255
+        name: migration-b
+      - mac_blocks:
+          - from: 00:25:B5:E2:E0:00
+            size: 255
+        name: storage-a
+      - mac_blocks:
+          - from: 00:25:B5:E2:F0:00
+            size: 255
+        name: storage-b
+    uuid:
+      - description: uuid UUID Pool
+        name: uuid
+        prefix: 000025B5-0000-0000
+        uuid_blocks:
+          - from: E200-000000000000
+            size: 255
+    wwnn:
+      - id_blocks:
+          - from: 20:00:00:25:B5:E2:00:00
+            size: 255
+        name: wwnn
+    wwpn:
+      - id_blocks:
+          - from: 20:00:00:25:B5:E2:A0:00
+            size: 255
+        name: wwpn-a
+      - id_blocks:
+          - from: 20:00:00:25:B5:E2:B0:00
+            size: 255
+        name: wwpn-b

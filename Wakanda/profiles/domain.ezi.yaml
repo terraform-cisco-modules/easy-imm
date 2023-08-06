@@ -1,0 +1,26 @@
+---
+#======================================
+#   Profiles -> Domain - Variables
+#======================================
+Wakanda: # Name of the Organization
+  profiles:
+    domain:
+      - action: No-op
+        description: r143e-2 UCS Domain Profile
+        name: r143e-2
+        network_connectivity_policy: dns
+        ntp_policy: ntp
+        port_policies:
+          - r143e-2-a
+          - r143e-2-b
+        serial_numbers:
+          - FDO23360XWU
+          - FDO23360Y8U
+        snmp_policy: snmp
+        switch_control_policy: sw-ctrl
+        system_qos_policy: qos
+        vlan_policies:
+          - vlans
+        vsan_policies:
+          - vsan-100
+          - vsan-200

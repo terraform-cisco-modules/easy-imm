@@ -1,0 +1,23 @@
+---
+#=============================================
+#   Policies -> fibre_channel - Variables
+#=============================================
+Wakanda: # Name of the Organization
+  policies:
+    fibre_channel_adapter:
+      - adapter_template: VMware
+        description: VMware Fibre-Channel Adapter Policy
+        name: VMware
+    fibre_channel_network:
+      - description: vsan-a Fibre-Channel Network Policy
+        name: vsan-a
+        vsan_id: 100
+      - description: vsan-b Fibre-Channel Network Policy
+        name: vsan-b
+        vsan_id: 200
+    fibre_channel_qos:
+      - burst: 10240
+        description: fc-qos Fibre-Channel QoS Policy
+        max_data_field_size: 2112
+        name: fc-qos
+        rate_limit: 0

@@ -1,0 +1,47 @@
+---
+#=======================================
+#   Policies -> compute - Variables
+#=======================================
+Wakanda: # Name of the Organization
+  policies:
+    bios:
+      - baud_rate: "115200"
+        bios_template: M6_Virtualization_tpm
+        console_redirection: serial-port-a
+        description: M6-virtualization-tpm BIOS Policy
+        execute_disable_bit: disabled
+        lv_ddr_mode: auto
+        name: M6-virtualization-tpm
+        serial_port_aenable: enabled
+        terminal_type: vt100
+    boot_order:
+        - name: M2-pxe
+          boot_devices:
+            - name: KVM-DVD
+              object_type: boot.VirtualMedia
+              sub_type: kvm-mapped-dvd
+            - name: M2
+              object_type: boot.LocalDisk
+              slot: MSTOR-RAID
+            - name: PXE
+              interface_name: mgmt-a
+              object_type: boot.Pxe
+              slot: MLOM
+          boot_mode: Uefi
+          # description: M2-pxe Boot Policy.
+          enable_secure_boot: true
+    firmware:
+      - description: example-ucs Firmware Policy
+        name: '5.1'
+        models:
+          - firmware_version: "5.1(0.230054)"
+            server_model: UCSX-210C-M6
+        target_platform: FIAttached
+    firmware_authenticate:
+      cco_password: 1
+      cco_user: 1
+    virtual_media:
+      - description: vmedia Virtual Media Policy
+        enable_low_power_usb: true
+        enable_virtual_media_encryption: true
+        name: vmedia

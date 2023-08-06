@@ -1,0 +1,42 @@
+#---
+##======================================
+##   Profiles -> Server - Variables
+##======================================
+#Wakanda: # Name of the Organization
+#  profiles:
+#    server:
+#      - action: No-op
+#        create_from_template: false
+#        targets:
+#          - description: esx-1 UCS Server Profile
+#            name: esx-6
+#            serial_number: FCH26407DHP
+#          - name: esx-7
+#            serial_number: FCH26407CXM
+#          - name: esx-8
+#            serial_number: FCH26417734
+#        target_platform: FIAttached
+#        ucs_server_template: M2-pxe
+#      - action: No-op
+#        create_from_template: true
+#        domain_name: example-ucs
+#        targets:
+#          - name: esx-1
+#            pre_assign:
+#              chassis_id: 1
+#              slot_id: 1
+#          - name: esx-2
+#            pre_assign:
+#              chassis_id: 1
+#              slot_id: 2
+#          - name: esx-3
+#            pre_assign:
+#              chassis_id: 1
+#              slot_id: 3
+#          - name: esx-4
+#            pre_assign:
+#              chassis_id: 1
+#              slot_id: 4
+#        target_platform: FIAttached
+#        ucs_server_template: M2-pxe
+#

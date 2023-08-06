@@ -1,0 +1,11 @@
+---
+#=======================================
+#   Policies -> storage - Variables
+#=======================================
+Wakanda: # Name of the Organization
+  policies:
+    storage:
+      - m2_raid_configuration:
+          slot: MSTOR-RAID-1
+        name: M2-Raid
+        use_jbod_for_vd_creation: true
