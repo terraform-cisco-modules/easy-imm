@@ -265,10 +265,10 @@ $env:TF_VAR_cco_password='<cco_password>'
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | ../terraform-intersight-pools | n/a |
-| <a name="module_policies"></a> [policies](#module\_policies) | ../terraform-intersight-policies | n/a |
-| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | ../terraform-intersight-profiles-domain | n/a |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | ../terraform-intersight-profiles | n/a |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 3.0.2 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 3.0.2 |
+| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 3.0.2 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 3.0.2 |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**

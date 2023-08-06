@@ -3,8 +3,8 @@
 # Moid Data Source
 #____________________________________________________________
 
-data "intersight_organization_organization" "orgs" {
-}
+data "intersight_organization_organization" "orgs" {}
+
 #_________________________________________________________________________________________
 #
 # Data Model Merge Process - Merge YAML Files into HCL Format
@@ -23,9 +23,8 @@ data "utils_yaml_merge" "model" {
 # GUI Location: Infrastructure Service > Configure > Pools
 #_________________________________________________________________________________________
 module "pools" {
-  source = "../terraform-intersight-pools"
-  #source       = "terraform-cisco-modules/pools/intersight"
-  #version      = "2.1.5"
+  source       = "terraform-cisco-modules/pools/intersight"
+  version      = "3.0.2"
   for_each     = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "pools", {}) if i != "intersight" }
   organization = each.key
   orgs         = local.orgs
@@ -39,9 +38,8 @@ module "pools" {
 # GUI Location: Infrastructure Service > Configure > Policies
 #_________________________________________________________________________________________
 module "policies" {
-  source = "../terraform-intersight-policies"
-  #source         = "terraform-cisco-modules/policies/intersight"
-  #version        = "2.2.1"
+  source         = "terraform-cisco-modules/policies/intersight"
+  version        = "3.0.2"
   for_each       = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "policies", {}) if i != "intersight" }
   moids_policies = var.moids_policies
   moids_pools    = var.moids_pools
@@ -94,9 +92,8 @@ module "policies" {
 # GUI Location: Infrastructure Service > Configure > Profiles : UCS Domain Profiles
 #_________________________________________________________________________________________
 module "domain_profiles" {
-  source = "../terraform-intersight-profiles-domain"
-  #source         = "terraform-cisco-modules/profiles-domain/intersight"
-  #version        = "2.1.6"
+  source         = "terraform-cisco-modules/profiles-domain/intersight"
+  version        = "3.0.2"
   for_each       = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "profiles", {}) if i != "intersight" }
   moids_policies = var.moids_policies
   moids_pools    = var.moids_pools
@@ -182,9 +179,8 @@ resource "time_sleep" "wait_for_server_discovery" {
 # GUI Location: Infrastructure Service > Configure > Profiles
 #_________________________________________________________________________________________
 module "profiles" {
-  source = "../terraform-intersight-profiles"
-  #source         = "terraform-cisco-modules/profiles/intersight"
-  #version        = "2.2.1"
+  source         = "terraform-cisco-modules/profiles/intersight"
+  version        = "3.0.2"
   for_each       = { for i in sort(keys(local.model)) : i => local.model[i] if i != "intersight" }
   moids_policies = var.moids_policies
   moids_pools    = var.moids_pools
