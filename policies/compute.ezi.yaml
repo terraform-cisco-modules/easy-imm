@@ -136,12 +136,12 @@ default: # Name of the Organization
           enable_secure_boot: false
     firmware:
       - description: example-ucs Firmware Policy
-        name: '5.1'
+        name: fw
         models:
           - firmware_version: "5.1(0.230054)"
             server_model: UCSX-210C-M6
-          - firmware_version: "5.1(0.230054)"
-            server_model: UCSB-B200-M5
+          - firmware_version: "4.2(3d)"
+            server_model: UCSC-C225-M6
         target_platform: FIAttached
     firmware_authenticate:
       cco_user: 1
