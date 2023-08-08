@@ -22,25 +22,6 @@ variable "intersight_secret_key" {
   type        = string
 }
 
-variable "moids_policies" {
-  default     = false
-  description = "Flag to Determine if Policies Should be associated using resource or data object."
-  type        = bool
-}
-
-variable "moids_pools" {
-  default     = false
-  description = "Flag to Determine if Pools Should be associated using data object or from var.pools."
-  type        = bool
-}
-
-variable "tags" {
-  default     = []
-  description = "List of Key/Value Pairs to Assign as Attributes to the Policy."
-  type        = list(map(string))
-}
-
-
 #__________________________________________________________________
 #
 # Certificate Management Sensitive Variables

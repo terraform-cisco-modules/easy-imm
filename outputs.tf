@@ -1,3 +1,11 @@
+output "firmware" {
+  value = local.firmware1
+}
+
+output "firmware_list" {
+  value = local.firmware_list
+}
+
 output "domain_profiles" {
   description = "Domain Profile Outputs: including cluster and switch Moids, policy assignments."
   value       = module.domain_profiles

@@ -4,16 +4,16 @@
 #____________________________________________________________
 
 # Begin Variables
-intersight_fqdn = "intersight.com"
-moids_policies  = false
-moids_pools     = false
-tags = [
-  {
-    key   = "Module"
-    value = "terraform-intersight-easy-imm"
-  },
-  {
-    key   = "Version"
-    value = "3.0.2"
-  }
-]
+#intersight_fqdn = "intersight.com"
+#moids_policies  = false
+#moids_pools     = false
+#tags = [
+#  {
+#    key   = "Module"
+#    value = "terraform-intersight-easy-imm"
+#  },
+#  {
+#    key   = "Version"
+#    value = "3.0.2"
+#  }
+#]
