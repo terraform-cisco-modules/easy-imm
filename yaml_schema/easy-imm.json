@@ -8690,15 +8690,15 @@
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
-                "models": {
+                "model_bundle_version": {
                     "type": "array",
-                    "description": "The target bundle version and model family which the server will be upgraded to.\nRequired Attributes:\n  * firmware_version\n  * model",
+                    "description": "The target bundle version and model family which the server will be upgraded to.\nRequired Attributes:\n  * firmware_version\n  * server_models",
                     "intersightUri": "firmware/ModelBundleVersions",
                     "items": {
                         "$ref": "#/definitions/firmware.ModelBundleVersion"
                     },
                     "objectType": "firmware.ModelBundleVersion",
-                    "title": "models - Firmware Model Bundles - Intersight Uri: firmware/ModelBundleVersions"
+                    "title": "model_bundle_version - Firmware Model Bundles - Intersight Uri: firmware/ModelBundleVersions"
                 },
                 "target_platform": {
                     "type": "string",
@@ -8714,7 +8714,7 @@
             },
             "required": [
                 "description",
-                "models",
+                "model_bundle_version",
                 "name",
                 "target_platform"
             ],
@@ -8724,7 +8724,7 @@
             "type": "object",
             "additionalProperties": false,
             "description": "Model-version combination for the firmware upgrade.",
-            "easyimm": "models",
+            "easyimm": "model_bundle_version",
             "intersightUri": "firmware/ModelBundleVersions",
             "ObjectType": "firmware.ModelBundleVersion",
             "properties": {
@@ -8775,7 +8775,7 @@
             },
             "required": [
                 "firmware_version",
-                "server_model"
+                "server_models"
             ],
             "title": "model - Firmware Model Bundles"
         },
