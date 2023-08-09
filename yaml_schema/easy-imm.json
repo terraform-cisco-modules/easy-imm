@@ -6562,7 +6562,7 @@
                     "description": "Allowed VLAN IDs of the virtual interface. A list of comma seperated VLAN ids and/or VLAN id ranges.",
                     "intersightApi": "$ref:fabric.VlanSettings:AllowedVlans",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 1024,
                     "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
                     "title": "action_on_uplink_fail"
                 },
@@ -12949,7 +12949,8 @@
             },
             "required": [
                 "create_template",
-                "name"
+                "name",
+                "target_platform"
             ],
             "title": "Server Template"
         },

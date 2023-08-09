@@ -12,7 +12,8 @@ data "intersight_organization_organization" "orgs" {}
 data "utils_yaml_merge" "model" {
   input = concat([
     for file in fileset(path.module, "*.ezi.yaml") : file(file)], [
-    for file in fileset(path.module, "*/*.ezi.yaml") : file(file)]
+    for file in fileset(path.module, "p*/*.ezi.yaml") : file(file)], [
+    for file in fileset(path.module, "t*/*.ezi.yaml") : file(file)]
   )
   merge_list_items = false
 }
@@ -23,14 +24,15 @@ data "utils_yaml_merge" "model" {
 # GUI Location: Infrastructure Service > Configure > Pools
 #_________________________________________________________________________________________
 module "pools" {
-  #source = "../../terraform-intersight-pools"
-  source       = "terraform-cisco-modules/pools/intersight"
-  version      = "3.0.2"
-  for_each     = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "pools", {}) if i != "intersight" }
-  organization = each.key
-  orgs         = local.orgs
-  pools        = each.value
-  tags         = var.tags
+  source   = "terraform-cisco-modules/pools/intersight"
+  version  = "3.1.1"
+  for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "pools", {}
+  ) if length(regexall("intersight|global_settings", i)) == 0 && length(lookup(local.model[i], "pools", {})) > 0 }
+  pools = merge(each.value, {
+    global_settings = local.global_settings
+    orgs            = local.orgs
+    organization    = each.key
+  })
 }
 
 #_________________________________________________________________________________________
@@ -39,28 +41,17 @@ module "pools" {
 # GUI Location: Infrastructure Service > Configure > Policies
 #_________________________________________________________________________________________
 module "policies" {
-  #source = "../../terraform-intersight-policies"
-  source         = "terraform-cisco-modules/policies/intersight"
-  version        = "3.0.2"
-  for_each       = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "policies", {}) if i != "intersight" }
-  moids_policies = var.moids_policies
-  moids_pools    = var.moids_pools
-  organization   = each.key
-  orgs           = local.orgs
-  policies       = each.value
-  pools          = module.pools
-  tags           = var.tags
-  # Sensitive Variables
-  certificate_management = local.certificate_management
-  drive_security         = local.drive_security
-  firmware               = local.firmware
-  ipmi_over_lan          = local.ipmi_over_lan
-  iscsi_boot             = local.iscsi_boot
-  ldap                   = local.ldap
-  local_user             = local.local_user
-  persistent_memory      = local.persistent_memory
-  snmp                   = local.snmp
-  virtual_media          = local.virtual_media
+  source   = "terraform-cisco-modules/policies/intersight"
+  version  = "3.1.3"
+  for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "policies", {}
+  ) if length(regexall("intersight|global_settings", i)) == 0 && length(lookup(local.model[i], "policies", {})) > 0 }
+  policies = merge(each.value, {
+    global_settings = local.global_settings
+    orgs            = local.orgs
+    organization    = each.key
+    pools           = module.pools
+  })
+  policies_sensitive = local.policies_sensitive
 }
 
 #data "intersight_fabric_switch_profile" "check" {
@@ -94,17 +85,18 @@ module "policies" {
 # GUI Location: Infrastructure Service > Configure > Profiles : UCS Domain Profiles
 #_________________________________________________________________________________________
 module "domain_profiles" {
-  #source = "../../terraform-intersight-profiles-domain"
-  source         = "terraform-cisco-modules/profiles-domain/intersight"
-  version        = "3.0.2"
-  for_each       = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "profiles", {}) if i != "intersight" }
-  moids_policies = var.moids_policies
-  moids_pools    = var.moids_pools
-  organization   = each.key
-  orgs           = local.orgs
-  profiles       = each.value
-  tags           = var.tags
-  policies       = module.policies
+  #source = "../terraform-intersight-profiles-domain"
+  source   = "terraform-cisco-modules/profiles-domain/intersight"
+  version  = "3.1.3"
+  for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "profiles", {}
+  ) if length(regexall("intersight|global_settings", i)
+  ) == 0 && length(lookup(lookup(local.model[i], "profiles", {}), "domain", {})) > 0 }
+  profiles = merge(each.value, {
+    global_settings = local.global_settings
+    orgs            = local.orgs
+    organization    = each.key
+    policies        = module.policies
+  })
 }
 
 #_________________________________________________________________________________________
@@ -122,22 +114,9 @@ resource "intersight_fabric_switch_profile" "map" {
   ) > 0 ? each.value.action : "No-op"
   lifecycle {
     ignore_changes = [
-      action_params,
-      ancestors,
-      assigned_switch,
-      create_time,
-      description,
-      domain_group_moid,
-      mod_time,
-      owners,
-      parent,
-      permission_resources,
-      policy_bucket,
-      running_workflows,
-      shared_scope,
-      src_template,
-      tags,
-      version_context
+      action_params, ancestors, assigned_switch, create_time, description, domain_group_moid,
+      mod_time, owners, parent, permission_resources, policy_bucket, running_workflows,
+      shared_scope, src_template, tags, version_context
     ]
   }
   name = each.value.name
@@ -154,9 +133,8 @@ resource "intersight_fabric_switch_profile" "map" {
 # Sleep Timer between Deploying the Domain and Waiting for Server Discovery
 #_________________________________________________________________________________________
 resource "time_sleep" "wait_for_server_discovery" {
-  depends_on = [
-    intersight_fabric_switch_profile.map
-  ]
+  depends_on = [intersight_fabric_switch_profile.map]
+  for_each   = { for v in [0] : v => v if length(local.switch_profiles) > 0 }
   create_duration = length([
     for v in keys(local.switch_profiles) : 1 if local.switch_profiles[v
   ].action == "Deploy"]) > 0 ? "30m" : "1s"
@@ -182,20 +160,20 @@ resource "time_sleep" "wait_for_server_discovery" {
 # GUI Location: Infrastructure Service > Configure > Profiles
 #_________________________________________________________________________________________
 module "profiles" {
-  #source = "../../terraform-intersight-profiles"
-  source         = "terraform-cisco-modules/profiles/intersight"
-  version        = "3.0.2"
-  for_each       = { for i in sort(keys(local.model)) : i => local.model[i] if i != "intersight" }
-  moids_policies = var.moids_policies
-  moids_pools    = var.moids_pools
-  organization   = each.key
-  orgs           = local.orgs
-  policies       = module.policies
-  pools          = module.pools
-  profiles       = each.value
-  model          = local.model
-  tags           = var.tags
-  time_sleep     = time_sleep.wait_for_server_discovery.id
+  source   = "terraform-cisco-modules/profiles/intersight"
+  version  = "3.1.3"
+  for_each = { for i in sort(keys(local.model)) : i => local.model[i] if length(regexall("intersight|global_settings", i)
+    ) == 0 && (length(lookup(lookup(local.model[i], "profiles", {}), "chassis", {})
+      ) > 0 || length(lookup(lookup(local.model[i], "profiles", {}), "server", {})
+  ) > 0 || length(lookup(local.model[i], "templates", {})) > 0) }
+  profiles = merge(each.value, {
+    global_settings = local.global_settings
+    orgs            = local.orgs
+    organization    = each.key
+    policies        = module.policies
+    pools           = module.pools
+    time_sleep      = time_sleep.wait_for_server_discovery
+  })
 }
 
 #_________________________________________________________________________________________
@@ -213,21 +191,9 @@ resource "intersight_chassis_profile" "map" {
   ) > 0 ? each.value.action : "No-op"
   lifecycle {
     ignore_changes = [
-      action_params,
-      ancestors,
-      create_time,
-      description,
-      domain_group_moid,
-      mod_time,
-      owners,
-      parent,
-      permission_resources,
-      policy_bucket,
-      running_workflows,
-      shared_scope,
-      src_template,
-      tags,
-      version_context
+      action_params, ancestors, create_time, description, domain_group_moid, mod_time,
+      owners, parent, permission_resources, policy_bucket, running_workflows, shared_scope,
+      src_template, tags, version_context
     ]
   }
   name            = each.value.name
@@ -253,32 +219,11 @@ resource "intersight_server_profile" "map" {
   target_platform = each.value.target_platform
   lifecycle {
     ignore_changes = [
-      action_params,
-      ancestors,
-      assigned_server,
-      associated_server,
-      associated_server_pool,
-      create_time,
-      description,
-      domain_group_moid,
-      mod_time,
-      owners,
-      parent,
-      permission_resources,
-      policy_bucket,
-      reservation_references,
-      running_workflows,
-      server_assignment_mode,
-      server_pool,
-      shared_scope,
-      src_template,
-      tags,
-      target_platform,
-      uuid,
-      uuid_address_type,
-      uuid_lease,
-      uuid_pool,
-      version_context
+      action_params, ancestors, assigned_server, associated_server, associated_server_pool,
+      create_time, description, domain_group_moid, mod_time, owners, parent, permission_resources,
+      policy_bucket, reservation_references, running_workflows, server_assignment_mode, server_pool,
+      shared_scope, src_template, tags, target_platform, uuid, uuid_address_type, uuid_lease,
+      uuid_pool, version_context
     ]
   }
   name = each.value.name
