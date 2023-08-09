@@ -1,11 +1,4 @@
 locals {
-  firmware_list = distinct([ for e in data.intersight_firmware_distributable.recommended.results : e.nr_version ])
-  firmware = {
-    for e in local.firmware_list : e => [
-      for i in data.intersight_firmware_distributable.recommended.results : i.supported_models
-    ]
-  }
-
   global_settings = {
     moids_policies = lookup(local.model.global_settings, "moids_policies", false)
     moids_pools    = lookup(local.model.global_settings, "moids_pools", false)

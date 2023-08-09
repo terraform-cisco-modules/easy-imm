@@ -23,6 +23,10 @@ default: # Name of the Organization
           primary_dns: 10.101.128.15
           secondary_dns: 10.101.128.16
         name: kvm-ooband
+        reservations:
+          allocation_type: dynamic
+          identities:
+            - 192.168.64.134
     iqn:
       - assignment_order: sequential
         description: default
@@ -32,10 +36,6 @@ default: # Name of the Organization
             size: 1024
             suffix: ucs-host
         prefix: iqn.1984-12.com.cisco
-        reservations:
-          allocation_type: static
-          identities:
-            - "iqn.2001-04.com.example:uefi-13021088"
     mac:
       - mac_blocks:
           - from: 00:25:B5:00:10:00

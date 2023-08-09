@@ -9,7 +9,7 @@ default: # Name of the Organization
         boot_order_policy: M2-pxe
         create_template: true
         description: M2-pxe Server Profile Template
-        firmware_policy: '5.1'
+        firmware_policy: 'fw'
         imc_access_policy: kvm
         ipmi_over_lan_policy: ipmi
         lan_connectivity_policy: lcp

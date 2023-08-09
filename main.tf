@@ -5,12 +5,6 @@
 
 data "intersight_organization_organization" "orgs" {}
 
-data "intersight_firmware_distributable" "recommended" {
-  recommended_build = "Y"
-  import_state      = "Imported"
-  image_type        = "Intersight Managed Mode Server"
-}
-
 #_________________________________________________________________________________________
 #
 # Data Model Merge Process - Merge YAML Files into HCL Format

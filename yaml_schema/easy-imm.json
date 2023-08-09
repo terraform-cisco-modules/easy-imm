@@ -18,7 +18,7 @@
                 },
                 "inband_ip_pool": {
                     "type": "string",
-                    "default": "",
+                    "default": "inband",
                     "description": "Name of the IP Pool to use for Inband-Band Management.",
                     "intersightApi": "$ref:access.Policy.Relationship:InbandIpPool",
                     "minLength": 1,
@@ -54,7 +54,7 @@
                 },
                 "out_of_band_ip_pool": {
                     "type": "string",
-                    "default": "default",
+                    "default": "ooband",
                     "description": "Name of the IP Pool to use for Out-of-Band Management.",
                     "intersightApi": "$ref:access.Policy.Relationship:OutOfBandIpPool",
                     "minLength": 1,

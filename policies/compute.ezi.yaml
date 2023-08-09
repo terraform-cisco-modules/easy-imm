@@ -46,7 +46,6 @@ default: # Name of the Organization
               object_type: boot.Pxe
               slot: MLOM
           boot_mode: Uefi
-          # description: M2-pxe Boot Policy.
           enable_secure_boot: false
         - name: M2
           boot_devices:
@@ -57,7 +56,6 @@ default: # Name of the Organization
               object_type: boot.LocalDisk
               slot: MSTOR-RAID
           boot_mode: Uefi
-          # description: M2 Boot Policy.
           enable_secure_boot: true
         - name: Raid-pxe
           boot_devices:
@@ -72,7 +70,6 @@ default: # Name of the Organization
               object_type: boot.Pxe
               slot: MLOM
           boot_mode: Uefi
-          # description: Raid-pxe Boot Policy.
           enable_secure_boot: false
         - name: Raid1
           boot_devices:
@@ -83,7 +80,6 @@ default: # Name of the Organization
               object_type: boot.LocalDisk
               slot: MRAID
           boot_mode: Uefi
-          # description: Raid1 Boot Policy.
           enable_secure_boot: true
         - name: examples
           boot_devices:
@@ -132,23 +128,18 @@ default: # Name of the Organization
               slot: MLOM
               wwpn: 50:00:00:25:B5:0B:00:02
           boot_mode: Uefi
-          # description: examples Boot Policy.
           enable_secure_boot: false
     firmware:
       - description: example-ucs Firmware Policy
         name: fw
         model_bundle_version:
           - firmware_version: "5.1(0.230054)"
-            server_models: 
+            server_models:
               - UCSX-210C-M6
-              - UCSX-210C-M7
-              - UCSX-410C-M7
               - UCSB-B200-M5
           - firmware_version: "4.2(3d)"
             server_models:
-              - UCSC-C220-M5
               - UCSC-C240-M5
-              - UCSC-C240-M6
         target_platform: FIAttached
     firmware_authenticate:
       cco_user: 1
