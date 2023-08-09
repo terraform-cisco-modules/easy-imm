@@ -10,6 +10,10 @@ terraform {
       source  = "CiscoDevNet/intersight"
       version = "1.0.37"
     }
+    time = {
+      source  = "time"
+      version = "0.9.1"
+    }
     utils = {
       source  = "netascode/utils"
       version = ">= 0.1.3"
@@ -20,6 +24,6 @@ terraform {
 
 provider "intersight" {
   apikey    = var.intersight_api_key_id
-  endpoint  = "https://${var.intersight_fqdn}"
+  endpoint  = "https://${local.intersight_fqdn}"
   secretkey = fileexists(var.intersight_secret_key) ? file(var.intersight_secret_key) : var.intersight_secret_key
 }

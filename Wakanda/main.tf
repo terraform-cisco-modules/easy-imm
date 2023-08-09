@@ -24,8 +24,8 @@ data "utils_yaml_merge" "model" {
 # GUI Location: Infrastructure Service > Configure > Pools
 #_________________________________________________________________________________________
 module "pools" {
-  source   = "terraform-cisco-modules/pools/intersight"
-  version  = "3.1.1"
+  source  = "terraform-cisco-modules/pools/intersight"
+  version = "3.1.1"
   for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "pools", {}
   ) if length(regexall("intersight|global_settings", i)) == 0 && length(lookup(local.model[i], "pools", {})) > 0 }
   pools = merge(each.value, {
@@ -41,8 +41,8 @@ module "pools" {
 # GUI Location: Infrastructure Service > Configure > Policies
 #_________________________________________________________________________________________
 module "policies" {
-  source   = "terraform-cisco-modules/policies/intersight"
-  version  = "3.1.3"
+  source  = "terraform-cisco-modules/policies/intersight"
+  version = "3.1.3"
   for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "policies", {}
   ) if length(regexall("intersight|global_settings", i)) == 0 && length(lookup(local.model[i], "policies", {})) > 0 }
   policies = merge(each.value, {
@@ -86,10 +86,10 @@ module "policies" {
 #_________________________________________________________________________________________
 module "domain_profiles" {
   #source = "../terraform-intersight-profiles-domain"
-  source   = "terraform-cisco-modules/profiles-domain/intersight"
-  version  = "3.1.3"
+  source  = "terraform-cisco-modules/profiles-domain/intersight"
+  version = "3.1.3"
   for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "profiles", {}
-  ) if length(regexall("intersight|global_settings", i)
+    ) if length(regexall("intersight|global_settings", i)
   ) == 0 && length(lookup(lookup(local.model[i], "profiles", {}), "domain", {})) > 0 }
   profiles = merge(each.value, {
     global_settings = local.global_settings
@@ -139,7 +139,7 @@ resource "time_sleep" "wait_for_server_discovery" {
     for v in keys(local.switch_profiles) : 1 if local.switch_profiles[v
   ].action == "Deploy"]) > 0 ? "30m" : "1s"
   triggers = {
-    always_run = length(local.wait_for_domain) > 0 ? "${timestamp()}" : 1
+    always_run = length(local.wait_for_domain) > 0 ? timestamp() : 1
   }
 }
 
@@ -160,8 +160,8 @@ resource "time_sleep" "wait_for_server_discovery" {
 # GUI Location: Infrastructure Service > Configure > Profiles
 #_________________________________________________________________________________________
 module "profiles" {
-  source   = "terraform-cisco-modules/profiles/intersight"
-  version  = "3.1.3"
+  source  = "terraform-cisco-modules/profiles/intersight"
+  version = "3.1.3"
   for_each = { for i in sort(keys(local.model)) : i => local.model[i] if length(regexall("intersight|global_settings", i)
     ) == 0 && (length(lookup(lookup(local.model[i], "profiles", {}), "chassis", {})
       ) > 0 || length(lookup(lookup(local.model[i], "profiles", {}), "server", {})

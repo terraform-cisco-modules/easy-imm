@@ -16,20 +16,32 @@ Examples are Shown in the Following Directories:
 
 Notice the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
 
+The Structure of the YAML Files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
+
 ## YAML Schema Notes for auto-completion, Help, and Error Validation:
 
 If you would like to utilize Autocompletion, Help Context, and Error Validation, `(HIGHLY RECOMMENDED)` make sure the files all utilize the `.ezi.yaml` file extension.
 
-### Modify `variables.auto.tfvars` to match environment
+And Add the Following to YAML: Schemas in Visual Studio Code: Settings > Search for YAML: Schema: Click edit in `settings.json`.  In the `yaml.schemas` section:
 
-`variables.auto.tfvars` contains Terraform variables that I felt fit better outside of the YAML Data Model.  These variables should be configured to be unique to the deployment environment, but examples are shown for the Richfield environemnt in the module.
+```bash
+"https://raw.githubusercontent.com/terraform-cisco-modules/easy-imm/main/yaml_schema/easy-imm.json": "*.ezi.yaml"
+```
 
-#### Notes for the `variables.auto.tfvars`:
+Soon the Schema for these YAML Files have been registered with [*SchemaStore*](https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json) via utilizing this `.ezi.yaml` file extension.  But until that is complete, need to still add to settings.
+
+### Modify `global_settings.eza.yaml` to match environment
+
+`global_settings.eza.yamls` contains variables related to authentication to Intersight and an optional global tags for tagging objects.
+
+#### Notes for the `global_settings.eza.yamls`
 
 * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
 * `moids_policies`:  Consume Policies from a Data Source instead of a Resource.  This is helpful if you separate the `policies` module from `profiles/templates`.
 * `moids_pools`:  Consume Pools from a Data Source instead of a Resource.  This is helpful if you seperate the `pools` Module from the `policies` module.
 * `tags`:  Not Required, but by default the version of the script is being flagged here.
+
+#### Note: Modules can be added or removed dependent on the use case.  The primary example shown is consuming/showing a full environment deployment.
 
 ## [Cloud Posse `tfenv`](https://github.com/cloudposse/tfenv)
 
@@ -55,6 +67,25 @@ alias tfv='terraform validate'
 ```
 
 ## Environment Variables
+
+Note that all the variables in `variables.tf` are marked as sensitive.  Meaning these are variables that shouldn't be exposed due to the sensitive nature of them.
+
+Take note of the `locals.tf` that currently has all the sensitive variables mapped:
+
+* `certificate_management`
+* `drive_security`
+* `firmware`
+* `ipmi_over_lan`
+* `iscsi_boot`
+* `ldap`
+* `local_user`
+* `persistent_memory`
+* `snmp`
+* `virtual_media`
+
+The Reason to add these variables as maps of string is to allow the flexibility to add or remove iterations of these sensitive variables as needed.  Sensitive Variables cannot be iterated with a `for_each` loop.  Thus instead of adding these variables to the YAML schema, directly, they are added to these seperate maps to allow lookup of the variable index.
+
+In example, if you needed to add 100 iterations of the `certificate_management` variables you can do that, and simply reference the index in the map of the iteration that will consume that instance.
 
 ### Terraform Cloud/Enterprise - Workspace Variables
 
@@ -83,95 +114,8 @@ $env:TF_VAR_intersight_secret_key="<secret-key-file-location>"
 
 ## Sensitive Variables for the Policies Module:
 
-Take note of the locals.tf that currently has all the sensitive variables mapped.
+Take note of the `locals.tf` that currently has all the sensitive variables mapped.
 
-```bash
-#__________________________________________________________________
-#
-# Sensitive Variables
-#__________________________________________________________________
-certificate_management = {
-certificate = {
-1 = fileexists(var.cert_mgmt_certificate_1) ? file(var.cert_mgmt_certificate_1) : var.cert_mgmt_certificate_1
-2 = fileexists(var.cert_mgmt_certificate_2) ? file(var.cert_mgmt_certificate_2) : var.cert_mgmt_certificate_2
-3 = fileexists(var.cert_mgmt_certificate_3) ? file(var.cert_mgmt_certificate_3) : var.cert_mgmt_certificate_3
-4 = fileexists(var.cert_mgmt_certificate_4) ? file(var.cert_mgmt_certificate_4) : var.cert_mgmt_certificate_4
-5 = fileexists(var.cert_mgmt_certificate_5) ? file(var.cert_mgmt_certificate_5) : var.cert_mgmt_certificate_5
-}
-private_key = {
-1 = fileexists(var.cert_mgmt_private_key_1) ? file(var.cert_mgmt_private_key_1) : var.cert_mgmt_private_key_1
-2 = fileexists(var.cert_mgmt_private_key_2) ? file(var.cert_mgmt_private_key_2) : var.cert_mgmt_private_key_2
-3 = fileexists(var.cert_mgmt_private_key_3) ? file(var.cert_mgmt_private_key_3) : var.cert_mgmt_private_key_3
-4 = fileexists(var.cert_mgmt_private_key_4) ? file(var.cert_mgmt_private_key_4) : var.cert_mgmt_private_key_4
-5 = fileexists(var.cert_mgmt_private_key_5) ? file(var.cert_mgmt_private_key_5) : var.cert_mgmt_private_key_5
-}
-}
-drive_security = {
-password = {
-1 = var.drive_security_password
-}
-server_public_root_ca_certificate = {
-1 = fileexists(var.drive_security_server_ca_certificate
-) ? file(var.drive_security_server_ca_certificate) : var.drive_security_server_ca_certificate
-}
-}
-firmware = {
-cco_password = { 1 = var.cco_password }
-cco_user     = { 1 = var.cco_user }
-}
-ipmi_over_lan = { encryption_key = { 1 = var.ipmi_key } }
-iscsi_boot    = { password = { 1 = var.iscsi_boot_password } }
-ldap          = { password = { 1 = var.binding_parameters_password } }
-local_user = {
-password = {
-1 = var.local_user_password_1
-2 = var.local_user_password_2
-3 = var.local_user_password_3
-4 = var.local_user_password_4
-5 = var.local_user_password_5
-}
-}
-persistent_memory = { passphrase = { 1 = var.persistent_passphrase } }
-snmp = {
-access_community_string = {
-1 = var.access_community_string_1
-2 = var.access_community_string_2
-3 = var.access_community_string_3
-4 = var.access_community_string_4
-5 = var.access_community_string_5
-}
-auth_password = {
-1 = var.snmp_auth_password_1
-2 = var.snmp_auth_password_2
-3 = var.snmp_auth_password_3
-4 = var.snmp_auth_password_4
-5 = var.snmp_auth_password_5
-}
-privacy_password = {
-1 = var.snmp_privacy_password_1
-2 = var.snmp_privacy_password_2
-3 = var.snmp_privacy_password_3
-4 = var.snmp_privacy_password_4
-5 = var.snmp_privacy_password_5
-}
-trap_community_string = {
-1 = var.snmp_trap_community_1
-2 = var.snmp_trap_community_2
-3 = var.snmp_trap_community_3
-4 = var.snmp_trap_community_4
-5 = var.snmp_trap_community_5
-}
-}
-virtual_media = {
-password = {
-1 = var.vmedia_password_1
-2 = var.vmedia_password_2
-3 = var.vmedia_password_3
-4 = var.vmedia_password_4
-5 = var.vmedia_password_5
-}
-}
-```
 This is the default sensitive variable mappings.  You can add or remove to these according to the needs of your environment.
 
 The important point is that if you need more than is added by default you can expand the locals.tf and variables.tf to accomodate your environment.
@@ -247,12 +191,39 @@ $env:TF_VAR_cco_user='<cco_user>'
 $env:TF_VAR_cco_password='<cco_password>'
 ```
 
+## Execute the Terraform Plan
+
+### Terraform Cloud
+
+When running in Terraform Cloud with VCS Integration the first Plan will need to be run from the UI but subsiqent runs should trigger automatically
+
+### Terraform CLI
+
+* Execute the Plan - Linux
+
+```bash
+# First time execution requires initialization.  Not needed on subsequent runs.
+terraform init
+terraform plan -out="main.plan"
+terraform apply "main.plan"
+```
+
+* Execute the Plan - Windows
+
+```powershell
+# First time execution requires initialization.  Not needed on subsequent runs.
+terraform.exe init
+terraform.exe plan -out="main.plan"
+terraform.exe apply "main.plan"
+```
+
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
 | <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.37 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 ## Providers
 
@@ -265,10 +236,10 @@ $env:TF_VAR_cco_password='<cco_password>'
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 3.0.2 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 3.0.2 |
-| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 3.0.2 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 3.0.2 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 3.1.1 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 3.1.3 |
+| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 3.1.3 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 3.1.3 |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
@@ -278,11 +249,7 @@ $env:TF_VAR_cco_password='<cco_password>'
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_intersight_api_key_id"></a> [intersight\_api\_key\_id](#input\_intersight\_api\_key\_id) | Intersight API Key. | `string` | n/a | yes |
-| <a name="input_intersight_fqdn"></a> [intersight\_fqdn](#input\_intersight\_fqdn) | Intersight Fully Qualified Domain Name. | `string` | `"intersight.com"` | no |
 | <a name="input_intersight_secret_key"></a> [intersight\_secret\_key](#input\_intersight\_secret\_key) | Intersight Secret Key. | `string` | `"blah.txt"` | no |
-| <a name="input_moids_policies"></a> [moids\_policies](#input\_moids\_policies) | Flag to Determine if Policies Should be associated using resource or data object. | `bool` | `false` | no |
-| <a name="input_moids_pools"></a> [moids\_pools](#input\_moids\_pools) | Flag to Determine if Pools Should be associated using data object or from var.pools. | `bool` | `false` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of Key/Value Pairs to Assign as Attributes to the Policy. | `list(map(string))` | `[]` | no |
 | <a name="input_cert_mgmt_certificate_1"></a> [cert\_mgmt\_certificate\_1](#input\_cert\_mgmt\_certificate\_1) | The Server Certificate, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
 | <a name="input_cert_mgmt_certificate_2"></a> [cert\_mgmt\_certificate\_2](#input\_cert\_mgmt\_certificate\_2) | The Server Certificate, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
 | <a name="input_cert_mgmt_certificate_3"></a> [cert\_mgmt\_certificate\_3](#input\_cert\_mgmt\_certificate\_3) | The Server Certificate, in PEM Format, File Location. | `string` | `"blah.txt"` | no |

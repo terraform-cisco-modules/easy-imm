@@ -9,12 +9,6 @@ variable "intersight_api_key_id" {
   type        = string
 }
 
-variable "intersight_fqdn" {
-  default     = "intersight.com"
-  description = "Intersight Fully Qualified Domain Name."
-  type        = string
-}
-
 variable "intersight_secret_key" {
   default     = "blah.txt"
   description = "Intersight Secret Key."

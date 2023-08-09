@@ -119,7 +119,4 @@ locals {
     )]
   ]) : "${i.organization}:${i.name}" => i }
   wait_for_domain = distinct(compact([for i in local.switch_profiles : i.action if i.action != "No-op"]))
-  template = { for i in flatten([for key, value in module.profiles : [for k, v in value.template : v]
-  ]) : "${i.organization}:${i.name}" => i }
-  create_template = [for v in local.template : true if v.create_template == true]
 }
