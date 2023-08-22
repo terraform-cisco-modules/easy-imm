@@ -55,6 +55,21 @@ content: |-
 
   In the export examples below, for the Linux Example, the 'TF_VAR_' is excluded because Cloud Posse tfenv is used to insert it during the run.
 
+  ### Make sure you have already installed go
+  
+  ## [go](https://go.dev/doc/install)
+
+  ```bash
+  go install github.com/cloudposse/tfenv@latest
+  ```
+
+  ### Add go/bin to PATH
+
+  ```bash
+  GOPATH="$HOME/go"
+  PATH="$GOPATH/bin:$PATH"
+  ```
+
   ### Aliases for `.bashrc`
 
   Additionally to Save time on typing commands I use the following aliases by editing the `.bashrc` for my environment.

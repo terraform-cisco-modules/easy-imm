@@ -51,6 +51,21 @@ Recently I adopted the `tfenv` runner to standardize environment variables with 
 
 In the export examples below, for the Linux Example, the 'TF_VAR_' is excluded because Cloud Posse tfenv is used to insert it during the run.
 
+### Make sure you have already installed go
+
+## [go](https://go.dev/doc/install)
+
+```bash
+go install github.com/cloudposse/tfenv@latest
+```
+
+### Add go/bin to PATH
+
+```bash
+GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
+```
+
 ### Aliases for `.bashrc`
 
 Additionally to Save time on typing commands I use the following aliases by editing the `.bashrc` for my environment.
@@ -230,7 +245,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.37 |
-| <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.5 |
+| <a name="provider_utils"></a> [utils](#provider\_utils) | >= 0.1.3 |
 | <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
 ## Modules
 
