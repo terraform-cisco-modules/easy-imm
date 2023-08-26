@@ -8083,12 +8083,19 @@
                     "objectType": "fabric.QosClass",
                     "title": "classes - Classes"
                 },
-                "configure_recommended_policy": {
+                "configure_default_classes": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Flag to Configure the following class values:\nNote: MTU Will be configured based on the Jumbo MTU Flag\n\nclasses:\n  - bandwidth_percent: 50\n    cos: 255\n    packet_drop: true\n    priority: Best Effort\n    state: Enabled\n    weight: 10\n  - bandwidth_percent: 50\n    cos: 3\n    mtu: 2240\n    packet_drop: false\n    priority: FC\n    state: Enabled\n    weight: 10",
+                    "intersightApi": "not_applicable",
+                    "title": "configure_default_classes"
+                },
+                "configure_recommended_classes": {
                     "type": "boolean",
                     "default": false,
                     "description": "Flag to Configure the following class values:\nNote: MTU Will be configured based on the Jumbo MTU Flag\n\nclasses:\n  - bandwidth_percent: 10\n    cos: 255\n    packet_drop: true\n    priority: Best Effort\n    state: Enabled\n    weight: 5\n  - bandwidth_percent: 14\n    cos: 1\n    packet_drop: true\n    priority: Bronze\n    state: Enabled\n    weight: 7\n  - bandwidth_percent: 18\n    cos: 4\n    packet_drop: true\n    priority: Gold\n    state: Enabled\n    weight: 9\n  - bandwidth_percent: 20\n    cos: 3\n    mtu: 2240\n    packet_drop: false\n    priority: FC\n    state: Enabled\n    weight: 10\n  - bandwidth_percent: 20\n    cos: 5\n    packet_drop: false\n    priority: Platinum\n    state: Enabled\n    weight: 10\n  - bandwidth_percent: 18\n    cos: 2\n    packet_drop: true\n    priority: Silver\n    state: Enabled\n    weight: 8",
                     "intersightApi": "not_applicable",
-                    "title": "configure_recommended_policy"
+                    "title": "configure_recommended_classes"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
@@ -8646,13 +8653,7 @@
                     "title": "exclude_storage_u2"
                 }
             },
-            "required": [
-                "exclude_drives",
-                "exclude_drives_except_boot_drives",
-                "exclude_storage_controllers",
-                "exclude_storage_sas_expander",
-                "exclude_storage_u2"
-            ],
+            "required": [],
             "title": "advanced_mode - Firmware Exclude Components"
         },
         "firmware.Authenticate": {
@@ -8946,7 +8947,7 @@
                 },
                 "password_history": {
                     "type": "integer",
-                    "default": 5,
+                    "default": 0,
                     "description": "Default is 5.  Tracks password change history. Specifies in number of instances, that the new password was already used.",
                     "intersightApi": "PasswordHistory",
                     "minimum": 0,
@@ -13298,7 +13299,7 @@
                     "intersightApi": "Name",
                     "minLength": 1,
                     "maxLength": 31,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^(?!admin$)[a-zA-Z0-9_\\. :-]+$",
                     "title": "name"
                 },
                 "privacy_password": {
