@@ -41,8 +41,9 @@ module "pools" {
 # GUI Location: Infrastructure Service > Configure > Policies
 #_________________________________________________________________________________________
 module "policies" {
-  source  = "terraform-cisco-modules/policies/intersight"
-  version = "3.1.3"
+  source = "../../../terraform-cisco-modules/terraform-intersight-policies"
+  #source  = "terraform-cisco-modules/policies/intersight"
+  #version = "3.1.3"
   for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "policies", {}
   ) if length(regexall("intersight|global_settings", i)) == 0 && length(lookup(local.model[i], "policies", {})) > 0 }
   policies = merge(each.value, {
@@ -85,9 +86,9 @@ module "policies" {
 # GUI Location: Infrastructure Service > Configure > Profiles : UCS Domain Profiles
 #_________________________________________________________________________________________
 module "domain_profiles" {
-  #source = "../terraform-intersight-profiles-domain"
-  source  = "terraform-cisco-modules/profiles-domain/intersight"
-  version = "3.1.3"
+  source = "../../terraform-intersight-profiles-domain"
+  #source  = "terraform-cisco-modules/profiles-domain/intersight"
+  #version = "3.1.3"
   for_each = { for i in sort(keys(local.model)) : i => lookup(local.model[i], "profiles", {}
     ) if length(regexall("intersight|global_settings", i)
   ) == 0 && length(lookup(lookup(local.model[i], "profiles", {}), "domain", {})) > 0 }

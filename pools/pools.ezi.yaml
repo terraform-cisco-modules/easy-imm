@@ -24,7 +24,7 @@ default: # Name of the Organization
           secondary_dns: 10.101.128.16
         name: kvm-ooband
         reservations:
-          allocation_type: dynamic
+          allocation_type: static
           identities:
             - 192.168.64.134
     iqn:

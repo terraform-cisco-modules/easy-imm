@@ -13,9 +13,9 @@ Wakanda: # Name of the Organization
         port_policies:
           - r143e-2-a
           - r143e-2-b
-        serial_numbers:
-          - FDO23360XWU
-          - FDO23360Y8U
+        #serial_numbers:
+        #  - FDO23360XWU
+        #  - FDO23360Y8U
         snmp_policy: snmp
         switch_control_policy: sw-ctrl
         system_qos_policy: qos

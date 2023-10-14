@@ -6,7 +6,7 @@ default: # Name of the Organization
   policies:
     bios:
       - baud_rate: "115200"
-        bios_template: Virtualization
+        bios_template: M5-intel-virtual
         console_redirection: serial-port-a
         description: M5-virtualization BIOS Policy
         execute_disable_bit: disabled
@@ -15,7 +15,7 @@ default: # Name of the Organization
         serial_port_aenable: enabled
         terminal_type: vt100
       - baud_rate: "115200"
-        bios_template: Virtualization_tpm
+        bios_template: M5-intel-virtual-tpm
         console_redirection: serial-port-a
         description: M5-virtualization-tpm BIOS Policy
         execute_disable_bit: disabled
