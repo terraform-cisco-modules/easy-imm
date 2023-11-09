@@ -2,14 +2,14 @@
 #=======================================
 #   Templates -> Server - Variables
 #=======================================
-default: # Name of the Organization
+default:
   templates:
     server:
       - bios_policy: M6-virtualization-tpm
         boot_order_policy: M2-pxe
         create_template: true
         description: M2-pxe Server Profile Template
-        firmware_policy: 'fw'
+        firmware_policy: fw
         imc_access_policy: kvm
         ipmi_over_lan_policy: ipmi
         lan_connectivity_policy: lcp

@@ -2,7 +2,7 @@
 #=======================================
 #   Profiles -> Chassis - Variables
 #=======================================
-default: # Name of the Organization
+default:
   profiles:
     chassis:
       - action: No-op

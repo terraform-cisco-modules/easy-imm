@@ -2,7 +2,7 @@
 #====================================
 #   Policies -> vsan - Variables
 #====================================
-default: # Name of the Organization
+default:
   policies:
     vsan:
       - name: vsan-100

@@ -2,7 +2,7 @@
 #======================================
 #   Profiles -> Domain - Variables
 #======================================
-default: # Name of the Organization
+default:
   profiles:
     domain:
       - action: No-op

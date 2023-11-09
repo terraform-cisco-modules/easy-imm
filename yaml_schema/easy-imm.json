@@ -22,8 +22,8 @@
                     "description": "Name of the IP Pool to use for Inband-Band Management.",
                     "intersightApi": "$ref:access.Policy.Relationship:InbandIpPool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "inband_ip_pool"
                 },
                 "inband_vlan_id": {
@@ -58,8 +58,8 @@
                     "description": "Name of the IP Pool to use for Out-of-Band Management.",
                     "intersightApi": "$ref:access.Policy.Relationship:OutOfBandIpPool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "out_of_band_ip_pool"
                 },
                 "tags": {
@@ -113,7 +113,7 @@
                     "description": "PCIe slot where the VIC adapter is installed. Supported values are (1-15) and MLOM.",
                     "intersightApi": "SlotId",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 4,
                     "pattern": "^([1-9]|1[0-5]|MLOM)$",
                     "title": "pci_slot"
                 }
@@ -5767,7 +5767,7 @@
                     "intersightApi": "Name",
                     "minLength": 1,
                     "maxLength": 128,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,126})?[a-zA-Z0-9]$",
                     "title": "name"
                 },
                 "path": {
@@ -5811,7 +5811,7 @@
                     "intersightApi": "not_applicable:InterfaceName",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "interface_name"
                 },
                 "interface_source": {
@@ -5932,8 +5932,8 @@
                     "default": "20:00:00:25:B5:00:00:00",
                     "description": "The WWPN Address of the underlying fibre channel interface used by the SAN boot device. Value must be in hexadecimal format xx:xx:xx:xx:xx:xx:xx:xx.",
                     "intersightApi": "$ref:boot.San:Wwpn",
-                    "minLength": 1,
-                    "maxLength": 64,
+                    "minLength": 23,
+                    "maxLength": 23,
                     "pattern": "^$|(^([0-9a-fA-F]{2}:){7}[0-9a-fA-F]{2}$)",
                     "title": "wwpn"
                 }
@@ -6124,8 +6124,8 @@
                     "description": "The Name of the IMC Access Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:access.Policy.Relationship:access.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
                 },
                 "power_policy": {
@@ -6134,8 +6134,8 @@
                     "description": "The Name of the Power Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:power.Policy.Relationship:power.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
                 },
                 "snmp_policy": {
@@ -6144,8 +6144,8 @@
                     "description": "The Name of the SNMP Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:snmp.Policy.Relationship:snmp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
                 },
                 "tags": {
@@ -6170,8 +6170,8 @@
                     "description": "The Name of the Thermal Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:thermal.Policy.Relationship:thermal.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
                 }
             },
@@ -6279,8 +6279,8 @@
                     "description": "The Name of the Ethernet Network Control Policy to Assign to the vNIC.",
                     "intersightApi": "$ref:fabric.EthNetworkControlPolicy.Relationship:EthNetworkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_control_policy"
                 },
                 "ethernet_network_group_policy": {
@@ -6289,8 +6289,8 @@
                     "description": "The Name of the Ethernet Network Group Policy to Assign.",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_group_policy"
                 },
                 "interfaces": {
@@ -6309,8 +6309,8 @@
                     "description": "Name of the Link Aggregation policy.",
                     "intersightApi": "$ref:fabric.LinkAggregationPolicy.Relationship:LinkAggregationPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_aggregation_policy"
                 },
                 "mode": {
@@ -6401,8 +6401,8 @@
                     "description": "The Name of the Ethernet Network Control Policy to Assign to the vNIC.",
                     "intersightApi": "$ref:fabric.EthNetworkControlPolicy.Relationship:EthNetworkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_control_policy"
                 },
                 "ethernet_network_group_policy": {
@@ -6411,8 +6411,8 @@
                     "description": "The Name of the Ethernet Network Group Policy to Assign.",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_group_policy"
                 },
                 "fec": {
@@ -6733,8 +6733,8 @@
                     "description": "Name of the Link Aggregation policy.",
                     "intersightApi": "$ref:fabric.LinkAggregationPolicy.Relationship:LinkAggregationPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_aggregation_policy"
                 },
                 "link_control_policy": {
@@ -6743,8 +6743,8 @@
                     "description": "Name of the Link Control policy.",
                     "intersightApi": "$ref:fabric.LinkControlPolicy.Relationship:LinkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_control_policy"
                 },
                 "pc_ids": {
@@ -6808,8 +6808,8 @@
                     "description": "The Name of the Ethernet Network Group Policy to Assign.",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_group_policy"
                 },
                 "fec": {
@@ -6830,8 +6830,8 @@
                     "description": "Name of the Link Control policy.",
                     "intersightApi": "$ref:fabric.LinkControlPolicy.Relationship:LinkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_control_policy"
                 },
                 "port_list": {
@@ -7101,8 +7101,8 @@
                     "default": "20:00:00:25:B5:00:00:00",
                     "description": "WWPN that is a member of the FC zone.",
                     "intersightApi": "Wwpn",
-                    "minLength": 1,
-                    "maxLength": 64,
+                    "minLength": 23,
+                    "maxLength": 23,
                     "pattern": "^$|((^20|5[0-9a-fA-F]{1}):([0-9a-fA-F]{2}:){6}([0-9a-fA-F]{2})$)",
                     "title": "wwpn"
                 }
@@ -7343,8 +7343,8 @@
                     "default": "",
                     "description": "Used to define the IGMP Querier IP address.",
                     "intersightApi": "QuerierIpAddress",
-                    "minLength": 1,
-                    "maxLength": 64,
+                    "minLength": 7,
+                    "maxLength": 15,
                     "pattern": "^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$",
                     "title": "querier_ip_address"
                 },
@@ -7353,8 +7353,8 @@
                     "default": "",
                     "description": "Used to define the IGMP Querier IP address of the peer switch.",
                     "intersightApi": "QuerierIpAddressPeer",
-                    "minLength": 1,
-                    "maxLength": 64,
+                    "minLength": 7,
+                    "maxLength": 15,
                     "pattern": "^$|^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$",
                     "title": "querier_ip_address_peer"
                 },
@@ -7534,7 +7534,7 @@
                         "intersightApi": "Name",
                         "minLength": 1,
                         "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "port_policy"
                     },
                     "objectType": "Name",
@@ -7766,10 +7766,12 @@
                     "default": "",
                     "description": "",
                     "intersightApi": "PreferredDeviceType",
-                    "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
-                    "title": "connected_device_type"
+                    "enum": [
+                        "Auto",
+                        "RackServer",
+                        "Chassis"
+                    ],
+                "title": "connected_device_type"
                 },
                 "device_number": {
                     "type": "integer",
@@ -7777,7 +7779,7 @@
                     "description": "",
                     "intersightApi": "PreferredDeviceId",
                     "minimum": 1,
-                    "maximum": 64,
+                    "maximum": 160,
                     "title": "device_number"
                 },
                 "fec": {
@@ -7845,8 +7847,8 @@
                     "description": "The Name of the Network Connectivity Policy to Assign to the Domain Profile.",
                     "intersightApi": "$ref:networkconfig.Policy.Relationship:networkconfig.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "network_connectivity_policy"
                 },
                 "ntp_policy": {
@@ -7855,8 +7857,8 @@
                     "description": "The Name of the NTP Policy to Assign to the Domain Profile.",
                     "intersightApi": "$ref:ntp.Policy.Relationship:ntp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ntp_policy"
                 },
                 "port_policies": {
@@ -7868,8 +7870,8 @@
                         "description": "The Name of the Port Policy to Assign to the Domain Profile.",
                         "intersightApi": "$ref:fabric.PortPolicy.Relationship:fabric.PortPolicy",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "port_policy"
                     },
                     "title": "port_policies - A List of one or two Port Policies."
@@ -7888,8 +7890,8 @@
                     "description": "The Name of the SNMP Policy to Assign to the Domain Profile.",
                     "intersightApi": "$ref:snmp.Policy.Relationship:snmp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "snmp_policy"
                 },
                 "syslog_policy": {
@@ -7898,8 +7900,8 @@
                     "description": "The Name of the Syslog Policy to Assign to the Domain Profile.",
                     "intersightApi": "$ref:syslog.Policy.Relationship:syslog.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "syslog_policy"
                 },
                 "switch_control_policy": {
@@ -7908,8 +7910,8 @@
                     "description": "The Name of the Switch Control Policy to Assign to the Domain Profile.",
                     "intersightApi": "$ref:fabric.SwitchControlPolicy.Relationship:fabric.SwitchControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "switch_control_policy"
                 },
                 "system_qos_policy": {
@@ -7918,8 +7920,8 @@
                     "description": "The Name of the Syslog Policy to Assign to the Domain Profile.",
                     "intersightApi": "$ref:fabric.SystemQosPolicy.Relationship:fabric.SystemQosPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "switch_control_policy"
                 },
                 "tags": {
@@ -7940,8 +7942,8 @@
                         "description": "The Name of the VLAN Policy to Assign to the Domain Profile.",
                         "intersightApi": "$ref:fabric.EthNetworkPolicy.Relationship:fabric.EthNetworkPolicy",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "vlan_policy"
                     },
                     "objectType": "fabric.EthNetworkPolicy",
@@ -7957,8 +7959,8 @@
                         "description": "The Name of the VSAN Policy to Assign to the Domain Profile.",
                         "intersightApi": "$ref:fabric.FcNetworkPolicy.Relationship:fabric.FcNetworkPolicy",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "vsan_policy"
                     },
                     "objectType": "fabric.FcNetworkPolicy",
@@ -8188,8 +8190,8 @@
                     "description": "The Name of the Ethernet Network Group Policy to Assign.",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_group_policy"
                 },
                 "interfaces": {
@@ -8208,8 +8210,8 @@
                     "description": "Name of the Flow Control policy.",
                     "intersightApi": "$ref:fabric.FlowControlPolicy.Relationship:FlowControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "flow_control_policy"
                 },
                 "link_aggregation_policy": {
@@ -8218,8 +8220,8 @@
                     "description": "Name of the Link Aggregation policy.",
                     "intersightApi": "$ref:fabric.LinkAggregationPolicy.Relationship:LinkAggregationPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_aggregation_policy"
                 },
                 "link_control_policy": {
@@ -8228,8 +8230,8 @@
                     "description": "Name of the Link Control policy.",
                     "intersightApi": "$ref:fabric.LinkControlPolicy.Relationship:LinkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_control_policy"
                 },
                 "pc_ids": {
@@ -8292,8 +8294,8 @@
                     "description": "The Name of the Ethernet Network Group Policy to Assign.",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_group_policy"
                 },
                 "fec": {
@@ -8314,8 +8316,8 @@
                     "description": "Name of the Flow Control policy.",
                     "intersightApi": "$ref:fabric.FlowControlPolicy.Relationship:FlowControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "flow_control_policy"
                 },
                 "link_control_policy": {
@@ -8324,8 +8326,8 @@
                     "description": "Name of the Link Control policy.",
                     "intersightApi": "$ref:fabric.LinkControlPolicy.Relationship:LinkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "link_control_policy"
                 },
                 "port_list": {
@@ -8374,8 +8376,8 @@
                     "description": "Name of the Multicast Policy to assign to the VLAN.",
                     "intersightApi": "$ref:access.Policy.Relationship:MulticastPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "multicast_policy"
                 },
                 "name": {
@@ -8990,7 +8992,7 @@
                     "description": "The LDAP domain that all users must be in.  An example would be `example.com`.",
                     "intersightApi": "",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 72,
                     "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9\\.\\-]*[a-zA-Z0-9]))$",
                     "title": "switch_id"
                 },
@@ -9066,7 +9068,7 @@
                     "description": "Domain name that acts as a source for a DNS query.  An example would be `example.com`.",
                     "intersightApi": "SearchDomain",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 72,
                     "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9\\.\\-]*[a-zA-Z0-9]))$",
                     "title": "search_domain"
                 },
@@ -9076,7 +9078,7 @@
                     "description": "Forest name that acts as a source for a DNS query.",
                     "intersightApi": "SearchForest",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 72,
                     "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9\\.\\-]*[a-zA-Z0-9]))$",
                     "title": "search_forest"
                 },
@@ -10193,9 +10195,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "adapter_configuration"
                 },
                 "bios": {
@@ -10203,9 +10205,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "bios"
                 },
                 "boot_order": {
@@ -10213,9 +10215,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "boot_order"
                 },
                 "certificate_management": {
@@ -10223,9 +10225,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "certificate_management"
                 },
                 "chassis": {
@@ -10233,15 +10235,15 @@
                     "default": "",
                     "description": "A Value to add to the Chassis Profile Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "chassis"
                 },
                 "default": {
                     "type": "string",
                     "default": "",
-                    "description": "A Value to add to the Name of all.  An individual prefix/suffix will override this.",
+                    "description": "A Value to add to the Name of all policies.  An individual policy prefix/suffix will override this.",
                     "intersightApi": "not_applicable",
                     "minLength": 0,
                     "maxLength": 12,
@@ -10253,9 +10255,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "device_connector"
                 },
                 "domain": {
@@ -10263,9 +10265,9 @@
                     "default": "",
                     "description": "A Value to add to the Domain Profile Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "domain"
                 },
                 "drive_security": {
@@ -10273,9 +10275,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "drive_security"
                 },
                 "ethernet_adapter": {
@@ -10283,9 +10285,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ethernet_adapter"
                 },
                 "ethernet_network": {
@@ -10293,9 +10295,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ethernet_network"
                 },
                 "ethernet_network_control": {
@@ -10303,9 +10305,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ethernet_network_control"
                 },
                 "ethernet_network_group": {
@@ -10313,9 +10315,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ethernet_network_group"
                 },
                 "ethernet_qos": {
@@ -10323,9 +10325,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ethernet_qos"
                 },
                 "fc_zone": {
@@ -10333,9 +10335,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "fc_zone"
                 },
                 "fibre_channel_adapter": {
@@ -10343,9 +10345,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "fibre_channel_adapter"
                 },
                 "fibre_channel_network": {
@@ -10353,9 +10355,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "fibre_channel_network"
                 },
                 "fibre_channel_qos": {
@@ -10363,9 +10365,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "fibre_channel_qos"
                 },
                 "firmware": {
@@ -10373,9 +10375,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "firmware"
                 },
                 "flow_control": {
@@ -10383,9 +10385,9 @@
                     "default": "",
                     "description": "Default is `platform-default`.  BIOS Token for setting Flow Control configuration.\n   *  platform-default - Default value used by the platform for the BIOS setting.\n   *  none - Value - none for configuring FlowControl token.\n   *  rts-cts - Value - rts-cts for configuring FlowControl token.",
                     "intersightApi": "FlowControl",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "flow_control"
                 },
                 "imc_access": {
@@ -10393,9 +10395,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "imc_access"
                 },
                 "ip": {
@@ -10405,7 +10407,7 @@
                     "intersightApi": "",
                     "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^$|^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ip"
                 },
                 "ipmi_over_lan": {
@@ -10413,9 +10415,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ipmi_over_lan"
                 },
                 "iqn": {
@@ -10425,7 +10427,7 @@
                     "intersightApi": "",
                     "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^$|^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "iqn"
                 },
                 "iscsi_adapter": {
@@ -10433,9 +10435,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "iscsi_adapter"
                 },
                 "iscsi_boot": {
@@ -10443,9 +10445,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "iscsi_boot"
                 },
                 "iscsi_static_target": {
@@ -10453,9 +10455,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "iscsi_static_target"
                 },
                 "lan_connectivity": {
@@ -10463,9 +10465,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "lan_connectivity"
                 },
                 "ldap": {
@@ -10473,9 +10475,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ldap"
                 },
                 "link_aggregation": {
@@ -10483,9 +10485,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "link_aggregation"
                 },
                 "link_control": {
@@ -10493,9 +10495,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "link_control"
                 },
                 "local_user": {
@@ -10503,9 +10505,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "local_user"
                 },
                 "mac": {
@@ -10515,7 +10517,7 @@
                     "intersightApi": "",
                     "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^$|^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "mac"
                 },
                 "multicast": {
@@ -10523,9 +10525,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "multicast"
                 },
                 "network_connectivity": {
@@ -10533,9 +10535,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "network_connectivity"
                 },
                 "ntp": {
@@ -10543,9 +10545,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ntp"
                 },
                 "persistent_memory": {
@@ -10553,9 +10555,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "persistent_memory"
                 },
                 "port": {
@@ -10563,9 +10565,9 @@
                     "default": "",
                     "description": "Default is Required Attribute.  The port associated with the iSCSI target.",
                     "intersightApi": "Port",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "port"
                 },
                 "power": {
@@ -10573,9 +10575,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "power"
                 },
                 "resource": {
@@ -10593,9 +10595,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "san_connectivity"
                 },
                 "sd_card": {
@@ -10603,9 +10605,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "sd_card"
                 },
                 "serial_over_lan": {
@@ -10613,9 +10615,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "serial_over_lan"
                 },
                 "server": {
@@ -10623,9 +10625,9 @@
                     "default": "",
                     "description": "A Value to add to the Server Profile Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "server"
                 },
                 "smtp": {
@@ -10633,9 +10635,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "smtp"
                 },
                 "snmp": {
@@ -10643,9 +10645,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "snmp"
                 },
                 "ssh": {
@@ -10653,9 +10655,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "ssh"
                 },
                 "storage": {
@@ -10663,9 +10665,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "storage"
                 },
                 "switch_control": {
@@ -10673,9 +10675,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "switch_control"
                 },
                 "syslog": {
@@ -10683,9 +10685,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "syslog"
                 },
                 "system_qos": {
@@ -10693,9 +10695,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "system_qos"
                 },
                 "template": {
@@ -10703,9 +10705,9 @@
                     "default": "",
                     "description": "A Value to add to the Server Template Profile Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "template"
                 },
                 "thermal": {
@@ -10713,9 +10715,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "thermal"
                 },
                 "uuid": {
@@ -10733,9 +10735,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "virtual_kvm"
                 },
                 "virtual_media": {
@@ -10743,9 +10745,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "virtual_media"
                 },
                 "vlan": {
@@ -10753,9 +10755,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "vlan"
                 },
                 "vsan": {
@@ -10763,9 +10765,9 @@
                     "default": "",
                     "description": "A Value to add to the Policy Names.",
                     "intersightApi": "not_applicable",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "vsan"
                 },
                 "wwnn": {
@@ -10775,7 +10777,7 @@
                     "intersightApi": "",
                     "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^$|^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "wwnn"
                 },
                 "wwpn": {
@@ -10785,7 +10787,7 @@
                     "intersightApi": "",
                     "minLength": 0,
                     "maxLength": 12,
-                    "pattern": "^$|^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,11}$",
                     "title": "wwpn"
                 }
             },
@@ -11886,7 +11888,7 @@
                 },
                 "resource": {
                     "type": "array",
-                    "description": "A resource pool is an aggregation of homogeneous resources that are managed in Intersight. A resource pool enables you to manage the utilization of resources for certain Intersight features like Server Profile. Currently, Intersight supports only server type as a resource for the resource pool.\nRequired Attributes:\n  * name\n  * serial_number_list\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * pool_type\n  * resource_type\n  * server_type\n  * tags",
+                    "description": "A resource pool is an aggregation of homogeneous resources that are managed in Intersight. A resource pool enables you to manage the utilization of resources for certain Intersight features like Server Profile. Currently, Intersight supports only server type as a resource for the resource pool.\nRequired Attributes:\n  * name\n  * serial_number_list\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * pool_type\n  * resource_type\n  * tags",
                     "intersightUri": "resourcepool/Pools",
                     "items": {
                         "$ref": "#/definitions/resourcepool.Pool"
@@ -12079,7 +12081,7 @@
                 },
                 "server": {
                     "type": "array",
-                    "description": "In Cisco Intersight, a Server Profile enables resource management by streamlining policy alignment, and server configuration. You can create Server Profiles using the Server Profile wizard or you can import the configuration details of C-series servers in standalone mode and FI-attached servers in Intersight Managed Mode (IMM), directly from Cisco IMC. You can create Server Profiles using the Server Profile wizard to provision servers, create policies to ensure smooth deployment of servers, and eliminate failures that are caused by inconsistent configuration. The Server Profiles wizard groups the server policies into the following four categories to provide a quick Summary View of the policies that are attached to a profile:\n  * Compute Policies — BIOS, Boot Order, and Virtual Media.\n  * Network Policies — Adapter Configuration, iSCSI Boot, LAN Connectivity, and SAN Connectivity policies.\n     - The LAN Connectivity policy requires you to create Ethernet Network Policy, Ethernet Adapter Policy, and Ethernet QoS Policy. When you attach a LAN Connectivity policy to a server profile, the addresses of the MAC address Pool, or the static MAC address, are automatically assigned.\n     - Note: A LAN Connectivity policy that has a static MAC address can be attached to only one server profile.\n     - The SAN Connectivity policy requires you to create Fibre Channel Network Policy, Fibre Channel Adapter Policy, and Fiber Channel QoS Policy. When you attach a SAN Connectivity policy to a server profile, the addresses of the WWPN and WWNN Pools, or the static WWPN and WWNN addresses, are automatically assigned.\n     - Note:  A SAN Connectivity policy that has a static WWPN, or a static WWNN can be attached to only one server profile.\n  * Storage Policies—SD Card and Storage policies\n  * Management Policies—Device Connector, IPMI Over LAN, LDAP, Local User, Network Connectivity, SMTP, SNMP, SSH, Serial over LAN, Syslog, NTP, Certificate Management, and Virtual KVM policies\nRequired Attributes:\n  * action\n  * targets\n  * target_platform\n\nRequired for FIAttached:\n  * domain_name\n\nOptional Attributes:\n  * create_from_template\n  * resource_pool\n  * tags\n  * ucs_server_template\n#===========================\n# Compute Configuration\n#===========================\n  * bios_policy_policy\n  * boot_order_policy\n  * firmware_policy\n  * persistent_memory_policy - Standalone Only\n  * power_policy - FIAttached Only\n  * uuid_pool - FIAttached Only\n  * virtual_media_policy\n#===========================\n# Management Configuration\n#===========================\n  * certificate_management_policy - FIAttached Only\n  * device_connector_policy - Standalone Only\n  * imc_access_policy - FIAttached Only\n  * ipmi_over_lan_policy\n  * ldap_policy - Standalone Only\n  * local_user_policy\n  * network_connectivity_policy - Standalone Only\n  * ntp_policy - Standalone Only\n  * serial_over_lan_policy\n  * smtp_policy - Standalone Only\n  * snmp_policy\n  * ssh_policy - Standalone Only\n  * syslog_policy\n  * virtual_kvm_policy\n#===========================\n# Storage Configuration\n#===========================\n  * drive_security_policy\n  * sd_card_policy\n  * storage_policy\n#===========================\n# Network Configuration\n#===========================\n  * adapter_configuration_policy - Standalone Only\n  * lan_connectivity_policy\n  * san_connectivity_policy",
+                    "description": "In Cisco Intersight, a Server Profile enables resource management by streamlining policy alignment, and server configuration. You can create Server Profiles using the Server Profile wizard or you can import the configuration details of C-series servers in standalone mode and FI-attached servers in Intersight Managed Mode (IMM), directly from Cisco IMC. You can create Server Profiles using the Server Profile wizard to provision servers, create policies to ensure smooth deployment of servers, and eliminate failures that are caused by inconsistent configuration. The Server Profiles wizard groups the server policies into the following four categories to provide a quick Summary View of the policies that are attached to a profile:\n  * Compute Policies — BIOS, Boot Order, and Virtual Media.\n  * Network Policies — Adapter Configuration, iSCSI Boot, LAN Connectivity, and SAN Connectivity policies.\n     - The LAN Connectivity policy requires you to create Ethernet Network Policy, Ethernet Adapter Policy, and Ethernet QoS Policy. When you attach a LAN Connectivity policy to a server profile, the addresses of the MAC address Pool, or the static MAC address, are automatically assigned.\n     - Note: A LAN Connectivity policy that has a static MAC address can be attached to only one server profile.\n     - The SAN Connectivity policy requires you to create Fibre Channel Network Policy, Fibre Channel Adapter Policy, and Fiber Channel QoS Policy. When you attach a SAN Connectivity policy to a server profile, the addresses of the WWPN and WWNN Pools, or the static WWPN and WWNN addresses, are automatically assigned.\n     - Note:  A SAN Connectivity policy that has a static WWPN, or a static WWNN can be attached to only one server profile.\n  * Storage Policies—SD Card and Storage policies\n  * Management Policies—Device Connector, IPMI Over LAN, LDAP, Local User, Network Connectivity, SMTP, SNMP, SSH, Serial over LAN, Syslog, NTP, Certificate Management, and Virtual KVM policies\nRequired Attributes:\n  * action\n  * targets\n  * target_platform\n\nRequired for FIAttached:\n  * domain_name\n\nOptional Attributes:\n  * create_from_template\n  * resource_pool\n  * tags\n  * ucs_server_template\n#===========================\n# Compute Configuration\n#===========================\n  * bios_policy_policy\n  * boot_order_policy\n  * firmware_policy\n  * persistent_memory_policy - Standalone Only\n  * power_policy - FIAttached Only\n  * thermal_policy\n  * uuid_pool - FIAttached Only\n  * virtual_media_policy\n#===========================\n# Management Configuration\n#===========================\n  * certificate_management_policy - FIAttached Only\n  * device_connector_policy - Standalone Only\n  * imc_access_policy - FIAttached Only\n  * ipmi_over_lan_policy\n  * ldap_policy - Standalone Only\n  * local_user_policy\n  * network_connectivity_policy - Standalone Only\n  * ntp_policy - Standalone Only\n  * serial_over_lan_policy\n  * smtp_policy - Standalone Only\n  * snmp_policy\n  * ssh_policy - Standalone Only\n  * syslog_policy\n  * virtual_kvm_policy\n#===========================\n# Storage Configuration\n#===========================\n  * drive_security_policy\n  * sd_card_policy\n  * storage_policy\n#===========================\n# Network Configuration\n#===========================\n  * adapter_configuration_policy - Standalone Only\n  * lan_connectivity_policy\n  * san_connectivity_policy",
                     "intersightUri": "server/Profiles",
                     "items": {
                         "$ref": "#/definitions/server.Profile"
@@ -12140,17 +12142,6 @@
                         "title": "serial_number"
                     },
                     "title": "serial_number_list"
-                },
-                "server_type": {
-                    "type": "string",
-                    "default": "Blades",
-                    "description": "The Server type to add to the selection filter field.  This is combined with the Serial Number List for the selector criteria.  Options are:\n  * Blades: (default)\n  * RackUnits",
-                    "intersightApi": "ServerType",
-                    "enum": [
-                        "Blades",
-                        "Server"
-                    ],
-                    "title": "server_type"
                 },
                 "tags": {
                     "type": "array",
@@ -12286,8 +12277,8 @@
                     "description": "The Name of the Adapter Configuration Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:adapter.ConfigPolicy.Relationship:adapter.ConfigPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "adapter_configuration_policy"
                 },
                 "bios_policy": {
@@ -12296,8 +12287,8 @@
                     "description": "The Name of the BIOS Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:bios.Policy.Relationship:bios.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "bios_policy"
                 },
                 "boot_order_policy": {
@@ -12306,8 +12297,8 @@
                     "description": "The Name of the Boot Order Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:boot.PrecisionPolicy.Relationship:boot.PrecisionPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "boot_order_policy"
                 },
                 "certificate_management_policy": {
@@ -12316,8 +12307,8 @@
                     "description": "The Name of the Certificate Management Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:certificatemanagement.Policy.Relationship:certificatemanagement.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "certificate_management_policy"
                 },
                 "create_from_template": {
@@ -12333,8 +12324,8 @@
                     "description": "The Name of the Device Connector Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:deviceconnector.Policy.Relationship:deviceconnector.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "device_connector_policy"
                 },
                 "drive_security_policy": {
@@ -12343,8 +12334,8 @@
                     "description": "The Name of the Drive Security Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:storage.DriveSecurityPolicy.Relationship:storage.DriveSecurityPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "drive_security_policy"
                 },
                 "domain_name": {
@@ -12354,7 +12345,7 @@
                     "intersightApi": "$ref:fabric.SwitchClusterProfile.Relationship:fabric.SwitchClusterProfile",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "domain_name"
                 },
                 "firmware_policy": {
@@ -12363,8 +12354,8 @@
                     "description": "The Name of the Firmware Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:firmware.Policy.Relationship:firmware.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "firmware_policy"
                 },
                 "imc_access_policy": {
@@ -12373,8 +12364,8 @@
                     "description": "The Name of the IMC Access Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:access.Policy.Relationship:access.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
                 },
                 "ipmi_over_lan_policy": {
@@ -12383,8 +12374,8 @@
                     "description": "The Name of the IPMI over LAN Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:ipmioverlan.Policy.Relationship:ipmioverlan.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ipmi_over_lan_policy"
                 },
                 "lan_connectivity_policy": {
@@ -12393,8 +12384,8 @@
                     "description": "The Name of the LAN Connectivity Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:vnic.EthNetworkPolicy.Relationship:vnic.EthNetworkPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "lan_connectivity_policy"
                 },
                 "ldap_policy": {
@@ -12403,8 +12394,8 @@
                     "description": "The Name of the LDAP Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:iam.LdapPolicy.Relationship:iam.LdapPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ldap_policy"
                 },
                 "local_user_policy": {
@@ -12413,8 +12404,8 @@
                     "description": "The Name of the Local User Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:iam.EndPointUserPolicy.Relationship:iam.EndPointUserPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "local_user_policy"
                 },
                 "network_connectivity_policy": {
@@ -12423,8 +12414,8 @@
                     "description": "The Name of the Network Connectivity Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:networkconfig.Policy.Relationship:networkconfig.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "network_connectivity_policy"
                 },
                 "ntp_policy": {
@@ -12433,8 +12424,8 @@
                     "description": "The Name of the NTP Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:ntp.Policy.Relationship:ntp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ntp_policy"
                 },
                 "persistent_memory_policy": {
@@ -12443,8 +12434,8 @@
                     "description": "The Name of the Persistent Memory Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:memory.PersistentMemoryPolicy.Relationship:memory.PersistentMemoryPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "persistent_memory_policy"
                 },
                 "power_policy": {
@@ -12453,8 +12444,8 @@
                     "description": "The Name of the Power Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:power.Policy.Relationship:power.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "power_policy"
                 },
                 "resource_pool": {
@@ -12463,8 +12454,8 @@
                     "description": "The Name of the Resource Pool to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:resourcepool.Pool.Relationship:resourcepool.Pool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "resource_pool"
                 },
                 "san_connectivity_policy": {
@@ -12473,8 +12464,8 @@
                     "description": "The Name of the SAN Connectivity Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:vnic.SanConnectivityPolicy.Relationship:vnic.SanConnectivityPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "san_connectivity_policy"
                 },
                 "serial_over_lan_policy": {
@@ -12483,8 +12474,8 @@
                     "description": "The Name of the Serial over LAN Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:sol.Policy.Relationship:sol.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "serial_over_lan_policy"
                 },
                 "sd_card_policy": {
@@ -12493,8 +12484,8 @@
                     "description": "The Name of the SD Card Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:sdcard.Policy.Relationship:sdcard.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "sd_card_policy"
                 },
                 "smtp_policy": {
@@ -12503,8 +12494,8 @@
                     "description": "The Name of the SMTP Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:smtp.Policy.Relationship:smtp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "smtp_policy"
                 },
                 "snmp_policy": {
@@ -12513,8 +12504,8 @@
                     "description": "The Name of the SNMP Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:snmp.Policy.Relationship:snmp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "snmp_policy"
                 },
                 "ssh_policy": {
@@ -12523,19 +12514,19 @@
                     "description": "The Name of the SSH Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:ssh.Policy.Relationship:ssh.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ssh_policy"
                 },
-                "storage": {
+                "storage_policy": {
                     "type": "string",
                     "default": "default",
                     "description": "The Name of the Storage Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:storage.StoragePolicy.Relationship:storage.StoragePolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
-                    "title": "storage"
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "storage_policy"
                 },
                 "syslog_policy": {
                     "type": "string",
@@ -12543,8 +12534,8 @@
                     "description": "The Name of the Syslog Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:syslog.Policy.Relationship:syslog.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "syslog_policy"
                 },
                 "tags": {
@@ -12574,14 +12565,23 @@
                     },
                     "title": "targets - Server Targets"
                 },
+                "thermal_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the Thermal Policy to Assign to the Profile(s).",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^([a-zA-Z0-9_\\.:-]{1,64}\\/)?[a-zA-Z0-9_\\.:-]{1,64}$",
+                    "title": "thermal_policy"
+                },
                 "ucs_server_template": {
                     "type": "string",
                     "default": "default",
                     "description": "The Name of the Server Profile Template to Create the Profile(s) from.",
                     "intersightApi": "$ref:access.Policy.Relationship:access.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ucs_server_template"
                 },
                 "uuid_pool": {
@@ -12590,8 +12590,8 @@
                     "description": "The Name of the UUID Pool to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:uuidpool.Pool.Relationship:uuidpool.Pool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "uuid_pool"
                 },
                 "virtual_kvm_policy": {
@@ -12600,8 +12600,8 @@
                     "description": "The Name of the KVM Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:kvm.Policy.Relationship:kvm.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "virtual_kvm_policy"
                 },
                 "virtual_media_policy": {
@@ -12610,8 +12610,8 @@
                     "description": "The Name of the Virtual Media Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:vmedia.Policy.Relationship:vmedia.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "virtual_media_policy"
                 }
             },
@@ -12665,8 +12665,8 @@
                     "description": "The Name of the Adapter Configuration Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:adapter.ConfigPolicy.Relationship:adapter.ConfigPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "adapter_configuration_policy"
                 },
                 "bios_policy": {
@@ -12675,8 +12675,8 @@
                     "description": "The Name of the BIOS Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:bios.Policy.Relationship:bios.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "bios_policy"
                 },
                 "boot_order_policy": {
@@ -12685,8 +12685,8 @@
                     "description": "The Name of the Boot Order Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:boot.PrecisionPolicy.Relationship:boot.PrecisionPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "boot_order_policy"
                 },
                 "certificate_management_policy": {
@@ -12695,8 +12695,8 @@
                     "description": "The Name of the Certificate Management Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:certificatemanagement.Policy.Relationship:certificatemanagement.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "certificate_management_policy"
                 },
                 "create_template": {
@@ -12715,8 +12715,8 @@
                     "description": "The Name of the Device Connector Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:deviceconnector.Policy.Relationship:deviceconnector.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "device_connector_policy"
                 },
                 "drive_security_policy": {
@@ -12725,8 +12725,8 @@
                     "description": "The Name of the Drive Security Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:storage.DriveSecurityPolicy.Relationship:storage.DriveSecurityPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "drive_security_policy"
                 },
                 "firmware_policy": {
@@ -12735,8 +12735,8 @@
                     "description": "The Name of the Firmware Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:firmware.Policy.Relationship:firmware.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "firmware_policy"
                 },
                 "imc_access_policy": {
@@ -12745,8 +12745,8 @@
                     "description": "The Name of the IMC Access Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:access.Policy.Relationship:access.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
                 },
                 "ipmi_over_lan_policy": {
@@ -12755,8 +12755,8 @@
                     "description": "The Name of the IPMI over LAN Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:ipmioverlan.Policy.Relationship:ipmioverlan.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ipmi_over_lan_policy"
                 },
                 "lan_connectivity_policy": {
@@ -12765,8 +12765,8 @@
                     "description": "The Name of the LAN Connectivity Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:vnic.EthNetworkPolicy.Relationship:vnic.EthNetworkPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "lan_connectivity_policy"
                 },
                 "ldap_policy": {
@@ -12775,8 +12775,8 @@
                     "description": "The Name of the LDAP Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:iam.LdapPolicy.Relationship:iam.LdapPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ldap_policy"
                 },
                 "local_user_policy": {
@@ -12785,8 +12785,8 @@
                     "description": "The Name of the Local User Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:iam.EndPointUserPolicy.Relationship:iam.EndPointUserPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "local_user_policy"
                 },
                 "name": {
@@ -12798,8 +12798,8 @@
                     "description": "The Name of the Network Connectivity Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:networkconfig.Policy.Relationship:networkconfig.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "network_connectivity_policy"
                 },
                 "ntp_policy": {
@@ -12808,8 +12808,8 @@
                     "description": "The Name of the NTP Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:ntp.Policy.Relationship:ntp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ntp_policy"
                 },
                 "persistent_memory_policy": {
@@ -12818,8 +12818,8 @@
                     "description": "The Name of the Persistent Memory Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:memory.PersistentMemoryPolicy.Relationship:memory.PersistentMemoryPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "persistent_memory_policy"
                 },
                 "power_policy": {
@@ -12828,8 +12828,8 @@
                     "description": "The Name of the Power Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:power.Policy.Relationship:power.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "power_policy"
                 },
                 "san_connectivity_policy": {
@@ -12838,8 +12838,8 @@
                     "description": "The Name of the SAN Connectivity Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:vnic.SanConnectivityPolicy.Relationship:vnic.SanConnectivityPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "san_connectivity_policy"
                 },
                 "serial_over_lan_policy": {
@@ -12848,8 +12848,8 @@
                     "description": "The Name of the Serial over LAN Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:sol.Policy.Relationship:sol.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "serial_over_lan_policy"
                 },
                 "sd_card_policy": {
@@ -12858,8 +12858,8 @@
                     "description": "The Name of the SD Card Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:sdcard.Policy.Relationship:sdcard.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "sd_card_policy"
                 },
                 "smtp_policy": {
@@ -12868,8 +12868,8 @@
                     "description": "The Name of the SMTP Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:smtp.Policy.Relationship:smtp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "smtp_policy"
                 },
                 "snmp_policy": {
@@ -12878,8 +12878,8 @@
                     "description": "The Name of the SNMP Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:snmp.Policy.Relationship:snmp.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "snmp_policy"
                 },
                 "ssh_policy": {
@@ -12888,8 +12888,8 @@
                     "description": "The Name of the SSH Policy to Assign to the Profile(s).  This is only Applicable to Standalone Servers.",
                     "intersightApi": "$ref:ssh.Policy.Relationship:ssh.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ssh_policy"
                 },
                 "storage_policy": {
@@ -12898,8 +12898,8 @@
                     "description": "The Name of the Storage Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:storage.StoragePolicy.Relationship:storage.StoragePolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "storage_policy"
                 },
                 "syslog_policy": {
@@ -12908,8 +12908,8 @@
                     "description": "The Name of the Syslog Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:syslog.Policy.Relationship:syslog.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "syslog_policy"
                 },
                 "tags": {
@@ -12931,14 +12931,24 @@
                     ],
                     "title": "target_platform"
                 },
+                "thermal_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the Thermal Policy to Assign to the Profile(s).",
+                    "intersight_api": "$pbucket:thermal.Policy:Moid",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "thermal_policy"
+                },
                 "uuid_pool": {
                     "type": "string",
                     "default": "default",
                     "description": "The Name of the UUID Pool to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersightApi": "$ref:uuidpool.Pool.Relationship:uuidpool.Pool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "uuid_pool"
                 },
                 "virtual_kvm_policy": {
@@ -12947,8 +12957,8 @@
                     "description": "The Name of the KVM Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:kvm.Policy.Relationship:kvm.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "virtual_kvm_policy"
                 },
                 "virtual_media_policy": {
@@ -12957,8 +12967,8 @@
                     "description": "The Name of the Virtual Media Policy to Assign to the Profile(s).",
                     "intersightApi": "$ref:vmedia.Policy.Relationship:vmedia.Policy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "virtual_media_policy"
                 }
             },
@@ -12998,7 +13008,7 @@
                         "description": "Minimum fault severity level to receive email notifications. Email notifications are sent for all faults whose severity is equal to or greater than the chosen level.\n  * critical - Minimum severity to report is critical.\n  * condition - Minimum severity to report is informational.\n  * warning - Minimum severity to report is warning.\n  * minor - Minimum severity to report is minor.\n  * major - Minimum severity to report is major.",
                         "intersightApi": "SmtpRecipients",
                         "minLength": 1,
-                        "maxLength": 64,
+                        "maxLength": 255,
                         "pattern": "^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|'(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*')@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$",
                         "title": "mail_alert_recipient"
                     },
@@ -13027,7 +13037,7 @@
                     "description": "The email address entered here will be displayed as the from address (mail received from address) of all the SMTP mail alerts that are received. If not configured, the hostname of the server is used in the from address field.",
                     "intersightApi": "SenderEmail",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 255,
                     "pattern": "^$|^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$",
                     "title": "smtp_alert_sender_address"
                 },
@@ -13046,7 +13056,7 @@
                     "description": "IP address or hostname of the SMTP server. The SMTP server is used by the managed device to send email notifications.",
                     "intersightApi": "SmtpServer",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 255,
                     "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\\.?$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
                     "title": "smtp_server_address"
                 },
@@ -13927,7 +13937,7 @@
                     "intersightApi": "Name",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "name"
                 },
                 "size": {
@@ -14167,7 +14177,7 @@
             "properties": {
                 "server": {
                     "type": "array",
-                    "description": "In Cisco Intersight, a Server Profile Template enables resource management by streamlining policy alignment, and server configuration. You can create Server Profile Templates using the Server Profile wizard to provision servers, create policies to ensure smooth deployment of servers, and eliminate failures that are caused by inconsistent configuration. The Server Profile Templates wizard groups the server policies into the following four categories to provide a quick Summary View of the policies that are attached to a profile:\n  * Compute Policies—BIOS, Boot Order, and Virtual Media.\n  * Network Policies—Adapter Configuration, iSCSI Boot, LAN Connectivity, and SAN Connectivity policies.\n     - The LAN Connectivity policy requires you to create Ethernet Network Policy, Ethernet Adapter Policy, and Ethernet QoS Policy. When you attach a LAN Connectivity policy to a server profile, the addresses of the MAC address Pool, or the static MAC address, are automatically assigned.\n     - Note: A LAN Connectivity policy that has a static MAC address can be attached to only one server profile.\n     - The SAN Connectivity policy requires you to create Fibre Channel Network Policy, Fibre Channel Adapter Policy, and Fiber Channel QoS Policy. When you attach a SAN Connectivity policy to a server profile, the addresses of the WWPN and WWNN Pools, or the static WWPN and WWNN addresses, are automatically assigned.\n     - Note:  A SAN Connectivity policy that has a static WWPN, or a static WWNN can be attached to only one server profile.\n  * Storage Policies—SD Card and Storage policies\n  * Management Policies—Device Connector, IPMI Over LAN, LDAP, Local User, Network Connectivity, SMTP, SNMP, SSH, Serial over LAN, Syslog, NTP, Certificate Management, and Virtual KVM policies\nRequired Attributes:\n  * create_template\n  * name\n\nRequired for Standalone:\n  * target_platform\n\nOptional Attributes:\n  * tags\n#===========================\n# Compute Configuration\n#===========================\n  * bios_policy_policy\n  * boot_order_policy\n  * firmware_policy\n  * persistent_memory_policy - Standalone Only\n  * power_policy - FIAttached Only\n  * uuid_pool - FIAttached Only\n  * virtual_media_policy\n#===========================\n# Management Configuration\n#===========================\n  * certificate_management_policy - FIAttached Only\n  * device_connector_policy - Standalone Only\n  * imc_access_policy - FIAttached Only\n  * ipmi_over_lan_policy\n  * ldap_policy - Standalone Only\n  * local_user_policy\n  * network_connectivity_policy - Standalone Only\n  * ntp_policy - Standalone Only\n  * serial_over_lan_policy\n  * smtp_policy - Standalone Only\n  * snmp_policy\n  * ssh_policy - Standalone Only\n  * syslog_policy\n  * virtual_kvm_policy\n#===========================\n# Storage Configuration\n#===========================\n  * drive_security_policy\n  * sd_card_policy\n  * storage_policy\n#===========================\n# Network Configuration\n#===========================\n  * adapter_configuration_policy - Standalone Only\n  * lan_connectivity_policy\n  * san_connectivity_policy",
+                    "description": "In Cisco Intersight, a Server Profile Template enables resource management by streamlining policy alignment, and server configuration. You can create Server Profile Templates using the Server Profile wizard to provision servers, create policies to ensure smooth deployment of servers, and eliminate failures that are caused by inconsistent configuration. The Server Profile Templates wizard groups the server policies into the following four categories to provide a quick Summary View of the policies that are attached to a profile:\n  * Compute Policies—BIOS, Boot Order, and Virtual Media.\n  * Network Policies—Adapter Configuration, iSCSI Boot, LAN Connectivity, and SAN Connectivity policies.\n     - The LAN Connectivity policy requires you to create Ethernet Network Policy, Ethernet Adapter Policy, and Ethernet QoS Policy. When you attach a LAN Connectivity policy to a server profile, the addresses of the MAC address Pool, or the static MAC address, are automatically assigned.\n     - Note: A LAN Connectivity policy that has a static MAC address can be attached to only one server profile.\n     - The SAN Connectivity policy requires you to create Fibre Channel Network Policy, Fibre Channel Adapter Policy, and Fiber Channel QoS Policy. When you attach a SAN Connectivity policy to a server profile, the addresses of the WWPN and WWNN Pools, or the static WWPN and WWNN addresses, are automatically assigned.\n     - Note:  A SAN Connectivity policy that has a static WWPN, or a static WWNN can be attached to only one server profile.\n  * Storage Policies—SD Card and Storage policies\n  * Management Policies—Device Connector, IPMI Over LAN, LDAP, Local User, Network Connectivity, SMTP, SNMP, SSH, Serial over LAN, Syslog, NTP, Certificate Management, and Virtual KVM policies\nRequired Attributes:\n  * create_template\n  * name\n\nRequired for Standalone:\n  * target_platform\n\nOptional Attributes:\n  * tags\n#===========================\n# Compute Configuration\n#===========================\n  * bios_policy_policy\n  * boot_order_policy\n  * firmware_policy\n  * persistent_memory_policy - Standalone Only\n  * power_policy - FIAttached Only\n  * thermal_policy\n  * uuid_pool - FIAttached Only\n  * virtual_media_policy\n#===========================\n# Management Configuration\n#===========================\n  * certificate_management_policy - FIAttached Only\n  * device_connector_policy - Standalone Only\n  * imc_access_policy - FIAttached Only\n  * ipmi_over_lan_policy\n  * ldap_policy - Standalone Only\n  * local_user_policy\n  * network_connectivity_policy - Standalone Only\n  * ntp_policy - Standalone Only\n  * serial_over_lan_policy\n  * smtp_policy - Standalone Only\n  * snmp_policy\n  * ssh_policy - Standalone Only\n  * syslog_policy\n  * virtual_kvm_policy\n#===========================\n# Storage Configuration\n#===========================\n  * drive_security_policy\n  * sd_card_policy\n  * storage_policy\n#===========================\n# Network Configuration\n#===========================\n  * adapter_configuration_policy - Standalone Only\n  * lan_connectivity_policy\n  * san_connectivity_policy",
                     "intersightUri": "server/ProfileTemplates",
                     "items": {
                         "$ref": "#/definitions/server.ProfileTemplate"
@@ -14385,7 +14395,7 @@
                     "description": "The remote file location path for the virtual media mapping. Accepted formats are:\n  * HDD for CIFS/NFS: hostname-or-IP/filePath/fileName.img\n  * CDD for CIFS/NFS: hostname-or-IP/filePath/fileName.iso\n  * HDD for HTTP/S: http[s]://hostname-or-IP/filePath/fileName.img\n  * CDD for HTTP/S: http[s]://hostname-or-IP/filePath/fileName.iso",
                     "intersightApi": "RemoteFile",
                     "minLength": 1,
-                    "maxLength": 64,
+                    "maxLength": 512,
                     "pattern": "^(https?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})$",
                     "title": "file_location"
                 },
@@ -14406,7 +14416,7 @@
                     "intersightApi": "VolumeName",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "protocol"
                 },
                 "password": {
@@ -14438,7 +14448,7 @@
                     "intersightApi": "Username",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "username"
                 }
             },
@@ -14720,8 +14730,8 @@
                     "description": "The Name of the Ethernet Adapter Policy to Assign to the vNIC.",
                     "intersightApi": "$ref:fabric.EthAdapterPolicy.Relationship:EthAdapterPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_adapter_policy"
                 },
                 "ethernet_network_control_policy": {
@@ -14730,8 +14740,8 @@
                     "description": "The Name of the Ethernet Network Control Policy to Assign to the vNIC.",
                     "intersightApi": "$ref:fabric.EthNetworkControlPolicy.Relationship:FabricEthNetworkControlPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_control_policy"
                 },
                 "ethernet_network_group_policies": {
@@ -14744,8 +14754,8 @@
                         "description": "The Name of the Ethernet Network Group Policy to Assign.",
                         "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FabricEthNetworkGroupPolicy",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "ethernet_network_group_policy"
                     },
                     "objectType": "fabric.EthNetworkGroupPolicy",
@@ -14757,8 +14767,8 @@
                     "description": "The Name of the Ethernet Network Policy to Assign to the vNIC.  This is for Standalone Only.",
                     "intersightApi": "$ref:fabric.EthNetworkPolicy.Relationship:EthNetworkPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_policy"
                 },
                 "ethernet_qos_policy": {
@@ -14767,8 +14777,8 @@
                     "description": "The Name of the Ethernet QoS Policy to Assign to the vNIC.",
                     "intersightApi": "$ref:fabric.EthQosPolicy.Relationship:EthQosPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_qos_policy"
                 },
                 "iscsi_boot_policies": {
@@ -14781,8 +14791,8 @@
                         "description": "The Name of the iSCSI Boot Policy to Assign to the vNIC.",
                         "intersightApi": "$ref:vnic.IscsiBootPolicy.Relationship:IscsiBootPolicy",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "iscsi_boot_policy"
                     },
                     "objectType": "vnic.IscsiBootPolicy",
@@ -14809,8 +14819,8 @@
                         "description": "Name of the MAC Pool.",
                         "intersightApi": "Name",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "mac_pool"
                     },
                     "objectType": "macpool.Pool",
@@ -14826,7 +14836,7 @@
                         "description": "The MAC address must be in hexadecimal format xx:xx:xx:xx:xx:xx.\nTo ensure uniqueness of MACs in the LAN fabric, you are strongly encouraged to use the\nfollowing MAC prefix 00:25:B5:xx:xx:xx.",
                         "intersightApi": "StaticMacAddress",
                         "minLength": 1,
-                        "maxLength": 64,
+                        "maxLength": 129,
                         "pattern": "^([\\da-fA-F]{2}:){5}[\\da-fA-F]{2}$",
                         "title": "mac_address"
                     },
@@ -14843,7 +14853,7 @@
                         "intersightApi": "Name",
                         "minLength": 1,
                         "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "vnic_name"
                     },
                     "objectType": "Name",
@@ -15297,8 +15307,8 @@
                     "description": "The Name of the Fibre Channel Adapter Policy to Assign to the vHBA(s).",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FcAdapterPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "fibre_channel_adapter_policy"
                 },
                 "fibre_channel_network_policies": {
@@ -15311,8 +15321,8 @@
                         "description": "The Name of the Fibre Channel Network Policy to Assign to the vHBA(s).  The Script will Assign them in Order.  Should be a List of two Names.",
                         "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FcNetworkPolicy",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "fibre_channel_network_policy"
                     },
                     "objectType": "fabric.EthNetworkGroupPolicy",
@@ -15324,8 +15334,8 @@
                     "description": "The Name of the Fibre Channel QoS Policy to Assign to the vHBA(s).",
                     "intersightApi": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FcQosPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "fibre_channel_qos_policy"
                 },
                 "names": {
@@ -15339,7 +15349,7 @@
                         "intersightApi": "Name",
                         "minLength": 1,
                         "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "name"
                     },
                     "objectType": "",
@@ -15389,8 +15399,8 @@
                         "description": "Name of the WWPN Pool.",
                         "intersightApi": "Name",
                         "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "wwpn_pool"
                     },
                     "objectType": "fcpool.Pool",
@@ -15405,8 +15415,8 @@
                         "default": "default",
                         "description": "The WWPN address must be in hexadecimal format xx:xx:xx:xx:xx:xx:xx:xx.\nAllowed ranges are 20:00:00:00:00:00:00:00 to 20:FF:FF:FF:FF:FF:FF:FF or from 50:00:00:00:00:00:00:00 to 5F:FF:FF:FF:FF:FF:FF:FF.\nTo ensure uniqueness of WWN's in the SAN fabric, you are strongly encouraged to use the WWN prefix - 20:00:00:25:B5:xx:xx:xx.",
                         "intersightApi": "StaticWwpnAddress",
-                        "minLength": 1,
-                        "maxLength": 64,
+                        "minLength": 23,
+                        "maxLength": 23,
                         "pattern": "((^20|5[0-9a-fA-F]{1}):([0-9a-fA-F]{2}:){6}([0-9a-fA-F]{2})$)",
                         "title": "wwpn_address"
                     },
@@ -15699,8 +15709,8 @@
                     "description": "The Name of the iSCSI IP Pool.",
                     "intersightApi": "$ref:vnic.IscsiBootPolicy.Relationship:InitiatorIpPool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "initiator_ip_pool"
                 },
                 "initiator_ip_source": {
@@ -15724,8 +15734,8 @@
                     "description": "The Name of the iSCSI Adapter Policy to Assign to the iSCSI Boot Policy.",
                     "intersightApi": "$ref:vnic.IscsiStaticTargetPolicy.Relationship:IscsiAdapterPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "iscsi_adapter_policy"
                 },
                 "name": {
@@ -15746,8 +15756,8 @@
                     "description": "The Name of the iSCSI Static Target Policy to Assign to the iSCSI Boot Policy.",
                     "intersightApi": "$ref:vnic.IscsiStaticTargetPolicy.Relationship:PrimaryTargetPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "primary_target_policy"
                 },
                 "secondary_target_policy": {
@@ -15756,8 +15766,8 @@
                     "description": "The Name of the iSCSI Static Target Policy to Assign to the iSCSI Boot Policy.",
                     "intersightApi": "$ref:vnic.IscsiStaticTargetPolicy.Relationship:SecondaryTargetPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "secondary_target_policy"
                 },
                 "tags": {
@@ -15965,8 +15975,8 @@
                     "description": "Default is IQN Pool to Assign to the Policy.",
                     "intersightApi": "$ref:access.Policy.Relationship:IqnPool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "iqn_pool"
                 },
                 "name": {
@@ -15977,7 +15987,7 @@
                     "default": "",
                     "description": "User provided static iSCSI Qualified Name (IQN) for use as initiator identifiers by iSCSI vNICs in a Fabric Interconnect domain.",
                     "intersightApi": "StaticIqnName",
-                    "minLength": 1,
+                    "minLength": 8,
                     "maxLength": 64,
                     "pattern": "^$|^(?:iqn\\.[0-9]{4}-[0-9]{2}(?:\\.[A-Za-z](?:[A-Za-z0-9\\-]*[A-Za-z0-9])?)+(?::.*)?|eui\\.[0-9A-Fa-f]{16})",
                     "title": "iqn_static_identifier"
@@ -16079,7 +16089,7 @@
                         "description": "PCIe Slot where the VIC adapter is installed. Supported values are (1-15) and MLOM.",
                         "intersightApi": "Id",
                         "minLength": 1,
-                        "maxLength": 64,
+                        "maxLength": 4,
                         "pattern": "^([1-9]|1[0-5]|MLOM)$",
                         "title": "slot_id"
                     },
@@ -16357,8 +16367,8 @@
                     "description": "WWNN Pool to Assign to the Policy.",
                     "intersightApi": "$ref:fcpool.Pool.Relationship:WwnnPool",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "wwnn_pool"
                 },
                 "wwnn_static_address": {
@@ -16479,8 +16489,8 @@
                     "description": "Ethernet Adapter policy to be associated with the User Space vNICs. The Transmit Queue and Receive Queue resource value of VMMQ adapter policy should be greater than or equal to the configured number of sub vNICs.",
                     "intersightApi": "$ref:fabric.EthAdapterPolicy.Relationship:UsnicAdapterPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "usnic_adapter_policy"
                 }
             },
@@ -16541,8 +16551,8 @@
                     "description": "Ethernet Adapter policy to be associated with the VMQ vNICs. The Transmit Queue and Receive Queue resource value of VMMQ adapter policy should be greater than or equal to the configured number of sub vNICs.",
                     "intersightApi": "$ref:fabric.EthAdapterPolicy.Relationship:VmmqAdapterPolicy",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "vmmq_adapter_policy"
                 }
             },

@@ -2,7 +2,7 @@
 #==========================================
 #   Policies -> management - Variables
 #==========================================
-default: # Name of the Organization
+default:
   policies:
     device_connector:
       - configuration_lockout: false

@@ -2,30 +2,30 @@
 #=======================================
 #   Policies -> compute - Variables
 #=======================================
-default: # Name of the Organization
+default:
   policies:
     bios:
-      - baud_rate: "115200"
+      - baud_rate: '115200'
         bios_template: M5-intel-virtual
-        console_redirection: serial-port-a
+        console_redirection: com-0
         description: M5-virtualization BIOS Policy
         execute_disable_bit: disabled
         lv_ddr_mode: auto
         name: M5-virtualization
         serial_port_aenable: enabled
         terminal_type: vt100
-      - baud_rate: "115200"
+      - baud_rate: '115200'
         bios_template: M5-intel-virtual-tpm
-        console_redirection: serial-port-a
+        console_redirection: com-0
         description: M5-virtualization-tpm BIOS Policy
         execute_disable_bit: disabled
         lv_ddr_mode: auto
         name: M5-virtualization-tpm
         serial_port_aenable: enabled
         terminal_type: vt100
-      - baud_rate: "115200"
-        bios_template: M6_Virtualization_tpm
-        console_redirection: serial-port-a
+      - baud_rate: '115200'
+        bios_template: M6-intel-virtual-tpm
+        console_redirection: com-0
         description: M6-virtualization-tpm BIOS Policy
         execute_disable_bit: disabled
         lv_ddr_mode: auto
@@ -33,117 +33,114 @@ default: # Name of the Organization
         serial_port_aenable: enabled
         terminal_type: vt100
     boot_order:
-        - name: M2-pxe
-          boot_devices:
-            - name: KVM-DVD
-              object_type: boot.VirtualMedia
-              sub_type: kvm-mapped-dvd
-            - name: M2
-              object_type: boot.LocalDisk
-              slot: MSTOR-RAID
-            - name: PXE
-              interface_name: mgmt-a
-              object_type: boot.Pxe
-              slot: MLOM
-          boot_mode: Uefi
-          enable_secure_boot: false
-        - name: M2
-          boot_devices:
-            - name: KVM-DVD
-              object_type: boot.VirtualMedia
-              sub_type: kvm-mapped-dvd
-            - name: M2
-              object_type: boot.LocalDisk
-              slot: MSTOR-RAID
-          boot_mode: Uefi
-          enable_secure_boot: true
-        - name: Raid-pxe
-          boot_devices:
-            - name: KVM-DVD
-              object_type: boot.VirtualMedia
-              sub_type: kvm-mapped-dvd
-            - name: Raid1
-              object_type: boot.LocalDisk
-              slot: MRAID
-            - name: PXE
-              interface_name: MGMT-A
-              object_type: boot.Pxe
-              slot: MLOM
-          boot_mode: Uefi
-          enable_secure_boot: false
-        - name: Raid1
-          boot_devices:
-            - name: KVM-DVD
-              object_type: boot.VirtualMedia
-              sub_type: kvm-mapped-dvd
-            - name: Raid1
-              object_type: boot.LocalDisk
-              slot: MRAID
-          boot_mode: Uefi
-          enable_secure_boot: true
-        - name: examples
-          boot_devices:
-            - name: KVM-DVD
-              object_type: boot.VirtualMedia
-              sub_type: kvm-mapped-dvd
-            - name: CIMC-DVD
-              object_type: boot.VirtualMedia
-              sub_type: cimc-mapped-dvd
-            - name: M2
-              object_type: boot.LocalDisk
-              slot: MSTOR-RAID
-            - name: Raid1
-              object_type: boot.LocalDisk
-              slot: MRAID
-            - name: PXE
-              interface_name: MGMT-A
-              object_type: boot.Pxe
-              slot: MLOM
-            - name: iSCSI
-              interface_name: iSCSI-A
-              object_type: boot.Iscsi
-              slot: MLOM
-            - name: Primary-A
-              interface_name: vHBA-A
-              lun: 0
-              object_type: boot.San
-              slot: MLOM
-              wwpn: 50:00:00:25:B5:0A:00:01
-            - name: Primary-B
-              interface_name: vHBA-B
-              lun: 0
-              object_type: boot.San
-              slot: MLOM
-              wwpn: 50:00:00:25:B5:0B:00:01
-            - name: Secondary-A
-              interface_name: vHBA-A
-              lun: 0
-              object_type: boot.San
-              slot: MLOM
-              wwpn: 50:00:00:25:B5:0A:00:02
-            - name: Secondary-B
-              interface_name: vHBA-B
-              lun: 0
-              object_type: boot.San
-              slot: MLOM
-              wwpn: 50:00:00:25:B5:0B:00:02
-          boot_mode: Uefi
-          enable_secure_boot: false
+      - boot_devices:
+          - name: KVM-DVD
+            object_type: boot.VirtualMedia
+            sub_type: kvm-mapped-dvd
+          - name: M2
+            object_type: boot.LocalDisk
+            slot: MSTOR-RAID
+          - interface_name: mgmt-a
+            name: PXE
+            object_type: boot.Pxe
+            slot: MLOM
+        boot_mode: Uefi
+        enable_secure_boot: false
+        name: M2-pxe
+      - boot_devices:
+          - name: KVM-DVD
+            object_type: boot.VirtualMedia
+            sub_type: kvm-mapped-dvd
+          - name: M2
+            object_type: boot.LocalDisk
+            slot: MSTOR-RAID
+        boot_mode: Uefi
+        enable_secure_boot: true
+        name: M2
+      - boot_devices:
+          - name: KVM-DVD
+            object_type: boot.VirtualMedia
+            sub_type: kvm-mapped-dvd
+          - name: Raid1
+            object_type: boot.LocalDisk
+            slot: MRAID
+          - interface_name: MGMT-A
+            name: PXE
+            object_type: boot.Pxe
+            slot: MLOM
+        boot_mode: Uefi
+        enable_secure_boot: false
+        name: Raid-pxe
+      - boot_devices:
+          - name: KVM-DVD
+            object_type: boot.VirtualMedia
+            sub_type: kvm-mapped-dvd
+          - name: Raid1
+            object_type: boot.LocalDisk
+            slot: MRAID
+        boot_mode: Uefi
+        enable_secure_boot: true
+        name: Raid1
+      - boot_devices:
+          - name: KVM-DVD
+            object_type: boot.VirtualMedia
+            sub_type: kvm-mapped-dvd
+          - name: CIMC-DVD
+            object_type: boot.VirtualMedia
+            sub_type: cimc-mapped-dvd
+          - name: M2
+            object_type: boot.LocalDisk
+            slot: MSTOR-RAID
+          - name: Raid1
+            object_type: boot.LocalDisk
+            slot: MRAID
+          - interface_name: MGMT-A
+            name: PXE
+            object_type: boot.Pxe
+            slot: MLOM
+          - interface_name: iSCSI-A
+            name: iSCSI
+            object_type: boot.Iscsi
+            slot: MLOM
+          - interface_name: vHBA-A
+            lun: 0
+            name: Primary-A
+            object_type: boot.San
+            slot: MLOM
+            wwpn: 50:00:00:25:B5:0A:00:01
+          - interface_name: vHBA-B
+            lun: 0
+            name: Primary-B
+            object_type: boot.San
+            slot: MLOM
+            wwpn: 50:00:00:25:B5:0B:00:01
+          - interface_name: vHBA-A
+            lun: 0
+            name: Secondary-A
+            object_type: boot.San
+            slot: MLOM
+            wwpn: 50:00:00:25:B5:0A:00:02
+          - interface_name: vHBA-B
+            lun: 0
+            name: Secondary-B
+            object_type: boot.San
+            slot: MLOM
+            wwpn: 50:00:00:25:B5:0B:00:02
+        boot_mode: Uefi
+        enable_secure_boot: false
+        name: examples
     firmware:
       - description: example-ucs Firmware Policy
-        name: fw
         model_bundle_version:
-          - firmware_version: "5.1(0.230054)"
+          - firmware_version: 5.1(0.230054)
             server_models:
               - UCSX-210C-M6
               - UCSB-B200-M5
-          - firmware_version: "4.2(3d)"
+          - firmware_version: 4.2(3d)
             server_models:
               - UCSC-C240-M5
+        name: fw
         target_platform: FIAttached
-    firmware_authenticate:
-      cco_user: 1
-      cco_password: 1
     virtual_media:
       - add_virtual_media:
           - device_type: cdd

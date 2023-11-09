@@ -2,7 +2,7 @@
 #========================================
 #   Policies -> ethernet - Variables
 #========================================
-default: # Name of the Organization
+default:
   policies:
     adapter_configuration:
       - add_vic_adapter_configuration:

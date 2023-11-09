@@ -2,7 +2,7 @@
 #=============================================
 #   Policies -> fibre_channel - Variables
 #=============================================
-default: # Name of the Organization
+default:
   policies:
     fc_zone:
       - description: vsan-a FC Zone Policy

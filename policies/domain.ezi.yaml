@@ -2,7 +2,7 @@
 #======================================
 #   Policies -> domain - Variables
 #======================================
-default: # Name of the Organization
+default:
   policies:
     flow_control:
       - description: flow-ctrl Flow Control Policy
@@ -57,6 +57,6 @@ default: # Name of the Organization
             priority: Silver
             state: Enabled
             weight: 8
-        jumbo_mtu: true
         description: qos System QoS Policy
+        jumbo_mtu: true
         name: qos

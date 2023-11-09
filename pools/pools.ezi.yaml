@@ -2,7 +2,7 @@
 #=========================
 #   Pools - Variables
 #=========================
-default: # Name of the Organization
+default:
   pools:
     ip:
       - ipv4_blocks:
@@ -30,11 +30,11 @@ default: # Name of the Organization
     iqn:
       - assignment_order: sequential
         description: default
-        name: default
         iqn_blocks:
           - from: 0
             size: 1024
             suffix: ucs-host
+        name: default
         prefix: iqn.1984-12.com.cisco
     mac:
       - mac_blocks:
@@ -95,7 +95,6 @@ default: # Name of the Organization
         resource_type: Server
         serial_number_list:
           - FCH26407CXM
-        server_type: Blades
     uuid:
       - description: uuid UUID Pool
         name: uuid

@@ -2,11 +2,12 @@
 #======================================
 #   Profiles -> Server - Variables
 #======================================
-default: # Name of the Organization
+default:
   profiles:
     server:
-      - action: No-op
+      - action: Deploy
         create_from_template: false
+        target_platform: FIAttached
         targets:
           - description: esx-1 UCS Server Profile
             name: esx-6
@@ -15,11 +16,11 @@ default: # Name of the Organization
             serial_number: FCH26407CXM
           - name: esx-8
             serial_number: FCH26417734
-        target_platform: FIAttached
         ucs_server_template: M2-pxe
       - action: No-op
         create_from_template: true
         domain_name: example-ucs
+        target_platform: FIAttached
         targets:
           - name: esx-1
             pre_assign:
@@ -37,5 +38,4 @@ default: # Name of the Organization
             pre_assign:
               chassis_id: 1
               slot_id: 4
-        target_platform: FIAttached
         ucs_server_template: M2-pxe
