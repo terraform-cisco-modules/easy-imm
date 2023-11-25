@@ -51,19 +51,17 @@ Recently I adopted the `tfenv` runner to standardize environment variables with 
 
 In the export examples below, for the Linux Example, the 'TF_VAR_' is excluded because Cloud Posse tfenv is used to insert it during the run.
 
-### Make sure you have already installed go
+### Make sure you have already installed go - Add go/bin to PATH
+
+```bash
+GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
+```
 
 ## [go](https://go.dev/doc/install)
 
 ```bash
 go install github.com/cloudposse/tfenv@latest
-```
-
-### Add go/bin to PATH
-
-```bash
-GOPATH="$HOME/go"
-PATH="$GOPATH/bin:$PATH"
 ```
 
 ### Aliases for `.bashrc`
