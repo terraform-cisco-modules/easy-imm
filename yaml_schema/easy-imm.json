@@ -12939,7 +12939,7 @@
                     "minLength": 1,
                     "maxLength": 129,
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
-                    "title": "thermal_policy"
+                    "title": "thermal_policsy"
                 },
                 "uuid_pool": {
                     "type": "string",
