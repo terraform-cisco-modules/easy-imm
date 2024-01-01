@@ -8872,7 +8872,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Default is `false`.  Flag to tell the Profile modules to either expect the policy names as data sources `true` or defined resources `false`.",
-                    "title": "enabled"
+                    "title": "moids_policies"
                 },
                 "moids_pools": {
                     "type": "boolean",
