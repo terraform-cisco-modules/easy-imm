@@ -2309,6 +2309,18 @@
                     ],
                     "title": "operation_mode"
                 },
+                "optimized_power_mode": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Optimized Power Mode configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
+                    "intersightApi": "OptimizedPowerMode",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "optimized_power_mode"
+                },
                 "os_boot_watchdog_timer": {
                     "type": "string",
                     "default": "platform-default",
@@ -2880,6 +2892,29 @@
                         "Hard PPR"
                     ],
                     "title": "post_package_repair"
+                },
+                "prmrr_size": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting PRMRR Size configuration.\n  * `platform-default` - Default value used by the platform for the BIOS setting.\n  * `1G` - Value - 1G for configuring PrmrrSize token.\n  * `2G` - Value - 2G for configuring PrmrrSize token.\n  * `4G` - Value - 4G for configuring PrmrrSize token.\n  * `8G` - Value - 8G for configuring PrmrrSize token.\n  * `16G` - Value - 16G for configuring PrmrrSize token.\n  * `32G` - Value - 32G for configuring PrmrrSize token.\n  * `64G` - Value - 64G for configuring PrmrrSize token.\n  * `128G` - Value - 128G for configuring PrmrrSize token.\n  * `256G` - Value - 256G for configuring PrmrrSize token.\n  * `512G` - Value - 512G for configuring PrmrrSize token.\n  * `128M` - Value - 128M for configuring PrmrrSize token.\n  * `256M` - Value - 256M for configuring PrmrrSize token.\n  * `512M` - Value - 512M for configuring PrmrrSize token.\n  * `Invalid Config.` - Value - Invalid Config for configuring PrmrrSize token.",
+                    "intersightApi": "PrmrrSize",
+                    "enum": [
+                        "platform-default",
+                        "1G",
+                        "2G",
+                        "4G",
+                        "8G",
+                        "16G",
+                        "32G",
+                        "64G",
+                        "128G",
+                        "256G",
+                        "512G",
+                        "128M",
+                        "256M",
+                        "512M"
+                    ],
+                    "title": "prmrr_size"
                 },
                 "processor_c1e": {
                     "type": "string",
@@ -6059,7 +6094,7 @@
                 "cert_type": {
                     "type": "string",
                     "default": "None",
-                    "description": "Default is `None`.  Certificate Type for the certificate management.\n* `None` - Set certificate on the selected end point .\n* `KMIPClient` - Set KMIP certificate on the selected end point.",
+                    "description": "Default is `None`.  Certificate Type for the certificate management.\n  * `None` - Set certificate on the selected end point .\n  * `KMIPClient` - Set KMIP certificate on the selected end point.",
                     "enum": [
                         "KMIPClient",
                         "None"
@@ -6077,7 +6112,7 @@
                 "type": {
                     "type": "string",
                     "default": "None",
-                    "description": "Default is `IMC`.  Certificate Object Type to Assign.\n* `IMC` - Set the object_type to `certificatemanagement.Imc`.\n* `RootCa` -  Set the object_type to `certificatemanagement.RootCaCertificate`.",
+                    "description": "Default is `IMC`.  Certificate Object Type to Assign.\n  * `IMC` - Set the object_type to `certificatemanagement.Imc`.\n  * `RootCa` -  Set the object_type to `certificatemanagement.RootCaCertificate`.",
                     "enum": [
                         "IMC",
                         "RootCa"
@@ -6240,12 +6275,35 @@
             "title": "device_connector - Device Connector - Intersight Uri: deviceconnector/Policies"
         },
         "easyIMM": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "description": "Terraform Global Settings.",
+                    "patternProperties": {
+                        "^global_settings$": {
+                            "$ref": "#/definitions/global_settings"
+                        }
+                    }
+                },
+                {
+                    "type": "object",
+                    "description": "Intersight Organization Name",
+                    "patternProperties": {
+                        "^(?!global_settings$)[a-zA-Z0-9_.:-]{1,64}$": {
+                            "$ref": "#/definitions/organization"
+                        }
+                    }
+                }
+            ],
+            "title": "Easy Intersight Managed Mode: YAML Schema."
+        },
+        "easySettings": {
             "type": "object",
             "additionalProperties": false,
             "description": "Intersight Organization Name",
-            "patternProperties": {
-                "^[a-zA-Z0-9_.:-]{1,64}$": {
-                    "$ref": "#/definitions/organization"
+            "properties": {
+                "global_settings": {
+                    "$ref": "#/definitions/global_settings"
                 }
             },
             "title": "Easy Intersight Managed Mode: YAML Schema."
@@ -8752,7 +8810,7 @@
                     "intersightApi": "BundleVersion",
                     "minLength": 7,
                     "maxLength": 16,
-                    "pattern": "^\\d\\.\\d\\(\\d[a-z]|0\\.2[3-9]\\d{4}\\)$",
+                    "pattern": "^\\d\\.\\d\\(\\d[a-z]|\\d\\.2[3-9]\\d{4}\\)$",
                     "title": "firmware_version"
                 },
                 "server_models": {
@@ -8795,6 +8853,44 @@
                 "server_models"
             ],
             "title": "model - Firmware Model Bundles"
+        },
+        "global_settings": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Global Settings for Terraform Module Setup.",
+            "properties": {
+                "intersight_fqdn": {
+                    "type": "string",
+                    "default": "intersight.com",
+                    "description": "Intersight Fully Qualified Domain Name.",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\\.?$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
+                    "title": "intersight_fqdn"
+                },
+                "moids_policies": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to tell the Profile modules to either expect the policy names as data sources `true` or defined resources `false`.",
+                    "title": "enabled"
+                },
+                "moids_pools": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to tell the Policies and Profiles modules to either expect the pool names as data sources `true` or defined resources `false`.",
+                    "title": "moids_pools"
+                },
+                "tags": {
+                    "type": "array",
+                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/mo.Tag"
+                    },
+                    "title": "tags - Tags"
+                }
+            },
+            "required": [],
+            "title": "global_settings"
         },
         "iam.EndPointUser": {
             "type": "object",
@@ -9268,7 +9364,7 @@
                     "minLength": 1,
                     "maxLength": 255,
                     "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\\.?$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
-                    "title": "username"
+                    "title": "server"
                 }
             },
             "required": [
@@ -11389,7 +11485,7 @@
                 },
                 "firmware": {
                     "type": "array",
-                    "description": "This policy allows you to see the firmware present in your systems, as against the firmware baseline. Firmware policy also enables you to bring the firmware of your systems in line with the desired version and thereby enables the drive to compliance.\nRequired Attributes:\n  * models\n  * name\n\nOptional Attributes:\n  * advanced_mode\n  * description\n  * tags\n  * target_platform",
+                    "description": "This policy allows you to see the firmware present in your systems, as against the firmware baseline. Firmware policy also enables you to bring the firmware of your systems in line with the desired version and thereby enables the drive to compliance.\nRequired Attributes:\n  * model_bundle_version\n  * name\n\nOptional Attributes:\n  * advanced_mode\n  * description\n  * tags\n  * target_platform",
                     "intersightUri": "firmware/Policies",
                     "items": {
                         "$ref": "#/definitions/firmware.Policy"
@@ -11670,7 +11766,7 @@
                 },
                 "system_qos": {
                     "type": "array",
-                    "description": "\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * classes\n  * configure_recommended_policy\n  * description\n  * jumbo_mtu\n  * tags",
+                    "description": "\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * classes\n  * configure_default_classes\n  * configure_recommended_classes\n  * description\n  * jumbo_mtu\n  * tags",
                     "intersightUri": "fabric/SystemQosPolicies",
                     "items": {
                         "$ref": "#/definitions/fabric.SystemQosPolicy"
@@ -12549,7 +12645,7 @@
                 "target_platform": {
                     "type": "string",
                     "default": "FIAttached",
-                    "description": "Default is `FIAttached`.  The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight.\n* `Standalone` - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected.\n* `FIAttached` - Servers which are connected to a Fabric Interconnect that is managed by Intersight.",
+                    "description": "Default is `FIAttached`.  The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight.\n  * `Standalone` - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected.\n  * `FIAttached` - Servers which are connected to a Fabric Interconnect that is managed by Intersight.",
                     "intersightApi": "TargetPlatform",
                     "enum": [
                         "FIAttached",
@@ -12923,7 +13019,7 @@
                 "target_platform": {
                     "type": "string",
                     "default": "FIAttached",
-                    "description": "Default is `FIAttached`.  The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight.\n* `Standalone` - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected.\n* `FIAttached` - Servers which are connected to a Fabric Interconnect that is managed by Intersight.",
+                    "description": "Default is `FIAttached`.  The platform for which the server profile is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight.\n  * `Standalone` - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected.\n  * `FIAttached` - Servers which are connected to a Fabric Interconnect that is managed by Intersight.",
                     "intersightApi": "TargetPlatform",
                     "enum": [
                         "FIAttached",

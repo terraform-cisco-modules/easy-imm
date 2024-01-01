@@ -13,7 +13,7 @@ locals {
       }
     ])
   }
-  intersight_fqdn = lookup(local.model.global_settings, "intersight_fqdn", "intersight.com")
+  intersight_fqdn = local.model.global_settings.intersight_fqdn
   model           = yamldecode(data.utils_yaml_merge.model.output)
   orgs            = { for k, v in data.intersight_organization_organization.orgs.results : v.name => v.moid }
 

@@ -1,0 +1,59 @@
+---
+#========================================
+#   Policies -> ethernet - Variables
+#========================================
+common: # Name of the Organization
+  policies:
+    ethernet_adapter:
+      - adapter_template: VMware
+        description: VMware Ethernet Adapter
+        name: VMware
+    ethernet_network_control:
+      - cdp_enable: true
+        description: cdp Ethernet Network Control Policy
+        lldp_enable_receive: true
+        lldp_enable_transmit: true
+        name: both
+      - cdp_enable: true
+        description: cdp Ethernet Network Control Policy
+        name: cdp
+      - description: lldp Ethernet Network Control Policy
+        lldp_enable_receive: true
+        lldp_enable_transmit: true
+        name: lldp
+    ethernet_network_group:
+      - allowed_vlans: 101-103,1000-1199
+        name: aci-uplink
+      - allowed_vlans: '101'
+        name: aci-mgmt
+        native_vlan: 101
+      - allowed_vlans: '102'
+        name: aci-migration
+        native_vlan: 102
+      - allowed_vlans: '103'
+        name: aci-storage
+        native_vlan: 103
+      - allowed_vlans: 101-103,1000-1199
+        name: aci-dvs
+        native_vlan: 1
+    ethernet_qos:
+      - description: Best Effort Ethernet QoS Policy
+        mtu: 9000
+        name: best-effort
+        priority: Best Effort
+      - description: Bronze Ethernet QoS Policy
+        mtu: 9000
+        name: Bronze
+        priority: Bronze
+      - description: Gold Ethernet QoS Policy
+        mtu: 9000
+        name: Gold
+        priority: Gold
+      - description: Platinum Ethernet QoS Policy
+        mtu: 9000
+        name: Platinum
+        priority: Platinum
+      - description: Silver Ethernet QoS Policy
+        mtu: 9000
+        name: Silver
+        priority: Silver

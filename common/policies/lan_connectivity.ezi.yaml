@@ -1,0 +1,68 @@
+---
+#================================================
+#   Policies -> lan_connectivity - Variables
+#================================================
+common: # Name of the Organization
+  policies:
+    lan_connectivity:
+      - description: lcp LAN Connectivity Policy
+        enable_azure_stack_host_qos: false
+        name: lcp
+        target_platform: FIAttached
+        vnics:
+          - ethernet_adapter_policy: VMware
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-mgmt]
+            ethernet_qos_policy: Silver
+            mac_address_pools:
+              - mgmt-a
+              - mgmt-b
+            names:
+              - mgmt-a
+              - mgmt-b
+            placement:
+              pci_order:
+                - 2
+                - 3
+          - ethernet_adapter_policy: VMware
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-migration]
+            ethernet_qos_policy: Bronze
+            mac_address_pools:
+              - migration-a
+              - migration-b
+            names:
+              - migration-a
+              - migration-b
+            placement:
+              pci_order:
+                - 4
+                - 5
+          - ethernet_adapter_policy: VMware
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-storage]
+            ethernet_qos_policy: Platinum
+            mac_address_pools:
+              - storage-a
+              - storage-b
+            names:
+              - storage-a
+              - storage-b
+            placement:
+              pci_order:
+                - 6
+                - 7
+          - ethernet_adapter_policy: VMware
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-dvs]
+            ethernet_qos_policy: Gold
+            mac_address_pools:
+              - dvs-a
+              - dvs-b
+            names:
+              - dvs-a
+              - dvs-b
+            placement:
+              pci_order:
+                - 8
+                - 9
