@@ -6297,17 +6297,6 @@
             ],
             "title": "Easy Intersight Managed Mode: YAML Schema."
         },
-        "easySettings": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "Intersight Organization Name",
-            "properties": {
-                "global_settings": {
-                    "$ref": "#/definitions/global_settings"
-                }
-            },
-            "title": "Easy Intersight Managed Mode: YAML Schema."
-        },
         "fabric.AppliancePcRole": {
             "type": "object",
             "additionalProperties": false,
