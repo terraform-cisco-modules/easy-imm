@@ -246,6 +246,7 @@
                         "M7-intel-data-analytics-tpm",
                         "M7-intel-hpc-tpm",
                         "M7-intel-relational-db-tpm",
+                        "M7-intel-virtual",
                         "M7-intel-virtual-tpm"
                     ],
                     "title": "bios_template"
@@ -6275,26 +6276,13 @@
             "title": "device_connector - Device Connector - Intersight Uri: deviceconnector/Policies"
         },
         "easyIMM": {
-            "anyOf": [
-                {
-                    "type": "object",
-                    "description": "Terraform Global Settings.",
-                    "patternProperties": {
-                        "^global_settings$": {
-                            "$ref": "#/definitions/global_settings"
-                        }
-                    }
-                },
-                {
-                    "type": "object",
-                    "description": "Intersight Organization Name",
-                    "patternProperties": {
-                        "^(?!global_settings$)[a-zA-Z0-9_.:-]{1,64}$": {
-                            "$ref": "#/definitions/organization"
-                        }
-                    }
+            "type": "object",
+            "description": "Intersight Organization Name",
+            "patternProperties": {
+                "^(?!global_settings$)[a-zA-Z0-9_.:-]{1,64}$": {
+                    "$ref": "#/definitions/organization"
                 }
-            ],
+            },
             "title": "Easy Intersight Managed Mode: YAML Schema."
         },
         "fabric.AppliancePcRole": {
@@ -8608,9 +8596,6 @@
                         "WWPN"
                     ],
                     "title": "pool_purpose"
-                },
-                "reservations": {
-                    "$ref": "#/definitions/fcpool.Reservations"
                 }
             },
             "required": [
@@ -8618,46 +8603,6 @@
                 "name"
             ],
             "title": "WW{N|P}N Pools"
-        },
-        "fcpool.Reservations": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "The WWxN reservation object, used to hold reserved addresses.\nRequired Attributes:\n  * identities\n\nOptional Attributes:\n  * allocation_type",
-            "ObjectType": "fcpool.Reservations",
-            "properties": {
-                "allocation_type": {
-                    "type": "string",
-                    "default": "static",
-                    "description": "Type of the allocation for the identity in the reservation either static or dynamic (i.e. via pool).\n  * dynamic - Identifiers to be allocated by system.\n  * static - Identifiers are assigned by the user.  (default)",
-                    "intersightApi": "AllocationType",
-                    "enum": [
-                        "dynamic",
-                        "static"
-                    ],
-                    "title": "allocation_type"
-                },
-                "identities": {
-                    "type": "array",
-                    "additionalProperties": false,
-                    "description": "List of WWxN identities to be reserved.",
-                    "intersightApi": "Identity",
-                    "items": {
-                        "type": "string",
-                        "default": "20:00:00:25:B5:00:00:00",
-                        "description": "WWN identity to be reserved.  Example `20:00:00:25:B5:00:00:00`",
-                        "intersightApi": "Identity",
-                        "minLength": 23,
-                        "maxLength": 23,
-                        "pattern": "^([\\da-fA-F]{2}:){7}[\\da-fA-F]{2}$",
-                        "title": "identity"
-                    },
-                    "title": "identities"
-                }
-            },
-            "required": [
-                "identities"
-            ],
-            "title": "WWNN/WWPN Reservations"
         },
         "firmware.AdvancedMode": {
             "type": "object",
@@ -8777,7 +8722,6 @@
                 }
             },
             "required": [
-                "description",
                 "model_bundle_version",
                 "name",
                 "target_platform"
@@ -9670,9 +9614,6 @@
                 "name": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/name"
                 },
-                "reservations": {
-                    "$ref": "#/definitions/ippool.Reservations"
-                },
                 "tags": {
                     "type": "array",
                     "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
@@ -9686,57 +9627,6 @@
                 "name"
             ],
             "title": "ip - IP Pool for Chassis and Server Address Allocation."
-        },
-        "ippool.Reservations": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "The IP reservation object, used to hold reserved addresses.\nRequired Attributes:\n  * identities\n\nOptional Attributes:\n  * allocation_type\n  * ip_type",
-            "ObjectType": "ippool.Reservations",
-            "properties": {
-                "allocation_type": {
-                    "type": "string",
-                    "default": "static",
-                    "description": "Type of the allocation for the identity in the reservation either static or dynamic (i.e. via pool).\n  * dynamic - Identifiers to be allocated by system.\n  * static - Identifiers are assigned by the user.  (default)",
-                    "intersightApi": "AllocationType",
-                    "enum": [
-                        "dynamic",
-                        "static"
-                    ],
-                    "title": "allocation_type"
-                },
-                "ip_type": {
-                    "type": "string",
-                    "default": "IPv4",
-                    "description": "Type of the IP address that needs to be reserved.\n  * IPv4 - IP V4 address type requested. (default)\n  * IPv6 - IP V6 address type requested.",
-                    "intersightApi": "IpType",
-                    "enum": [
-                        "IPv4",
-                        "IPv6"
-                    ],
-                    "title": "ip_type"
-                },
-                "identities": {
-                    "type": "array",
-                    "additionalProperties": false,
-                    "description": "List of IP identities to be reserved.",
-                    "intersightApi": "Identity",
-                    "items": {
-                        "type": "string",
-                        "default": "198.18.1.1",
-                        "description": "IP identity to be reserved.  Example `198.18.1.1` or `2001:db8::1`",
-                        "intersightApi": "Identity",
-                        "minLength": 6,
-                        "maxLength": 39,
-                        "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
-                        "title": "identity"
-                    },
-                    "title": "identities"
-                }
-            },
-            "required": [
-                "identities"
-            ],
-            "title": "Identity Reservations"
         },
         "iqnpool.Block": {
             "type": "object",
@@ -9811,9 +9701,6 @@
                     "pattern": "^iqn\\.(\\d{4}-\\d{2})\\.([^:]+)$",
                     "title": "prefix"
                 },
-                "reservations": {
-                    "$ref": "#/definitions/iqnpool.Reservations"
-                },
                 "tags": {
                     "type": "array",
                     "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
@@ -9828,46 +9715,6 @@
                 "name"
             ],
             "title": "IQN Pool"
-        },
-        "iqnpool.Reservations": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "The IQN reservation object, used to hold reserved addresses.\nRequired Attributes:\n  * identities\n\nOptional Attributes:\n  * allocation_type",
-            "ObjectType": "iqnpool.Reservations",
-            "properties": {
-                "allocation_type": {
-                    "type": "string",
-                    "default": "static",
-                    "description": "Type of the allocation for the identity in the reservation either static or dynamic (i.e. via pool).\n  * dynamic - Identifiers to be allocated by system.\n  * static - Identifiers are assigned by the user.  (default)",
-                    "intersightApi": "AllocationType",
-                    "enum": [
-                        "dynamic",
-                        "static"
-                    ],
-                    "title": "allocation_type"
-                },
-                "identities": {
-                    "type": "array",
-                    "additionalProperties": false,
-                    "description": "List of IQN identities to be reserved.",
-                    "intersightApi": "Identity",
-                    "items": {
-                        "type": "string",
-                        "default": "iqn.1984-12.com.cisco:ucs000",
-                        "description": "IP identity to be reserved.  Example `iqn.1984-12.com.cisco`",
-                        "intersightApi": "Identity",
-                        "minLength": 7,
-                        "maxLength": 128,
-                        "pattern": "^iqn\\.(\\d{4}-\\d{2})\\.([^:]+)(:)([^,:\\s']+)$",
-                        "title": "identity"
-                    },
-                    "title": "identities"
-                }
-            },
-            "required": [
-                "identities"
-            ],
-            "title": "IqnReservations"
         },
         "kvm.Policy": {
             "type": "object",
@@ -9997,9 +9844,6 @@
                 "name": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/name"
                 },
-                "reservations": {
-                    "$ref": "#/definitions/macpool.Reservations"
-                },
                 "tags": {
                     "type": "array",
                     "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
@@ -10014,46 +9858,6 @@
                 "name"
             ],
             "title": "MAC Pools"
-        },
-        "macpool.Reservations": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "The MAC reservation object, used to hold reserved addresses.\nRequired Attributes:\n  * identities\n\nOptional Attributes:\n  * allocation_type",
-            "ObjectType": "macpool.Reservations",
-            "properties": {
-                "allocation_type": {
-                    "type": "string",
-                    "default": "static",
-                    "description": "Type of the allocation for the identity in the reservation either static or dynamic (i.e. via pool).\n  * dynamic - Identifiers to be allocated by system.\n  * static - Identifiers are assigned by the user.  (default)",
-                    "intersightApi": "AllocationType",
-                    "enum": [
-                        "dynamic",
-                        "static"
-                    ],
-                    "title": "allocation_type"
-                },
-                "identities": {
-                    "type": "array",
-                    "additionalProperties": false,
-                    "description": "List of MAC identities to be reserved.",
-                    "intersightApi": "Identity",
-                    "items": {
-                        "type": "string",
-                        "default": "00:25:B5:0A:00:00",
-                        "description": "MAC identity to be reserved.  Example `00:25:B5:0A:00:00`",
-                        "intersightApi": "Identity",
-                        "minLength": 17,
-                        "maxLength": 17,
-                        "pattern": "^([\\da-fA-F]{2}:){5}[\\da-fA-F]{2}$",
-                        "title": "identity"
-                    },
-                    "title": "identities"
-                }
-            },
-            "required": [
-                "identities"
-            ],
-            "title": "MAC Reservations"
         },
         "memory.PersistentMemoryGoal": {
             "type": "object",
@@ -14342,9 +14146,6 @@
                     "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}$",
                     "title": "prefix"
                 },
-                "reservations": {
-                    "$ref": "#/definitions/uuidpool.Reservations"
-                },
                 "tags": {
                     "type": "array",
                     "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\nRequired Attributes:\n  * key\n  * value",
@@ -14366,46 +14167,6 @@
                 "uuid_blocks"
             ],
             "title": "UUID"
-        },
-        "uuidpool.Reservations": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "The UUID reservation object, used to hold reserved addresses.\nRequired Attributes:\n  * identities\n\nOptional Attributes:\n  * allocation_type",
-            "ObjectType": "uuidpool.Reservations",
-            "properties": {
-                "allocation_type": {
-                    "type": "string",
-                    "default": "static",
-                    "description": "Type of the allocation for the identity in the reservation either static or dynamic (i.e. via pool).\n  * dynamic - Identifiers to be allocated by system.\n  * static - Identifiers are assigned by the user.  (default)",
-                    "intersightApi": "AllocationType",
-                    "enum": [
-                        "dynamic",
-                        "static"
-                    ],
-                    "title": "allocation_type"
-                },
-                "identities": {
-                    "type": "array",
-                    "additionalProperties": false,
-                    "description": "List of UUID identities to be reserved.",
-                    "intersightApi": "Identity",
-                    "items": {
-                        "type": "string",
-                        "default": "0000-000000000000",
-                        "description": "UUID identity to be reserved.  Example `0000-000000000000`",
-                        "intersightApi": "Identity",
-                        "minLength": 17,
-                        "maxLength": 17,
-                        "pattern": "^[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-                        "title": "identity"
-                    },
-                    "title": "identities"
-                }
-            },
-            "required": [
-                "identities"
-            ],
-            "title": "IqnReservations"
         },
         "uuidpool.uuidBlock": {
             "type": "object",

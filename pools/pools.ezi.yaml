@@ -23,10 +23,6 @@ default:
           primary_dns: 10.101.128.15
           secondary_dns: 10.101.128.16
         name: kvm-ooband
-        reservations:
-          allocation_type: static
-          identities:
-            - 192.168.64.134
     iqn:
       - assignment_order: sequential
         description: default
