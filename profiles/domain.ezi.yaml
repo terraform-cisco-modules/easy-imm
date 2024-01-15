@@ -2,26 +2,25 @@
 #======================================
 #   Profiles -> Domain - Variables
 #======================================
-default:
+Asgard: # Name of the Organization
   profiles:
     domain:
       - action: No-op
-        description: example-ucs UCS Domain Profile
-        name: example-ucs
-        network_connectivity_policy: dns
-        ntp_policy: ntp
+        description: r143e-1 UCS Domain Profile
+        name: r143e-1
+        network_connectivity_policy: common/dns
+        ntp_policy: common/ntp
         port_policies:
-          - example-ucs-a
-          - example-ucs-b
+          - common/r143e-1-a
+          - common/r143e-1-b
         serial_numbers:
           - FDO245219W2
           - FDO23350SKV
-        snmp_policy: snmp
-        switch_control_policy: sw-ctrl
-        syslog_policy: syslog
-        system_qos_policy: qos
+        snmp_policy: common/snmp
+        switch_control_policy: common/sw-ctrl
+        system_qos_policy: common/qos
         vlan_policies:
-          - vlans
+          - common/aci-vlans
         vsan_policies:
-          - vsan-100
-          - vsan-200
+          - common/vsan-a
+          - common/vsan-b

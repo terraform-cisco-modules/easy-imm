@@ -2,15 +2,15 @@
 #=======================================
 #   Profiles -> Chassis - Variables
 #=======================================
-default:
+Asgard: # Name of the Organization
   profiles:
     chassis:
       - action: No-op
-        imc_access_policy: kvm
-        power_policy: '9508'
-        snmp_policy: snmp
+        imc_access_policy: common/aci-kvm
+        power_policy: common/9508
+        snmp_policy: common/snmp
         targets:
-          - description: example-ucs-1 UCS Chassis Profile
-            name: example-ucs-1
+          - description: r143e-1-1 UCS Chassis Profile
+            name: r143e-1-1
             serial_number: FOX2611P8N1
-        thermal_policy: '9508'
+        thermal_policy: common/9508

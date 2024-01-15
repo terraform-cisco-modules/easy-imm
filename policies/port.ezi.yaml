@@ -2,17 +2,16 @@
 #====================================
 #   Policies -> port - Variables
 #====================================
-default:
+common: # Name of the Organization
   policies:
     port:
-      - description: example-ucs Port Policy
-        device_model: UCS-FI-6454
+      - device_model: UCS-FI-6454
         names:
-          - example-ucs-a
-          - example-ucs-b
+          - r143e-1-a
+          - r143e-1-b
         port_channel_ethernet_uplinks:
           - admin_speed: Auto
-            ethernet_network_group_policy: uplink
+            ethernet_network_group_policy: aci-uplink
             flow_control_policy: flow-ctrl
             interfaces:
               - port_id: 53
@@ -37,6 +36,6 @@ default:
           - custom_mode: FibreChannel
             port_list:
               - 1
-              - 4
+              - 8
         port_role_servers:
-          - port_list: 5-18,33-34
+          - port_list: 33,34

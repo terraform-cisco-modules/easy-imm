@@ -11741,7 +11741,7 @@
             "properties": {
                 "ip": {
                     "type": "array",
-                    "description": "An IP pool is a sequential range of IP addresses within a certain network. You can assign multiple pool blocks within a pool configuration.\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * ipv4_blocks\n  * ipv4_configuration\n  * ipv6_blocks\n  * ipv6_configuration\n  * reservations\n  * tags\nNote: For each Address Family IPv4/IPv6, both ipv(4|6)_blocks and ipv(4|6)_configuration must be defined.",
+                    "description": "An IP pool is a sequential range of IP addresses within a certain network. You can assign multiple pool blocks within a pool configuration.\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * ipv4_blocks\n  * ipv4_configuration\n  * ipv6_blocks\n  * ipv6_configuration\n  * tags\nNote: For each Address Family IPv4/IPv6, both ipv(4|6)_blocks and ipv(4|6)_configuration must be defined.",
                     "intersightUri": "ippool/Pools",
                     "items": {
                         "$ref": "#/definitions/ippool.Pool"
@@ -11751,7 +11751,7 @@
                 },
                 "iqn": {
                     "type": "array",
-                    "description": "An IQN pool is a collection of iSCSI Qualified Names (IQNs) for use as initiator identifiers by iSCSI vNICs. IQN pool members are of the form prefix: suffix: number, where you can specify the prefix, suffix, and a block (range) of numbers.\nRequired Attributes:\n  * iqn_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * prefix\n  * reservations\n  * tags",
+                    "description": "An IQN pool is a collection of iSCSI Qualified Names (IQNs) for use as initiator identifiers by iSCSI vNICs. IQN pool members are of the form prefix: suffix: number, where you can specify the prefix, suffix, and a block (range) of numbers.\nRequired Attributes:\n  * iqn_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * prefix\n  * tags",
                     "intersightUri": "iqnpool/Pools",
                     "items": {
                         "$ref": "#/definitions/iqnpool.Pool"
@@ -11761,7 +11761,7 @@
                 },
                 "mac": {
                     "type": "array",
-                    "description": "A MAC pool is a collection of network identities, or MAC addresses, that are unique in their Layer 2 environment and are available to be assigned to vNICs on a server. If you use MAC pools in server profiles, you do not have to manually configure the MAC addresses to be used by the server associated with the server profile.\nRequired Attributes:\n  * mac_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * reservations\n  * tags",
+                    "description": "A MAC pool is a collection of network identities, or MAC addresses, that are unique in their Layer 2 environment and are available to be assigned to vNICs on a server. If you use MAC pools in server profiles, you do not have to manually configure the MAC addresses to be used by the server associated with the server profile.\nRequired Attributes:\n  * mac_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * tags",
                     "intersightUri": "macpool/Pools",
                     "items": {
                         "$ref": "#/definitions/macpool.Pool"
@@ -11787,7 +11787,7 @@
                 },
                 "uuid": {
                     "type": "array",
-                    "description": "A Universally Unique Identifier (UUID) pool is a collection of UUIDs that are assigned to servers. The prefix and suffix of the UUID are variable values. A UUID pool ensures that these variable values are unique for each server associated with a server profile that uses a particular pool to avoid conflicts.\nRequired Attributes:\n  * name\n  * uuid_blocks\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * prefix\n  * reservations\n  * tags",
+                    "description": "A Universally Unique Identifier (UUID) pool is a collection of UUIDs that are assigned to servers. The prefix and suffix of the UUID are variable values. A UUID pool ensures that these variable values are unique for each server associated with a server profile that uses a particular pool to avoid conflicts.\nRequired Attributes:\n  * name\n  * uuid_blocks\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * prefix\n  * tags",
                     "intersightUri": "uuidpool/Pools",
                     "items": {
                         "$ref": "#/definitions/uuidpool.Pool"
@@ -11797,7 +11797,7 @@
                 },
                 "wwnn": {
                     "type": "array",
-                    "description": "A WWNN pool is a WWN pool that contains only WW node names. If you include a pool of WWNNs in a server profile, the associated server is assigned a WWNN from that pool.\nRequired Attributes:\n  * id_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * reservations\n  * tags",
+                    "description": "A WWNN pool is a WWN pool that contains only WW node names. If you include a pool of WWNNs in a server profile, the associated server is assigned a WWNN from that pool.\nRequired Attributes:\n  * id_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * tags",
                     "intersightUri": "fcpool/Pools",
                     "items": {
                         "$ref": "#/definitions/fcpool.Pool"
@@ -11807,7 +11807,7 @@
                 },
                 "wwpn": {
                     "type": "array",
-                    "description": "A WWPN pool is a WWN pool that contains only WW port names. If you include a pool of WWPNs in a server profile, the port on each vHBA of the associated server is assigned a WWPN from that pool.\nRequired Attributes:\n  * id_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * reservations\n  * tags",
+                    "description": "A WWPN pool is a WWN pool that contains only WW port names. If you include a pool of WWPNs in a server profile, the port on each vHBA of the associated server is assigned a WWPN from that pool.\nRequired Attributes:\n  * id_blocks\n  * name\n\nOptional Attributes:\n  * assignment_order\n  * description\n  * tags",
                     "intersightUri": "fcpool/Pools",
                     "items": {
                         "$ref": "#/definitions/fcpool.Pool"
@@ -12160,6 +12160,13 @@
                     ],
                     "title": "action"
                 },
+                "attach_template": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Flag to determine if these Server Profiles should be associated to the template after creating the server profile.  This is most helpful when creating server profiles with identity reservations to create them in this manner.",
+                    "intersightApi": "not_applicable",
+                    "title": "create_from_template"
+                },
                 "adapter_configuration_policy": {
                     "type": "string",
                     "default": "default",
@@ -12256,6 +12263,13 @@
                     "maxLength": 129,
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "imc_access_policy"
+                },
+                "ignore_reservations": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Flag to determine if the script should ignore the reservations defined under each target.  The records for identity reservations are deleted from the API as soon as the identities are consumed by the Server Profile with UUID assignment and LAN/SAN Policy attachements.  After reservations have been consumed the reservations block sould be removed from each target.",
+                    "intersightApi": "not_applicable",
+                    "title": "create_from_template"
                 },
                 "ipmi_over_lan_policy": {
                     "type": "string",
@@ -12512,6 +12526,77 @@
             ],
             "title": "Server"
         },
+        "server.Reservations": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "identity": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "IPv4/IPv6/IQN/MAC/WWNN/WWPN Address.",
+                    "minLength": 6,
+                    "maxLength": 60000000000,
+                    "title": "identity"
+                },
+                "identity_type": {
+                    "type": "string",
+                    "description": "Type of Identity to Assign.  Options are:\n  * ip\n  * iqn\n  * mac\n  * uuid\n  * wwnn\n  * wwpn",
+                    "enum": [
+                        "ip",
+                        "iqn",
+                        "mac",
+                        "uuid",
+                        "wwnn",
+                        "wwpn"
+                    ],
+                    "title": "identity_type"
+                },
+                "interface": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "Name of the vNIC or vHBA for this reservation assignement (MAC/WWPN).",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[a-zA-Z0-9_\\.:-]+$",
+                    "title": "interface"
+                },
+                "ip_type": {
+                    "type": "string",
+                    "description": "Type of IP to assign.  Options are:\n  * IPv4\n  * IPv6 - Note: IPv6 is only supported for Inband",
+                    "enum": [
+                        "IPv4",
+                        "IPv6"
+                    ],
+                    "title": "ip_type"
+                },
+                "management_type": {
+                    "type": "string",
+                    "description": "Management Type for IMC Access Policy IP Assignment.  Options are:\n  * Inband\n  * Outofband",
+                    "enum": [
+                        "Inband",
+                        "InBand",
+                        "Outofband",
+                        "OutOfBand"
+                    ],
+                    "title": "management_type"
+                },
+                "pool_name": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "Name of the Pool to for this identity reservation.",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "pool_name"
+                }
+            },
+            "required": [
+                "identity",
+                "identity_type",
+                "pool_name"
+            ],
+            "title": "Target"
+        },
         "server.Target": {
             "type": "object",
             "additionalProperties": false,
@@ -12524,6 +12609,14 @@
                 },
                 "pre_assign": {
                     "$ref": "#/definitions/server.PreAssign"
+                },
+                "reservations": {
+                    "type": "array",
+                    "description": "A List of Identity (IP/IQN/MAC/UUID/WWNN/WWPN) Reservations to pre-assign to the server profile.\nRequired Attributes:\n  * identity\n  * identity_type\n  * interface - vHBA/vNIC Name - Required for MAC and WWPN Assignments.\n  * ip_type - For IP Reservations\n  * management_type - Required for IMC Access IP Assigment.  Not Required for iSCSI Boot Initiator Pool.\n  * pool_name",
+                    "items": {
+                        "$ref": "#/definitions/server.Reservations"
+                    },
+                    "title": "Server Identity Reservations"
                 },
                 "serial_number": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/serial_number"
@@ -14238,11 +14331,11 @@
                 "file_location": {
                     "type": "string",
                     "default": "https://server.example.com/os.iso",
-                    "description": "The remote file location path for the virtual media mapping. Accepted formats are:\n  * HDD for CIFS/NFS: hostname-or-IP/filePath/fileName.img\n  * CDD for CIFS/NFS: hostname-or-IP/filePath/fileName.iso\n  * HDD for HTTP/S: http[s]://hostname-or-IP/filePath/fileName.img\n  * CDD for HTTP/S: http[s]://hostname-or-IP/filePath/fileName.iso",
+                    "description": "The remote file location path for the virtual media mapping. Accepted formats are:\n  * HDD for CIFS: cifs://hostname-or-IP/filePath/fileName.img\n  * CDD for CIFS: cifs://hostname-or-IP/filePath/fileName.iso\n  * HDD for HTTP/S: http[s]://hostname-or-IP/filePath/fileName.img\n  * CDD for HTTP/S: http[s]://hostname-or-IP/filePath/fileName.iso\n  * HDD for NFS: nfs://hostname-or-IP/filePath/fileName.img\n  * CDD for NFS: nfs://hostname-or-IP/filePath/fileName.iso",
                     "intersightApi": "RemoteFile",
                     "minLength": 1,
                     "maxLength": 512,
-                    "pattern": "^(https?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|https?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})$",
+                    "pattern": "^((cifs|https|nfs)?://(?:www\\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|www\\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.[^\\s]{2,}|(cifs|https|nfs)?://(?:www\\.|(?!www))[a-zA-Z0-9]+\\.[^\\s]{2,}|www\\.[a-zA-Z0-9]+\\.[^\\s]{2,})$",
                     "title": "file_location"
                 },
                 "mount_options": {

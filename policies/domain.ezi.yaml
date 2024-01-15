@@ -2,7 +2,7 @@
 #======================================
 #   Policies -> domain - Variables
 #======================================
-default:
+common: # Name of the Organization
   policies:
     flow_control:
       - description: flow-ctrl Flow Control Policy
@@ -19,6 +19,18 @@ default:
         fc_switching_mode: end-host
         name: sw-ctrl
         vlan_port_count_optimization: false
+      - description: fc-switch Switch Control Policy
+        ethernet_switching_mode: end-host
+        fc_switching_mode: switch
+        name: fc-switch
+        vlan_port_count_optimization: false
+    system_qos:
+      - configure_recommended_classes: true
+        jumbo_mtu: true
+        description: qos System QoS Policy
+        name: qos
+default:
+  policies:
     system_qos:
       - classes:
           - bandwidth_percent: 10

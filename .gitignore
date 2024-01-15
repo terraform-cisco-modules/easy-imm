@@ -408,11 +408,16 @@ ansible_collections/
 site/
 
 # Terraform
-.terraform/
+*/.terraform/*
+.terraform/*
 .terraform.lock.hcl
+*/*.tfstate
 *.tfstate
+*/*.tfstate.backup
 *.tfstate.backup
+*/*.tfplan
 *.tfplan
+*/*.plan
 *.plan
 
 # key

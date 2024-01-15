@@ -2,6 +2,22 @@
 #=============================================
 #   Policies -> fibre_channel - Variables
 #=============================================
+common: # Name of the Organization
+  policies:
+    fibre_channel_adapter:
+      - adapter_template: Initiator
+        description: Initiator Fibre-Channel Adapter Policy
+        name: Initiator
+    fibre_channel_network:
+      - description: vsan-a Fibre-Channel Network Policy
+        name: vsan-a
+        vsan_id: 100
+      - description: vsan-b Fibre-Channel Network Policy
+        name: vsan-b
+        vsan_id: 200
+    fibre_channel_qos:
+      - description: fc-qos Fibre-Channel QoS Policy
+        name: fc-qos
 default:
   policies:
     fc_zone:
@@ -29,20 +45,3 @@ default:
             switch_id: B
             vsan_id: 200
             wwpn: 50:00:00:25:B5:0B:00:02
-    fibre_channel_adapter:
-      - adapter_template: VMware
-        description: VMware Fibre-Channel Adapter Policy
-        name: VMware
-    fibre_channel_network:
-      - description: vsan-a Fibre-Channel Network Policy
-        name: vsan-a
-        vsan_id: 100
-      - description: vsan-b Fibre-Channel Network Policy
-        name: vsan-b
-        vsan_id: 200
-    fibre_channel_qos:
-      - burst: 10240
-        description: fc-qos Fibre-Channel QoS Policy
-        max_data_field_size: 2112
-        name: fc-qos
-        rate_limit: 0

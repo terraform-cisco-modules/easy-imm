@@ -2,15 +2,15 @@
 #====================================
 #   Policies -> vsan - Variables
 #====================================
-default:
+common: # Name of the Organization
   policies:
     vsan:
-      - name: vsan-100
+      - name: vsan-a
         vsans:
           - fcoe_vlan_id: 100
             name: vsan-a
             vsan_id: 100
-      - name: vsan-200
+      - name: vsan-b
         vsans:
           - name: vsan-b
             vsan_id: 200

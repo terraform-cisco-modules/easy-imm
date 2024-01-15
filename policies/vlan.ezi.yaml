@@ -2,12 +2,12 @@
 #====================================
 #   Policies -> vlan - Variables
 #====================================
-default:
+common:
   policies:
     multicast:
       - name: mcast
     vlan:
-      - name: vlans
+      - name: aci-vlans
         vlans:
           - auto_allow_on_uplinks: true
             multicast_policy: mcast

@@ -3,6 +3,11 @@ output "domain_profiles" {
   value       = module.domain_profiles
 }
 
+output "orgs" {
+  description = "Organization Moids"
+  value       = local.orgs
+}
+
 output "policies" {
   description = "The Name of Each Policy Created with it's respective Moid."
   value       = module.policies

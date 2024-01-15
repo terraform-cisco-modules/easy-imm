@@ -1,0 +1,21 @@
+---
+common:
+  pools:
+    name_prefix:
+      default: ''
+      ip: ''
+      iqn: ''
+      mac: ''
+      resource: ''
+      uuid: ''
+      wwnn: ''
+      wwpn: ''
+    name_suffix:
+      default: ''
+      ip: ''
+      iqn: ''
+      mac: ''
+      resource: ''
+      uuid: ''
+      wwnn: ''
+      wwpn: ''

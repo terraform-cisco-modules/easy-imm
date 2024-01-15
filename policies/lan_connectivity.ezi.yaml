@@ -2,7 +2,7 @@
 #================================================
 #   Policies -> lan_connectivity - Variables
 #================================================
-default:
+common: # Name of the Organization
   policies:
     lan_connectivity:
       - description: lcp LAN Connectivity Policy
@@ -11,10 +11,9 @@ default:
         target_platform: FIAttached
         vnics:
           - ethernet_adapter_policy: VMware
-            ethernet_network_control_policy: lldp
-            ethernet_network_group_policies:
-              - mgmt
-            ethernet_qos_policy: Silver
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-mgmt]
+            ethernet_qos_policy: silver
             mac_address_pools:
               - mgmt-a
               - mgmt-b
@@ -26,10 +25,9 @@ default:
                 - 2
                 - 3
           - ethernet_adapter_policy: VMware
-            ethernet_network_control_policy: lldp
-            ethernet_network_group_policies:
-              - migration
-            ethernet_qos_policy: Bronze
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-migration]
+            ethernet_qos_policy: bronze
             mac_address_pools:
               - migration-a
               - migration-b
@@ -41,10 +39,9 @@ default:
                 - 4
                 - 5
           - ethernet_adapter_policy: VMware
-            ethernet_network_control_policy: lldp
-            ethernet_network_group_policies:
-              - storage
-            ethernet_qos_policy: Platinum
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-storage]
+            ethernet_qos_policy: platinum
             mac_address_pools:
               - storage-a
               - storage-b
@@ -56,10 +53,9 @@ default:
                 - 6
                 - 7
           - ethernet_adapter_policy: VMware
-            ethernet_network_control_policy: lldp
-            ethernet_network_group_policies:
-              - dvs
-            ethernet_qos_policy: Gold
+            ethernet_network_control_policy: both
+            ethernet_network_group_policies: [aci-dvs]
+            ethernet_qos_policy: gold
             mac_address_pools:
               - dvs-a
               - dvs-b

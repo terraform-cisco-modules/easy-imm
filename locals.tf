@@ -1,7 +1,7 @@
 locals {
   global_settings = {
-    moids_policies = lookup(local.model.global_settings, "moids_policies", false)
-    moids_pools    = lookup(local.model.global_settings, "moids_pools", false)
+    debugging             = lookup(local.model.global_settings, "debugging", false)
+    ignore_domain_serials = lookup(local.model.global_settings, "ignore_domain_serials", false)
     tags = lookup(local.model.global_settings, "tags", [
       {
         key   = "Module"
@@ -118,5 +118,5 @@ locals {
     for k, v in value.switch_profiles : merge(v, { domain_moid = module.domain_profiles[key].domains[v.domain_profile] }
     )]
   ]) : "${i.organization}:${i.name}" => i }
-  wait_for_domain = distinct(compact([for i in local.switch_profiles : i.action if i.action != "No-op"]))
+  #wait_for_domain = distinct(compact([for i in local.switch_profiles : i.action if i.action != "No-op"]))
 }

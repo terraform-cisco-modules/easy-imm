@@ -2,14 +2,14 @@
 #================================================
 #   Policies -> san_connectivity - Variables
 #================================================
-default:
+common: # Name of the Organization
   policies:
     san_connectivity:
       - description: scp SAN Connectivity Policy
         name: scp
         target_platform: FIAttached
         vhbas:
-          - fibre_channel_adapter_policy: VMware
+          - fibre_channel_adapter_policy: Initiator
             fibre_channel_network_policies:
               - vsan-a
               - vsan-b

@@ -5,7 +5,7 @@
 # Easy IMM
 ## Examples for Using the Easy IMM Terraform Modules
 
-Examples are Shown in the Following Directories:
+Examples are shown in the Following Directories:
 
 * `policies`
 * `pools`
@@ -14,7 +14,7 @@ Examples are Shown in the Following Directories:
 
 ### IMPORTANT NOTE
 
-Notice the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
+Note the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
 
 The Structure of the YAML Files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
 
@@ -36,9 +36,8 @@ Soon the Schema for these YAML Files have been registered with [*SchemaStore*](h
 
 #### Notes for the `global_settings.eza.yamls`
 
+# `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
 * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
-* `moids_policies`:  Consume Policies from a Data Source instead of a Resource.  This is helpful if you separate the `policies` module from `profiles/templates`.
-* `moids_pools`:  Consume Pools from a Data Source instead of a Resource.  This is helpful if you seperate the `pools` Module from the `policies` module.
 * `tags`:  Not Required, but by default the version of the script is being flagged here.
 
 #### Note: Modules can be added or removed dependent on the use case.  The primary example shown is consuming/showing a full environment deployment.
@@ -51,17 +50,19 @@ Recently I adopted the `tfenv` runner to standardize environment variables with 
 
 In the export examples below, for the Linux Example, the 'TF_VAR_' is excluded because Cloud Posse tfenv is used to insert it during the run.
 
-### Make sure you have already installed go - Add go/bin to PATH
-
-```bash
-GOPATH="$HOME/go"
-PATH="$GOPATH/bin:$PATH"
-```
+### Make sure you have already installed go
 
 ## [go](https://go.dev/doc/install)
 
 ```bash
 go install github.com/cloudposse/tfenv@latest
+```
+
+### Add go/bin to PATH
+
+```bash
+GOPATH="$HOME/go"
+PATH="$GOPATH/bin:$PATH"
 ```
 
 ### Aliases for `.bashrc`
@@ -78,6 +79,50 @@ alias tfp='tfenv terraform plan -out=main.plan'
 alias tfu='terraform init -upgrade'
 alias tfv='terraform validate'
 ```
+
+## Recommended Firmware
+
+In the `recommended_firmware` folder is a simple terraform setup that you can use to query Intersight for the latest recommended firmware for servers.  Following is an example output:
+
+```
+Changes to Outputs:
++ recommended_firmware = {
++ FIAttached = {
++ "4.3(2.230270)" = [
++ "UCSC-C220-M5",
++ "UCSC-C220-M6",
++ "UCSC-C220-M7",
++ "UCSC-C225-M6",
++ "UCSC-C240-M5",
++ "UCSC-C240-M6",
++ "UCSC-C240-M7",
++ "UCSC-C245-M6",
++ "UCSC-C480-M5",
+]
++ "5.2(0.230092)" = [
++ "UCSX-210C-M6",
++ "UCSX-210C-M7",
++ "UCSX-410C-M7",
+]
++ "5.2(0.230100)" = [
++ "UCSB-B200-M5",
++ "UCSB-B200-M6",
++ "UCSB-B480-M5",
+]
+}
+}
+```
+## Creating Server Profiles from Templates or Attaching Server Profiles to Templates
+
+If you want to create server profiles from templates use the flag `create_from_template` under the server profile in <org>:profiles:server.  See examples in `./profiles`.
+
+Do not create from template if you want to assign identity reservations to a server profile.  Instead set the `attach_template` flag in the server profile.  This will also attach the template to the profile but will reserve the identities to the profile prior to template attachement.
+
+## Updating Server Profile Templates attached to a Server Profiles
+
+There are a few situations where Terraform doesn't work well with Intersight.  One example is with Templates associated to Server Profiles.  In the Intersight GUI when a change is made to a template or the template associated to a server profile is updated the `bulk/MoMerger` API is called to make the update to all the servers associated to a template.  This API call is ephimeral, meaning the object is not maintained.  So to provide a quick way to work around this I have the example in the folder `update_server_template` that can be used to update the servers associated to a template when you make a change to the template or when you change the template associated to a servers.
+
+Unfortanately the other thing that would be nice to do along with this is to compare the template mod_time to timestamp(), but timestamp() doesn't take effect until apply so it fails on the plan.  For now this is the best workaround I could come up with.  If you have other thoughts feel free to submit a Pull request.
 
 ## Environment Variables
 
@@ -235,24 +280,23 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.37 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.44 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.37 |
-| <a name="provider_utils"></a> [utils](#provider\_utils) | >= 0.1.3 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.9.1 |
+| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.44 |
+| <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.5 |
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 3.1.1 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 3.1.4 |
-| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 3.1.3 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 3.1.4 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.0.2 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.0.2 |
+| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 4.0.2 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.0.2 |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
@@ -316,6 +360,7 @@ terraform.exe apply "main.plan"
 | Name | Description |
 |------|-------------|
 | <a name="output_domain_profiles"></a> [domain\_profiles](#output\_domain\_profiles) | Domain Profile Outputs: including cluster and switch Moids, policy assignments. |
+| <a name="output_orgs"></a> [orgs](#output\_orgs) | Organization Moids |
 | <a name="output_policies"></a> [policies](#output\_policies) | The Name of Each Policy Created with it's respective Moid. |
 | <a name="output_pools"></a> [pools](#output\_pools) | The Name of Each Pool Created with it's respective Moid. |
 | <a name="output_profiles"></a> [profiles](#output\_profiles) | The Name of Each Profile Created with it's respective Moid. |

@@ -9,7 +9,7 @@ content: |-
   # Easy IMM
   ## Examples for Using the Easy IMM Terraform Modules
 
-  Examples are Shown in the Following Directories:
+  Examples are shown in the following directories:
 
     * `policies`
     * `pools`
@@ -18,9 +18,9 @@ content: |-
 
   ### IMPORTANT NOTE
 
-  Notice the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
+  Note the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
 
-  The Structure of the YAML Files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
+  The Structure of the YAML files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
 
   ## YAML Schema Notes for auto-completion, Help, and Error Validation:
 
@@ -40,9 +40,8 @@ content: |-
 
   #### Notes for the `global_settings.eza.yamls`
 
+    # `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
     * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
-    * `moids_policies`:  Consume Policies from a Data Source instead of a Resource.  This is helpful if you separate the `policies` module from `profiles/templates`.  
-    * `moids_pools`:  Consume Pools from a Data Source instead of a Resource.  This is helpful if you seperate the `pools` Module from the `policies` module.
     * `tags`:  Not Required, but by default the version of the script is being flagged here.
 
   #### Note: Modules can be added or removed dependent on the use case.  The primary example shown is consuming/showing a full environment deployment.
@@ -84,6 +83,50 @@ content: |-
   alias tfu='terraform init -upgrade'
   alias tfv='terraform validate'
   ```
+
+  ## Recommended Firmware
+
+  In the `recommended_firmware` folder is a simple terraform setup that you can use to query Intersight for the latest recommended firmware for servers.  Following is an example output:
+  
+  ```
+  Changes to Outputs:
+    + recommended_firmware = {
+        + FIAttached = {
+            + "4.3(2.230270)" = [
+                + "UCSC-C220-M5",
+                + "UCSC-C220-M6",
+                + "UCSC-C220-M7",
+                + "UCSC-C225-M6",
+                + "UCSC-C240-M5",
+                + "UCSC-C240-M6",
+                + "UCSC-C240-M7",
+                + "UCSC-C245-M6",
+                + "UCSC-C480-M5",
+              ]
+            + "5.2(0.230092)" = [
+                + "UCSX-210C-M6",
+                + "UCSX-210C-M7",
+                + "UCSX-410C-M7",
+              ]
+            + "5.2(0.230100)" = [
+                + "UCSB-B200-M5",
+                + "UCSB-B200-M6",
+                + "UCSB-B480-M5",
+              ]
+          }
+      }
+  ```
+  ## Creating Server Profiles from Templates or Attaching Server Profiles to Templates
+
+  If you want to create server profiles from templates use the flag `create_from_template` under the server profile in <org>:profiles:server.  See examples in `./profiles`.
+
+  Do not create from template if you want to assign identity reservations to a server profile.  Instead set the `attach_template` flag in the server profile.  This will also attach the template to the profile but will reserve the identities to the profile prior to template attachement.
+
+  ## Updating Server Profile Templates attached to a Server Profiles
+
+  There are a few situations where Terraform doesn't work well with Intersight.  One example is with Templates associated to Server Profiles.  In the Intersight GUI when a change is made to a template or the template associated to a server profile is updated the `bulk/MoMerger` API is called to make the update to all the servers associated to a template.  This API call is ephimeral, meaning the object is not maintained.  So to provide a quick way to work around this I have the example in the folder `update_server_template` that can be used to update the servers associated to a template when you make a change to the template or when you change the template associated to a servers.
+
+  Unfortanately the other thing that would be nice to do along with this is to compare the template mod_time to timestamp(), but timestamp() doesn't take effect until apply so it fails on the plan.  For now this is the best workaround I could come up with.  If you have other thoughts feel free to submit a Pull request.
 
   ## Environment Variables
 
