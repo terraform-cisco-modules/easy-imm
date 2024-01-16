@@ -5,18 +5,20 @@
 # Easy IMM
 ## Examples for Using the Easy IMM Terraform Modules
 
-Examples are shown in the Following Directories:
+Examples are shown in the following directories:
 
 * `policies`
 * `pools`
 * `profiles`
 * `templates`
 
-### IMPORTANT NOTE
+### IMPORTANT NOTES
 
-Note the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
+Take notice of the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
 
-The Structure of the YAML Files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
+The Structure of the YAML files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
+
+When defining Identity reservations under a server profile.  See example in `profiles` folder.  Note the flag in the example with `ignore_reservations`.  Reservation records are ephimeral.  Meaning that as soon as the reservation is assigned to a server profile, the identity reservation record is removed from the API.  Thus, after you run the first plan and the identities are created, this flag should be configured to `true` or you need to remove the reservations from the servers.  Either way the reservations will only work on the first apply.  Subsequent applies with the reservations defined will cause the plan/apply to fail due to the identity being consumed.
 
 ## YAML Schema Notes for auto-completion, Help, and Error Validation:
 

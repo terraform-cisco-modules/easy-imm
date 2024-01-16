@@ -17,7 +17,7 @@ data "utils_yaml_merge" "model" {
 }
 
 resource "intersight_bulk_mo_merger" "name" {
-  for_each = local.templates
+  for_each     = local.templates
   merge_action = "Merge"
   lifecycle { ignore_changes = all }
   sources {
