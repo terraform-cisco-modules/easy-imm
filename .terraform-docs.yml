@@ -130,6 +130,8 @@ content: |-
 
   Unfortanately the other thing that would be nice to do along with this is to compare the template mod_time to timestamp(), but timestamp() doesn't take effect until apply so it fails on the plan.  For now this is the best workaround I could come up with.  If you have other thoughts feel free to submit a Pull request.
 
+  If you do use this, simply delete the terraform.tfstate file in this folder each time you run it.  The objects don't actually exist so the state file provides no benefit.
+
   ## Environment Variables
 
   Note that all the variables in `variables.tf` are marked as sensitive.  Meaning these are variables that shouldn't be exposed due to the sensitive nature of them.
