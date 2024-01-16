@@ -38,7 +38,7 @@ Soon the Schema for these YAML Files have been registered with [*SchemaStore*](h
 
 #### Notes for the `global_settings.eza.yamls`
 
-# `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
+* `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
 * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
 * `tags`:  Not Required, but by default the version of the script is being flagged here.
 
