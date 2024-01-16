@@ -1,3 +1,29 @@
+#_______________________________________________________________________
+#
+# Terraform Required Parameters - Intersight Provider
+# https://registry.terraform.io/providers/CiscoDevNet/intersight/latest
+#_______________________________________________________________________
+
+terraform {
+  required_providers {
+    intersight = {
+      source  = "CiscoDevNet/intersight"
+      version = "1.0.44"
+    }
+    utils = {
+      source  = "netascode/utils"
+      version = ">= 0.1.3"
+    }
+  }
+  required_version = ">=1.3.0"
+}
+
+provider "intersight" {
+  apikey    = var.intersight_api_key_id
+  endpoint  = "https://${local.intersight_fqdn}"
+  secretkey = fileexists(var.intersight_secret_key) ? file(var.intersight_secret_key) : var.intersight_secret_key
+}
+
 locals {
   model           = yamldecode(data.utils_yaml_merge.model.output)
   intersight_fqdn = local.model.global_settings.intersight_fqdn
@@ -42,4 +68,22 @@ data "intersight_firmware_distributable" "recommended" {
 
 output "recommended_firmware" {
   value = local.recommended_firmware
+}
+
+#______________________________________________
+#
+# Intersight Provider Settings
+#______________________________________________
+
+variable "intersight_api_key_id" {
+  description = "Intersight API Key."
+  sensitive   = true
+  type        = string
+}
+
+variable "intersight_secret_key" {
+  default     = "blah.txt"
+  description = "Intersight Secret Key."
+  sensitive   = true
+  type        = string
 }
