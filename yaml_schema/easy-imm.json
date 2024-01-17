@@ -8401,7 +8401,7 @@
                 "auto_allow_on_uplinks": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is true.  Enable to automatically allow this VLAN on all uplinks. Disable must be specified for Disjoint Layer 2 VLAN configuration. Default VLAN-1 cannot be configured as Disjoint Layer 2 VLAN.",
+                    "description": "Default is `false`.  Enable to automatically allow this VLAN on all uplinks. Disable must be specified for Disjoint Layer 2 VLAN configuration. Default VLAN-1 cannot be configured as Disjoint Layer 2 VLAN.",
                     "intersightApi": "AutoAllowOnUplinks",
                     "title": "auto_allow_on_uplinks"
                 },
