@@ -6,7 +6,6 @@ Asgard: # Name of the Organization
   profiles:
     server:
       - action: No-op
-        create_from_template: false
         attach_template: true
         domain_name: example-ucs
         targets:
@@ -25,15 +24,14 @@ Asgard: # Name of the Organization
         target_platform: FIAttached
         ucs_server_template: common/aci-M6-intel-virtual-tpm-M2-pxe
       - action: No-op
-        create_from_template: false
         attach_template: true
         ignore_reservations: true
         targets:
           - description: r143-1-4 UCS Server Profile
             name: r143-1-4
             serial_number: FCH26407DHP
-          - name: r143-1-7
-            serial_number: FCH26407CXM
+          #- name: r143-1-7
+          #  serial_number: FCH26407CXM
           - name: r143-1-8
             reservations:
               - identity: 198.18.101.78
@@ -102,3 +100,10 @@ Asgard: # Name of the Organization
             serial_number: FCH26417734
         target_platform: FIAttached
         ucs_server_template: common/aci-M6-intel-virtual-tpm-M2-pxe
+      - action: No-op
+        attach_template: true
+        targets:
+          - name: r143-1-7
+            serial_number: FCH26407CXM
+        target_platform: FIAttached
+        ucs_server_template: common/aci-M5-intel-virtual-tpm-M2-pxe

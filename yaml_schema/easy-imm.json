@@ -6669,7 +6669,7 @@
                 },
                 "vlans": {
                     "type": "array",
-                    "description": "List of VLANs to add to the VLAN Policy.\nRequired Attributes:\n  * multicast_policy\n  * name\n  * vlan_list\n\nOptional Attributes:\n  * auto_allow_on_uplinks\n  * native_vlan\n  * name\n  * primary_vlan_id\n  * sharing_type",
+                    "description": "List of VLANs to add to the VLAN Policy.\nRequired Attributes:\n  * multicast_policy\n  * name\n  * vlan_list\n\nOptional Attributes:\n  * auto_allow_on_uplinks\n  * native_vlan\n  * name\n  * name_prefix\n  * primary_vlan_id\n  * sharing_type",
                     "intersightUri": "fabric/Vlans",
                     "items": {
                         "$ref": "#/definitions/fabric.Vlan"
@@ -8418,17 +8418,24 @@
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
+                "name_prefix": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Default is `true`.  Used to define whether the name should be used as a prefix or not when it is a list of vlans.",
+                    "intersightApi": "IsNative",
+                    "title": "native_vlan"
+                },
                 "native_vlan": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Used to define whether this VLAN is to be classified as 'native' for traffic in this FI.",
+                    "description": "Default is `false`.  Used to define whether this VLAN is to be classified as 'native' for traffic in this FI.",
                     "intersightApi": "IsNative",
                     "title": "native_vlan"
                 },
                 "primary_vlan_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The Primary VLAN ID of the VLAN, if the sharing type of the VLAN is Isolated or Community.",
+                    "description": "Default is `1`.  The Primary VLAN ID of the VLAN, if the sharing type of the VLAN is Isolated or Community.",
                     "intersightApi": "$ref:fabric.VlanSet:PrimaryVlanId",
                     "minimum": 0,
                     "maximum": 4093,
@@ -11970,7 +11977,7 @@
                 },
                 "server": {
                     "type": "array",
-                    "description": "In Cisco Intersight, a Server Profile enables resource management by streamlining policy alignment, and server configuration. You can create Server Profiles using the Server Profile wizard or you can import the configuration details of C-series servers in standalone mode and FI-attached servers in Intersight Managed Mode (IMM), directly from Cisco IMC. You can create Server Profiles using the Server Profile wizard to provision servers, create policies to ensure smooth deployment of servers, and eliminate failures that are caused by inconsistent configuration. The Server Profiles wizard groups the server policies into the following four categories to provide a quick Summary View of the policies that are attached to a profile:\n  * Compute Policies — BIOS, Boot Order, and Virtual Media.\n  * Network Policies — Adapter Configuration, iSCSI Boot, LAN Connectivity, and SAN Connectivity policies.\n     - The LAN Connectivity policy requires you to create Ethernet Network Policy, Ethernet Adapter Policy, and Ethernet QoS Policy. When you attach a LAN Connectivity policy to a server profile, the addresses of the MAC address Pool, or the static MAC address, are automatically assigned.\n     - Note: A LAN Connectivity policy that has a static MAC address can be attached to only one server profile.\n     - The SAN Connectivity policy requires you to create Fibre Channel Network Policy, Fibre Channel Adapter Policy, and Fiber Channel QoS Policy. When you attach a SAN Connectivity policy to a server profile, the addresses of the WWPN and WWNN Pools, or the static WWPN and WWNN addresses, are automatically assigned.\n     - Note:  A SAN Connectivity policy that has a static WWPN, or a static WWNN can be attached to only one server profile.\n  * Storage Policies—SD Card and Storage policies\n  * Management Policies—Device Connector, IPMI Over LAN, LDAP, Local User, Network Connectivity, SMTP, SNMP, SSH, Serial over LAN, Syslog, NTP, Certificate Management, and Virtual KVM policies\nRequired Attributes:\n  * action\n  * targets\n  * target_platform\n\nRequired for FIAttached:\n  * domain_name\n\nOptional Attributes:\n  * create_from_template\n  * resource_pool\n  * tags\n  * ucs_server_template\n#===========================\n# Compute Configuration\n#===========================\n  * bios_policy_policy\n  * boot_order_policy\n  * firmware_policy\n  * persistent_memory_policy - Standalone Only\n  * power_policy - FIAttached Only\n  * thermal_policy\n  * uuid_pool - FIAttached Only\n  * virtual_media_policy\n#===========================\n# Management Configuration\n#===========================\n  * certificate_management_policy - FIAttached Only\n  * device_connector_policy - Standalone Only\n  * imc_access_policy - FIAttached Only\n  * ipmi_over_lan_policy\n  * ldap_policy - Standalone Only\n  * local_user_policy\n  * network_connectivity_policy - Standalone Only\n  * ntp_policy - Standalone Only\n  * serial_over_lan_policy\n  * smtp_policy - Standalone Only\n  * snmp_policy\n  * ssh_policy - Standalone Only\n  * syslog_policy\n  * virtual_kvm_policy\n#===========================\n# Storage Configuration\n#===========================\n  * drive_security_policy\n  * sd_card_policy\n  * storage_policy\n#===========================\n# Network Configuration\n#===========================\n  * adapter_configuration_policy - Standalone Only\n  * lan_connectivity_policy\n  * san_connectivity_policy",
+                    "description": "In Cisco Intersight, a Server Profile enables resource management by streamlining policy alignment, and server configuration. You can create Server Profiles using the Server Profile wizard or you can import the configuration details of C-series servers in standalone mode and FI-attached servers in Intersight Managed Mode (IMM), directly from Cisco IMC. You can create Server Profiles using the Server Profile wizard to provision servers, create policies to ensure smooth deployment of servers, and eliminate failures that are caused by inconsistent configuration. The Server Profiles wizard groups the server policies into the following four categories to provide a quick Summary View of the policies that are attached to a profile:\n  * Compute Policies — BIOS, Boot Order, and Virtual Media.\n  * Network Policies — Adapter Configuration, iSCSI Boot, LAN Connectivity, and SAN Connectivity policies.\n     - The LAN Connectivity policy requires you to create Ethernet Network Policy, Ethernet Adapter Policy, and Ethernet QoS Policy. When you attach a LAN Connectivity policy to a server profile, the addresses of the MAC address Pool, or the static MAC address, are automatically assigned.\n     - Note: A LAN Connectivity policy that has a static MAC address can be attached to only one server profile.\n     - The SAN Connectivity policy requires you to create Fibre Channel Network Policy, Fibre Channel Adapter Policy, and Fiber Channel QoS Policy. When you attach a SAN Connectivity policy to a server profile, the addresses of the WWPN and WWNN Pools, or the static WWPN and WWNN addresses, are automatically assigned.\n     - Note:  A SAN Connectivity policy that has a static WWPN, or a static WWNN can be attached to only one server profile.\n  * Storage Policies—SD Card and Storage policies\n  * Management Policies—Device Connector, IPMI Over LAN, LDAP, Local User, Network Connectivity, SMTP, SNMP, SSH, Serial over LAN, Syslog, NTP, Certificate Management, and Virtual KVM policies\nRequired Attributes:\n  * action\n  * attach_template\n  * targets\n  * target_platform\n\nRequired for FIAttached:\n  * domain_name\n\nOptional Attributes:\n  * ignore_reservations\n  * resource_pool\n  * tags\n  * ucs_server_template\n#===========================\n# Compute Configuration\n#===========================\n  * bios_policy_policy\n  * boot_order_policy\n  * firmware_policy\n  * persistent_memory_policy - Standalone Only\n  * power_policy - FIAttached Only\n  * thermal_policy\n  * uuid_pool - FIAttached Only\n  * virtual_media_policy\n#===========================\n# Management Configuration\n#===========================\n  * certificate_management_policy - FIAttached Only\n  * device_connector_policy - Standalone Only\n  * imc_access_policy - FIAttached Only\n  * ipmi_over_lan_policy\n  * ldap_policy - Standalone Only\n  * local_user_policy\n  * network_connectivity_policy - Standalone Only\n  * ntp_policy - Standalone Only\n  * serial_over_lan_policy\n  * smtp_policy - Standalone Only\n  * snmp_policy\n  * ssh_policy - Standalone Only\n  * syslog_policy\n  * virtual_kvm_policy\n#===========================\n# Storage Configuration\n#===========================\n  * drive_security_policy\n  * sd_card_policy\n  * storage_policy\n#===========================\n# Network Configuration\n#===========================\n  * adapter_configuration_policy - Standalone Only\n  * lan_connectivity_policy\n  * san_connectivity_policy",
                     "intersightUri": "server/Profiles",
                     "items": {
                         "$ref": "#/definitions/server.Profile"
@@ -12165,7 +12172,7 @@
                     "default": false,
                     "description": "Flag to determine if these Server Profiles should be associated to the template after creating the server profile.  This is most helpful when creating server profiles with identity reservations to create them in this manner.",
                     "intersightApi": "not_applicable",
-                    "title": "create_from_template"
+                    "title": "attach_template"
                 },
                 "adapter_configuration_policy": {
                     "type": "string",
@@ -12206,13 +12213,6 @@
                     "maxLength": 129,
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "certificate_management_policy"
-                },
-                "create_from_template": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Flag to determine if these Server Profiles should be created from the UCS Server Profile Template Reference or just used as a policy source.",
-                    "intersightApi": "not_applicable",
-                    "title": "create_from_template"
                 },
                 "device_connector_policy": {
                     "type": "string",
@@ -12269,7 +12269,7 @@
                     "default": false,
                     "description": "Flag to determine if the script should ignore the reservations defined under each target.  The records for identity reservations are deleted from the API as soon as the identities are consumed by the Server Profile with UUID assignment and LAN/SAN Policy attachements.  After reservations have been consumed the reservations block sould be removed from each target.",
                     "intersightApi": "not_applicable",
-                    "title": "create_from_template"
+                    "title": "ignore_reservations"
                 },
                 "ipmi_over_lan_policy": {
                     "type": "string",
@@ -12520,7 +12520,7 @@
             },
             "required": [
                 "action",
-                "create_from_template",
+                "attach_template",
                 "target_platform",
                 "targets"
             ],
