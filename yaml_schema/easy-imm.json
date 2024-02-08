@@ -8422,8 +8422,8 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Default is `true`.  Used to define whether the name should be used as a prefix or not when it is a list of vlans.",
-                    "intersightApi": "IsNative",
-                    "title": "native_vlan"
+                    "intersightApi": "name_prefix",
+                    "title": "name_prefix"
                 },
                 "native_vlan": {
                     "type": "boolean",
@@ -13194,7 +13194,7 @@
                     "type": "integer",
                     "default": 1,
                     "description": "Default is 0.  A number Between 1-5 to denote to use one of the variables snmp_auth_password_[1-5].  Any other number means no community string.",
-                    "intersightApi": "not_applicable",
+                    "intersightApi": "Community",
                     "minimum": 1,
                     "maximum": 64,
                     "title": "community_string"
