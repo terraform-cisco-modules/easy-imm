@@ -1,8 +1,8 @@
 ---
-#=========================
-#   Pools - Variables
-#=========================
-common: # Name of the Organization
+#==================================
+#   Pools -> Pools - Variables
+#==================================
+common:
   pools:
     ip:
       - ipv4_blocks:

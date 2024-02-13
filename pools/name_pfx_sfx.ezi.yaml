@@ -1,4 +1,8 @@
 ---
+#===============================================
+#   Pools -> Name Prefix/Suffix - Variables
+#===============================================
+# If a prefix/suffix policy is undefined default will be used
 common:
   pools:
     name_prefix:
