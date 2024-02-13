@@ -1,6 +1,6 @@
 ---
 #====================================
-#   Policies -> vlan - Variables
+#   Policies -> Vlan - Variables
 #====================================
 common:
   policies:

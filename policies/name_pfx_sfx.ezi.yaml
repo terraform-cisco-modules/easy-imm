@@ -1,19 +1,18 @@
 ---
-#==========================================
-#   Policies -> management - Variables
-#==========================================
-# If a policy is undefined default for prefix/suffix will be used
-# This is all optional
-common: # Name of the Organization
+#==================================================
+#   Policies -> Name Prefix/Suffix - Variables
+#==================================================
+# If a prefix/suffix policy is undefined default will be usedcommon:
+common:
   policies:
     name_prefix:
-      default: ''
       adapter_configuration: ''
       bios: ''
       boot_order: ''
       certificate_management: ''
-      drive_security: ''
+      default: ''
       device_connector: ''
+      drive_security: ''
       ethernet_adapter: ''
       ethernet_network: ''
       ethernet_network_control: ''
@@ -57,11 +56,11 @@ common: # Name of the Organization
       vlan: ''
       vsan: ''
     name_suffix:
-      default: ''
       adapter_configuration: ''
       bios: ''
       boot_order: ''
       certificate_management: ''
+      default: ''
       device_connector: ''
       drive_security: ''
       ethernet_adapter: ''

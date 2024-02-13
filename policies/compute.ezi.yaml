@@ -1,6 +1,6 @@
 ---
 #=======================================
-#   Policies -> compute - Variables
+#   Policies -> Compute - Variables
 #=======================================
 common:
   policies:

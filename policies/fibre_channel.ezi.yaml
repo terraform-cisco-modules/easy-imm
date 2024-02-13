@@ -1,6 +1,6 @@
 ---
 #=============================================
-#   Policies -> fibre_channel - Variables
+#   Policies -> Fibre Channel - Variables
 #=============================================
 common:
   policies:

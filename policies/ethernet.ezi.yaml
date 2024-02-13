@@ -1,6 +1,6 @@
 ---
 #========================================
-#   Policies -> ethernet - Variables
+#   Policies -> Ethernet - Variables
 #========================================
 common:
   policies:

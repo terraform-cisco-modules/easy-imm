@@ -1,6 +1,6 @@
 ---
 #================================================
-#   Policies -> lan_connectivity - Variables
+#   Policies -> Lan Connectivity - Variables
 #================================================
 common:
   policies:

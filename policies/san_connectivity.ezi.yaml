@@ -1,6 +1,6 @@
 ---
 #================================================
-#   Policies -> san_connectivity - Variables
+#   Policies -> San Connectivity - Variables
 #================================================
 common:
   policies:
