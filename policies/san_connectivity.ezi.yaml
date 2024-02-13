@@ -2,7 +2,7 @@
 #================================================
 #   Policies -> san_connectivity - Variables
 #================================================
-common: # Name of the Organization
+common:
   policies:
     san_connectivity:
       - description: scp SAN Connectivity Policy

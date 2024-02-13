@@ -2,10 +2,10 @@
 #=======================================
 #   Policies -> compute - Variables
 #=======================================
-common: # Name of the Organization
+common:
   policies:
     bios:
-      - baud_rate: "115200"
+      - baud_rate: '115200'
         bios_template: M5-intel-virtual
         console_redirection: com-0
         description: M5-intel-virtual BIOS Policy
@@ -14,7 +14,7 @@ common: # Name of the Organization
         name: M5-intel-virtual
         serial_port_aenable: enabled
         terminal_type: vt100
-      - baud_rate: "115200"
+      - baud_rate: '115200'
         bios_template: M5-intel-virtual-tpm
         console_redirection: com-0
         description: M5-intel-virtual-tpm BIOS Policy
@@ -23,7 +23,7 @@ common: # Name of the Organization
         name: M5-intel-virtual-tpm
         serial_port_aenable: enabled
         terminal_type: vt100
-      - baud_rate: "115200"
+      - baud_rate: '115200'
         bios_template: M6-intel-virtual-tpm
         console_redirection: com-0
         description: M6-intel-virtual-tpm BIOS Policy
@@ -33,24 +33,22 @@ common: # Name of the Organization
         serial_port_aenable: enabled
         terminal_type: vt100
     boot_order:
-      - name: M2-pxe
-        boot_devices:
+      - boot_devices:
           - name: KVM-DVD
             object_type: boot.VirtualMedia
             sub_type: kvm-mapped-dvd
           - name: M2
             object_type: boot.LocalDisk
             slot: MSTOR-RAID
-          - name: PXE
-            interface_name: mgmt-a
+          - interface_name: mgmt-a
+            name: PXE
             object_type: boot.Pxe
             slot: MLOM
         boot_mode: Uefi
-        # description: M2-pxe Boot Policy.
         enable_secure_boot: true
+        name: M2-pxe
     firmware:
       - description: example-ucs Firmware Policy
-        name: 'fw-domain-servers'
         model_bundle_version:
           - firmware_version: 5.2(0.230040)
             server_models:
@@ -61,6 +59,7 @@ common: # Name of the Organization
           - firmware_version: 4.3(2.230207)
             server_models:
               - UCSC-C240-M5
+        name: fw-domain-servers
         target_platform: FIAttached
     firmware_authenticate:
       cco_password: 1
