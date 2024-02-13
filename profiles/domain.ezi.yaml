@@ -2,7 +2,7 @@
 #======================================
 #   Profiles -> Domain - Variables
 #======================================
-Asgard: # Name of the Organization
+Asgard:
   profiles:
     domain:
       - action: No-op

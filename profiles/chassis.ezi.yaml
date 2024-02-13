@@ -2,7 +2,7 @@
 #=======================================
 #   Profiles -> Chassis - Variables
 #=======================================
-Asgard: # Name of the Organization
+Asgard:
   profiles:
     chassis:
       - action: No-op
