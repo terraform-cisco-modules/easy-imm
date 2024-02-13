@@ -12125,7 +12125,7 @@
         "server.PreAssign": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Enabled the Pre-Assignment of a Server Profile to either a Chassis/Slot or using the Serial Number.  * Note - If using Chassis/Slot make sure you have defined the domain_name as well to the Server Profile Section.",
+            "description": "Enabled the Pre-Assignment of a Server Profile to either a Chassis/Slot or using the Serial Number.  * Note - If using Chassis/Slot make sure you have defined the domain_name as well to the Server Profile Section.\nFor Chassis/Slot assignment:\n  * chassis\n  * slot\n\nFor Serial Pre-Assignment:\n  * serial_number",
             "properties": {
                 "chassis_id": {
                     "type": "integer",
@@ -12268,7 +12268,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Flag to determine if the script should ignore the reservations defined under each target.  The records for identity reservations are deleted from the API as soon as the identities are consumed by the Server Profile with UUID assignment and LAN/SAN Policy attachements.  After reservations have been consumed the reservations block sould be removed from each target.",
-                    "intersightApi": "not_applicable",
+                    "intersightApi": "ignore_reservations",
                     "title": "ignore_reservations"
                 },
                 "ipmi_over_lan_policy": {
