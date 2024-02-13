@@ -2,7 +2,7 @@
 #==================================================
 #   Policies -> Name Prefix/Suffix - Variables
 #==================================================
-# If a prefix/suffix policy is undefined default will be usedcommon:
+# If a prefix/suffix policy is undefined default will be used
 common:
   policies:
     name_prefix:

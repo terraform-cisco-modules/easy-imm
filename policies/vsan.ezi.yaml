@@ -1,6 +1,6 @@
 ---
 #====================================
-#   Policies -> Vsan - Variables
+#   Policies -> VSAN - Variables
 #====================================
 common:
   policies:
