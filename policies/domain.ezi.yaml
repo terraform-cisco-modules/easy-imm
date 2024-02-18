@@ -33,38 +33,32 @@ default:
   policies:
     system_qos:
       - classes:
-          - bandwidth_percent: 10
-            cos: 255
+          - cos: 255
             packet_drop: true
             priority: Best Effort
             state: Enabled
             weight: 5
-          - bandwidth_percent: 14
-            cos: 1
+          - cos: 1
             packet_drop: true
             priority: Bronze
             state: Enabled
             weight: 7
-          - bandwidth_percent: 18
-            cos: 4
+          - cos: 4
             packet_drop: true
             priority: Gold
             state: Enabled
             weight: 9
-          - bandwidth_percent: 20
-            cos: 3
+          - cos: 3
             packet_drop: false
             priority: FC
             state: Enabled
             weight: 10
-          - bandwidth_percent: 20
-            cos: 5
+          - cos: 5
             packet_drop: false
             priority: Platinum
             state: Enabled
             weight: 10
-          - bandwidth_percent: 18
-            cos: 2
+          - cos: 2
             packet_drop: true
             priority: Silver
             state: Enabled
