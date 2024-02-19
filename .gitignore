@@ -413,8 +413,8 @@ site/
 .terraform.lock.hcl
 */*.tfstate
 *.tfstate
-*/*.tfstate.backup
-*.tfstate.backup
+*/*.tfstate.*
+*.tfstate.*
 */*.tfplan
 *.tfplan
 */*.plan

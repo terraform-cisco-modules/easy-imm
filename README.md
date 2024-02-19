@@ -269,10 +269,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.0.2 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.0.2 |
-| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | terraform-cisco-modules/profiles-domain/intersight | 4.0.2 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.0.2 |
+| <a name="module_pools"></a> [pools](#module\_pools) | /home/tyscott/terraform-cisco-modules/terraform-intersight-pools | n/a |
+| <a name="module_policies"></a> [policies](#module\_policies) | /home/tyscott/terraform-cisco-modules/terraform-intersight-policies | n/a |
+| <a name="module_domain_profiles"></a> [domain\_profiles](#module\_domain\_profiles) | /home/tyscott/terraform-cisco-modules/terraform-intersight-profiles-domain | n/a |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | /home/tyscott/terraform-cisco-modules/terraform-intersight-profiles | n/a |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**

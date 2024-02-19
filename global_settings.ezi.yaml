@@ -3,10 +3,4 @@
 #   Global Settings
 #========================================
 global_settings:
-  debugging: true
   intersight_fqdn: intersight.com
-  tags:
-    - key: Module
-      value: terraform-intersight-easy-imm
-    - key: Version
-      value: 4.0.2

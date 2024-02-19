@@ -1,7 +1,5 @@
 locals {
   global_settings = {
-    debugging             = lookup(local.model.global_settings, "debugging", false)
-    ignore_domain_serials = lookup(local.model.global_settings, "ignore_domain_serials", false)
     tags = lookup(local.model.global_settings, "tags", [
       {
         key   = "Module"
@@ -9,7 +7,7 @@ locals {
       },
       {
         key   = "Version"
-        value = "3.0.3"
+        value = "4.1.1"
       }
     ])
   }
@@ -104,19 +102,4 @@ locals {
       }
     }
   }
-
-  #__________________________________________________________________
-  #
-  # Profiles Information
-  #__________________________________________________________________
-
-  chassis = { for i in flatten([for key, value in module.profiles : [for k, v in value.chassis : v]
-  ]) : "${i.organization}:${i.name}" => i }
-  server = { for i in flatten([for key, value in module.profiles : [for k, v in value.server : v]
-  ]) : "${i.organization}:${i.name}" => i }
-  switch_profiles = { for i in flatten([for key, value in module.domain_profiles : [
-    for k, v in value.switch_profiles : merge(v, { domain_moid = module.domain_profiles[key].domains[v.domain_profile] }
-    )]
-  ]) : "${i.organization}:${i.name}" => i }
-  #wait_for_domain = distinct(compact([for i in local.switch_profiles : i.action if i.action != "No-op"]))
 }

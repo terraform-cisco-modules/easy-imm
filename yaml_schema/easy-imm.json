@@ -6145,7 +6145,7 @@
                 "action": {
                     "type": "string",
                     "default": "No-op",
-                    "description": "Action to Perform on the Profile Assignment.",
+                    "description": "Action to Perform on the Profile Assignment.  Options are:\n  * Deploy - will deploy the profile.\n  * No-op - will not deploy the profile.\n  * Unassign - will detach the profile from the hardware.",
                     "intersightApi": "Action",
                     "enum": [
                         "Deploy",
@@ -7852,7 +7852,7 @@
                 "action": {
                     "type": "string",
                     "default": "No-op",
-                    "description": "Action to Perform on the Profile Assignment.",
+                    "description": "Action to Perform on the Profile Assignment.  Options are:\n  * Deploy - will deploy the profile.\n  * No-op - will not deploy the profile.\n  * Unassign - will detach the profile from the hardware.",
                     "intersightApi": "Action",
                     "enum": [
                         "Deploy",
@@ -12149,7 +12149,7 @@
                 "action": {
                     "type": "string",
                     "default": "No-op",
-                    "description": "Action to Perform on the Profile Assignment.",
+                    "description": "Action to Perform on the Profile Assignment.  Options are:\n  * Deploy - will deploy the profile.\n  * No-op - will not deploy the profile.\n  * Unassign - will detach the profile from the hardware.",
                     "intersightApi": "Action",
                     "enum": [
                         "Deploy",
