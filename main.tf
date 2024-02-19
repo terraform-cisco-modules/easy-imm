@@ -18,9 +18,9 @@ data "utils_yaml_merge" "model" {
 # GUI Location: Infrastructure Service > Configure > Pools
 #_________________________________________________________________________________________
 module "pools" {
-  #source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-pools"
-  source          = "terraform-cisco-modules/pools/intersight"
-  version         = "4.0.2"
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-pools"
+  #source          = "terraform-cisco-modules/pools/intersight"
+  #version         = "4.0.2"
   for_each        = { for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(local.model[e], "pools", {})]) > 0 }
   global_settings = local.global_settings
   model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
@@ -33,9 +33,9 @@ module "pools" {
 # GUI Location: Infrastructure Service > Configure > Policies
 #_________________________________________________________________________________________
 module "policies" {
-  #source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-policies"
-  source             = "terraform-cisco-modules/policies/intersight"
-  version            = "4.0.2"
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-policies"
+  #source             = "terraform-cisco-modules/policies/intersight"
+  #version            = "4.0.2"
   for_each           = { for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(local.model[e], "policies", {})]) > 0 }
   global_settings    = local.global_settings
   model              = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
@@ -50,9 +50,9 @@ module "policies" {
 # GUI Location: Infrastructure Service > Configure > Profiles : UCS Domain Profiles
 #_________________________________________________________________________________________
 module "domain_profiles" {
-  #source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-profiles-domain"
-  source  = "terraform-cisco-modules/profiles-domain/intersight"
-  version = "4.0.2"
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-profiles-domain"
+  #source  = "terraform-cisco-modules/profiles-domain/intersight"
+  #version = "4.0.2"
   for_each = {
     for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(lookup(local.model[e], "profiles", {}), "domain", {})]) > 0
   }
@@ -103,9 +103,9 @@ resource "intersight_fabric_switch_profile" "map" {
 # GUI Location: Infrastructure Service > Configure > Profiles
 #_________________________________________________________________________________________
 module "profiles" {
-  #source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-profiles"
-  source  = "terraform-cisco-modules/profiles/intersight"
-  version = "4.0.2"
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-profiles"
+  #source  = "terraform-cisco-modules/profiles/intersight"
+  #version = "4.0.2"
   for_each = {
     for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(lookup(local.model[e], "profiles", {}), "chassis", {})]
       ) > 0 || length([for e in sort(keys(local.model)) : lookup(lookup(lookup(local.model[e], "profiles", {}), "templates", {}), "server", {})]
