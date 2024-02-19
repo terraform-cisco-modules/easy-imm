@@ -3,11 +3,6 @@
 # Module Outputs
 #__________________________________________________________
 
-#output "domain_profiles" {
-#  description = "Domain Profile Outputs: including cluster and switch Moids, policy assignments."
-#  value       = module.domain_profiles
-#}
-
 output "orgs" {
   description = "Organization Moids"
   value       = local.orgs
