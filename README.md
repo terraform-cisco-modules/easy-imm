@@ -77,6 +77,7 @@ alias tfap='tfenv terraform apply -parallelism=1 main.plan'
 alias tfd='terraform destroy'
 alias tff='terraform fmt'
 alias tfi='terraform init'
+alias tfim='terraform import'
 alias tfp='tfenv terraform plan -out=main.plan'
 alias tfu='terraform init -upgrade'
 alias tfv='terraform validate'
@@ -349,7 +350,5 @@ If you want to see documentation on Variables for Submodules use the links below
 
 ### [*Pools*](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
 
-### [*Domain*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles-domain/intersight/latest)
-
-### [*Chassis/Server + Templates*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
+### [*Profiles*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
 <!-- END_TF_DOCS -->
