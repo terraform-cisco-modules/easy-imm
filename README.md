@@ -346,9 +346,9 @@ If you want to see documentation on Variables for Submodules use the links below
 
 ## Terraform Registry
 
-### [*Policies*](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
+### * [*Policies*](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
 
-### [*Pools*](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
+### * [*Pools*](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
 
-### [*Profiles*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
+### * [*Profiles*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
 <!-- END_TF_DOCS -->
