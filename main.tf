@@ -52,7 +52,7 @@ module "policies" {
 module "profiles" {
   #source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-profiles"
   source  = "terraform-cisco-modules/profiles/intersight"
-  version = "4.1.1"
+  version = "4.1.3"
   for_each = {
     for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(lookup(local.model[e], "profiles", {}), "chassis", {})]
       ) > 0 || length([for e in sort(keys(local.model)) : lookup(lookup(lookup(local.model[e], "profiles", {}), "templates", {}), "server", {})]
