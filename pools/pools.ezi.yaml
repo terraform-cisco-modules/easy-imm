@@ -88,11 +88,3 @@ default:
             suffix: ucs-host
         name: default
         prefix: iqn.1984-12.com.cisco
-    resource:
-      - assignment_order: sequential
-        description: default
-        name: default
-        pool_type: Static
-        resource_type: Server
-        serial_number_list:
-          - FCH26407CXM
