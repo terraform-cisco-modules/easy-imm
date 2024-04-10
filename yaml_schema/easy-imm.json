@@ -1110,16 +1110,6 @@
                     ],
                     "title": "cke_low_policy"
                 },
-                "class_id": {
-                    "type": "string",
-                    "default": "platform-default",
-                    "description": "The fully-qualified name of the instantiated, concrete type.\nThis property is used as a discriminator to identify the type of the payload\nwhen marshaling and unmarshaling data.",
-                    "intersightApi": "ClassId",
-                    "enum": [
-                        "bios.Policy"
-                    ],
-                    "title": "class_id"
-                },
                 "closed_loop_therm_throtl": {
                     "type": "string",
                     "default": "platform-default",
@@ -1543,6 +1533,30 @@
                         "disabled"
                     ],
                     "title": "enable_sgx"
+                },
+                "enable_tdx": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Trust Domain Extension (TDX) configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
+                    "intersightApi": "EnableTdx",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "enable_tdx"
+                },
+                "enable_tdx_seamldr": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting TDX Secure Arbitration Mode (SEAM) Loader configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
+                    "intersightApi": "EnableTdxSeamldr",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "enable_tdx_seamldr"
                 },
                 "enable_tme": {
                     "type": "string",
@@ -2239,16 +2253,6 @@
                         "Latency Optimized"
                     ],
                     "title": "nvmdimm_perform_config"
-                },
-                "object_type": {
-                    "type": "string",
-                    "default": "platform-default",
-                    "description": "The fully-qualified name of the instantiated, concrete type.\nThe value should be the same as the 'ClassId' property.",
-                    "intersightApi": "ObjectType",
-                    "enum": [
-                        "bios.Policy"
-                    ],
-                    "title": "object_type"
                 },
                 "onboard10gbit_lom": {
                     "type": "string",
@@ -3306,6 +3310,18 @@
                         "disabled"
                     ],
                     "title": "sha256pcr_bank"
+                },
+                "sha384pcr_bank": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting SHA384 PCR Bank configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
+                    "intersightApi": "Sha384pcrBank",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "sha384pcr_bank"
                 },
                 "single_pctl_enable": {
                     "type": "string",
@@ -5906,9 +5922,10 @@
                 "object_type": {
                     "type": "string",
                     "default": "boot.LocalDisk",
-                    "description": "The Boot Order Type to Assign to the Boot Device.  Allowed Values are:\n  * boot.Iscsi\n  * boot.LocalCdd\n  * boot.LocalDisk\n  * boot.Nvme\n  * boot.PchStorage\n  * boot.Pxe\n  * boot.San\n  * boot.SdCard\n  * boot.UefiShell\n  * boot.Usb\n  * boot.VirtualMedia",
+                    "description": "The Boot Order Type to Assign to the Boot Device.  Allowed Values are:\n  * boot.FlexMmc - UCS Standalone Only\n  * boot.Iscsi\n  * boot.LocalCdd\n  * boot.LocalDisk\n  * boot.Nvme\n  * boot.PchStorage\n  * boot.Pxe\n  * boot.San\n  * boot.SdCard\n  * boot.UefiShell\n  * boot.Usb\n  * boot.VirtualMedia",
                     "intersightApi": "not_applicable:ObjectType",
                     "enum": [
+                        "boot.FlexMmc",
                         "boot.Iscsi",
                         "boot.LocalCdd",
                         "boot.LocalDisk",
@@ -5945,17 +5962,19 @@
                 "sub_type": {
                     "type": "string",
                     "default": "None",
-                    "description": "The subtype for the selected device type.\nThe Following Boot Order Types utilize the Subtype Attribute:\nboot.SdCard - Below are the Supported Subtype Values:\n  * None - No sub type for SD card boot device.\n  * flex-util - Use of FlexUtil (microSD) card as sub type for SD card boot device.\n  * flex-flash - Use of FlexFlash (SD) card as sub type for SD card boot device.\n  * SDCARD - Use of SD card as sub type for the SD Card boot device.\nboot.Usb - Below are the Supported Subtype Values:\n  * None - No sub type for USB boot device.\n  * usb-cd - Use of Compact Disk (CD) as sub-type for the USB boot device.\n  * usb-fdd - Use of Floppy Disk Drive (FDD) as sub-type for the USB boot device.\n  * usb-hdd - Use of Hard Disk Drive (HDD) as sub-type for the USB boot device.\nboot.VirtualMedia - Below are the Supported Subtype Values:\n  * None - No sub type for virtual media.\n  * cimc-mapped-dvd - The virtual media device is mapped to a virtual DVD device.\n  * cimc-mapped-hdd - The virtual media device is mapped to a virtual HDD device.\n  * kvm-mapped-dvd - A KVM mapped DVD virtual media device.\n  * kvm-mapped-hdd - A KVM mapped HDD virtual media device.\n  * kvm-mapped-fdd - A KVM mapped FDD virtual media device.",
+                    "description": "The subtype for the selected device type.\nThe Following Boot Order Types utilize the Subtype Attribute:\nboot.FlexMmc - Below are the Supported Subtype Values:\n* `None` - No sub type for FlexMMC boot device.\n  * `flexmmc-mapped-dvd` - Use of FlexMMC DVD as subtype for embedded storage.\n  * `flexmmc-mapped-hdd` - Use of FlexMMC HDD as subtype for embedded storage.\nboot.SdCard - Below are the Supported Subtype Values:\n  * None - No sub type for SD card boot device.\n  * flex-util - Use of FlexUtil (microSD) card as sub type for SD card boot device.\n  * flex-flash - Use of FlexFlash (SD) card as sub type for SD card boot device.\n  * SDCARD - Use of SD card as sub type for the SD Card boot device.\nboot.Usb - Below are the Supported Subtype Values:\n  * None - No sub type for USB boot device.\n  * usb-cd - Use of Compact Disk (CD) as sub-type for the USB boot device.\n  * usb-fdd - Use of Floppy Disk Drive (FDD) as sub-type for the USB boot device.\n  * usb-hdd - Use of Hard Disk Drive (HDD) as sub-type for the USB boot device.\nboot.VirtualMedia - Below are the Supported Subtype Values:\n  * None - No sub type for virtual media.\n  * cimc-mapped-dvd - The virtual media device is mapped to a virtual DVD device.\n  * cimc-mapped-hdd - The virtual media device is mapped to a virtual HDD device.\n  * kvm-mapped-dvd - A KVM mapped DVD virtual media device.\n  * kvm-mapped-hdd - A KVM mapped HDD virtual media device.\n  * kvm-mapped-fdd - A KVM mapped FDD virtual media device.",
                     "intersightApi": "not_applicable:SubType",
                     "enum": [
                         "None",
                         "cimc-mapped-dvd",
                         "cimc-mapped-hdd",
+                        "flexmmc-mapped-dvd",
+                        "flexmmc-mapped-hdd",
+                        "flex-util",
+                        "flex-flash",
                         "kvm-mapped-dvd",
                         "kvm-mapped-hdd",
                         "kvm-mapped-fdd",
-                        "flex-util",
-                        "flex-flash",
                         "SDCARD",
                         "usb-cd",
                         "usb-fdd",
@@ -5990,7 +6009,7 @@
             "properties": {
                 "boot_devices": {
                     "type": "array",
-                    "description": "List of Boot Devices and their Attributes to Assign to the Boot Policy.\n`boot.Iscsi` Required Attributes:\n  * interface_name\n  * name\n  * object_type\n\n`boot.Iscsi` Optional Attributes:\n  * bootloader\n  * enabled\n  * port\n  * slot\n\n`boot.LocalCdd` Required Attributes:\n  * name\n  * object_type\n\n`boot.LocalCdd` Optional Attributes:\n  * enabled\n\n`boot.LocalDisk` Required Attributes:\n  * name\n  * object_type\n\n`boot.LocalDisk` Optional Attributes:\n  * bootloader\n  * enabled\n  * slot\n\n`boot.Nvme` Required Attributes:\n  * name\n  * object_type\n\n`boot.Nvme` Optional Attributes:\n  * bootloader\n  * enabled\n\n`boot.PchStorage` Required Attributes:\n  * name\n  * object_type\n\n`boot.PchStorage` Optional Attributes:\n  * bootloader\n  * enabled\n  * lun\n\n`boot.Pxe` Required Attributes:\n  * interface_name\n  * interface_source\n  * name\n  * object_type\n\n`boot.Pxe` Optional Attributes:\n  * bootloader\n  * enabled\n  * ip_type\n  * mac_ddress\n  * port\n  * slot\n\n`boot.San` Required Attributes:\n  * interface_name\n  * name\n  * object_type\n  * wwpn\n\n`boot.San` Optional Attributes:\n  * bootloader\n  * enabled\n  * lun\n  * slot\n\n`boot.SdCard` Required Attributes:\n  * name\n  * object_type\n  * sub_type\n\n`boot.SdCard` Optional Attributes:\n  * bootloader\n  * enabled\n  * lun\n\n`boot.UefiShell` Required Attributes:\n  * name\n  * object_type\n\n`boot.UefiShell` Optional Attributes:\n  * enabled\n\n`boot.Usb` Required Attributes:\n  * name\n  * object_type\n  * sub_type\n\n`boot.Usb` Optional Attributes:\n  * enabled\n\n`boot.VirtualMedia` Required Attributes:\n  * name\n  * object_type\n  * sub_type\n\n`boot.VirtualMedia` Optional Attributes:\n  * enabled",
+                    "description": "List of Boot Devices and their Attributes to Assign to the Boot Policy.\n  * `boot.FlexMmc` - UCS Standalone Only - Required Attributes:\n  * name\n  * object_type\n  * sub_type\n`boot.Iscsi` Required Attributes:\n  * interface_name\n  * name\n  * object_type\n\n`boot.Iscsi` Optional Attributes:\n  * bootloader\n  * enabled\n  * port\n  * slot\n\n`boot.LocalCdd` Required Attributes:\n  * name\n  * object_type\n\n`boot.LocalCdd` Optional Attributes:\n  * enabled\n\n`boot.LocalDisk` Required Attributes:\n  * name\n  * object_type\n\n`boot.LocalDisk` Optional Attributes:\n  * bootloader\n  * enabled\n  * slot\n\n`boot.Nvme` Required Attributes:\n  * name\n  * object_type\n\n`boot.Nvme` Optional Attributes:\n  * bootloader\n  * enabled\n\n`boot.PchStorage` Required Attributes:\n  * name\n  * object_type\n\n`boot.PchStorage` Optional Attributes:\n  * bootloader\n  * enabled\n  * lun\n\n`boot.Pxe` Required Attributes:\n  * interface_name\n  * interface_source\n  * name\n  * object_type\n\n`boot.Pxe` Optional Attributes:\n  * bootloader\n  * enabled\n  * ip_type\n  * mac_ddress\n  * port\n  * slot\n\n`boot.San` Required Attributes:\n  * interface_name\n  * name\n  * object_type\n  * wwpn\n\n`boot.San` Optional Attributes:\n  * bootloader\n  * enabled\n  * lun\n  * slot\n\n`boot.SdCard` Required Attributes:\n  * name\n  * object_type\n  * sub_type\n\n`boot.SdCard` Optional Attributes:\n  * bootloader\n  * enabled\n  * lun\n\n`boot.UefiShell` Required Attributes:\n  * name\n  * object_type\n\n`boot.UefiShell` Optional Attributes:\n  * enabled\n\n`boot.Usb` Required Attributes:\n  * name\n  * object_type\n  * sub_type\n\n`boot.Usb` Optional Attributes:\n  * enabled\n\n`boot.VirtualMedia` Required Attributes:\n  * name\n  * object_type\n  * sub_type\n\n`boot.VirtualMedia` Optional Attributes:\n  * enabled",
                     "intersightApi": "boot.DeviceBase",
                     "intersightUri": "boot/DeviceBases",
                     "items": {
@@ -9420,7 +9439,48 @@
                     "intersightApi": "From",
                     "minLength": 7,
                     "maxLength": 15,
+                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
                     "title": "from"
+                },
+                "gateway": {
+                    "type": "string",
+                    "default": "198.18.0.1",
+                    "description": "Gateway to assign to the pool.  Example `198.18.0.1`.",
+                    "intersightApi": "Gateway",
+                    "minLength": 7,
+                    "maxLength": 15,
+                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+                    "title": "gateway"
+                },
+                "netmask": {
+                    "type": "string",
+                    "default": "255.255.255.0",
+                    "description": "A subnet mask is a 32-bit number that masks an IP address and divides the IP address into network address and host address.  Example `255.255.255.0`.",
+                    "intersightApi": "Netmask",
+                    "minLength": 7,
+                    "maxLength": 15,
+                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+                    "title": "netmask"
+                },
+                "primary_dns": {
+                    "type": "string",
+                    "default": "208.67.220.220",
+                    "description": "IP Address of the primary Domain Name System (DNS) server.  Example `208.67.220.220`.",
+                    "intersightApi": "PrimaryDns",
+                    "minLength": 7,
+                    "maxLength": 15,
+                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+                    "title": "primary_dns"
+                },
+                "secondary_dns": {
+                    "type": "string",
+                    "default": "208.67.222.222",
+                    "description": "IP Address of the secondary Domain Name System (DNS) server.  Example `208.67.222.222`.",
+                    "intersightApi": "SecondaryDns",
+                    "minLength": 0,
+                    "maxLength": 15,
+                    "pattern": "^$|^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+                    "title": "secondary_dns"
                 },
                 "size": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/size"
@@ -9432,6 +9492,7 @@
                     "intersightApi": "To",
                     "minLength": 7,
                     "maxLength": 15,
+                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
                     "title": "to"
                 }
             },
@@ -9443,7 +9504,7 @@
         "ippool.IpV4Config": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Network interface configuration data for IPv4 interfaces. Netmask, Gateway and DNS settings.\n\nRequired Attributes:\n  * gateway\n  * netmask\n  * primary_dns\n\nOptional Attributes:\n  * secondary_dns.",
+            "description": "Network interface configuration data for IPv4 interfaces. Netmask, Gateway and DNS settings.  You can configure gateway, netmask, primary DNS, and secondary DNS either at the block level or global to the pool with the ipv4_configuration setting.  Configure all blocks via the same method.  Mixing is not supported.\n\nRequired Attributes:\n  * gateway\n  * netmask\n  * primary_dns\n\nOptional Attributes:\n  * secondary_dns.",
             "ObjectType": "ippool.IpV4Config",
             "properties": {
                 "gateway": {
@@ -9507,34 +9568,9 @@
                     "intersightApi": "From",
                     "minLength": 6,
                     "maxLength": 39,
-                    "pattern": "^$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "pattern": "^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
                     "title": "from"
                 },
-                "size": {
-                    "$ref": "#/definitions/pool.AbstractPool/properties/size"
-                },
-                "to": {
-                    "type": "string",
-                    "default": "2001:db8::250",
-                    "description": "Last IPv6 address of the block.  Example `2001:db8::250`.",
-                    "intersightApi": "To",
-                    "minLength": 6,
-                    "maxLength": 39,
-                    "pattern": "^$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
-                    "title": "to"
-                }
-            },
-            "required": [
-                "from"
-            ],
-            "title": "ipv6_blocks - Ipv6 Block of Addresses"
-        },
-        "ippool.IpV6Config": {
-            "type": "object",
-            "additionalProperties": false,
-            "description": "Network interface configuration data for IPv6 interfaces. Prefix, Gateway and DNS settings.\n\nRequired Attributes:\n  * gateway\n  * prefix\n  * primary_dns\n\nOptional Attributes:\n  * secondary_dns.",
-            "ObjectType": "ippool.IpV6Config",
-            "properties": {
                 "gateway": {
                     "type": "string",
                     "default": "2001:db8::1",
@@ -9573,6 +9609,70 @@
                     "maxLength": 39,
                     "pattern": "^$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
                     "title": "secondary_dns"
+                },
+                "size": {
+                    "$ref": "#/definitions/pool.AbstractPool/properties/size"
+                },
+                "to": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Last IPv6 address of the block.  Example `2001:db8::250`.",
+                    "intersightApi": "To",
+                    "minLength": 6,
+                    "maxLength": 39,
+                    "pattern": "^$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "title": "to"
+                }
+            },
+            "required": [
+                "from"
+            ],
+            "title": "ipv6_blocks - Ipv6 Block of Addresses"
+        },
+        "ippool.IpV6Config": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Network interface configuration data for IPv6 interfaces. Prefix, Gateway and DNS settings.  You can configure gateway, prefix, primary DNS, and secondary DNS either at the block level or global to the pool with the ipv6_configuration setting.  Configure all blocks via the same method.  Mixing is not supported.\n\nRequired Attributes:\n  * gateway\n  * prefix\n  * primary_dns\n\nOptional Attributes:\n  * secondary_dns.",
+            "ObjectType": "ippool.IpV6Config",
+            "properties": {
+                "gateway": {
+                    "type": "string",
+                    "default": "2001:db8::1",
+                    "description": "Gateway to assign to the pool.  Example `2001:db8::1`.",
+                    "intersightApi": "Gateway",
+                    "minLength": 6,
+                    "maxLength": 39,
+                    "pattern": "^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "title": "gateway"
+                },
+                "prefix": {
+                    "type": "integer",
+                    "default": 64,
+                    "description": "Prefix to assign to the pool.  Example `64`.",
+                    "intersightApi": "Prefix",
+                    "minimum": 1,
+                    "maximum": 128,
+                    "title": "prefix"
+                },
+                "primary_dns": {
+                    "type": "string",
+                    "default": "2620:119:53::53",
+                    "description": "IP Address of the primary Domain Name System (DNS) server.  Example `2620:119:53::53`.",
+                    "intersightApi": "PrimaryDns",
+                    "minLength": 6,
+                    "maxLength": 39,
+                    "pattern": "^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "title": "primary_dns"
+                },
+                "secondary_dns": {
+                    "type": "string",
+                    "default": "2620:119:35::35",
+                    "description": "IP Address of the secondary Domain Name System (DNS) server.  Example `2620:119:35::35`.",
+                    "intersightApi": "SecondaryDns",
+                    "minLength": 0,
+                    "maxLength": 39,
+                    "pattern": "^$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "title": "secondary_dns"
                 }
             },
             "required": [
@@ -9596,7 +9696,7 @@
                 },
                 "ipv4_blocks": {
                     "type": "array",
-                    "description": "A block of IPv4 addresses.\n\nRequired Attributes:\n  * from\n\nOptional Attributes:\n  * size\n  * to\nNote: Only assign either size or to, not both.",
+                    "description": "A block of IPv4 addresses.  You can configure gateway, netmask, primary DNS, and secondary DNS either at the block level or global to the pool with the ipv4_configuration setting.  Configure all blocks via the same method.  Mixing is not supported.\n\nRequired Attributes:\n  * from\n\nOptional Attributes:\n  * gateway\n  * netmask\n  * primary_dns\n  * secondary_dns\n  * size\n  * to\nNote: Only assign either size or to, not both.",
                     "items": {
                         "$ref": "#/definitions/ippool.IpV4Block"
                     },
@@ -9607,7 +9707,7 @@
                 },
                 "ipv6_blocks": {
                     "type": "array",
-                    "description": "A block of IPv6 addresses.\n\nRequired Attributes:\n  * from\n\nOptional Attributes:\n  * size\n  * to\nNote: Only assign either size or to, not both.",
+                    "description": "A block of IPv6 addresses.  You can configure gateway, prefix, primary DNS, and secondary DNS either at the block level or global to the pool with the ipv6_configuration setting.  Configure all blocks via the same method.  Mixing is not supported.\n\nRequired Attributes:\n  * from\n\nOptional Attributes:\n  * gateway\n  * prefix\n  * primary_dns\n  * secondary_dns\n  * size\n  * to\nNote: Only assign either size or to, not both.",
                     "items": {
                         "$ref": "#/definitions/ippool.IpV6Block"
                     },
@@ -11129,7 +11229,7 @@
         "policies": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Policies in Cisco Intersight provide different configurations for UCS servers, including BIOS settings, firmware versions, disk group creation, Simple Mail Transfer Protocol (SMTP), Intelligent Platform Management Interface (IPMI) settings, and more. A policy that is once configured can be assigned to any number of servers to provide a configuration baseline. Policies in Cisco Intersight are native to the application and are not directly imported from the UCS Systems. Policy-based configuration with Server Profiles is a Cisco Intersight Essentials functionality.\nOptions are:\n  * adapter_configuration\n  * bios\n  * boot_order\n  * certificate_management\n  * drive_security\n  * device_connector\n  * ethernet_adapter\n  * ethernet_network\n  * ethernet_network_control\n  * ethernet_network_group\n  * ethernet_qos\n  * fc_zone\n  * fibre_channel_adapter\n  * fibre_channel_network\n  * fibre_channel_qos\n  * firmware\n  * flow_control\n  * imc_access\n  * ipmi_over_lan\n  * iscsi_adapter\n  * iscsi_boot\n  * iscsi_static_target\n  * lan_connectivity\n  * ldap\n  * link_aggregation\n  * link_control\n  * local_user\n  * multicast\n  * network_connectivity\n  * ntp\n  * persistent_memory\n  * port\n  * power\n  * san_connectivity\n  * sd_card\n  * serial_over_lan\n  * smtp\n  * snmp\n  * ssh\n  * storage\n  * switch_control\n  * syslog\n  * system_qos\n  * thermal\n  * virtual_kvm\n  * virtual_media\n  * vlan\n  * vsan",
+            "description": "Policies in Cisco Intersight provide different configurations for UCS servers, including BIOS settings, firmware versions, disk group creation, Simple Mail Transfer Protocol (SMTP), Intelligent Platform Management Interface (IPMI) settings, and more. A policy that is once configured can be assigned to any number of servers to provide a configuration baseline. Policies in Cisco Intersight are native to the application and are not directly imported from the UCS Systems. Policy-based configuration with Server Profiles is a Cisco Intersight Essentials functionality.\nOptions are:\n\n  * adapter_configuration\n  * bios\n  * boot_order\n  * certificate_management\n  * drive_security\n  * device_connector\n  * ethernet_adapter\n  * ethernet_network\n  * ethernet_network_control\n  * ethernet_network_group\n  * ethernet_qos\n  * fc_zone\n  * fibre_channel_adapter\n  * fibre_channel_network\n  * fibre_channel_qos\n  * firmware\n  * flow_control\n  * imc_access\n  * ipmi_over_lan\n  * iscsi_adapter\n  * iscsi_boot\n  * iscsi_static_target\n  * lan_connectivity\n  * ldap\n  * link_aggregation\n  * link_control\n  * local_user\n  * multicast\n  * network_connectivity\n  * ntp\n  * persistent_memory\n  * port\n  * power\n  * san_connectivity\n  * sd_card\n  * serial_over_lan\n  * smtp\n  * snmp\n  * ssh\n  * storage\n  * switch_control\n  * syslog\n  * system_qos\n  * thermal\n  * virtual_kvm\n  * virtual_media\n  * vlan\n  * vsan",
             "properties": {
                 "adapter_configuration": {
                     "type": "array",
@@ -11143,7 +11243,7 @@
                 },
                 "bios": {
                     "type": "array",
-                    "description": "A BIOS policy automates the configuration of BIOS settings on servers. You can create one or more BIOS policies that contain a specific grouping of BIOS settings, matching the needs of a server or a set of servers. If you do not specify a BIOS policy for a server, the BIOS settings will default to set of values for a brand new baremetal server or to a set of values previously configured using Cisco IMC. If a BIOS policy is specified, its values replace any previously configured values on the server.\nAll BIOS tokens are not applicable to all servers. If unsupported tokens are pushed to a server, those tokens are ignored.\nRequired Attributes:\n  * name\n\nRecommended Attribute: bios_template\n\nOptional Attributes:\n  * description\n  * tags\n  * #+++++++++++++++++++++++++++++++\n  * # Boot Options Section\n  * #+++++++++++++++++++++++++++++++\n  * boot_option_num_retry\n  * boot_option_re_cool_down\n  * boot_option_retry\n  * ipv4http\n  * ipv4pxe\n  * ipv6http\n  * ipv6pxe\n  * network_stack\n  * onboard_scu_storage_support\n  * onboard_scu_storage_sw_stack\n  * pop_support\n  * psata\n  * sata_mode_select\n  * vmd_enable\n  * #+++++++++++++++++++++++++++++++\n  * # Intel Directed IO Section\n  * #+++++++++++++++++++++++++++++++\n  * intel_vt_for_directed_io\n  * intel_vtd_coherency_support\n  * intel_vtd_interrupt_remapping\n  * intel_vtd_pass_through_dma_support\n  * intel_vtdats_support\n  * #+++++++++++++++++++++++++++++++\n  * # LOM and PCIe Slots Section\n  * #+++++++++++++++++++++++++++++++\n  * acs_control_gpu1state\n  * acs_control_gpu2state\n  * acs_control_gpu3state\n  * acs_control_gpu4state\n  * acs_control_gpu5state\n  * acs_control_gpu6state\n  * acs_control_gpu7state\n  * acs_control_gpu8state\n  * acs_control_slot11state\n  * acs_control_slot12state\n  * acs_control_slot13state\n  * acs_control_slot14state\n  * cdn_support\n  * edpc_en\n  * enable_clock_spread_spec\n  * lom_port0state\n  * lom_port1state\n  * lom_port2state\n  * lom_port3state\n  * lom_ports_all_state\n  * pch_pcie_pll_ssc\n  * pci_option_ro_ms\n  * pci_rom_clp\n  * pcie_ari_support\n  * pcie_pll_ssc\n  * pcie_slot_mraid1link_speed\n  * pcie_slot_mraid1option_rom\n  * pcie_slot_mraid2link_speed\n  * pcie_slot_mraid2option_rom\n  * pcie_slot_mstorraid_link_speed\n  * pcie_slot_mstorraid_option_rom\n  * pcie_slot_nvme1link_speed\n  * pcie_slot_nvme1option_rom\n  * pcie_slot_nvme2link_speed\n  * pcie_slot_nvme2option_rom\n  * pcie_slot_nvme3link_speed\n  * pcie_slot_nvme3option_rom\n  * pcie_slot_nvme4link_speed\n  * pcie_slot_nvme4option_rom\n  * pcie_slot_nvme5link_speed\n  * pcie_slot_nvme5option_rom\n  * pcie_slot_nvme6link_speed\n  * pcie_slot_nvme6option_rom\n  * slot10link_speed\n  * slot10state\n  * slot11link_speed\n  * slot11state\n  * slot12link_speed\n  * slot12state\n  * slot13state\n  * slot14state\n  * slot1link_speed\n  * slot1state\n  * slot2link_speed\n  * slot2state\n  * slot3link_speed\n  * slot3state\n  * slot4link_speed\n  * slot4state\n  * slot5link_speed\n  * slot5state\n  * slot6link_speed\n  * slot6state\n  * slot7link_speed\n  * slot7state\n  * slot8link_speed\n  * slot8state\n  * slot9link_speed\n  * slot9state\n  * slot_flom_link_speed\n  * slot_front_nvme10link_speed\n  * slot_front_nvme10option_rom\n  * slot_front_nvme11link_speed\n  * slot_front_nvme11option_rom\n  * slot_front_nvme12link_speed\n  * slot_front_nvme12option_rom\n  * slot_front_nvme13link_speed\n  * slot_front_nvme13option_rom\n  * slot_front_nvme14link_speed\n  * slot_front_nvme14option_rom\n  * slot_front_nvme15link_speed\n  * slot_front_nvme15option_rom\n  * slot_front_nvme16link_speed\n  * slot_front_nvme16option_rom\n  * slot_front_nvme17link_speed\n  * slot_front_nvme17option_rom\n  * slot_front_nvme18link_speed\n  * slot_front_nvme18option_rom\n  * slot_front_nvme19link_speed\n  * slot_front_nvme19option_rom\n  * slot_front_nvme1link_speed\n  * slot_front_nvme1option_rom\n  * slot_front_nvme20link_speed\n  * slot_front_nvme20option_rom\n  * slot_front_nvme21link_speed\n  * slot_front_nvme21option_rom\n  * slot_front_nvme22link_speed\n  * slot_front_nvme22option_rom\n  * slot_front_nvme23link_speed\n  * slot_front_nvme23option_rom\n  * slot_front_nvme24link_speed\n  * slot_front_nvme24option_rom\n  * slot_front_nvme2link_speed\n  * slot_front_nvme2option_rom\n  * slot_front_nvme3link_speed\n  * slot_front_nvme3option_rom\n  * slot_front_nvme4link_speed\n  * slot_front_nvme4option_rom\n  * slot_front_nvme5link_speed\n  * slot_front_nvme5option_rom\n  * slot_front_nvme6link_speed\n  * slot_front_nvme6option_rom\n  * slot_front_nvme7link_speed\n  * slot_front_nvme7option_rom\n  * slot_front_nvme8link_speed\n  * slot_front_nvme8option_rom\n  * slot_front_nvme9link_speed\n  * slot_front_nvme9option_rom\n  * slot_front_slot5link_speed\n  * slot_front_slot6link_speed\n  * slot_gpu1state\n  * slot_gpu2state\n  * slot_gpu3state\n  * slot_gpu4state\n  * slot_gpu5state\n  * slot_gpu6state\n  * slot_gpu7state\n  * slot_gpu8state\n  * slot_hba_link_speed\n  * slot_hba_state\n  * slot_lom1link\n  * slot_lom2link\n  * slot_mezz_state\n  * slot_mlom_link_speed\n  * slot_mlom_state\n  * slot_mraid_link_speed\n  * slot_mraid_state\n  * slot_n10state\n  * slot_n11state\n  * slot_n12state\n  * slot_n13state\n  * slot_n14state\n  * slot_n15state\n  * slot_n16state\n  * slot_n17state\n  * slot_n18state\n  * slot_n19state\n  * slot_n1state\n  * slot_n20state\n  * slot_n21state\n  * slot_n22state\n  * slot_n23state\n  * slot_n24state\n  * slot_n2state\n  * slot_n3state\n  * slot_n4state\n  * slot_n5state\n  * slot_n6state\n  * slot_n7state\n  * slot_n8state\n  * slot_n9state\n  * slot_raid_link_speed\n  * slot_raid_state\n  * slot_rear_nvme1link_speed\n  * slot_rear_nvme1state\n  * slot_rear_nvme2link_speed\n  * slot_rear_nvme2state\n  * slot_rear_nvme3link_speed\n  * slot_rear_nvme3state\n  * slot_rear_nvme4link_speed\n  * slot_rear_nvme4state\n  * slot_rear_nvme5state\n  * slot_rear_nvme6state\n  * slot_rear_nvme7state\n  * slot_rear_nvme8state\n  * slot_riser1link_speed\n  * slot_riser1slot1link_speed\n  * slot_riser1slot2link_speed\n  * slot_riser1slot3link_speed\n  * slot_riser2link_speed\n  * slot_riser2slot4link_speed\n  * slot_riser2slot5link_speed\n  * slot_riser2slot6link_speed\n  * slot_sas_state\n  * slot_ssd_slot1link_speed\n  * slot_ssd_slot2link_speed\n  * #+++++++++++++++++++++++++++++++\n  * # Main Section\n  * #+++++++++++++++++++++++++++++++\n  * pcie_slots_cdn_enable\n  * post_error_pause\n  * tpm_support\n  * #+++++++++++++++++++++++++++++++\n  * # Memory Section\n  * #+++++++++++++++++++++++++++++++\n  * adaptive_refresh_mgmt_level\n  * advanced_mem_test\n  * bme_dma_mitigation\n  * burst_and_postponed_refresh\n  * cbs_cmn_cpu_smee\n  * cbs_cmn_gnb_nb_iommu\n  * cbs_cmn_mem_ctrl_bank_group_swap_ddr4\n  * cbs_cmn_mem_map_bank_interleave_ddr4\n  * cbs_dbg_cpu_snp_mem_cover\n  * cbs_dbg_cpu_snp_mem_size_cover\n  * cbs_df_cmn_dram_nps\n  * cbs_df_cmn_mem_intlv\n  * cbs_df_cmn_mem_intlv_size\n  * cbs_sev_snp_support\n  * cke_low_policy\n  * cr_qos\n  * crfastgo_config\n  * dcpmm_firmware_downgrade\n  * dram_refresh_rate\n  * dram_sw_thermal_throttling\n  * eadr_support\n  * enable_rmt\n  * error_check_scrub\n  * lv_ddr_mode\n  * memory_bandwidth_boost\n  * memory_refresh_rate\n  * memory_size_limit\n  * memory_thermal_throttling\n  * mirroring_mode\n  * numa_optimized\n  * nvmdimm_perform_config\n  * operation_mode\n  * panic_high_watermark\n  * partial_cache_line_sparing\n  * partial_mirror_mode_config\n  * partial_mirror_percent\n  * partial_mirror_value1\n  * partial_mirror_value2\n  * partial_mirror_value3\n  * partial_mirror_value4\n  * pc_ie_ras_support\n  * post_package_repair\n  * select_memory_ras_configuration\n  * select_ppr_type\n  * sev\n  * smee\n  * snoopy_mode_for2lm\n  * snoopy_mode_for_ad\n  * sparing_mode\n  * tsme\n  * uma_based_clustering\n  * vol_memory_mode\n  * #+++++++++++++++++++++++++++++++\n  * # PCI Section\n  * #+++++++++++++++++++++++++++++++\n  * aspm_support\n  * ioh_resource\n  * memory_mapped_io_above4gb\n  * mmcfg_base\n  * onboard10gbit_lom\n  * onboard_gbit_lom\n  * pc_ie_ssd_hot_plug_support\n  * sr_iov\n  * vga_priority\n  * #+++++++++++++++++++++++++++++++\n  * # Power and Performance Section\n  * #+++++++++++++++++++++++++++++++\n  * c1auto_demotion\n  * c1auto_un_demotion\n  * cbs_cmn_cpu_cpb\n  * cbs_cmn_cpu_global_cstate_ctrl\n  * cbs_cmn_cpu_l1stream_hw_prefetcher\n  * cbs_cmn_cpu_l2stream_hw_prefetcher\n  * cbs_cmn_determinism_slider\n  * cbs_cmn_efficiency_mode_en\n  * cbs_cmn_gnb_smucppc\n  * cbs_cmnc_tdp_ctl\n  * cpu_perf_enhancement\n  * llc_alloc\n  * upi_link_enablement\n  * upi_power_management\n  * virtual_numa\n  * x2apic_opt_out\n  * xpt_remote_prefetch\n  * #+++++++++++++++++++++++++++++++\n  * # Processor Section\n  * #+++++++++++++++++++++++++++++++\n  * adjacent_cache_line_prefetch\n  * altitude\n  * auto_cc_state\n  * autonumous_cstate_enable\n  * boot_performance_mode\n  * cbs_cmn_apbdis\n  * cbs_cmn_cpu_gen_downcore_ctrl\n  * cbs_cmn_cpu_streaming_stores_ctrl\n  * cbs_cmn_fixed_soc_pstate\n  * cbs_cmn_gnb_smu_df_cstates\n  * cbs_cpu_ccd_ctrl_ssp\n  * cbs_cpu_core_ctrl\n  * cbs_cpu_smt_ctrl\n  * cbs_df_cmn_acpi_srat_l3numa\n  * channel_inter_leave\n  * cisco_xgmi_max_speed\n  * closed_loop_therm_throtl\n  * cmci_enable\n  * config_tdp\n  * config_tdp_level\n  * core_multi_processing\n  * cpu_energy_performance\n  * cpu_frequency_floor\n  * cpu_performance\n  * cpu_power_management\n  * demand_scrub\n  * direct_cache_access\n  * dram_clock_throttling\n  * energy_efficient_turbo\n  * eng_perf_tuning\n  * enhanced_intel_speed_step_tech\n  * epp_enable\n  * epp_profile\n  * execute_disable_bit\n  * extended_apic\n  * hardware_prefetch\n  * hwpm_enable\n  * imc_interleave\n  * intel_dynamic_speed_select\n  * intel_hyper_threading_tech\n  * intel_speed_select\n  * intel_turbo_boost_tech\n  * intel_virtualization_technology\n  * ioh_error_enable\n  * ip_prefetch\n  * kti_prefetch\n  * llc_prefetch\n  * memory_inter_leave\n  * package_cstate_limit\n  * patrol_scrub\n  * patrol_scrub_duration\n  * processor_c1e\n  * processor_c3report\n  * processor_c6report\n  * processor_cstate\n  * pstate_coord_type\n  * pwr_perf_tuning\n  * qpi_link_speed\n  * rank_inter_leave\n  * single_pctl_enable\n  * smt_mode\n  * snc\n  * streamer_prefetch\n  * svm_mode\n  * ufs_disable\n  * work_load_config\n  * xpt_prefetch\n  * #+++++++++++++++++++++++++++++++\n  * # QPI Section\n  * #+++++++++++++++++++++++++++++++\n  * qpi_link_frequency\n  * qpi_snoop_mode\n  * #+++++++++++++++++++++++++++++++\n  * # Serial Port Section\n  * #+++++++++++++++++++++++++++++++\n  * serial_port_aenable\n  * #+++++++++++++++++++++++++++++++\n  * # Server Management Section\n  * #+++++++++++++++++++++++++++++++\n  * assert_nmi_on_perr\n  * assert_nmi_on_serr\n  * baud_rate\n  * cdn_enable\n  * cisco_adaptive_mem_training\n  * cisco_debug_level\n  * cisco_oprom_launch_optimization\n  * console_redirection\n  * flow_control\n  * frb2enable\n  * legacy_os_redirection\n  * os_boot_watchdog_timer\n  * os_boot_watchdog_timer_policy\n  * os_boot_watchdog_timer_timeout\n  * out_of_band_mgmt_port\n  * putty_key_pad\n  * redirection_after_post\n  * terminal_type\n  * ucsm_boot_order_rule\n  * #+++++++++++++++++++++++++++++++\n  * # Trusted Platform Section\n  * #+++++++++++++++++++++++++++++++\n  * cpu_pa_limit\n  * enable_mktme\n  * dma_ctrl_opt_in\n  * enable_sgx\n  * enable_tme\n  * epoch_update\n  * sgx_auto_registration_agent\n  * sgx_epoch0\n  * sgx_epoch1\n  * sgx_factory_reset\n  * sgx_le_pub_key_hash0\n  * sgx_le_pub_key_hash1\n  * sgx_le_pub_key_hash2\n  * sgx_le_pub_key_hash3\n  * sgx_le_wr\n  * sgx_package_info_in_band_access\n  * sgx_qos\n  * sha1pcr_bank\n  * sha256pcr_bank\n  * tpm_control\n  * tpm_pending_operation\n  * tpm_ppi_required\n  * txt_support\n  * #+++++++++++++++++++++++++++++++\n  * # USB Section\n  * #+++++++++++++++++++++++++++++++\n  * all_usb_devices\n  * legacy_usb_support\n  * make_device_non_bootable\n  * pch_usb30mode\n  * usb_emul6064\n  * usb_port_front\n  * usb_port_internal\n  * usb_port_kvm\n  * usb_port_rear\n  * usb_port_sd_card\n  * usb_port_vmedia\n  * usb_xhci_support",
+                    "description": "A BIOS policy automates the configuration of BIOS settings on servers. You can create one or more BIOS policies that contain a specific grouping of BIOS settings, matching the needs of a server or a set of servers. If you do not specify a BIOS policy for a server, the BIOS settings will default to set of values for a brand new baremetal server or to a set of values previously configured using Cisco IMC. If a BIOS policy is specified, its values replace any previously configured values on the server.\nAll BIOS tokens are not applicable to all servers. If unsupported tokens are pushed to a server, those tokens are ignored.\nRequired Attributes:\n  * name\n\nRecommended Attribute: bios_template\n\nOptional Attributes:\n  * description\n  * tags\n#+++++++++++++++++++++++++++++++\n# Boot Options Section\n#+++++++++++++++++++++++++++++++\n  * boot_option_num_retry\n  * boot_option_re_cool_down\n  * boot_option_retry\n  * ipv4http\n  * ipv4pxe\n  * ipv6http\n  * ipv6pxe\n  * network_stack\n  * onboard_scu_storage_support\n  * onboard_scu_storage_sw_stack\n  * pop_support\n  * psata\n  * sata_mode_select\n  * vmd_enable\n#+++++++++++++++++++++++++++++++\n# Intel Directed IO Section\n#+++++++++++++++++++++++++++++++\n  * intel_vt_for_directed_io\n  * intel_vtd_coherency_support\n  * intel_vtd_interrupt_remapping\n  * intel_vtd_pass_through_dma_support\n  * intel_vtdats_support\n#+++++++++++++++++++++++++++++++\n# LOM and PCIe Slots Section\n#+++++++++++++++++++++++++++++++\n  * acs_control_gpu1state\n  * acs_control_gpu2state\n  * acs_control_gpu3state\n  * acs_control_gpu4state\n  * acs_control_gpu5state\n  * acs_control_gpu6state\n  * acs_control_gpu7state\n  * acs_control_gpu8state\n  * acs_control_slot11state\n  * acs_control_slot12state\n  * acs_control_slot13state\n  * acs_control_slot14state\n  * cdn_support\n  * edpc_en\n  * enable_clock_spread_spec\n  * lom_port0state\n  * lom_port1state\n  * lom_port2state\n  * lom_port3state\n  * lom_ports_all_state\n  * pch_pcie_pll_ssc\n  * pci_option_ro_ms\n  * pci_rom_clp\n  * pcie_ari_support\n  * pcie_pll_ssc\n  * pcie_slot_mraid1link_speed\n  * pcie_slot_mraid1option_rom\n  * pcie_slot_mraid2link_speed\n  * pcie_slot_mraid2option_rom\n  * pcie_slot_mstorraid_link_speed\n  * pcie_slot_mstorraid_option_rom\n  * pcie_slot_nvme1link_speed\n  * pcie_slot_nvme1option_rom\n  * pcie_slot_nvme2link_speed\n  * pcie_slot_nvme2option_rom\n  * pcie_slot_nvme3link_speed\n  * pcie_slot_nvme3option_rom\n  * pcie_slot_nvme4link_speed\n  * pcie_slot_nvme4option_rom\n  * pcie_slot_nvme5link_speed\n  * pcie_slot_nvme5option_rom\n  * pcie_slot_nvme6link_speed\n  * pcie_slot_nvme6option_rom\n  * slot10link_speed\n  * slot10state\n  * slot11link_speed\n  * slot11state\n  * slot12link_speed\n  * slot12state\n  * slot13state\n  * slot14state\n  * slot1link_speed\n  * slot1state\n  * slot2link_speed\n  * slot2state\n  * slot3link_speed\n  * slot3state\n  * slot4link_speed\n  * slot4state\n  * slot5link_speed\n  * slot5state\n  * slot6link_speed\n  * slot6state\n  * slot7link_speed\n  * slot7state\n  * slot8link_speed\n  * slot8state\n  * slot9link_speed\n  * slot9state\n  * slot_flom_link_speed\n  * slot_front_nvme10link_speed\n  * slot_front_nvme10option_rom\n  * slot_front_nvme11link_speed\n  * slot_front_nvme11option_rom\n  * slot_front_nvme12link_speed\n  * slot_front_nvme12option_rom\n  * slot_front_nvme13link_speed\n  * slot_front_nvme13option_rom\n  * slot_front_nvme14link_speed\n  * slot_front_nvme14option_rom\n  * slot_front_nvme15link_speed\n  * slot_front_nvme15option_rom\n  * slot_front_nvme16link_speed\n  * slot_front_nvme16option_rom\n  * slot_front_nvme17link_speed\n  * slot_front_nvme17option_rom\n  * slot_front_nvme18link_speed\n  * slot_front_nvme18option_rom\n  * slot_front_nvme19link_speed\n  * slot_front_nvme19option_rom\n  * slot_front_nvme1link_speed\n  * slot_front_nvme1option_rom\n  * slot_front_nvme20link_speed\n  * slot_front_nvme20option_rom\n  * slot_front_nvme21link_speed\n  * slot_front_nvme21option_rom\n  * slot_front_nvme22link_speed\n  * slot_front_nvme22option_rom\n  * slot_front_nvme23link_speed\n  * slot_front_nvme23option_rom\n  * slot_front_nvme24link_speed\n  * slot_front_nvme24option_rom\n  * slot_front_nvme2link_speed\n  * slot_front_nvme2option_rom\n  * slot_front_nvme3link_speed\n  * slot_front_nvme3option_rom\n  * slot_front_nvme4link_speed\n  * slot_front_nvme4option_rom\n  * slot_front_nvme5link_speed\n  * slot_front_nvme5option_rom\n  * slot_front_nvme6link_speed\n  * slot_front_nvme6option_rom\n  * slot_front_nvme7link_speed\n  * slot_front_nvme7option_rom\n  * slot_front_nvme8link_speed\n  * slot_front_nvme8option_rom\n  * slot_front_nvme9link_speed\n  * slot_front_nvme9option_rom\n  * slot_front_slot5link_speed\n  * slot_front_slot6link_speed\n  * slot_gpu1state\n  * slot_gpu2state\n  * slot_gpu3state\n  * slot_gpu4state\n  * slot_gpu5state\n  * slot_gpu6state\n  * slot_gpu7state\n  * slot_gpu8state\n  * slot_hba_link_speed\n  * slot_hba_state\n  * slot_lom1link\n  * slot_lom2link\n  * slot_mezz_state\n  * slot_mlom_link_speed\n  * slot_mlom_state\n  * slot_mraid_link_speed\n  * slot_mraid_state\n  * slot_n10state\n  * slot_n11state\n  * slot_n12state\n  * slot_n13state\n  * slot_n14state\n  * slot_n15state\n  * slot_n16state\n  * slot_n17state\n  * slot_n18state\n  * slot_n19state\n  * slot_n1state\n  * slot_n20state\n  * slot_n21state\n  * slot_n22state\n  * slot_n23state\n  * slot_n24state\n  * slot_n2state\n  * slot_n3state\n  * slot_n4state\n  * slot_n5state\n  * slot_n6state\n  * slot_n7state\n  * slot_n8state\n  * slot_n9state\n  * slot_raid_link_speed\n  * slot_raid_state\n  * slot_rear_nvme1link_speed\n  * slot_rear_nvme1state\n  * slot_rear_nvme2link_speed\n  * slot_rear_nvme2state\n  * slot_rear_nvme3link_speed\n  * slot_rear_nvme3state\n  * slot_rear_nvme4link_speed\n  * slot_rear_nvme4state\n  * slot_rear_nvme5state\n  * slot_rear_nvme6state\n  * slot_rear_nvme7state\n  * slot_rear_nvme8state\n  * slot_riser1link_speed\n  * slot_riser1slot1link_speed\n  * slot_riser1slot2link_speed\n  * slot_riser1slot3link_speed\n  * slot_riser2link_speed\n  * slot_riser2slot4link_speed\n  * slot_riser2slot5link_speed\n  * slot_riser2slot6link_speed\n  * slot_sas_state\n  * slot_ssd_slot1link_speed\n  * slot_ssd_slot2link_speed\n#+++++++++++++++++++++++++++++++\n# Main Section\n#+++++++++++++++++++++++++++++++\n  * pcie_slots_cdn_enable\n  * post_error_pause\n  * tpm_support\n#+++++++++++++++++++++++++++++++\n# Memory Section\n#+++++++++++++++++++++++++++++++\n  * adaptive_refresh_mgmt_level\n  * advanced_mem_test\n  * bme_dma_mitigation\n  * burst_and_postponed_refresh\n  * cbs_cmn_cpu_smee\n  * cbs_cmn_gnb_nb_iommu\n  * cbs_cmn_mem_ctrl_bank_group_swap_ddr4\n  * cbs_cmn_mem_map_bank_interleave_ddr4\n  * cbs_dbg_cpu_snp_mem_cover\n  * cbs_dbg_cpu_snp_mem_size_cover\n  * cbs_df_cmn_dram_nps\n  * cbs_df_cmn_mem_intlv\n  * cbs_df_cmn_mem_intlv_size\n  * cbs_sev_snp_support\n  * cke_low_policy\n  * cr_qos\n  * crfastgo_config\n  * dcpmm_firmware_downgrade\n  * dram_refresh_rate\n  * dram_sw_thermal_throttling\n  * eadr_support\n  * enable_rmt\n  * error_check_scrub\n  * lv_ddr_mode\n  * memory_bandwidth_boost\n  * memory_refresh_rate\n  * memory_size_limit\n  * memory_thermal_throttling\n  * mirroring_mode\n  * numa_optimized\n  * nvmdimm_perform_config\n  * operation_mode\n  * panic_high_watermark\n  * partial_cache_line_sparing\n  * partial_mirror_mode_config\n  * partial_mirror_percent\n  * partial_mirror_value1\n  * partial_mirror_value2\n  * partial_mirror_value3\n  * partial_mirror_value4\n  * pc_ie_ras_support\n  * post_package_repair\n  * select_memory_ras_configuration\n  * select_ppr_type\n  * sev\n  * smee\n  * snoopy_mode_for2lm\n  * snoopy_mode_for_ad\n  * sparing_mode\n  * tsme\n  * uma_based_clustering\n  * vol_memory_mode\n#+++++++++++++++++++++++++++++++\n# PCI Section\n#+++++++++++++++++++++++++++++++\n  * aspm_support\n  * ioh_resource\n  * memory_mapped_io_above4gb\n  * mmcfg_base\n  * onboard10gbit_lom\n  * onboard_gbit_lom\n  * pc_ie_ssd_hot_plug_support\n  * sr_iov\n  * vga_priority\n#+++++++++++++++++++++++++++++++\n# Power and Performance Section\n#+++++++++++++++++++++++++++++++\n  * c1auto_demotion\n  * c1auto_un_demotion\n  * cbs_cmn_cpu_cpb\n  * cbs_cmn_cpu_global_cstate_ctrl\n  * cbs_cmn_cpu_l1stream_hw_prefetcher\n  * cbs_cmn_cpu_l2stream_hw_prefetcher\n  * cbs_cmn_determinism_slider\n  * cbs_cmn_efficiency_mode_en\n  * cbs_cmn_gnb_smucppc\n  * cbs_cmnc_tdp_ctl\n  * cpu_perf_enhancement\n  * llc_alloc\n  * upi_link_enablement\n  * upi_power_management\n  * virtual_numa\n  * x2apic_opt_out\n  * xpt_remote_prefetch\n#+++++++++++++++++++++++++++++++\n# Processor Section\n#+++++++++++++++++++++++++++++++\n  * adjacent_cache_line_prefetch\n  * altitude\n  * auto_cc_state\n  * autonumous_cstate_enable\n  * boot_performance_mode\n  * cbs_cmn_apbdis\n  * cbs_cmn_cpu_gen_downcore_ctrl\n  * cbs_cmn_cpu_streaming_stores_ctrl\n  * cbs_cmn_fixed_soc_pstate\n  * cbs_cmn_gnb_smu_df_cstates\n  * cbs_cpu_ccd_ctrl_ssp\n  * cbs_cpu_core_ctrl\n  * cbs_cpu_smt_ctrl\n  * cbs_df_cmn_acpi_srat_l3numa\n  * channel_inter_leave\n  * cisco_xgmi_max_speed\n  * closed_loop_therm_throtl\n  * cmci_enable\n  * config_tdp\n  * config_tdp_level\n  * core_multi_processing\n  * cpu_energy_performance\n  * cpu_frequency_floor\n  * cpu_performance\n  * cpu_power_management\n  * demand_scrub\n  * direct_cache_access\n  * dram_clock_throttling\n  * energy_efficient_turbo\n  * eng_perf_tuning\n  * enhanced_intel_speed_step_tech\n  * epp_enable\n  * epp_profile\n  * execute_disable_bit\n  * extended_apic\n  * hardware_prefetch\n  * hwpm_enable\n  * imc_interleave\n  * intel_dynamic_speed_select\n  * intel_hyper_threading_tech\n  * intel_speed_select\n  * intel_turbo_boost_tech\n  * intel_virtualization_technology\n  * ioh_error_enable\n  * ip_prefetch\n  * kti_prefetch\n  * llc_prefetch\n  * memory_inter_leave\n  * package_cstate_limit\n  * patrol_scrub\n  * patrol_scrub_duration\n  * processor_c1e\n  * processor_c3report\n  * processor_c6report\n  * processor_cstate\n  * pstate_coord_type\n  * pwr_perf_tuning\n  * qpi_link_speed\n  * rank_inter_leave\n  * single_pctl_enable\n  * smt_mode\n  * snc\n  * streamer_prefetch\n  * svm_mode\n  * ufs_disable\n  * work_load_config\n  * xpt_prefetch\n#+++++++++++++++++++++++++++++++\n# QPI Section\n#+++++++++++++++++++++++++++++++\n  * qpi_link_frequency\n  * qpi_snoop_mode#+++++++++++++++++++++++++++++++\n# Security Section\n#+++++++++++++++++++++++++++++++\n  * enable_tdx\n  * enable_tdx_seamldr\n#+++++++++++++++++++++++++++++++\n# Serial Port Section\n#+++++++++++++++++++++++++++++++\n  * serial_port_aenable\n#+++++++++++++++++++++++++++++++\n# Server Management Section\n#+++++++++++++++++++++++++++++++\n  * assert_nmi_on_perr\n  * assert_nmi_on_serr\n  * baud_rate\n  * cdn_enable\n  * cisco_adaptive_mem_training\n  * cisco_debug_level\n  * cisco_oprom_launch_optimization\n  * console_redirection\n  * flow_control\n  * frb2enable\n  * legacy_os_redirection\n  * os_boot_watchdog_timer\n  * os_boot_watchdog_timer_policy\n  * os_boot_watchdog_timer_timeout\n  * out_of_band_mgmt_port\n  * putty_key_pad\n  * redirection_after_post\n  * terminal_type\n  * ucsm_boot_order_rule\n#+++++++++++++++++++++++++++++++\n# Trusted Platform Section\n#+++++++++++++++++++++++++++++++\n  * cpu_pa_limit\n  * enable_mktme\n  * dma_ctrl_opt_in\n  * enable_sgx\n  * enable_tme\n  * epoch_update\n  * sgx_auto_registration_agent\n  * sgx_epoch0\n  * sgx_epoch1\n  * sgx_factory_reset\n  * sgx_le_pub_key_hash0\n  * sgx_le_pub_key_hash1\n  * sgx_le_pub_key_hash2\n  * sgx_le_pub_key_hash3\n  * sgx_le_wr\n  * sgx_package_info_in_band_access\n  * sgx_qos\n  * sha1pcr_bank\n  * sha256pcr_bank\n  * sha384pcr_bank\n  * tpm_control\n  * tpm_pending_operation\n  * tpm_ppi_required\n  * txt_support\n#+++++++++++++++++++++++++++++++\n# USB Section\n#+++++++++++++++++++++++++++++++\n  * all_usb_devices\n  * legacy_usb_support\n  * make_device_non_bootable\n  * pch_usb30mode\n  * usb_emul6064\n  * usb_port_front\n  * usb_port_internal\n  * usb_port_kvm\n  * usb_port_rear\n  * usb_port_sd_card\n  * usb_port_vmedia\n  * usb_xhci_support",
                     "intersightUri": "bios/Policies",
                     "items": {
                         "$ref": "#/definitions/bios.Policy"
@@ -11534,7 +11634,7 @@
                 },
                 "storage": {
                     "type": "array",
-                    "description": "\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * default_drive_state\n  * description\n  * drive_groups\n  * global_hot_spares\n  * m2_raid_configuration\n  * single_drive_raid0_configuration\n  * tags\n  * unused_disks_state\n  * use_jbod_for_vd_creation",
+                    "description": "\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * default_drive_state\n  * description\n  * drive_groups\n  * global_hot_spares\n  * hybrid_slot_configuration:direct_attached_nvme_slots\n  * hybrid_slot_configuration:raid_attached_nvme_slots\n  * m2_raid_configuration\n  * secure_jbod_disk_slots\n  * single_drive_raid0_configuration\n  * tags\n  * unused_disks_state\n  * use_jbod_for_vd_creation",
                     "intersightUri": "storage/StoragePolicies",
                     "items": {
                         "$ref": "#/definitions/storage.StoragePolicy"
@@ -11742,7 +11842,7 @@
         "pools": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Pools are the basic building blocks for uniquely identifying hardware resources. As the basis for the UCS management model, they allow Service Profiles to be associated with any blade server, while still providing the exact same ID and presentation to the upstream LAN or SAN. If a pool is actively associated with a profile, the pool cannot be deleted.",
+            "description": "Pools are the basic building blocks for uniquely identifying hardware resources. As the basis for the UCS management model, they allow Service Profiles to be associated with any blade server, while still providing the exact same ID and presentation to the upstream LAN or SAN. If a pool is actively associated with a profile, the pool cannot be deleted.\nOptions are:\n\n  * ip\n  * iqn\n  * resource\n  * uuid\n  * wwnn\n  * wwpn",
             "properties": {
                 "ip": {
                     "type": "array",
@@ -12065,36 +12165,36 @@
                 },
                 "enable_diagnostics": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Flag to Enable the Diagnostics Utility Partition.",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to Enable the Diagnostics Utility Partition.",
                     "intersightApi": "not_applicable",
                     "title": "enable_diagnostics"
                 },
                 "enable_drivers": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Flag to Enable the Drivers Utility Partition.",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to Enable the Drivers Utility Partition.",
                     "intersightApi": "not_applicable",
                     "title": "enable_drivers"
                 },
                 "enable_huu": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Flag to Enable the HostUpgradeUtility Utility Partition.",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to Enable the HostUpgradeUtility Utility Partition.",
                     "intersightApi": "not_applicable",
                     "title": "enable_huu"
                 },
                 "enable_os": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Flag to Enable the OperatingSystem Partition.",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to Enable the OperatingSystem Partition.",
                     "intersightApi": "not_applicable",
                     "title": "enable_os"
                 },
                 "enable_scu": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Flag to Enable the ServerConfigurationUtility Utility Partition.",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to Enable the ServerConfigurationUtility Utility Partition.",
                     "intersightApi": "not_applicable",
                     "title": "enable_scu"
                 },
@@ -13701,10 +13801,20 @@
         "storage.M2VirtualDriveConfig": {
             "type": "object",
             "additionalProperties": false,
-            "description": "This models the options for creating a virtual drive on M.2 RAID controller.\nRequired Attributes\n  * slot",
+            "description": "This models the options for creating a virtual drive on M.2 RAID controller.\nRequired Attributes:\n  * name\n  * slot",
             "intersightUri": "storage/M2VirtualDriveConfig",
             "ObjectType": "storage.M2VirtualDriveConfig",
             "properties": {
+                "name": {
+                    "type": "string",
+                    "default": "MStorBootVd",
+                    "description": "The name of the virtual drive. The name can be between 1 and 15 alphanumeric characters. Spaces or any special characters other than - (hyphen), _ (underscore), : (colon), and . (period) are not allowed. This field will be pre-populated with the default or user configured value which can be edited.",
+                    "intersight_api": "Name",
+                    "minLength": 1,
+                    "maxLength": 15,
+                    "pattern": "^[a-zA-Z0-9_\\.:-]+$",
+                    "title": "name"
+                },
                 "slot": {
                     "type": "string",
                     "default": "MSTOR-RAID-1",
@@ -13715,7 +13825,7 @@
                         "MSTOR-RAID-2",
                         "MSTOR-RAID-1,MSTOR-RAID-2"
                     ],
-                    "title": "drive_slots"
+                    "title": "slot"
                 }
             },
             "required": [
@@ -13846,11 +13956,41 @@
                     "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
                     "title": "global_hot_spares"
                 },
+                "hybrid_slot_configuration:direct_attached_nvme_slots": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Only U.3 NVMe drives has to be specified, entered slots will be moved to Direct attached mode. Allowed slots are 1-4, 101-104. Allowed value is a comma or hyphen separated number range.",
+                    "intersight_api": "DirectAttachedNvmeSlots",
+                    "minLength": 1,
+                    "maxLength": 32,
+                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "title": "hybrid_slot_configuration:direct_attached_nvme_slots"
+                },
+                "hybrid_slot_configuration:raid_attached_nvme_slots": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Only U.3 NVMe drives has to be specified, entered slots will be moved to RAID attached mode. Allowed slots are 1-4, 101-104. Allowed value is a comma or hyphen separated number range.",
+                    "intersight_api": "RaidAttachedNvmeSlots",
+                    "minLength": 1,
+                    "maxLength": 32,
+                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "title": "hybrid_slot_configuration:raid_attached_nvme_slots"
+                },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
                 "m2_raid_configuration": {
                     "$ref": "#/definitions/storage.M2VirtualDriveConfig"
+                },
+                "secure_jbod_disk_slots": {
+                    "type": "string",
+                    "default": "",
+                    "description": "JBOD drives specified in this slot range will be encrypted. Allowed values are 'ALL', or a comma or hyphen separated number range. Sample format is ALL or 1, 3 or 4-6, 8. Setting the value to 'ALL' will encrypt all the unused UnconfigureGood/JBOD disks.",
+                    "intersight_api": "SecureJbods",
+                    "minLength": 1,
+                    "maxLength": 32,
+                    "pattern": "^$|^((((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*)|(a|A)(l|L)(l|L))$",
+                    "title": "secure_jbod_disk_slots"
                 },
                 "single_drive_raid0_configuration": {
                     "$ref": "#/definitions/storage.R0Drive"
@@ -14348,13 +14488,13 @@
                 },
                 "name": {
                     "type": "string",
-                    "default": "cdd",
-                    "description": "Protocol to use to communicate with the remote server.\n  * nfs - NFS protocol for vmedia mount.\n  * cifs - CIFS protocol for vmedia mount.\n  * http - HTTP protocol for vmedia mount.\n  * https - HTTPS protocol for vmedia mount.",
-                    "intersightApi": "VolumeName",
+                    "default": "remote_map",
+                    "description": "Identity of the image for Virtual Media mapping.",
+                    "intersight_api": "VolumeName",
                     "minLength": 1,
-                    "maxLength": 64,
-                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
-                    "title": "protocol"
+                    "maxLength": 47,
+                    "pattern": "^[a-zA-Z0-9_\\.:-]+$",
+                    "title": "name"
                 },
                 "password": {
                     "type": "integer",

@@ -48,15 +48,15 @@ common:
         enable_secure_boot: true
         name: M2-pxe
     firmware:
-      - description: example-ucs Firmware Policy
+      - description: fw-domain-servers Firmware Policy
         model_bundle_version:
-          - firmware_version: 5.2(0.230040)
+          - firmware_version: 5.2(0.230092)
             server_models:
               - UCSX-210C-M6
-          - firmware_version: 5.2(0.230039)
+          - firmware_version: 5.2(0.230100)
             server_models:
               - UCSB-B200-M5
-          - firmware_version: 4.3(2.230207)
+          - firmware_version: 4.3(2.230270)
             server_models:
               - UCSC-C240-M5
         name: fw-domain-servers

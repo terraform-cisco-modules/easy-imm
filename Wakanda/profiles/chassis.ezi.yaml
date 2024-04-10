@@ -2,7 +2,7 @@
 #=======================================
 #   Profiles -> Chassis - Variables
 #=======================================
-Asgard:
+Wakanda:
   profiles:
     chassis:
       - action: No-op
@@ -10,8 +10,7 @@ Asgard:
         power_policy: common/9508
         snmp_policy: common/snmp
         targets:
-          - description: r143e-1-1 UCS Chassis Profile
-            name: r143e-1-1
-            serial_number: unknown
-            #serial_number: FOX2611P8N1
+          - description: r143e-2-1 UCS Chassis Profile
+            name: r143e-2-1
+            serial_number: FOX2611P8N8
         thermal_policy: common/9508

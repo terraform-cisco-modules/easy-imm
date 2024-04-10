@@ -7,7 +7,7 @@ common:
     lan_connectivity:
       - description: lcp LAN Connectivity Policy
         enable_azure_stack_host_qos: false
-        name: lcp
+        name: aci-lcp
         target_platform: FIAttached
         vnics:
           - ethernet_adapter_policy: VMware

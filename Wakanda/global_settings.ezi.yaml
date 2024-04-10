@@ -1,0 +1,6 @@
+---
+#========================================
+#   Global Settings
+#========================================
+global_settings:
+  intersight_fqdn: intersight.com

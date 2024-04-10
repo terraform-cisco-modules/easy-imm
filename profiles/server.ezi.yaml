@@ -23,80 +23,80 @@ Asgard:
               chassis_id: 1
               slot_id: 3
         ucs_server_template: common/aci-M6-intel-virtual-tpm-M2-pxe
-      - action: No-op
-        attach_template: true
-        ignore_reservations: true
-        target_platform: FIAttached
-        targets:
-          - description: r143-1-4 UCS Server Profile
-            name: r143e-1-4
-            serial_number: FCH26407DHP
-          - name: r143e-1-7
-            serial_number: FCH26407CXM
-          - name: r143e-1-8
-            reservations:
-              - identity: 198.18.101.78
-                identity_type: ip
-                ip_type: IPv4
-                management_type: InBand
-                pool_name: common/aci-kvm-inband
-              - identity: 192.168.64.168
-                identity_type: ip
-                ip_type: IPv4
-                management_type: OutOfBand
-                pool_name: common/kvm-ooband
-              - identity: iqn.1984-12.com.cisco:8-ucs-host
-                identity_type: ip
-                interface: storage-a
-                ip_type: IPv4
-                pool_name: default/default
-              - identity: 00:25:B5:C1:5A:08
-                identity_type: mac
-                interface: mgmt-a
-                pool_name: common/mgmt-a
-              - identity: 00:25:B5:C1:5B:08
-                identity_type: mac
-                interface: mgmt-b
-                pool_name: common/mgmt-b
-              - identity: 00:25:B5:C1:5C:08
-                identity_type: mac
-                interface: migration-a
-                pool_name: common/migration-a
-              - identity: 00:25:B5:C1:5D:08
-                identity_type: mac
-                interface: migration-b
-                pool_name: common/migration-b
-              - identity: 00:25:B5:C1:5E:08
-                identity_type: mac
-                interface: storage-a
-                pool_name: common/storage-a
-              - identity: 00:25:B5:C1:5F:08
-                identity_type: mac
-                interface: storage-b
-                pool_name: common/storage-b
-              - identity: 00:25:B5:C1:51:08
-                identity_type: mac
-                interface: dvs-a
-                pool_name: common/dvs-a
-              - identity: 00:25:B5:C1:52:08
-                identity_type: mac
-                interface: dvs-b
-                pool_name: common/dvs-b
-              - identity: 000025B5-C15C-0000:25B5-000000000008
-                identity_type: ip
-                interface: default
-                pool_name: default
-              - identity: 20:00:00:25:B5:C1:C0:08
-                identity_type: wwnn
-                interface: default
-                pool_name: common/wwnn
-              - identity: 20:00:00:25:B5:C1:CA:08
-                identity_type: wwpn
-                interface: default
-                pool_name: common/wwpn-a
-              - identity: 20:00:00:25:B5:C1:CB:08
-                identity_type: wwpn
-                interface: default
-                pool_name: common/wwpn-b
-            serial_number: FCH26417734
-        ucs_server_template: common/aci-M6-intel-virtual-tpm-M2-pxe
+      #- action: No-op
+      #  attach_template: true
+      #  ignore_reservations: true
+      #  target_platform: FIAttached
+      #  targets:
+      #    - description: r143-1-4 UCS Server Profile
+      #      name: r143e-1-4
+      #      serial_number: FCH26407DHP
+      #    - name: r143e-1-7
+      #      serial_number: FCH26407CXM
+      #    - name: r143e-1-8
+      #      reservations:
+      #        - identity: 198.18.101.78
+      #          identity_type: ip
+      #          ip_type: IPv4
+      #          management_type: InBand
+      #          pool_name: common/aci-kvm-inband
+      #        - identity: 192.168.64.168
+      #          identity_type: ip
+      #          ip_type: IPv4
+      #          management_type: OutOfBand
+      #          pool_name: common/kvm-ooband
+      #        - identity: iqn.1984-12.com.cisco:8-ucs-host
+      #          identity_type: ip
+      #          interface: storage-a
+      #          ip_type: IPv4
+      #          pool_name: default/default
+      #        - identity: 00:25:B5:C1:5A:08
+      #          identity_type: mac
+      #          interface: mgmt-a
+      #          pool_name: common/mgmt-a
+      #        - identity: 00:25:B5:C1:5B:08
+      #          identity_type: mac
+      #          interface: mgmt-b
+      #          pool_name: common/mgmt-b
+      #        - identity: 00:25:B5:C1:5C:08
+      #          identity_type: mac
+      #          interface: migration-a
+      #          pool_name: common/migration-a
+      #        - identity: 00:25:B5:C1:5D:08
+      #          identity_type: mac
+      #          interface: migration-b
+      #          pool_name: common/migration-b
+      #        - identity: 00:25:B5:C1:5E:08
+      #          identity_type: mac
+      #          interface: storage-a
+      #          pool_name: common/storage-a
+      #        - identity: 00:25:B5:C1:5F:08
+      #          identity_type: mac
+      #          interface: storage-b
+      #          pool_name: common/storage-b
+      #        - identity: 00:25:B5:C1:51:08
+      #          identity_type: mac
+      #          interface: dvs-a
+      #          pool_name: common/dvs-a
+      #        - identity: 00:25:B5:C1:52:08
+      #          identity_type: mac
+      #          interface: dvs-b
+      #          pool_name: common/dvs-b
+      #        - identity: 000025B5-C15C-0000:25B5-000000000008
+      #          identity_type: ip
+      #          interface: default
+      #          pool_name: default
+      #        - identity: 20:00:00:25:B5:C1:C0:08
+      #          identity_type: wwnn
+      #          interface: default
+      #          pool_name: common/wwnn
+      #        - identity: 20:00:00:25:B5:C1:CA:08
+      #          identity_type: wwpn
+      #          interface: default
+      #          pool_name: common/wwpn-a
+      #        - identity: 20:00:00:25:B5:C1:CB:08
+      #          identity_type: wwpn
+      #          interface: default
+      #          pool_name: common/wwpn-b
+      #      serial_number: FCH26417734
+      #  ucs_server_template: common/aci-M6-intel-virtual-tpm-M2-pxe

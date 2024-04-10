@@ -12,7 +12,7 @@ common:
         firmware_policy: fw-domain-servers
         imc_access_policy: aci-kvm
         ipmi_over_lan_policy: ipmi
-        lan_connectivity_policy: lcp
+        lan_connectivity_policy: aci-lcp
         local_user_policy: users
         name: aci-M5-intel-virtual-M2-pxe
         power_policy: server
@@ -32,7 +32,7 @@ common:
         firmware_policy: fw-domain-servers
         imc_access_policy: aci-kvm
         ipmi_over_lan_policy: ipmi
-        lan_connectivity_policy: lcp
+        lan_connectivity_policy: aci-lcp
         local_user_policy: users
         name: aci-M5-intel-virtual-tpm-M2-pxe
         power_policy: server
@@ -52,7 +52,7 @@ common:
         firmware_policy: fw-domain-servers
         imc_access_policy: aci-kvm
         ipmi_over_lan_policy: ipmi
-        lan_connectivity_policy: lcp
+        lan_connectivity_policy: aci-lcp
         local_user_policy: users
         name: aci-M6-intel-virtual-tpm-M2-pxe
         power_policy: server

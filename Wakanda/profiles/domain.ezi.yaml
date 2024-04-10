@@ -2,20 +2,20 @@
 #======================================
 #   Profiles -> Domain - Variables
 #======================================
-Asgard:
+Wakanda:
   profiles:
     domain:
       - action: No-op
-        description: r143e-1 UCS Domain Profile
-        name: r143e-1
+        description: r143e-2 UCS Domain Profile
+        name: r143e-2
         network_connectivity_policy: common/dns
         ntp_policy: common/ntp
         port_policies:
-          - common/r143e-1-a
-          - common/r143e-1-b
-        #serial_numbers:
-        #  - FDO245219W2
-        #  - FDO23350SKV
+          - common/r143e-2-a
+          - common/r143e-2-b
+        serial_numbers:
+          - FDO23360XWU
+          - FDO23360Y8U
         snmp_policy: common/snmp
         switch_control_policy: common/sw-ctrl
         system_qos_policy: common/qos
