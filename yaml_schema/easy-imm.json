@@ -29,7 +29,7 @@
                 "inband_vlan_id": {
                     "type": "integer",
                     "default": 4,
-                    "description": "Default is 4.  VLAN to be used for server access over Inband network.",
+                    "description": "Default is `4`.  VLAN to be used for server access over Inband network.",
                     "intersightApi": "InbandVlan",
                     "minimum": 4,
                     "maximum": 4093,
@@ -38,14 +38,14 @@
                 "ipv4_address_configuration": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  This flag enables the use of IPv4 address for end-point access.",
+                    "description": "Default is `true`.  This flag enables the use of IPv4 address for end-point access.",
                     "intersightApi": "$ref:access.AddressType:EnableIpV4",
                     "title": "ipv4_address_configuration"
                 },
                 "ipv6_address_configuration": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  This flag enables the use of IPv6 address for end-point access.",
+                    "description": "Default is `false`.  This flag enables the use of IPv6 address for end-point access.",
                     "intersightApi": "$ref:access.AddressType:EnableIpV6",
                     "title": "ipv6_address_configuration"
                 },
@@ -89,21 +89,21 @@
                 "enable_fip": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Status of FIP protocol on the adapter interfaces.",
+                    "description": "Default is `true`.  Status of FIP protocol on the adapter interfaces.",
                     "intersightApi": "$ref:adapter.FcSettings:FipEnabled",
                     "title": "enable_fip"
                 },
                 "enable_lldp": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Status of LLDP protocol on the adapter interfaces.",
+                    "description": "Default is `true`.  Status of LLDP protocol on the adapter interfaces.",
                     "intersightApi": "$ref:adapter.EthSettings:LldpEnabled",
                     "title": "enable_lldp"
                 },
                 "enable_port_channel": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When Port Channel is enabled, two vNICs and two vHBAs are available for use on the adapter card. When disabled, four vNICs and four vHBAs are available for use on the adapter card. Disabling port channel reboots the server. Port Channel is supported only for Cisco VIC 1455/1457 adapters.",
+                    "description": "Default is `true`.  When Port Channel is enabled, two vNICs and two vHBAs are available for use on the adapter card. When disabled, four vNICs and four vHBAs are available for use on the adapter card. Disabling port channel reboots the server. Port Channel is supported only for Cisco VIC 1455/1457 adapters.",
                     "intersightApi": "$ref:adapter.PortChannelSettings:Enabled",
                     "title": "enable_port_channel"
                 },
@@ -5852,7 +5852,7 @@
                 "enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Specifies if the boot device is enabled or disabled.",
+                    "description": "Default is `true`.  Specifies if the boot device is enabled or disabled.",
                     "intersightApi": "Enabled",
                     "title": "enabled"
                 },
@@ -5893,7 +5893,7 @@
                 "lun": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 1.  The Logical Unit Number (LUN) of the device. For SAN boot configuration to be deployed on a server with 1300 family of Cisco VIC adapters, the recommendation is for the boot LUN to be numbered as 0 to ensure that LUN is mounted as the first disk from which the server boots.",
+                    "description": "Default is `1`.  The Logical Unit Number (LUN) of the device. For SAN boot configuration to be deployed on a server with 1300 family of Cisco VIC adapters, the recommendation is for the boot LUN to be numbered as 0 to ensure that LUN is mounted as the first disk from which the server boots.",
                     "intersightApi": "$ref:boot.San:Lun",
                     "minimum": 0,
                     "maximum": 255,
@@ -6035,7 +6035,7 @@
                 "enable_secure_boot": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  If UEFI secure boot is enabled, the boot mode is set to UEFI by default. Secure boot enforces that device boots using only software that is trusted by the Original Equipment Manufacturer (OEM).",
+                    "description": "Default is `true`.  If UEFI secure boot is enabled, the boot mode is set to UEFI by default. Secure boot enforces that device boots using only software that is trusted by the Original Equipment Manufacturer (OEM).",
                     "intersightApi": "EnforceUefiSecureBoot",
                     "title": "enable_secure_boot"
                 },
@@ -6269,7 +6269,7 @@
                 "configuration_lockout": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is true.  Enables configuration lockout on the endpoint.",
+                    "description": "Default is `true`.  Enables configuration lockout on the endpoint.",
                     "intersightApi": "LockoutEnabled",
                     "title": "configuration_lockout"
                 },
@@ -6315,7 +6315,7 @@
                 "admin_speed": {
                     "type": "string",
                     "default": "Auto",
-                    "description": "Default is Auto.  Admin configured speed for the port channel.\n  * `Auto` - Admin configurable speed AUTO ( default ).\n  * `1Gbps` - Admin configurable speed 1Gbps.\n  * `10Gbps` - Admin configurable speed 10Gbps.\n  * `25Gbps` - Admin configurable speed 25Gbps.\n  * `40Gbps` - Admin configurable speed 40Gbps.\n  * `100Gbps` - Admin configurable speed 100Gbps.",
+                    "description": "Default is `Auto`.  Admin configured speed for the port channel.\n  * `Auto` - Admin configurable speed AUTO ( default ).\n  * `1Gbps` - Admin configurable speed 1Gbps.\n  * `10Gbps` - Admin configurable speed 10Gbps.\n  * `25Gbps` - Admin configurable speed 25Gbps.\n  * `40Gbps` - Admin configurable speed 40Gbps.\n  * `100Gbps` - Admin configurable speed 100Gbps.",
                     "intersightApi": "AdminSpeed",
                     "enum": [
                         "Auto",
@@ -6520,7 +6520,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -6556,7 +6556,7 @@
                 "cdp_enable": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables the CDP on an interface.",
+                    "description": "Default is `false`.  Enables the CDP on an interface.",
                     "intersightApi": "CdpEnabled",
                     "title": "cdp_enable"
                 },
@@ -6566,14 +6566,14 @@
                 "lldp_enable_receive": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Determines if the LLDP frames can be received by an interface on the switch.",
+                    "description": "Default is `false`.  Determines if the LLDP frames can be received by an interface on the switch.",
                     "intersightApi": "$ref:fabric.LldpSettings:ReceiveEnabled",
                     "title": "lldp_enable_receive"
                 },
                 "lldp_enable_transmit": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Determines if the LLDP frames can be transmitted by an interface on the switch.",
+                    "description": "Default is `false`.  Determines if the LLDP frames can be transmitted by an interface on the switch.",
                     "intersightApi": "$ref:fabric.LldpSettings:TransmitEnabled",
                     "title": "lldp_enable_transmit"
                 },
@@ -6640,7 +6640,7 @@
                 "native_vlan": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Native VLAN ID of the virtual interface or the corresponding vethernet on the peer Fabric Interconnect to which the virtual interface is connected. If the native VLAN is not a part of the allowed VLANs, it will automatically be added to the list of allowed VLANs.",
+                    "description": "Default is `1`.  Native VLAN ID of the virtual interface or the corresponding vethernet on the peer Fabric Interconnect to which the virtual interface is connected. If the native VLAN is not a part of the allowed VLANs, it will automatically be added to the list of allowed VLANs.",
                     "intersightApi": "$ref:fabric.VlanSettings:NativeVlan",
                     "minimum": 1,
                     "maximum": 4093,
@@ -6727,7 +6727,7 @@
                 "uplink_trunking": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enable or Disable Trunking on all of configured FC uplink ports.",
+                    "description": "Default is `false`.  Enable or Disable Trunking on all of configured FC uplink ports.",
                     "intersightApi": "EnableTrunking",
                     "title": "uplink_trunking"
                 },
@@ -6773,7 +6773,7 @@
                 },
                 "interfaces": {
                     "type": "array",
-                    "description": "list of interfaces {breakout_port_id/port_id/slot_id} to assign to the Port-Channel Policy.\n  * breakout_port_id: Default is 0.  Breakout port Identifier of the Switch Interface.  When a port is not configured as a breakout port, the aggregatePortId is set to 0, and unused.  When a port is configured as a breakout port, the 'aggregatePortId' port number as labeled on the equipment, e.g. the id of the port on the switch.\n  * port_id - Port ID to Assign to the LAN Port-Channel Policy.\n  * slot_id: Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "list of interfaces {breakout_port_id/port_id/slot_id} to assign to the Port-Channel Policy.\n  * breakout_port_id: Default is `0`.  Breakout port Identifier of the Switch Interface.  When a port is not configured as a breakout port, the aggregatePortId is set to 0, and unused.  When a port is configured as a breakout port, the 'aggregatePortId' port number as labeled on the equipment, e.g. the id of the port on the switch.\n  * port_id - Port ID to Assign to the LAN Port-Channel Policy.\n  * slot_id: Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightUri": "fabric/PcMembers",
                     "items": {
                         "$ref": "#/definitions/fabric.PcMember"
@@ -6901,7 +6901,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -6956,7 +6956,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -7098,7 +7098,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -7317,7 +7317,7 @@
                 "suspend_individual": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Flag tells the switch whether to suspend the port if it didn\u2019t receive LACP PDU.",
+                    "description": "Default is `false`.  Flag tells the switch whether to suspend the port if it didn\u2019t receive LACP PDU.",
                     "intersightApi": "SuspendIndividual",
                     "title": "suspend_individual"
                 },
@@ -7494,7 +7494,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 12,
@@ -7536,7 +7536,7 @@
                     "items": {
                         "type": "integer",
                         "default": 1,
-                        "description": "Default is 1.  Port Identifier of the Switch Interface.",
+                        "description": "Default is `1`.  Port Identifier of the Switch Interface.",
                         "intersightApi": "not_applicable",
                         "minimum": 1,
                         "maximum": 96,
@@ -7547,7 +7547,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the switch.",
+                    "description": "Default is `1`.  Slot Identifier of the switch.",
                     "intersightApi": "SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -7734,7 +7734,7 @@
                 "cos": {
                     "type": "integer",
                     "default": 255,
-                    "description": "Class of service Assigned to the System QoS Class.\n  * Best Effort - By default is 255 and cannot be changed.\n  * Bronze - By default is 1.\n  * FC - By default is 3 and cannot be changed.\n  * Gold - By default is 4.\n  * Platinum - By default is 5.\n  * Silver - By default is 2.",
+                    "description": "Class of service Assigned to the System QoS Class.\n  * Best Effort - By default is `255` and cannot be changed.\n  * Bronze - By default is `1`.\n  * FC - By default is `3` and cannot be changed.\n  * Gold - By default is `4`.\n  * Platinum - By default is `5`.\n  * Silver - By default is `2`.",
                     "intersightApi": "Cos",
                     "minimum": 0,
                     "maximum": 255,
@@ -7776,7 +7776,7 @@
                 "weight": {
                     "type": "integer",
                     "default": 1,
-                    "description": "The weight of the QoS Class controls the distribution of bandwidth between QoS Classes,with the same priority after the Guarantees for the QoS Classes are reached.  Default is 1.\n  * Best Effort - By Default is 5.\n  * Bronze - By Default is 7.\n  * FC - By Default is 5.\n  * Gold - By Default is 9.\n  * Platinum - By Default is 10.\n  * Silver - By Default is 8.",
+                    "description": "The weight of the QoS Class controls the distribution of bandwidth between QoS Classes,with the same priority after the Guarantees for the QoS Classes are reached.  Default is `1`.\n  * Best Effort - By Default is `5`.\n  * Bronze - By Default is `7`.\n  * FC - By Default is `5`.\n  * Gold - By Default is `9`.\n  * Platinum - By Default is `10`.\n  * Silver - By Default is `8`.",
                     "intersightApi": "Weight",
                     "minimum": 1,
                     "maximum": 10,
@@ -7859,7 +7859,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -8023,7 +8023,7 @@
                 "action",
                 "name",
                 "port_policies",
-                "switch_control_policy",
+                "serial_numbers",
                 "system_qos_policy",
                 "vlan_policies"
             ],
@@ -8065,7 +8065,7 @@
                 "mac_address_table_aging": {
                     "type": "string",
                     "default": "Default",
-                    "description": "Default is `Default`.  This specifies one of the option to configure the MAC address aging time.\n  * `Default` - This option sets the default MAC address aging time to 14500 seconds for End Host mode.\n  * `Custom` - This option allows the the user to configure the MAC address aging time on the switch. For Switch Model UCS-FI-6454 or higher, the valid range is 120 to 918000 seconds and the switch will set the lower multiple of 5 of the given time.\n  * `Never` - This option disables the MAC address aging process and never allows the MAC address entries to get removed from the table.",
+                    "description": "Default is `Default`.  This specifies one of the option to configure the MAC address aging time.\n  * `Default` - This option sets the default MAC address aging time to 14500 seconds for End Host mode.\n  * `Custom` - This option allows the the user to configure the MAC address aging time on the switch. For Switch Model UCS-FI-6454 or higher, the valid range is `120 to 918000` seconds and the switch will set the lower multiple of 5 of the given time.\n  * `Never` - This option disables the MAC address aging process and never allows the MAC address entries to get removed from the table.",
                     "intersightApi": "$ref:fabric.MacAgingSettings:MacAgingOption",
                     "enum": [
                         "Default",
@@ -8077,7 +8077,7 @@
                 "mac_aging_time": {
                     "type": "integer",
                     "default": 14500,
-                    "description": "Default is 14500.  Define the MAC address aging time in seconds. This field is valid when the \"Custom\" MAC address aging option is selected.",
+                    "description": "Default is `14500`.  Define the MAC address aging time in seconds. This field is valid when the \"Custom\" MAC address aging option is selected.",
                     "intersightApi": "$ref:fabric.MacAgingSettings:MacAgingTime",
                     "minimum": 1,
                     "maximum": 1000000,
@@ -8089,7 +8089,7 @@
                 "reserved_vlan_start_id": {
                     "type": "integer",
                     "default": 3915,
-                    "description": "Default is 3915.  The starting ID for VLANs reserved for internal use within the Fabric Interconnect. This VLAN ID is the starting ID of \na contiguous block of 128 VLANs that cannot be configured for user data.  This range of VLANs cannot be configured in \nVLAN policy.\nIf this property is not configured, VLAN range 3915 - 4042 is reserved for internal use by default.",
+                    "description": "Default is `3915`.  The starting ID for VLANs reserved for internal use within the Fabric Interconnect. This VLAN ID is the starting ID of \na contiguous block of 128 VLANs that cannot be configured for user data.  This range of VLANs cannot be configured in \nVLAN policy.\nIf this property is not configured, VLAN range 3915 - 4042 is reserved for internal use by default.",
                     "intersightApi": "ReservedVlanStartId",
                     "minimum": 1,
                     "maximum": 3915,
@@ -8109,7 +8109,7 @@
                 "vlan_port_count_optimization": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  To enable or disable the VLAN port count optimization.",
+                    "description": "Default is `false`.  To enable or disable the VLAN port count optimization.",
                     "intersightApi": "VlanPortOptimizationEnabled",
                     "title": "vlan_port_count_optimization"
                 }
@@ -8189,7 +8189,7 @@
                 "message_interval": {
                     "type": "integer",
                     "default": 15,
-                    "description": "Default is 15.  Configures the time between UDLD probe messages on ports that are in advertisement mode and are\ncurrently determined to be bidirectional.\nValid values are from 7 to 90 seconds.",
+                    "description": "Default is `15`.  Configures the time between UDLD probe messages on ports that are in advertisement mode and are\ncurrently determined to be bidirectional.\nValid values are from 7 to 90 seconds.",
                     "intersightApi": "MessageInterval",
                     "minimum": 1,
                     "maximum": 90,
@@ -8395,7 +8395,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Slot Identifier of the Switch/FEX/Chassis Interface.",
+                    "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
                     "intersightApi": "$ref:fabric.PortBase:SlotId",
                     "minimum": 1,
                     "maximum": 64,
@@ -8523,7 +8523,7 @@
                 "vsan_id": {
                     "type": "integer",
                     "default": 3096,
-                    "description": "Default is 3096.  Virtual San Identifier in the switch.",
+                    "description": "Default is `3096`.  Virtual San Identifier in the switch.",
                     "intersightApi": "VsanId",
                     "minimum": 1,
                     "maximum": 4093,
@@ -8860,7 +8860,7 @@
                 "enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Enables the user account on the endpoint.",
+                    "description": "Default is `true`.  Enables the user account on the endpoint.",
                     "intersightApi": "$ref:iam.EndPointUserRole:Enabled",
                     "title": "enabled"
                 },
@@ -8876,7 +8876,7 @@
                 "role": {
                     "type": "string",
                     "default": "readonly",
-                    "description": "Default is readonly.  The name of the end point role.\n  * admin\n  * readonly\n  * user",
+                    "description": "Default is `readonly`.  The name of the end point role.\n  * admin\n  * readonly\n  * user",
                     "intersightApi": "$ref:iam.EndPointRole:Name",
                     "enum": [
                         "admin",
@@ -8955,28 +8955,28 @@
                 "always_send_user_password": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  User password will always be sent to endpoint device. If the option is not selected, then user password will be sent to endpoint device for new users and if user password is changed for existing users.",
+                    "description": "Default is `false`.  User password will always be sent to endpoint device. If the option is not selected, then user password will be sent to endpoint device for new users and if user password is changed for existing users.",
                     "intersightApi": "ForceSendPassword",
                     "title": "always_send_user_password"
                 },
                 "enable_password_expiry": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables password expiry on the endpoint.",
+                    "description": "Default is `false`.  Enables password expiry on the endpoint.",
                     "intersightApi": "EnablePasswordExpiry",
                     "title": "enable_password_expiry"
                 },
                 "enforce_strong_password": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Enables a strong password policy. Strong password requirements: A. The password must have a minimum of 8 and a maximum of 20 characters. B. The password must not contain the User's Name. C. The password must contain characters from three of the following four categories. 1) English uppercase characters (A through Z). 2) English lowercase characters (a through z). 3) Base 10 digits (0 through 9). 4) Non-alphabetic characters (! , @, #, $, %, ^, &, *, -, _, +, =).",
+                    "description": "Default is `true`.  Enables a strong password policy. Strong password requirements: A. The password must have a minimum of 8 and a maximum of 20 characters. B. The password must not contain the User's Name. C. The password must contain characters from three of the following four categories. 1) English uppercase characters (A through Z). 2) English lowercase characters (a through z). 3) Base 10 digits (0 through 9). 4) Non-alphabetic characters (! , @, #, $, %, ^, &, *, -, _, +, =).",
                     "intersightApi": "EnforceStrongPassword",
                     "title": "enforce_strong_password"
                 },
                 "grace_period": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Time period until when you can use the existing password, after it expires.",
+                    "description": "Default is `1`.  Time period until when you can use the existing password, after it expires.",
                     "intersightApi": "GracePeriod",
                     "minimum": 0,
                     "maximum": 5,
@@ -8985,7 +8985,7 @@
                 "notification_period": {
                     "type": "integer",
                     "default": 15,
-                    "description": "Default is 15.  The duration after which the password will expire.",
+                    "description": "Default is `15`.  The duration after which the password will expire.",
                     "intersightApi": "NotificationPeriod",
                     "minimum": 1,
                     "maximum": 15,
@@ -8994,7 +8994,7 @@
                 "password_expiry_duration": {
                     "type": "integer",
                     "default": 90,
-                    "description": "Default is 90.  Set time period for password expiration. Value should be greater than notification period and grace period.",
+                    "description": "Default is `90`.  Set time period for password expiration. Value should be greater than notification period and grace period.",
                     "intersightApi": "PasswordExpiryDuration",
                     "minimum": 1,
                     "maximum": 3650,
@@ -9003,7 +9003,7 @@
                 "password_history": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 5.  Tracks password change history. Specifies in number of instances, that the new password was already used.",
+                    "description": "Default is `5`.  Tracks password change history. Specifies in number of instances, that the new password was already used.",
                     "intersightApi": "PasswordHistory",
                     "minimum": 0,
                     "maximum": 5,
@@ -9052,7 +9052,7 @@
                 "timeout": {
                     "type": "integer",
                     "default": 0,
-                    "description": "LDAP authentication timeout duration, in seconds.  Range is 0 to 180.",
+                    "description": "LDAP authentication timeout duration, in seconds.  Range is `0 to 180`.",
                     "intersightApi": "",
                     "minimum": 0,
                     "maximum": 180,
@@ -9084,7 +9084,7 @@
                 "bind_method": {
                     "type": "string",
                     "default": "LoginCredentials",
-                    "description": "Default is LoginCredentials.  Authentication method to access LDAP servers.\n  * `LoginCredentials` - Requires the user credentials. If the bind process fails, then user is denied access.\n  * `Anonymous` - Requires no username and password. If this option is selected and the LDAP server is configured for Anonymous logins, then the user gains access.\n  * `ConfiguredCredentials` - Requires a known set of credentials to be specified for the initial bind process. If the initial bind process succeeds, then the distinguished name (DN) of the user name is queried and re-used for the re-binding process. If the re-binding process fails, then the user is denied access.'",
+                    "description": "Default is `LoginCredentials`.  Authentication method to access LDAP servers.\n  * `LoginCredentials` - Requires the user credentials. If the bind process fails, then user is denied access.\n  * `Anonymous` - Requires no username and password. If this option is selected and the LDAP server is configured for Anonymous logins, then the user gains access.\n  * `ConfiguredCredentials` - Requires a known set of credentials to be specified for the initial bind process. If the initial bind process succeeds, then the distinguished name (DN) of the user name is queried and re-used for the re-binding process. If the re-binding process fails, then the user is denied access.'",
                     "intersightApi": "BindMethod",
                     "enum": [
                         "Anonymous",
@@ -9138,7 +9138,7 @@
                 "source": {
                     "type": "string",
                     "default": "Extracted",
-                    "description": "Default is Extracted.  Source of the domain name used for the DNS SRV request.\n  * `Extracted` - The domain name extracted-domain from the login ID.\n  * `Configured` - The configured-search domain.\n  * `ConfiguredExtracted` - The domain name extracted from the login ID than the configured-search domain.",
+                    "description": "Default is `Extracted`.  Source of the domain name used for the DNS SRV request.\n  * `Extracted` - The domain name extracted-domain from the login ID.\n  * `Configured` - The configured-search domain.\n  * `ConfiguredExtracted` - The domain name extracted from the login ID than the configured-search domain.",
                     "intersightApi": "Source",
                     "enum": [
                         "Extracted",
@@ -9175,7 +9175,7 @@
                 "role": {
                     "type": "string",
                     "default": "readonly",
-                    "description": "Default is readonly.  The name of the end point role.\n  * admin\n  * readonly\n  * user",
+                    "description": "Default is `readonly`.  The name of the end point role.\n  * admin\n  * readonly\n  * user",
                     "intersightApi": "$ref:iam.EndPointRole:Name",
                     "enum": [
                         "admin",
@@ -9211,21 +9211,21 @@
                 "enable_encryption": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled, the endpoint encrypts all information it sends to the LDAP server.",
+                    "description": "Default is `false`.  If enabled, the endpoint encrypts all information it sends to the LDAP server.",
                     "intersightApi": "$ref:iam.LdapBaseProperties:EnableEncryption",
                     "title": "enable_encryption"
                 },
                 "enable_group_authorization": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled, user authorization is also done at the group level for LDAP users not in the local user database.",
+                    "description": "Default is `false`.  If enabled, user authorization is also done at the group level for LDAP users not in the local user database.",
                     "intersightApi": "$ref:iam.LdapBaseProperties:EnableGroupAuthorization",
                     "title": "enable_group_authorization"
                 },
                 "enable_ldap": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  LDAP server performs authentication.",
+                    "description": "Default is `true`.  LDAP server performs authentication.",
                     "intersightApi": "Enabled",
                     "title": "enable_ldap"
                 },
@@ -9259,7 +9259,7 @@
                 "nested_group_search_depth": {
                     "type": "integer",
                     "default": 128,
-                    "description": "Default is 128.  Search depth to look for a nested LDAP group in an LDAP group map.  Range is 1-128",
+                    "description": "Default is `128`.  Search depth to look for a nested LDAP group in an LDAP group map.  Range is `1-128`",
                     "intersightApi": "$ref:iam.LdapBaseProperties:NestedGroupSearchDepth",
                     "minimum": 1,
                     "maximum": 128,
@@ -9307,7 +9307,7 @@
                 "port": {
                     "type": "integer",
                     "default": 389,
-                    "description": "Default is 389.  PLDAP Server Port for connection establishment.",
+                    "description": "Default is `389`.  PLDAP Server Port for connection establishment.",
                     "intersightApi": "Port",
                     "minimum": 1,
                     "maximum": 65535,
@@ -9339,7 +9339,7 @@
                 "attribute": {
                     "type": "string",
                     "default": "CiscoAvPair",
-                    "description": "Default is CiscoAvPair.  Role and locale information of the user.",
+                    "description": "Default is `CiscoAvPair`.  Role and locale information of the user.",
                     "intersightApi": "Attribute",
                     "minLength": 1,
                     "maxLength": 64,
@@ -9349,7 +9349,7 @@
                 "filter": {
                     "type": "string",
                     "default": "sAMAccountName",
-                    "description": "Default is sAMAccountName.  Criteria to identify entries in search requests.",
+                    "description": "Default is `sAMAccountName`.  Criteria to identify entries in search requests.",
                     "intersightApi": "Filter",
                     "minLength": 1,
                     "maxLength": 64,
@@ -9359,7 +9359,7 @@
                 "group_attribute": {
                     "type": "string",
                     "default": "memberOf",
-                    "description": "Default is memberOf.  Attribute that identifies the Groups to which an LDAP user belongs.",
+                    "description": "Default is `memberOf`.  Attribute that identifies the Groups to which an LDAP user belongs.",
                     "intersightApi": "GroupAttribute",
                     "minLength": 1,
                     "maxLength": 128,
@@ -9383,7 +9383,7 @@
                 "enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of the IPMI Over LAN service on the endpoint.",
+                    "description": "Default is `true`.  State of the IPMI Over LAN service on the endpoint.",
                     "intersightApi": "Enabled",
                     "title": "enabled"
                 },
@@ -9832,7 +9832,7 @@
                 "allow_tunneled_vkvm": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables Tunneled vKVM on the endpoint. Applicable only for Device Connectors that support Tunneled vKVM.",
+                    "description": "Default is `false`.  Enables Tunneled vKVM on the endpoint. Applicable only for Device Connectors that support Tunneled vKVM.",
                     "intersightApi": "TunneledKvmEnabled",
                     "title": "allow_tunneled_vkvm"
                 },
@@ -9842,28 +9842,28 @@
                 "enable_local_server_video": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  If enabled, displays KVM session on any monitor attached to the server.",
+                    "description": "Default is `true`.  If enabled, displays KVM session on any monitor attached to the server.",
                     "intersightApi": "EnableLocalServerVideo",
                     "title": "enable_local_server_video"
                 },
                 "enable_video_encryption": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  If enabled, encrypts all video information sent through KVM. Please note that this can no longer be disabled for servers running versions 4.2 and above.",
+                    "description": "Default is `true`.  If enabled, encrypts all video information sent through KVM. Please note that this can no longer be disabled for servers running versions 4.2 and above.",
                     "intersightApi": "EnableVideoEncryption",
                     "title": "enable_video_encryption"
                 },
                 "enable_virtual_kvm": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of the vKVM service on the endpoint.",
+                    "description": "Default is `true`.  State of the vKVM service on the endpoint.",
                     "intersightApi": "Enabled",
                     "title": "enable_virtual_kvm"
                 },
                 "maximum_sessions": {
                     "type": "integer",
                     "default": 4,
-                    "description": "Default is 4.  The maximum number of concurrent KVM sessions allowed.",
+                    "description": "Default is `4`.  The maximum number of concurrent KVM sessions allowed.",
                     "intersightApi": "MaximumSessions",
                     "minimum": 1,
                     "maximum": 4,
@@ -9875,7 +9875,7 @@
                 "remote_port": {
                     "type": "integer",
                     "default": 2068,
-                    "description": "Default is 2068.  The port used for KVM communication.",
+                    "description": "Default is `2068`.  The port used for KVM communication.",
                     "intersightApi": "RemotePort",
                     "minimum": 1,
                     "maximum": 65535,
@@ -9975,7 +9975,7 @@
                 "memory_mode_percentage": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Volatile memory percentage.",
+                    "description": "Default is `1`.  Volatile memory percentage.",
                     "intersightApi": "MemoryModePercentage",
                     "minimum": 1,
                     "maximum": 100,
@@ -10049,7 +10049,7 @@
                 "retain_namespaces": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Persistent Memory Namespaces to be retained or not.",
+                    "description": "Default is `true`.  Persistent Memory Namespaces to be retained or not.",
                     "intersightApi": "RetainNamespaces",
                     "title": "retain_namespaces"
                 },
@@ -10085,7 +10085,7 @@
                 "capacity": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Capacity of this Namespace that is created or modified.",
+                    "description": "Default is `1`.  Capacity of this Namespace that is created or modified.",
                     "intersightApi": "Capacity",
                     "minimum": 1,
                     "maximum": 9223372036854775807,
@@ -10115,7 +10115,7 @@
                 "socket_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Socket ID of the region on which this Namespace has to be created or modified.\n  * `1` - The first CPU socket in a server.\n  * `2` - The second CPU socket in a server.\n  * `3` - The third CPU socket in a server.\n  * `4` - The fourth CPU socket in a server.",
+                    "description": "Default is `1`.  Socket ID of the region on which this Namespace has to be created or modified.\n  * `1` - The first CPU socket in a server.\n  * `2` - The second CPU socket in a server.\n  * `3` - The third CPU socket in a server.\n  * `4` - The fourth CPU socket in a server.",
                     "intersightApi": "SocketId",
                     "minimum": 1,
                     "maximum": 64,
@@ -10835,14 +10835,14 @@
                 "enable_dynamic_dns": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled, updates the resource records to the DNS from Cisco IMC.",
+                    "description": "Default is `false`.  If enabled, updates the resource records to the DNS from Cisco IMC.",
                     "intersightApi": "EnableDynamicDns",
                     "title": "enable_dynamic_dns"
                 },
                 "enable_ipv6": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled, allows to configure IPv6 properties.",
+                    "description": "Default is `false`.  If enabled, allows to configure IPv6 properties.",
                     "intersightApi": "EnableIpv6",
                     "title": "enable_ipv6"
                 },
@@ -10852,14 +10852,14 @@
                 "obtain_ipv4_dns_from_dhcp": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled, Cisco IMC retrieves the DNS server addresses from DHCP. Use DHCP field must be enabled for IPv4 in Cisco IMC to enable it.",
+                    "description": "Default is `false`.  If enabled, Cisco IMC retrieves the DNS server addresses from DHCP. Use DHCP field must be enabled for IPv4 in Cisco IMC to enable it.",
                     "intersightApi": "EnableIpv4dnsFromDhcp",
                     "title": "obtain_ipv4_dns_from_dhcp"
                 },
                 "obtain_ipv6_dns_from_dhcp": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled, Cisco IMC retrieves the DNS server addresses from DHCP. Use DHCP field must be enabled for IPv6 in Cisco IMC to enable it.",
+                    "description": "Default is `false`.  If enabled, Cisco IMC retrieves the DNS server addresses from DHCP. Use DHCP field must be enabled for IPv6 in Cisco IMC to enable it.",
                     "intersightApi": "EnableIpv6dnsFromDhcp",
                     "title": "obtain_ipv6_dns_from_dhcp"
                 },
@@ -10901,7 +10901,7 @@
                 "enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of NTP service on the endpoint.",
+                    "description": "Default is `true`.  State of NTP service on the endpoint.",
                     "intersightApi": "Enabled",
                     "title": "enabled"
                 },
@@ -11293,7 +11293,7 @@
                 },
                 "ethernet_adapter": {
                     "type": "array",
-                    "description": "An Ethernet adapter policy governs the host-side behavior of the adapter, including how the adapter handles traffic. For each VIC Virtual Ethernet Interface, you can configure various features like Virtual Extensible LAN (VXLAN), Network Virtualization using Generic Routing Encapsulation (NVGRE), Accelerated Receive Flow Steering (ARFS), Interrupt settings, and TCP Offload settings.\nThe Ethernet Adapter policy include the recommended settings for the virtual Ethernet interface, for each supported server operating system. Operating systems are sensitive to the settings in these policies. In general, the storage vendors require non-default adapter settings. You can find the details of these required settings on the support list provided by those vendors.\nIMPORTANT NOTE: If GENEVE Offload is Enabled be sure to Read the Following Guidance: https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/b_Intersight_Managed_Mode_Configuration_Guide/b_intersight_managed_mode_guide_chapter_0110.html#reference_ofm_khm_5jb\nRequired Attributes:\n  * name\n\nRecommended Attribute: adapter_template\n\nOptional Attributes:\n  * completion\n  * description\n  * enable_accelerated_receive_flow_steering\n  * enable_advanced_filter\n  * enable_geneve_offload\n  * enable_interrupt_scaling\n  * enable_nvgre_offload\n  * enable_vxlan_offload\n  * interrupt_settings\n  * receive\n  * receive_side_scaling\n  * roce_settings\n  * tags\n  * tcp_offload\n  * transmit\n  * uplink_failback_timeout",
+                    "description": "An Ethernet adapter policy governs the host-side behavior of the adapter, including how the adapter handles traffic. For each VIC Virtual Ethernet Interface, you can configure various features like Virtual Extensible LAN (VXLAN), Network Virtualization using Generic Routing Encapsulation (NVGRE), Accelerated Receive Flow Steering (ARFS), Interrupt settings, and TCP Offload settings.\nThe Ethernet Adapter policy include the recommended settings for the virtual Ethernet interface, for each supported server operating system. Operating systems are sensitive to the settings in these policies. In general, the storage vendors require non-default adapter settings. You can find the details of these required settings on the support list provided by those vendors.\nIMPORTANT NOTE: If GENEVE Offload is Enabled be sure to Read the Following Guidance: https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/b_Intersight_Managed_Mode_Configuration_Guide/b_intersight_managed_mode_guide_chapter_0110.html#reference_ofm_khm_5jb\nRequired Attributes:\n  * name\n\nRecommended Attribute: adapter_template\n\nOptional Attributes:\n  * completion\n  * description\n  * enable_accelerated_receive_flow_steering\n  * enable_advanced_filter\n  * enable_geneve_offload\n  * enable_interrupt_scaling\n  * enable_nvgre_offload\n  * enable_precision_time_protocol\n  * enable_vxlan_offload\n  * interrupt_settings\n  * receive\n  * receive_side_scaling\n  * roce_settings\n  * tags\n  * tcp_offload\n  * transmit\n  * uplink_failback_timeout",
                     "intersightUri": "vnic/EthAdapterPolicies",
                     "items": {
                         "$ref": "#/definitions/vnic.EthAdapterPolicy"
@@ -11830,7 +11830,7 @@
                 "size": {
                     "type": "integer",
                     "default": 255,
-                    "description": "Size of the Pool.  Allowed range is 1-1024.",
+                    "description": "Size of the Pool.  Allowed range is `1-1024`.",
                     "intersightApi": "Size",
                     "minimum": 1,
                     "maximum": 1024,
@@ -11962,7 +11962,7 @@
                 "power_allocation": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Sets the Allocated Power Budget of the Chassis (in Watts). This field is only supported for Cisco UCS X series Chassis.",
+                    "description": "Default is `1`.  Sets the Allocated Power Budget of the Chassis (in Watts). This field is only supported for Cisco UCS X series Chassis.",
                     "intersightApi": "AllocatedBudget",
                     "minimum": 1,
                     "maximum": 65535,
@@ -12049,7 +12049,7 @@
             "properties": {
                 "chassis": {
                     "type": "array",
-                    "description": "A UCS Chassis profile enables to create and associate chassis policy to an Intersight Managed Mode (IMM) claimed chassis. When a chassis profile is associated to a chassis, Cisco Intersight automatically configures the chassis to match the configuration specified in the policies of the chassis profile. The chassis-related policies can be attached to the profile either at the time of creation or later.\nImportant\n  * The chassis profile feature is available in Cisco Intersight only if:\n     - You have installed the Cisco Intersight Essentials License.\n     - You are either an Account Administrator or Server Administrator.\n  * Policies that are attached to a chassis profile can be created ahead of creating a profile or during the creation of the profile.\n  * If chassis polices are changed after deployment, the chassis profile will be set in Pending Changes state and you must manually re-associate the changed policies to chassis.\n  * Chassis policies will be applied to both the input/output modules (IOMs) in a chassis. The chassis policies association workflow will get failed even if the policy cannot be applied to one of the IOMs.\nRequired Attributes:\n  * action\n  * targets\n\nOptional Attributes:\n  * domain_type\n  * imc_access_policy\n  * power_policy\n  * snmp_policy\n  * tags\n  * thermal_policy\n  * target_platform",
+                    "description": "A UCS Chassis profile enables to create and associate chassis policies to an Intersight Managed Mode (IMM) claimed chassis. When a chassis profile is associated to a chassis, Cisco Intersight automatically configures the chassis to match the configuration specified in the policies of the chassis profile. The chassis-related policies can be attached to the profile either at the time of creation or later.\nImportant\n  * The chassis profile feature is available in Cisco Intersight only if:\n     - You have installed the Cisco Intersight Essentials License.\n     - You are either an Account Administrator or Server Administrator.\n  * Policies that are attached to a chassis profile can be created ahead of creating a profile or during the creation of the profile.\n  * If chassis polices are changed after deployment, the chassis profile will be set in Pending Changes state and you must manually re-associate the changed policies to chassis.\n  * Chassis policies will be applied to both the input/output modules (IOMs) in a chassis. The chassis policies association workflow will get failed even if the policy cannot be applied to one of the IOMs.\nRequired Attributes:\n  * action\n  * targets\n\nOptional Attributes:\n  * imc_access_policy\n  * power_policy\n  * snmp_policy\n  * tags\n  * thermal_policy\n  * target_platform",
                     "intersightUri": "chassis/Profiles",
                     "items": {
                         "$ref": "#/definitions/chassis.Profile"
@@ -12059,7 +12059,7 @@
                 },
                 "domain": {
                     "type": "array",
-                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\nImportant\n  * Cisco Intersight supports attaching one port policy per UCS Domain profile.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\nRequired Attributes:\n  * action\n  * name\n#===========================\n# VLAN & VSAN Configuration\n#===========================\n  * vlan_policies\n  * vsan_policies\n#===========================\n# Ports Configuration\n#===========================\n  * port_policies\n#===========================\n# UCS Domain Configuration\n#===========================\n  * switch_control_policy\n  * system_qos_policy\n\nOptional Attributes:\n  *  description\n  *  tags\n#===========================\n# UCS Domain Configuration\n#===========================\n  *  network_connectivity_policy\n  *  ntp_policy\n  *  snmp_policy\n  *  syslog_policy",
+                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\nImportant\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\nRequired Attributes:\n  * action\n  * name\n  * port_policies\n  * serial_numbers\n  * system_qos_policy\n  * vlan_policies\n#===========================\n# Ports Configuration\n#===========================\n  * port_policies#===========================\n# VLAN & VSAN Configuration\n#===========================\n  * vlan_policies\n  * vsan_policies\n\n#===========================\n# UCS Domain Configuration - Management\n#===========================\n  *  network_connectivity_policy\n  *  ntp_policy\n  *  snmp_policy\n  *  syslog_policy\n\n#===========================\n# UCS Domain Configuration - Network\n#===========================\n  * switch_control_policy\n  * system_qos_policy\n\nOptional Attributes:\n  *  description\n  *  tags",
                     "intersightUri": "fabric/SwitchClusterProfiles",
                     "items": {
                         "$ref": "#/definitions/fabric.SwitchClusterProfile"
@@ -12228,7 +12228,7 @@
                 "chassis_id": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 0 (Unused).  The Chassis Id to Pre-Assign this Server Profile to.",
+                    "description": "Default is `0` (Unused).  The Chassis Id to Pre-Assign this Server Profile to.",
                     "intersightApi": "ChassisId",
                     "minimum": 0,
                     "maximum": 20,
@@ -12240,7 +12240,7 @@
                 "slot_id": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 0.  The Slot Identity to Assign the Server Profile to.",
+                    "description": "Default is `0`.  The Slot Identity to Assign the Server Profile to.",
                     "intersightApi": "Count",
                     "minimum": 0,
                     "maximum": 8,
@@ -13073,7 +13073,7 @@
                 "enable_smtp": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  If enabled, controls the state of the SMTP client service on the managed device.",
+                    "description": "Default is `true`.  If enabled, controls the state of the SMTP client service on the managed device.",
                     "intersightApi": "Enabled",
                     "title": "enable_smtp"
                 },
@@ -13124,7 +13124,7 @@
                 "smtp_port": {
                     "type": "integer",
                     "default": 25,
-                    "description": "Default is 25.  Port number used by the SMTP server for outgoing SMTP communication.",
+                    "description": "Default is `25`.  Port number used by the SMTP server for outgoing SMTP communication.",
                     "intersightApi": "SmtpPort",
                     "minimum": 1,
                     "maximum": 65535,
@@ -13177,7 +13177,7 @@
                 "enable_snmp": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of the SNMP Policy on the endpoint. If enabled, the endpoint sends SNMP traps to the designated host.",
+                    "description": "Default is `true`.  State of the SNMP Policy on the endpoint. If enabled, the endpoint sends SNMP traps to the designated host.",
                     "intersightApi": "Enabled",
                     "title": "enable_snmp"
                 },
@@ -13212,7 +13212,7 @@
                 "snmp_port": {
                     "type": "integer",
                     "default": 161,
-                    "description": "Default is 161.  Port on which Cisco IMC SNMP agent runs. Enter a value between 1-65535. Reserved ports not allowed (22, 23, 80, 123, 389, 443, 623, 636, 2068, 3268, 3269).",
+                    "description": "Default is `161`.  Port on which Cisco IMC SNMP agent runs. Enter a value between 1-65535. Reserved ports not allowed (22, 23, 80, 123, 389, 443, 623, 636, 2068, 3268, 3269).",
                     "intersightApi": "SnmpPort",
                     "minimum": 1,
                     "maximum": 65535,
@@ -13291,7 +13291,7 @@
                 "community_string": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 0.  A number Between 1-5 to denote to use one of the variables snmp_auth_password_[1-5].  Any other number means no community string.",
+                    "description": "Default is `0`.  A number Between 1-5 to denote to use one of the variables snmp_auth_password_[1-5].  Any other number means no community string.",
                     "intersightApi": "Community",
                     "minimum": 1,
                     "maximum": 64,
@@ -13310,14 +13310,14 @@
                 "enable": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Enables/disables the trap on the server If enabled, trap is active on the server.",
+                    "description": "Default is `true`.  Enables/disables the trap on the server If enabled, trap is active on the server.",
                     "intersightApi": "Enabled",
                     "title": "enable"
                 },
                 "port": {
                     "type": "integer",
                     "default": 162,
-                    "description": "Default is 162.  Port used by the server to communicate with the trap destination. Enter a value between 1-65535. Reserved ports not allowed (22, 23, 80, 123, 389, 443, 623, 636, 2068, 3268, 3269).",
+                    "description": "Default is `162`.  Port used by the server to communicate with the trap destination. Enter a value between 1-65535. Reserved ports not allowed (22, 23, 80, 123, 389, 443, 623, 636, 2068, 3268, 3269).",
                     "intersightApi": "Port",
                     "minimum": 1,
                     "maximum": 65535,
@@ -13444,7 +13444,7 @@
                 "baud_rate": {
                     "type": "integer",
                     "default": 115200,
-                    "description": "Default is 115200.  Baud Rate used for Serial Over LAN communication.\n  * `9600` - Use baud rate 9600 for communication.\n  * `19200` - Use baud rate 19200 for communication.\n  * `38400` - Use baud rate 38400 for communication.\n  * `57600` - Use baud rate 57600 for communication.\n  * `115200` - Use baud rate 115200 for communication.",
+                    "description": "Default is `115200`.  Baud Rate used for Serial Over LAN communication.\n  * `9600` - Use baud rate 9600 for communication.\n  * `19200` - Use baud rate 19200 for communication.\n  * `38400` - Use baud rate 38400 for communication.\n  * `57600` - Use baud rate 57600 for communication.\n  * `115200` - Use baud rate 115200 for communication.",
                     "intersightApi": "BaudRate",
                     "enum": [
                         9600,
@@ -13472,7 +13472,7 @@
                 "enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of Serial Over LAN service on the endpoint.",
+                    "description": "Default is `true`.  State of Serial Over LAN service on the endpoint.",
                     "intersightApi": "Enabled",
                     "title": "enabled"
                 },
@@ -13482,7 +13482,7 @@
                 "ssh_port": {
                     "type": "integer",
                     "default": 2400,
-                    "description": "Default is 2400.  SSH port used to access Serial Over LAN directly. Enables bypassing Cisco IMC shell to provide direct access to Serial Over LAN.",
+                    "description": "Default is `2400`.  SSH port used to access Serial Over LAN directly. Enables bypassing Cisco IMC shell to provide direct access to Serial Over LAN.",
                     "intersightApi": "SshPort",
                     "minimum": 1,
                     "maximum": 65535,
@@ -13516,7 +13516,7 @@
                 "enable_ssh": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of SSH service on the endpoint.",
+                    "description": "Default is `true`.  State of SSH service on the endpoint.",
                     "intersightApi": "Enabled",
                     "title": "enable_ssh"
                 },
@@ -13526,7 +13526,7 @@
                 "ssh_port": {
                     "type": "integer",
                     "default": 22,
-                    "description": "Default is 22.  Port used for secure shell access.",
+                    "description": "Default is `22`.  Port used for secure shell access.",
                     "intersightApi": "Port",
                     "minimum": 1,
                     "maximum": 65535,
@@ -13535,7 +13535,7 @@
                 "ssh_timeout": {
                     "type": "integer",
                     "default": 1800,
-                    "description": "Default is 1800.  Number of seconds to wait before the system considers a SSH request to have timed out.",
+                    "description": "Default is `1800`.  Number of seconds to wait before the system considers a SSH request to have timed out.",
                     "intersightApi": "Timeout",
                     "minimum": 1,
                     "maximum": 10800,
@@ -13565,7 +13565,7 @@
                 "drives_per_span": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Number of drives within this span group. The minimum number of disks needed in a span group varies based on RAID level. RAID0 requires at least one disk. RAID1 and RAID10 requires at least 2 and in multiples of . RAID5 and RAID50 require at least 3 disks in a span group. RAID6 and RAID60 require atleast 4 disks in a span.",
+                    "description": "Default is `1`.  Number of drives within this span group. The minimum number of disks needed in a span group varies based on RAID level. RAID0 requires at least one disk. RAID1 and RAID10 requires at least 2 and in multiples of . RAID5 and RAID50 require at least 3 disks in a span group. RAID6 and RAID60 require atleast 4 disks in a span.",
                     "intersightApi": "DrivesPerSpan",
                     "minimum": 1,
                     "maximum": 100,
@@ -13586,7 +13586,7 @@
                 "minimum_drive_size": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Minimum size of the drive to be used for creating this RAID group.",
+                    "description": "Default is `1`.  Minimum size of the drive to be used for creating this RAID group.",
                     "intersightApi": "MinimumDriveSize",
                     "minimum": 1,
                     "maximum": 64,
@@ -13605,7 +13605,7 @@
                 "number_of_spans": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Number of span groups to be created for this RAID group. Non-nested RAID levels have a single span.",
+                    "description": "Default is `1`.  Number of span groups to be created for this RAID group. Non-nested RAID levels have a single span.",
                     "intersightApi": "NumberOfSpans",
                     "minimum": 1,
                     "maximum": 8,
@@ -13614,7 +13614,7 @@
                 "use_remaining_drives": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  This flag enables the drive group to use all the remaining drives on the server.",
+                    "description": "Default is `false`.  This flag enables the drive group to use all the remaining drives on the server.",
                     "intersightApi": "UseRemainingDrives",
                     "title": "use_remaining_drives"
                 }
@@ -13695,7 +13695,7 @@
                 "assigned_sensitive_data": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Flag to confirm that you have set the file location of the PEM Certificate File.  If false the Drive Security Policy will not run.",
+                    "description": "Default is `false`.  Flag to confirm that you have set the file location of the PEM Certificate File.  If false the Drive Security Policy will not run.",
                     "intersightApi": "not_applicable",
                     "title": "assigned_sensitive_data"
                 },
@@ -13903,7 +13903,7 @@
                 "slots": {
                     "type": "string",
                     "default": "1-2",
-                    "description": "Default is 1-2.  Collection of local disks that are part of this span group. Allowed value is a comma or hyphen separated number range. The minimum number of disks needed in a span group varies based on RAID level. RAID0 requires at least one disk, RAID1 and RAID10 requires at least 2 and in multiples of 2, RAID5 RAID50 RAID6 and RAID60 require at least 3 disks in a span group.",
+                    "description": "Default is `1-2`.  Collection of local disks that are part of this span group. Allowed value is a comma or hyphen separated number range. The minimum number of disks needed in a span group varies based on RAID level. RAID0 requires at least one disk, RAID1 and RAID10 requires at least 2 and in multiples of 2, RAID5 RAID50 RAID6 and RAID60 require at least 3 disks in a span group.",
                     "intersightApi": "Slots",
                     "minLength": 1,
                     "maxLength": 64,
@@ -14018,7 +14018,7 @@
                 "use_jbod_for_vd_creation": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Disks in JBOD State are used to create virtual drives. This setting must be disabled if Default Drive State is set to JBOD.",
+                    "description": "Default is `false`.  Disks in JBOD State are used to create virtual drives. This setting must be disabled if Default Drive State is set to JBOD.",
                     "intersightApi": "UseJbodForVdCreation",
                     "title": "use_jbod_for_vd_creation"
                 }
@@ -14160,7 +14160,7 @@
                 "minimum_severity": {
                     "type": "string",
                     "default": "warning",
-                    "description": "Default is warning.  Lowest level of messages to be included in the local log.\n  * `warning` - Use logging level warning for logs classified as warning.\n  * `emergency` - Use logging level emergency for logs classified as emergency.\n  * `alert` - Use logging level alert for logs classified as alert.\n  * `critical` - Use logging level critical for logs classified as critical.\n  * `error` - Use logging level error for logs classified as error.\n  * `notice` - Use logging level notice for logs classified as notice.\n  * `informational` - Use logging level informational for logs classified as informational.\n  * `debug` - Use logging level debug for logs classified as debug.",
+                    "description": "Default is `warning`.  Lowest level of messages to be included in the local log.\n  * `warning` - Use logging level warning for logs classified as warning.\n  * `emergency` - Use logging level emergency for logs classified as emergency.\n  * `alert` - Use logging level alert for logs classified as alert.\n  * `critical` - Use logging level critical for logs classified as critical.\n  * `error` - Use logging level error for logs classified as error.\n  * `notice` - Use logging level notice for logs classified as notice.\n  * `informational` - Use logging level informational for logs classified as informational.\n  * `debug` - Use logging level debug for logs classified as debug.",
                     "intersightApi": "MinSeverity",
                     "enum": [
                         "warning",
@@ -14233,7 +14233,7 @@
                 "enable": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Enables/disables remote logging for the endpoint If enabled, log messages will be sent to the syslog server mentioned in the Hostname/IP Address field.",
+                    "description": "Default is `true`.  Enables/disables remote logging for the endpoint If enabled, log messages will be sent to the syslog server mentioned in the Hostname/IP Address field.",
                     "intersightApi": "Enabled",
                     "title": "enable"
                 },
@@ -14267,7 +14267,7 @@
                 "port": {
                     "type": "integer",
                     "default": 514,
-                    "description": "Default is 514.  Port number used for logging on syslog server.",
+                    "description": "Default is `514`.  Port number used for logging on syslog server.",
                     "intersightApi": "Port",
                     "minimum": 1,
                     "maximum": 65535,
@@ -14559,21 +14559,21 @@
                 "enable_low_power_usb": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  If enabled, the virtual drives appear on the boot selection menu after mapping the image and rebooting the host.",
+                    "description": "Default is `true`.  If enabled, the virtual drives appear on the boot selection menu after mapping the image and rebooting the host.",
                     "intersightApi": "LowPowerUsb",
                     "title": "enable_low_power_usb"
                 },
                 "enable_virtual_media": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  State of the Virtual Media service on the endpoint.",
+                    "description": "Default is `true`.  State of the Virtual Media service on the endpoint.",
                     "intersightApi": "Enabled",
                     "title": "enable_virtual_media"
                 },
                 "enable_virtual_media_encryption": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  If enabled, allows encryption of all Virtual Media communications. Please note that this can no longer be disabled for servers running versions 4.2 and above.",
+                    "description": "Default is `true`.  If enabled, allows encryption of all Virtual Media communications. Please note that this can no longer be disabled for servers running versions 4.2 and above.",
                     "intersightApi": "Encryption",
                     "title": "enable_virtual_media_encryption"
                 },
@@ -14597,7 +14597,7 @@
         "vnic.CompletionQueueSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Completion Queue resource settings.",
+            "description": "Ethernet Adapter Policy - Completion Queue resource settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "completion",
             "intersightUri": "vnic/CompletionQueueSettings",
             "ObjectType": "vnic.CompletionQueueSettings",
@@ -14605,7 +14605,7 @@
                 "queue_count": {
                     "type": "integer",
                     "default": 5,
-                    "description": "Default is 5.  The number of completion queue resources to allocate. In general, the number of completion queue resources to allocate is equal to the number of transmit queue resources plus the number of receive queue resources.",
+                    "description": "Default is `5`.  The number of completion queue resources to allocate. In general, the number of completion queue resources to allocate is equal to the number of transmit queue resources plus the number of receive queue resources.",
                     "intersightApi": "Count",
                     "minimum": 1,
                     "maximum": 2000,
@@ -14614,14 +14614,14 @@
                 "ring_size": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The number of descriptors in each completion queue.",
+                    "description": "Default is `1`.  The number of descriptors in each completion queue.",
                     "intersightApi": "RingSize",
                     "minimum": 1,
                     "maximum": 256,
                     "title": "ring_size"
                 }
             },
-            "title": "completion - Completion Queue Settings - Intersight Uri: vnic/CompletionQueueSettings"
+            "title": "completion - Completion Queue Settings"
         },
         "vnic.EthAdapterPolicy": {
             "type": "object",
@@ -14634,27 +14634,31 @@
                 "adapter_template": {
                     "type": "string",
                     "default": "VMware",
-                    "description": "Name of a Pre-Configured Adapter Policy.  Options are:\n  * 16RxQs-4G\n  * 16RxQs-5G\n  * Linux\n  * Linux-NVMe-RoCE\n  * MQ\n  * MQ-SMBd\n  * SMBServer\n  * SMBClient\n  * Solaris\n  * SRIOV\n  * usNIC\n  * usNICOracleRAC\n  * VMware\n  * VMware-High-Trf\n  * VMwarePassThru\n  * WIN-AzureStack\n  * Win-HPN\n  * Win-HPN-SMBd\n  * Windows",
+                    "description": "Name of a Pre-Configured Adapter Template.  Options are:\n  * 16RxQs-4G\n  * 16RxQs-5G\n  * Linux\n  * Linux-NVMe-RoCE\n  * Linux-v2\n  * MQ\n  * MQ-SMBd\n  * SMBClient\n  * SMBServer\n  * Solaris\n  * SRIOV-HPN\n  * usNIC\n  * usNICOracleRAC\n  * VMware\n  * VMware-High-Trf\n  * VMware-v2\n  * VMwareNVMeRoCEv2\n  * VMwarePassThru\n  * WIN-AzureStack\n  * Win-HPN\n  * Win-HPN-SMBd\n  * Win-HPN-v2\n  * Windows",
                     "intersightApi": "not_applicable",
                     "enum": [
                         "16RxQs-4G",
                         "16RxQs-5G",
                         "Linux",
                         "Linux-NVMe-RoCE",
+                        "Linux-v2",
                         "MQ",
                         "MQ-SMBd",
-                        "SMBServer",
                         "SMBClient",
+                        "SMBServer",
                         "Solaris",
-                        "SRIOV",
+                        "SRIOV-HPN",
                         "usNIC",
                         "usNICOracleRAC",
                         "VMware",
                         "VMware-High-Trf",
+                        "VMware-v2",
+                        "VMwareNVMeRoCEv2",
                         "VMwarePassThru",
                         "WIN-AzureStack",
                         "Win-HPN",
                         "Win-HPN-SMBd",
+                        "Win-HPN-v2",
                         "Windows"
                     ],
                     "title": "adapter_template"
@@ -14668,42 +14672,49 @@
                 "enable_accelerated_receive_flow_steering": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Status of Accelerated Receive Flow Steering on the virtual ethernet interface.",
+                    "description": "Default is `false`.  Status of Accelerated Receive Flow Steering on the virtual ethernet interface.",
                     "intersightApi": "$ref:vnic.ArfsSettings:Enabled",
                     "title": "enable_accelerated_receive_flow_steering"
                 },
                 "enable_advanced_filter": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables advanced filtering on the interface.",
+                    "description": "Default is `false`.  Enables advanced filtering on the interface.",
                     "intersightApi": "AdvancedFilter",
                     "title": "enable_advanced_filter"
                 },
                 "enable_geneve_offload": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  GENEVE offload protocol allows you to create logical networks that span physical network boundaries by allowing any information to be encoded in a packet and passed between tunnel endpoints.",
+                    "description": "Default is `false`.  GENEVE offload protocol allows you to create logical networks that span physical network boundaries by allowing any information to be encoded in a packet and passed between tunnel endpoints.",
                     "intersightApi": "GeneveEnabled",
                     "title": "enable_geneve_offload"
                 },
                 "enable_interrupt_scaling": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables Interrupt Scaling on the interface.",
+                    "description": "Default is `false`.  Enables Interrupt Scaling on the interface.",
                     "intersightApi": "InterruptScaling",
                     "title": "enable_interrupt_scaling"
                 },
                 "enable_nvgre_offload": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Network Virtualization using Generic Routing Encapsulation Settings.",
+                    "description": "Default is `false`.  Network Virtualization using Generic Routing Encapsulation Settings.",
                     "intersightApi": "NvgreSettings",
                     "title": "enable_nvgre_offload"
+                },
+                "enable_precision_time_protocol": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Default is `false`.  Status of Precision Time Protocol (PTP) on the virtual ethernet interface. PTP can be enabled only on one vNIC on an adapter.",
+                    "intersightApi": "$ref:vnic.PtpSettings:Enabled",
+                    "title": "enable_precision_time_protocol"
                 },
                 "enable_vxlan_offload": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Status of the Virtual Extensible LAN Protocol on the virtual ethernet interface.",
+                    "description": "Default is `false`.  Status of the Virtual Extensible LAN Protocol on the virtual ethernet interface.",
                     "intersightApi": "$ref:vnic.VxlanSettings:Enabled",
                     "title": "enable_vxlan_offload"
                 },
@@ -14718,13 +14729,6 @@
                 },
                 "receive_side_scaling": {
                     "$ref": "#/definitions/vnic.RssHashSettings"
-                },
-                "receive_side_scaling_enable": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Default is true.  Receive Side Scaling allows the incoming traffic to be spread across multiple CPU cores.",
-                    "intersightApi": "RssSettings",
-                    "title": "receive_side_scaling_enable"
                 },
                 "roce_settings": {
                     "$ref": "#/definitions/vnic.RoceSettings"
@@ -14746,7 +14750,7 @@
                 "uplink_failback_timeout": {
                     "type": "integer",
                     "default": 5,
-                    "description": "Default is 5.  Uplink Failback Timeout in seconds when uplink failover is enabled for a vNIC. After a vNIC has started using its secondary interface, this setting controls how long the primary interface must be available before the system resumes using the primary interface for the vNIC.",
+                    "description": "Default is `5`.  Uplink Failback Timeout in seconds when uplink failover is enabled for a vNIC. After a vNIC has started using its secondary interface, this setting controls how long the primary interface must be available before the system resumes using the primary interface for the vNIC.",
                     "intersightApi": "UplinkFailbackTimeout",
                     "minimum": 1,
                     "maximum": 600,
@@ -14797,7 +14801,7 @@
                 "enable_failover": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enabling failover ensures that traffic from the vNIC automatically fails over to the secondary Fabric Interconnect, in case the specified Fabric Interconnect path goes down. Failover applies only to Cisco VICs that are connected to a Fabric Interconnect cluster.",
+                    "description": "Default is `false`.  Enabling failover ensures that traffic from the vNIC automatically fails over to the secondary Fabric Interconnect, in case the specified Fabric Interconnect path goes down. Failover applies only to Cisco VICs that are connected to a Fabric Interconnect cluster.",
                     "intersightApi": "FailoverEnabled",
                     "title": "enable_failover"
                 },
@@ -14955,7 +14959,7 @@
         "vnic.EthInterruptSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Ethernet Adapter Policy - Interupt Settings.  Otpions are:\n  * coalescing_type\n  * interrupts\n  * mode\n  * timer",
             "easyimm": "interrupt_settings",
             "intersightUri": "vnic/EthInterruptSettings",
             "ObjectType": "vnic.EthInterruptSettings",
@@ -14970,6 +14974,15 @@
                         "IDLE"
                     ],
                     "title": "coalescing_type"
+                },
+                "interrupts": {
+                    "type": "integer",
+                    "default": 8,
+                    "description": "Default is `8`.  The number of interrupt resources to allocate. Typical value is be equal to the number of completion queue resources.",
+                    "intersightApi": "Count",
+                    "minimum": 1,
+                    "maximum": 1024,
+                    "title": "interrupts"
                 },
                 "mode": {
                     "type": "string",
@@ -14986,23 +14999,14 @@
                 "timer": {
                     "type": "integer",
                     "default": 125,
-                    "description": "Default is 125.  The time to wait between interrupts or the idle period that must be encountered before an interrupt is sent. To turn off interrupt coalescing, enter 0 (zero) in this field.",
+                    "description": "Default is `125`.  The time to wait between interrupts or the idle period that must be encountered before an interrupt is sent. To turn off interrupt coalescing, enter 0 (zero) in this field.",
                     "intersightApi": "CoalescingTime",
                     "minimum": 1,
                     "maximum": 65535,
                     "title": "timer"
-                },
-                "interrupts": {
-                    "type": "integer",
-                    "default": 8,
-                    "description": "Default is 8.  The number of interrupt resources to allocate. Typical value is be equal to the number of completion queue resources.",
-                    "intersightApi": "Count",
-                    "minimum": 1,
-                    "maximum": 1024,
-                    "title": "interrupts"
                 }
             },
-            "title": "interrupt_settings - Interrupt Settings - Intersight Uri: vnic/EthInterruptSettings"
+            "title": "interrupt_settings - Interrupt Settings"
         },
         "vnic.EthNetworkPolicy": {
             "type": "object",
@@ -15015,7 +15019,7 @@
                 "default_vlan": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Native VLAN ID of the virtual interface or the corresponding vethernet on the peer Fabric Interconnect to which the virtual interface is connected. Setting the ID to 0 will not associate any native VLAN to the traffic on the virtual interface.",
+                    "description": "Default is `1`.  Native VLAN ID of the virtual interface or the corresponding vethernet on the peer Fabric Interconnect to which the virtual interface is connected. Setting the ID to 0 will not associate any native VLAN to the traffic on the virtual interface.",
                     "intersightApi": "$ref:vnic.VlanSettings:DefaultVlan",
                     "minimum": 1,
                     "maximum": 4094,
@@ -15064,7 +15068,7 @@
                 "burst": {
                     "type": "integer",
                     "default": 10240,
-                    "description": "Default is 10240.  The burst traffic, in bytes, allowed on the vNIC.",
+                    "description": "Default is `10240`.  The burst traffic, in bytes, allowed on the vNIC.",
                     "intersightApi": "Burst",
                     "minimum": 1,
                     "maximum": 1000000,
@@ -15073,7 +15077,7 @@
                 "cos": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Class of Service to be associated to the traffic on the virtual interface.",
+                    "description": "Default is `1`.  Class of Service to be associated to the traffic on the virtual interface.",
                     "intersightApi": "Cos",
                     "minimum": 1,
                     "maximum": 6,
@@ -15085,14 +15089,14 @@
                 "enable_trust_host_cos": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables usage of the Class of Service provided by the operating system.",
+                    "description": "Default is `false`.  Enables usage of the Class of Service provided by the operating system.",
                     "intersightApi": "TrustHostCos",
                     "title": "enable_trust_host_cos"
                 },
                 "mtu": {
                     "type": "integer",
                     "default": 1500,
-                    "description": "Default is 1500.  The Maximum Transmission Unit (MTU) or packet size that the virtual interface accepts.",
+                    "description": "Default is `1500`.  The Maximum Transmission Unit (MTU) or packet size that the virtual interface accepts.",
                     "intersightApi": "Mtu",
                     "minimum": 1,
                     "maximum": 9000,
@@ -15119,7 +15123,7 @@
                 "rate_limit": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 0.  The value in Mbps (0-10G/40G/100G depending on Adapter Model) to use for limiting the data rate on the virtual interface.",
+                    "description": "Default is `0`.  The value in Mbps (0-10G/40G/100G depending on Adapter Model) to use for limiting the data rate on the virtual interface.",
                     "intersightApi": "RateLimit",
                     "minimum": 0,
                     "maximum": 100000,
@@ -15142,7 +15146,7 @@
         "vnic.EthRxQueueSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Ethernet Adapter Policy - Receive Queue Settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "receive",
             "intersightUri": "vnic/EthRxQueueSettings",
             "ObjectType": "vnic.EthRxQueueSettings",
@@ -15150,7 +15154,7 @@
                 "queue_count": {
                     "type": "integer",
                     "default": 4,
-                    "description": "Default is 4.  The number of queue resources to allocate.",
+                    "description": "Default is `4`.  The number of queue resources to allocate.",
                     "intersightApi": "Count",
                     "minimum": 1,
                     "maximum": 1000,
@@ -15159,19 +15163,19 @@
                 "ring_size": {
                     "type": "integer",
                     "default": 512,
-                    "description": "Default is 512.  The number of descriptors in each queue.",
+                    "description": "Default is `512`.  The number of descriptors in each queue.",
                     "intersightApi": "RingSize",
                     "minimum": 1,
                     "maximum": 16384,
                     "title": "ring_size"
                 }
             },
-            "title": "receive - Receive Queue Settings - Intersight Uri: vnic/EthRxQueueSettings"
+            "title": "receive - Receive Queue Settings"
         },
         "vnic.EthTxQueueSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Ethernet Adapter Policy - Transmit Queue Settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "transmit",
             "intersightUri": "vnic/EthTxQueueSettings",
             "ObjectType": "vnic.EthTxQueueSettings",
@@ -15179,7 +15183,7 @@
                 "queue_count": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The number of queue resources to allocate.",
+                    "description": "Default is `1`.  The number of queue resources to allocate.",
                     "intersightApi": "Count",
                     "minimum": 1,
                     "maximum": 1000,
@@ -15188,14 +15192,14 @@
                 "ring_size": {
                     "type": "integer",
                     "default": 256,
-                    "description": "Default is 256.  The number of descriptors in each queue.",
+                    "description": "Default is `256`.  The number of descriptors in each queue.",
                     "intersightApi": "RingSize",
                     "minimum": 1,
                     "maximum": 16384,
                     "title": "ring_size"
                 }
             },
-            "title": "transmit - Transmit Queue Settings - Intersight Uri: vnic/EthTxQueueSettings"
+            "title": "transmit - Transmit Queue Settings"
         },
         "vnic.FcAdapterPolicy": {
             "type": "object",
@@ -15208,7 +15212,7 @@
                 "adapter_template": {
                     "type": "string",
                     "default": "VMware",
-                    "description": "Name of a Pre-Configured Adapter Policy.  Options are:\n  * FCNVMeInitiator\n  * FCNVMeTarget\n  * Initiator\n  * Linux\n  * Solaris\n  * Target\n  * VMware\n  * WindowsBoot\n  * Windows",
+                    "description": "Name of Pre-Configured Adapter Templates.  Options are:\n  * FCNVMeInitiator\n  * FCNVMeTarget\n  * Initiator\n  * Linux\n  * Solaris\n  * Target\n  * VMware\n  * WindowsBoot\n  * Windows",
                     "intersightApi": "not_applicable",
                     "enum": [
                         "FCNVMeInitiator",
@@ -15229,7 +15233,7 @@
                 "error_detection_timeout": {
                     "type": "integer",
                     "default": 2000,
-                    "description": "Default is 2000.  Error Detection Timeout, also referred to as EDTOV, is the number of milliseconds to wait before the system assumes that an error has occurred.",
+                    "description": "Default is `2000`.  Error Detection Timeout, also referred to as EDTOV, is the number of milliseconds to wait before the system assumes that an error has occurred.",
                     "intersightApi": "ErrorDetectionTimeout",
                     "minimum": 1,
                     "maximum": 100000,
@@ -15241,13 +15245,13 @@
                 "flogi": {
                     "$ref": "#/definitions/vnic.FlogiSettings"
                 },
-                "interrupt_settings": {
+                "interrupt": {
                     "$ref": "#/definitions/vnic.FcInterruptSettings"
                 },
                 "io_throttle_count": {
                     "type": "integer",
                     "default": 512,
-                    "description": "Default is 512.  The maximum number of data or control I/O operations that can be pending for the virtual interface at one time. If this value is exceeded, the additional I/O operations wait in the queue until the number of pending I/O operations decreases and the additional operations can be processed.",
+                    "description": "Default is `512`.  The maximum number of data or control I/O operations that can be pending for the virtual interface at one time. If this value is exceeded, the additional I/O operations wait in the queue until the number of pending I/O operations decreases and the additional operations can be processed.",
                     "intersightApi": "IoThrottleCount",
                     "minimum": 1,
                     "maximum": 1024,
@@ -15256,7 +15260,7 @@
                 "lun_queue_depth": {
                     "type": "integer",
                     "default": 20,
-                    "description": "Default is 20.  The number of commands that the HBA can send and receive in a single transmission per LUN.",
+                    "description": "Default is `20`.  The number of commands that the HBA can send and receive in a single transmission per LUN.",
                     "intersightApi": "LunQueueDepth",
                     "minimum": 1,
                     "maximum": 254,
@@ -15265,7 +15269,7 @@
                 "maximum_luns_per_target": {
                     "type": "integer",
                     "default": 1024,
-                    "description": "Default is 1024.  The maximum number of LUNs that the Fibre Channel driver will export or show. The maximum number of LUNs is usually controlled by the operating system running on the server. Lun Count value can exceed 1024 only for vHBA of type 'FC Initiator' and on servers having supported firmware version.",
+                    "description": "Default is `1024`.  The maximum number of LUNs that the Fibre Channel driver will export or show. The maximum number of LUNs is usually controlled by the operating system running on the server. Lun Count value can exceed 1024 only for vHBA of type 'FC Initiator' and on servers having supported firmware version.",
                     "intersightApi": "LunCount",
                     "minimum": 1,
                     "maximum": 4096,
@@ -15283,7 +15287,7 @@
                 "resource_allocation_timeout": {
                     "type": "integer",
                     "default": 10000,
-                    "description": "Default is 10000.  Resource Allocation Timeout, also referred to as RATOV, is the number of milliseconds to wait before the system assumes that a resource cannot be properly allocated.",
+                    "description": "Default is `10000`.  Resource Allocation Timeout, also referred to as RATOV, is the number of milliseconds to wait before the system assumes that a resource cannot be properly allocated.",
                     "intersightApi": "ResourceAllocationTimeout",
                     "minimum": 1,
                     "maximum": 100000,
@@ -15312,22 +15316,22 @@
         "vnic.FcErrorRecoverySettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Fibre-Channel Adapter Policy - Error Recovery Settings.  Options are:\n  * enable_fcp_error_recovery\n  * io_retry_timeout\n  * link_down_timeout\n  * port_down_io_retry\n  * port_down_timeout",
             "easyimm": "error_recovery",
             "intersightUri": "vnic/FcErrorRecoverySettings",
             "ObjectType": "vnic.FcErrorRecoverySettings",
             "properties": {
-                "fcp_error_recovery": {
+                "enable_fcp_error_recovery": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables Fibre Channel Error recovery.",
+                    "description": "Default is `false`.  Enables Fibre Channel Error recovery.",
                     "intersightApi": "Enabled",
-                    "title": "fcp_error_recovery"
+                    "title": "enable_fcp_error_recovery"
                 },
                 "io_retry_timeout": {
                     "type": "integer",
                     "default": 5,
-                    "description": "Default is 5.  The number of seconds the adapter waits before aborting the pending command and resending the same IO request.",
+                    "description": "Default is `5`.  The number of seconds the adapter waits before aborting the pending command and resending the same IO request.",
                     "intersightApi": "IoRetryTimeout",
                     "minimum": 1,
                     "maximum": 59,
@@ -15336,7 +15340,7 @@
                 "link_down_timeout": {
                     "type": "integer",
                     "default": 30000,
-                    "description": "Default is 30000.  The number of milliseconds the port should actually be down before it is marked down and fabric connectivity is lost.",
+                    "description": "Default is `30000`.  The number of milliseconds the port should actually be down before it is marked down and fabric connectivity is lost.",
                     "intersightApi": "LinkDownTimeout",
                     "minimum": 1,
                     "maximum": 240000,
@@ -15345,7 +15349,7 @@
                 "port_down_io_retry": {
                     "type": "integer",
                     "default": 8,
-                    "description": "Default is 8.  The number of times an I/O request to a port is retried because the port is busy before the system decides the port is unavailable.",
+                    "description": "Default is `8`.  The number of times an I/O request to a port is retried because the port is busy before the system decides the port is unavailable.",
                     "intersightApi": "IoRetryCount",
                     "minimum": 1,
                     "maximum": 255,
@@ -15354,14 +15358,14 @@
                 "port_down_timeout": {
                     "type": "integer",
                     "default": 10000,
-                    "description": "Default is 10000.  The number of milliseconds a remote Fibre Channel port should be offline before informing the SCSI upper layer that the port is unavailable. For a server with a VIC adapter running ESXi, the recommended value is 10000. For a server with a port used to boot a Windows OS from the SAN, the recommended value is 5000 milliseconds.",
+                    "description": "Default is `10000`.  The number of milliseconds a remote Fibre Channel port should be offline before informing the SCSI upper layer that the port is unavailable. For a server with a VIC adapter running ESXi, the recommended value is 10000. For a server with a port used to boot a Windows OS from the SAN, the recommended value is 5000 milliseconds.",
                     "intersightApi": "PortDownTimeout",
                     "minimum": 1,
                     "maximum": 240000,
                     "title": "port_down_timeout"
                 }
             },
-            "title": "error_recovery - Error Recovery Settings - Intersight Uri: vnic/FcErrorRecoverySettings"
+            "title": "error_recovery - Error Recovery Settings"
         },
         "vnic.FcIf": {
             "type": "object",
@@ -15435,7 +15439,7 @@
                 "persistent_lun_bindings": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables retention of LUN ID associations in memory until they are manually cleared.",
+                    "description": "Default is `false`.  Enables retention of LUN ID associations in memory until they are manually cleared.",
                     "intersightApi": "PersistentBindings",
                     "title": "persistent_lun_bindings"
                 },
@@ -15512,7 +15516,7 @@
         "vnic.FcInterruptSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Fibre-Channel Adapter Policy - Interupt Settings.  Options are:\n  * mode",
             "easyimm": "interrupt_settings",
             "intersightUri": "vnic/FcInterruptSettings",
             "ObjectType": "vnic.FcInterruptSettings",
@@ -15530,7 +15534,7 @@
                     "title": "mode"
                 }
             },
-            "title": "interrupt_settings - Interrupt Settings - Intersight Uri: vnic/FcInterruptSettings"
+            "title": "interrupt - Interrupt Settings"
         },
         "vnic.FcNetworkPolicy": {
             "type": "object",
@@ -15543,7 +15547,7 @@
                 "default_vlan_id": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 0.  Default VLAN of the virtual interface in Standalone Rack server. Setting the value to 0 is equivalent to None and will not associate any Default VLAN to the traffic on the virtual interface (0-4094).",
+                    "description": "Default is `0`.  Default VLAN of the virtual interface in Standalone Rack server. Setting the value to 0 is equivalent to None and will not associate any Default VLAN to the traffic on the virtual interface (0-4094).",
                     "intersightApi": "$ref:vnic.VsanSettings:DefaultVlanId",
                     "minimum": 0,
                     "maximum": 4094,
@@ -15566,7 +15570,7 @@
                 "vsan_id": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  VSAN ID of the virtual interface in FI attached server (1-4094).",
+                    "description": "Default is `1`.  VSAN ID of the virtual interface in FI attached server (1-4094).",
                     "intersightApi": "$ref:vnic.VsanSettings:Id",
                     "minimum": 1,
                     "maximum": 4094,
@@ -15590,7 +15594,7 @@
                 "burst": {
                     "type": "integer",
                     "default": 10240,
-                    "description": "Default is 10240.  The burst traffic, in bytes, allowed on the vHBA.",
+                    "description": "Default is `10240`.  The burst traffic, in bytes, allowed on the vHBA.",
                     "intersightApi": "Burst",
                     "minimum": 0,
                     "maximum": 1000000,
@@ -15599,7 +15603,7 @@
                 "cos": {
                     "type": "integer",
                     "default": 3,
-                    "description": "Default is 3.  Class of Service to be associated to the traffic on the virtual interface.",
+                    "description": "Default is `3`.  Class of Service to be associated to the traffic on the virtual interface.",
                     "intersightApi": "Cos",
                     "minimum": 0,
                     "maximum": 6,
@@ -15611,7 +15615,7 @@
                 "max_data_field_size": {
                     "type": "integer",
                     "default": 2112,
-                    "description": "Default is 2112.  The maximum size of the Fibre Channel frame payload bytes that the virtual interface supports.",
+                    "description": "Default is `2112`.  The maximum size of the Fibre Channel frame payload bytes that the virtual interface supports.",
                     "intersightApi": "MaxDataFieldSize",
                     "minimum": 1,
                     "maximum": 2112,
@@ -15623,7 +15627,7 @@
                 "rate_limit": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 0.  The value in Mbps to use for limiting the data rate on the virtual interface.",
+                    "description": "Default is `0`.  The value in Mbps to use for limiting the data rate on the virtual interface.",
                     "intersightApi": "RateLimit",
                     "minimum": 0,
                     "maximum": 100000,
@@ -15646,7 +15650,7 @@
         "vnic.FcQueueSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Fibre-Channel Adapter Policy - Queue Settings.  Options are:\n  * ring_size",
             "easyimm": "receive",
             "intersightUri": "vnic/FcQueueSettings",
             "ObjectType": "vnic.FcQueueSettings",
@@ -15654,14 +15658,14 @@
                 "ring_size": {
                     "type": "integer",
                     "default": 64,
-                    "description": "Default is 64.  The number of descriptors in each queue. The maximum value for Transmit queue is 128 and for Receive queue is 2048.",
+                    "description": "Default is `64`.  The number of descriptors in each queue. The maximum value for Transmit queue is 128 and for Receive queue is 2048.",
                     "intersightApi": "RingSize",
                     "minimum": 1,
                     "maximum": 2048,
                     "title": "ring_size"
                 }
             },
-            "title": "receive/transmit - Fc Receive/Transmit Queue Settings - Intersight Uri: vnic/FcQueueSettings"
+            "title": "receive/transmit - Fc Receive/Transmit Queue Settings"
         },
         "vnic.FlogiSettings": {
             "type": "object",
@@ -15674,7 +15678,7 @@
                 "retries": {
                     "type": "integer",
                     "default": 8,
-                    "description": "Default is 8.  The number of times that the system tries to log in to the fabric after the first failure. Allowed range is 0-4294967295.",
+                    "description": "Default is `8`.  The number of times that the system tries to log in to the fabric after the first failure. Allowed range is `0-4294967295`.",
                     "intersightApi": "Retries",
                     "minimum": 1,
                     "maximum": 64,
@@ -15683,7 +15687,7 @@
                 "timeout": {
                     "type": "integer",
                     "default": 4000,
-                    "description": "Default is 4000.  The number of milliseconds that the system waits before it tries to log in again.",
+                    "description": "Default is `4000`.  The number of milliseconds that the system waits before it tries to log in again.",
                     "intersightApi": "Timeout",
                     "minimum": 1,
                     "maximum": 255000,
@@ -15706,7 +15710,7 @@
                 "dhcp_timeout": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The number of seconds to wait before the initiator assumes that the DHCP server is unavailable.",
+                    "description": "Default is `1`.  The number of seconds to wait before the initiator assumes that the DHCP server is unavailable.",
                     "intersightApi": "DhcpTimeout",
                     "minimum": 1,
                     "maximum": 300,
@@ -15715,7 +15719,7 @@
                 "lun_busy_retry_count": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The number of times to retry the connection in case of a failure during iSCSI LUN discovery.",
+                    "description": "Default is `1`.  The number of times to retry the connection in case of a failure during iSCSI LUN discovery.",
                     "intersightApi": "LunBusyRetryCount",
                     "minimum": 1,
                     "maximum": 60,
@@ -15735,7 +15739,7 @@
                 "tcp_connection_timeout": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The number of seconds to wait until Cisco UCS assumes that the initial login has failed and the iSCSI adapter is unavailable.",
+                    "description": "Default is` 1`.  The number of seconds to wait until Cisco UCS assumes that the initial login has failed and the iSCSI adapter is unavailable.",
                     "intersightApi": "ConnectionTimeOut",
                     "minimum": 1,
                     "maximum": 255,
@@ -15983,7 +15987,7 @@
                 "lun_id": {
                     "type": "integer",
                     "default": 0,
-                    "description": "Default is 0.  The Identifier of the LUN.",
+                    "description": "Default is `0`.  The Identifier of the LUN.",
                     "intersightApi": "$ref:vnic.Lun:LunId",
                     "minimum": 0,
                     "maximum": 255,
@@ -15992,7 +15996,7 @@
                 "port": {
                     "type": "integer",
                     "default": 3260,
-                    "description": "Default is 3260.  The port associated with the iSCSI target.",
+                    "description": "Default is `3260`.  The port associated with the iSCSI target.",
                     "intersightApi": "Port",
                     "minimum": 1,
                     "maximum": 65535,
@@ -16030,7 +16034,7 @@
                 "enable_azure_stack_host_qos": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enabling AzureStack-Host QoS on an adapter allows the user to carve out traffic classes for RDMA traffic which ensures that a desired portion of the bandwidth is allocated to it.",
+                    "description": "Default is `false`.  Enabling AzureStack-Host QoS on an adapter allows the user to carve out traffic classes for RDMA traffic which ensures that a desired portion of the bandwidth is allocated to it.",
                     "intersightApi": "AzureQosEnabled",
                     "title": "enable_azure_stack_host_qos"
                 },
@@ -16126,12 +16130,12 @@
             "properties": {
                 "pci_links": {
                     "type": "array",
-                    "description": "Default is 0.  The PCI Link used as transport for the virtual interface. All VIC adapters have a single PCI link except VIC 1385 which has two.",
+                    "description": "Default is `0`.  The PCI Link used as transport for the virtual interface. All VIC adapters have a single PCI link except VIC 1385 which has two.",
                     "intersightUri": "vnic/PlacementSettings",
                     "items": {
                         "type": "integer",
                         "default": 0,
-                        "description": "Adapter port on which the virtual interface will be created.  Range is 0-3",
+                        "description": "Adapter port on which the virtual interface will be created.  Range is `0-3`.",
                         "intersightApi": "PciLink",
                         "minimum": 0,
                         "maximum": 3,
@@ -16194,12 +16198,12 @@
                 },
                 "uplink_ports": {
                     "type": "array",
-                    "description": "Default is 0.  Adapter port on which the virtual interface will be created.  This attribute is for Standalone Servers Only.",
+                    "description": "Default is `0`.  Adapter port on which the virtual interface will be created.  This attribute is for Standalone Servers Only.",
                     "intersightUri": "vnic/PlacementSettings",
                     "items": {
                         "type": "integer",
                         "default": 0,
-                        "description": "Adapter port on which the virtual interface will be created.  Range is 0-3",
+                        "description": "Adapter port on which the virtual interface will be created.  Range is `0-3`.",
                         "intersightApi": "Uplink",
                         "minimum": 0,
                         "maximum": 3,
@@ -16217,7 +16221,7 @@
         "vnic.PlogiSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Fibre-Channel Adapter Policy - Plogi Settings.  Options are:\n  * retries\n  * timeout",
             "easyimm": "plogi",
             "intersightUri": "vnic/PlogiSettings",
             "ObjectType": "vnic.PlogiSettings",
@@ -16225,7 +16229,7 @@
                 "retries": {
                     "type": "integer",
                     "default": 8,
-                    "description": "Default is 8.  The number of times that the system tries to log in to a port after the first failure.",
+                    "description": "Default is `8`.  The number of times that the system tries to log in to a port after the first failure.",
                     "intersightApi": "Retries",
                     "minimum": 1,
                     "maximum": 255,
@@ -16234,43 +16238,43 @@
                 "timeout": {
                     "type": "integer",
                     "default": 20000,
-                    "description": "Default is 20000.  The number of milliseconds that the system waits before it tries to log in again.",
+                    "description": "Default is `20000`.  The number of milliseconds that the system waits before it tries to log in again.",
                     "intersightApi": "Timeout",
                     "minimum": 1,
                     "maximum": 255000,
                     "title": "timeout"
                 }
             },
-            "title": "plogi - Port Login Settings - Intersight Uri: vnic/PlogiSettings"
+            "title": "plogi - Port Login Settings"
         },
         "vnic.RoceSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Ethernet Adapter Policy - RoCE Settings.  Options are:\n  * class_of_service\n  * enable_rdma_over_converged_ethernet\n  * memory_regions\n  * queue_pairs\n  * resource_groups\n  * version",
             "easyimm": "roce_settings",
             "intersightUri": "vnic/RoceSettings",
             "ObjectType": "vnic.RoceSettings",
             "properties": {
-                "cos": {
+                "class_of_service": {
                     "type": "integer",
                     "default": 5,
-                    "description": "Default is 5.  The Class of Service for RoCE on this virtual interface.\n  * `5` - RDMA CoS Service Level 5.\n  * `1` - RDMA CoS Service Level 1.\n  * `2` - RDMA CoS Service Level 2.\n  * `4` - RDMA CoS Service Level 4.\n  * `6` - RDMA CoS Service Level 6.",
+                    "description": "Default is `5`.  The Class of Service for RoCE on this virtual interface.\n  * `5` - RDMA CoS Service Level 5.\n  * `1` - RDMA CoS Service Level 1.\n  * `2` - RDMA CoS Service Level 2.\n  * `4` - RDMA CoS Service Level 4.\n  * `6` - RDMA CoS Service Level 6.",
                     "intersightApi": "ClassOfService",
                     "minimum": 1,
                     "maximum": 64,
-                    "title": "cos"
+                    "title": "class_of_service"
                 },
                 "enable_rdma_over_converged_ethernet": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  If enabled sets RDMA over Converged Ethernet (RoCE) on this virtual interface.",
+                    "description": "Default is `false`.  If enabled sets RDMA over Converged Ethernet (RoCE) on this virtual interface.",
                     "intersightApi": "Enabled",
                     "title": "enable_rdma_over_converged_ethernet"
                 },
                 "memory_regions": {
                     "type": "integer",
                     "default": 131072,
-                    "description": "Default is 131072.  The number of memory regions per adapter. Recommended value = integer power of 2.",
+                    "description": "Default is `131072`.  The number of memory regions per adapter. Recommended value = integer power of 2.",
                     "intersightApi": "MemoryRegions",
                     "minimum": 1,
                     "maximum": 524288,
@@ -16279,7 +16283,7 @@
                 "queue_pairs": {
                     "type": "integer",
                     "default": 256,
-                    "description": "Default is 256.  The number of queue pairs per adapter. Recommended value = integer power of 2.",
+                    "description": "Default is `256`.  The number of queue pairs per adapter. Recommended value = integer power of 2.",
                     "intersightApi": "QueuePairs",
                     "minimum": 1,
                     "maximum": 8192,
@@ -16288,7 +16292,7 @@
                 "resource_groups": {
                     "type": "integer",
                     "default": 2,
-                    "description": "Default is 2.  The number of resource groups per adapter. Recommended value = be an integer power of 2 greater than or equal to the number of CPU cores on the system for optimum performance.",
+                    "description": "Default is `2`.  The number of resource groups per adapter. Recommended value = be an integer power of 2 greater than or equal to the number of CPU cores on the system for optimum performance.",
                     "intersightApi": "ResourceGroups",
                     "minimum": 1,
                     "maximum": 128,
@@ -16297,19 +16301,19 @@
                 "version": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Configure RDMA over Converged Ethernet (RoCE) version on the virtual interface. Only RoCEv1 is supported on Cisco VIC 13xx series adapters and only RoCEv2 is supported on Cisco VIC 14xx series adapters.\n  * `1` - RDMA over Converged Ethernet Protocol Version 1.\n  * `2` - RDMA over Converged Ethernet Protocol Version 2.",
+                    "description": "Default is `1`.  Configure RDMA over Converged Ethernet (RoCE) version on the virtual interface. Only RoCEv1 is supported on Cisco VIC 13xx series adapters and only RoCEv2 is supported on Cisco VIC 14xx series adapters.\n  * `1` - RDMA over Converged Ethernet Protocol Version 1.\n  * `2` - RDMA over Converged Ethernet Protocol Version 2.",
                     "intersightApi": "Version",
                     "minimum": 1,
                     "maximum": 64,
                     "title": "version"
                 }
             },
-            "title": "roce_settings - ROCE Settings - Intersight Uri: vnic/RoceSettings"
+            "title": "roce_settings - ROCE Settings"
         },
         "vnic.RssHashSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Ethernet Adapter Policy - Receive Side Scaling Settings.  Options are:\n  * enable_ipv4_hash\n  * enable_ipv6_extensions_hash\n  * enable_ipv6_hash\n  * enable_receive_side_scaling\n  * enable_tcp_and_ipv4_hash\n  * enable_tcp_and_ipv6_extensions_hash\n  * enable_tcp_and_ipv6_hash\n  * enable_udp_and_ipv4_hash\n  * enable_udp_and_ipv6_hash",
             "easyimm": "receive_side_scaling",
             "intersightUri": "vnic/RssHashSettings",
             "ObjectType": "vnic.RssHashSettings",
@@ -16317,61 +16321,68 @@
                 "enable_ipv4_hash": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When enabled, the IPv4 address is used for traffic distribution.",
+                    "description": "Default is `true`.  When enabled, the IPv4 address is used for traffic distribution.",
                     "intersightApi": "Ipv4Hash",
                     "title": "enable_ipv4_hash"
                 },
                 "enable_ipv6_extensions_hash": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  When enabled, the IPv6 extensions are used for traffic distribution.",
+                    "description": "Default is `false`.  When enabled, the IPv6 extensions are used for traffic distribution.",
                     "intersightApi": "Ipv6ExtHash",
                     "title": "enable_ipv6_extensions_hash"
                 },
                 "enable_ipv6_hash": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When enabled, the IPv6 address is used for traffic distribution.",
+                    "description": "Default is `true`.  When enabled, the IPv6 address is used for traffic distribution.",
                     "intersightApi": "Ipv6Hash",
                     "title": "enable_ipv6_hash"
+                },
+                "enable_receive_side_scaling": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Default is `true`.  Receive Side Scaling allows the incoming traffic to be spread across multiple CPU cores.",
+                    "intersightApi": "$down:RssSettings",
+                    "title": "enable_receive_side_scaling"
                 },
                 "enable_tcp_and_ipv4_hash": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When enabled, both the IPv4 address and TCP port number are used for traffic distribution.",
+                    "description": "Default is `true`.  When enabled, both the IPv4 address and TCP port number are used for traffic distribution.",
                     "intersightApi": "TcpIpv4Hash",
                     "title": "enable_tcp_and_ipv4_hash"
                 },
                 "enable_tcp_and_ipv6_extensions_hash": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  When enabled, both the IPv6 extensions and TCP port number are used for traffic distribution.",
+                    "description": "Default is `false`.  When enabled, both the IPv6 extensions and TCP port number are used for traffic distribution.",
                     "intersightApi": "TcpIpv6ExtHash",
                     "title": "enable_tcp_and_ipv6_extensions_hash"
                 },
                 "enable_tcp_and_ipv6_hash": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When enabled, both the IPv6 address and TCP port number are used for traffic distribution.",
+                    "description": "Default is `true`.  When enabled, both the IPv6 address and TCP port number are used for traffic distribution.",
                     "intersightApi": "TcpIpv6Hash",
                     "title": "enable_tcp_and_ipv6_hash"
                 },
                 "enable_udp_and_ipv4_hash": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  When enabled, both the IPv4 address and UDP port number are used for traffic distribution.",
+                    "description": "Default is `false`.  When enabled, both the IPv4 address and UDP port number are used for traffic distribution.",
                     "intersightApi": "UdpIpv4Hash",
                     "title": "enable_udp_and_ipv4_hash"
                 },
                 "enable_udp_and_ipv6_hash": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  When enabled, both the IPv6 address and UDP port number are used for traffic distribution.",
+                    "description": "Default is `false`.  When enabled, both the IPv6 address and UDP port number are used for traffic distribution.",
                     "intersightApi": "UdpIpv6Hash",
                     "title": "enable_udp_and_ipv6_hash"
                 }
             },
-            "title": "receive_side_scaling - Recieve Side Scaling Hash Settings - Intersight Uri: vnic/RssHashSettings"
+            "title": "receive_side_scaling - Recieve Side Scaling Hash Settings"
         },
         "vnic.SanConnectivityPolicy": {
             "type": "object",
@@ -16469,7 +16480,7 @@
         "vnic.ScsiQueueSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Fibre-Channel Adapter Policy - SCSI IO Settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "scsi_io",
             "intersightUri": "vnic/ScsiQueueSettings",
             "ObjectType": "vnic.ScsiQueueSettings",
@@ -16477,7 +16488,7 @@
                 "queue_count": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  The number of SCSI I/O queue resources the system should allocate.  Range is 1-245.",
+                    "description": "Default is `1`.  The number of SCSI I/O queue resources the system should allocate.  Range is `1-245`.",
                     "intersightApi": "Count",
                     "minimum": 1,
                     "maximum": 64,
@@ -16486,53 +16497,53 @@
                 "ring_size": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 512.  The number of descriptors in each SCSI I/O queue.  Range is 64-512.",
+                    "description": "Default is `512`.  The number of descriptors in each SCSI I/O queue.  Range is `64-512`.",
                     "intersightApi": "RingSize",
                     "minimum": 1,
-                    "maximum": 64,
+                    "maximum": 512,
                     "title": "ring_size"
                 }
             },
-            "title": "scsi_io - Scsi Queue Settings - Intersight Uri: vnic/ScsiQueueSettings"
+            "title": "scsi_io - Scsi Queue Settings"
         },
         "vnic.TcpOffloadSettings": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Placement Settings for the virtual interface.",
+            "description": "Ethernet Adapter Policy - TCP Offload Settings.  Options are:\n  * enable_large_receive_offload\n  * enable_large_send_offload\n  * enable_rx_checksum_offload\n  * enable_tx_checksum_offload",
             "easyimm": "tcp_offload",
             "intersightUri": "vnic/TcpOffloadSettings",
             "ObjectType": "vnic.TcpOffloadSettings",
             "properties": {
-                "enable_large_recieve_offload": {
+                "enable_large_receive_offload": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Enables the reassembly of segmented packets in hardware before sending them to the CPU.",
+                    "description": "Default is `true`.  Enables the reassembly of segmented packets in hardware before sending them to the CPU.",
                     "intersightApi": "LargeReceive",
-                    "title": "enable_large_recieve_offload"
+                    "title": "enable_large_receive_offload"
                 },
                 "enable_large_send_offload": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  Enables the CPU to send large packets to the hardware for segmentation.",
+                    "description": "Default is `true`.  Enables the CPU to send large packets to the hardware for segmentation.",
                     "intersightApi": "LargeSend",
                     "title": "enable_large_send_offload"
                 },
                 "enable_rx_checksum_offload": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When enabled, the CPU sends all packet checksums to the hardware for validation.",
+                    "description": "Default is `true`.  When enabled, the CPU sends all packet checksums to the hardware for validation.",
                     "intersightApi": "RxChecksum",
                     "title": "enable_rx_checksum_offload"
                 },
                 "enable_tx_checksum_offload": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is true.  When enabled, the CPU sends all packets to the hardware so that the checksum can be calculated.",
+                    "description": "Default is `true`.  When enabled, the CPU sends all packets to the hardware so that the checksum can be calculated.",
                     "intersightApi": "TxChecksum",
                     "title": "enable_tx_checksum_offload"
                 }
             },
-            "title": "tcp_offload - TCP Offload Settings - Intersight Uri: vnic/TcpOffloadSettings"
+            "title": "tcp_offload - TCP Offload Settings"
         },
         "vnic.UsnicSettings": {
             "type": "object",
@@ -16545,7 +16556,7 @@
                 "class_of_service": {
                     "type": "integer",
                     "default": 5,
-                    "description": "Default is 5.  Class of Service to be used for traffic on the usNIC.",
+                    "description": "Default is `5`.  Class of Service to be used for traffic on the usNIC.",
                     "intersightApi": "Cos",
                     "minimum": 1,
                     "maximum": 6,
@@ -16554,7 +16565,7 @@
                 "number_of_usnics": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is 1.  Number of usNIC interfaces to be created. Valid values are 1 to 255 when the usNIC is enabled. When the usNIC is disabled, the default value is 0.",
+                    "description": "Default is `1`.  Number of usNIC interfaces to be created. Valid values are 1 to 255 when the usNIC is enabled. When the usNIC is disabled, the default value is 0.",
                     "intersightApi": "Count",
                     "minimum": 1,
                     "maximum": 225,
@@ -16584,21 +16595,21 @@
                 "enable_virtual_machine_multi_queue": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables Virtual Machine Multi-Queue feature on the virtual interface. VMMQ allows configuration of multiple I/O queues for a single VM and thus distributes traffic across multiple CPU cores in a VM.",
+                    "description": "Default is `false`.  Enables Virtual Machine Multi-Queue feature on the virtual interface. VMMQ allows configuration of multiple I/O queues for a single VM and thus distributes traffic across multiple CPU cores in a VM.",
                     "intersightApi": "MultiQueueSupport",
                     "title": "enable_virtual_machine_multi_queue"
                 },
                 "enabled": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is false.  Enables VMQ feature on the virtual interface.",
+                    "description": "Default is `false`.  Enables VMQ feature on the virtual interface.",
                     "intersightApi": "Enabled",
                     "title": "enabled"
                 },
                 "number_of_interrupts": {
                     "type": "integer",
                     "default": 16,
-                    "description": "Default is 16.  The number of interrupt resources to be allocated. Recommended value is the number of CPU threads or logical processors available in the server.",
+                    "description": "Default is `16`.  The number of interrupt resources to be allocated. Recommended value is the number of CPU threads or logical processors available in the server.",
                     "intersightApi": "NumInterrupts",
                     "minimum": 1,
                     "maximum": 514,
@@ -16607,7 +16618,7 @@
                 "number_of_sub_vnics": {
                     "type": "integer",
                     "default": 64,
-                    "description": "Default is 64.  The number of sub vNICs to be created.",
+                    "description": "Default is `64`.  The number of sub vNICs to be created.",
                     "intersightApi": "NumSubVnics",
                     "minimum": 1,
                     "maximum": 64,
@@ -16616,7 +16627,7 @@
                 "number_of_virtual_machine_queues": {
                     "type": "integer",
                     "default": 4,
-                    "description": "Default is 4.  The number of hardware Virtual Machine Queues to be allocated. The number of VMQs per adapter must be one more than the maximum number of VM NICs.",
+                    "description": "Default is `4`.  The number of hardware Virtual Machine Queues to be allocated. The number of VMQs per adapter must be one more than the maximum number of VM NICs.",
                     "intersightApi": "NumVmqs",
                     "minimum": 1,
                     "maximum": 128,

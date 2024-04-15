@@ -33,9 +33,9 @@ module "pools" {
 # GUI Location: Infrastructure Service > Configure > Policies
 #_________________________________________________________________________________________
 module "policies" {
-  #source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-policies"
-  source             = "terraform-cisco-modules/policies/intersight"
-  version            = "4.1.8"
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-policies"
+  #source             = "terraform-cisco-modules/policies/intersight"
+  #version            = "4.1.8"
   for_each           = { for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(local.model[e], "policies", {})]) > 0 }
   global_settings    = local.global_settings
   model              = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
