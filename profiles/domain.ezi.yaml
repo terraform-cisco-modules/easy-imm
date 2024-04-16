@@ -13,7 +13,9 @@ Asgard:
         port_policies:
           - common/r143e-1-a
           - common/r143e-1-b
-        #serial_numbers:
+        serial_numbers:
+          - unknown
+          - unknown
         #  - FDO245219W2
         #  - FDO23350SKV
         snmp_policy: common/snmp

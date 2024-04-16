@@ -34,15 +34,15 @@ common:
         terminal_type: vt100
     boot_order:
       - boot_devices:
-          - name: KVM-DVD
-            object_type: boot.VirtualMedia
-            sub_type: kvm-mapped-dvd
-          - name: M2
-            object_type: boot.LocalDisk
+          - device_name: 0_KVM-DVD
+            device_type: virtual_media
+            subtype: kvm-mapped-dvd
+          - device_name: 1_M2
+            device_type: local_disk
             slot: MSTOR-RAID
           - interface_name: mgmt-a
-            name: PXE
-            object_type: boot.Pxe
+            device_name: 2_PXE
+            device_type: pxe_boot
             slot: MLOM
         boot_mode: Uefi
         enable_secure_boot: true
@@ -73,64 +73,73 @@ default:
   policies:
     boot_order:
       - boot_devices:
-          - name: KVM-DVD
-            object_type: boot.VirtualMedia
-            sub_type: kvm-mapped-dvd
-          - name: Raid1
-            object_type: boot.LocalDisk
+          - device_name: 0_KVM-DVD
+            device_type: virtual_media
+            subtype: kvm-mapped-dvd
+          - device_name: 1_Raid1
+            device_type: local_disk
             slot: MRAID
-          - interface_name: MGMT-A
-            name: PXE
-            object_type: boot.Pxe
+          - device_name: 2_PXE
+            device_type: pxe_boot
+            interface_name: MGMT-A
             slot: MLOM
         boot_mode: Uefi
         enable_secure_boot: false
         name: Raid-pxe
       - boot_devices:
-          - name: KVM-DVD
-            object_type: boot.VirtualMedia
-            sub_type: kvm-mapped-dvd
-          - name: CIMC-DVD
-            object_type: boot.VirtualMedia
-            sub_type: cimc-mapped-dvd
-          - name: M2
-            object_type: boot.LocalDisk
+          - device_name: 00_KVM-DVD
+            device_type: virtual_media
+            subtype: kvm-mapped-dvd
+          - device_name: 01_CIMC-DVD
+            device_type: virtual_media
+            subtype: cimc-mapped-dvd
+          - device_name: 02_M2
+            device_type: local_disk
             slot: MSTOR-RAID
-          - name: Raid1
-            object_type: boot.LocalDisk
+          - device_name: 03_Raid1
+            device_type: local_disk
             slot: MRAID
           - interface_name: MGMT-A
-            name: PXE
-            object_type: boot.Pxe
+            device_name: 04_PXE
+            device_type: pxe_boot
             slot: MLOM
-          - interface_name: iSCSI-A
-            name: iSCSI
-            object_type: boot.Iscsi
+          - device_name: 05_iSCSI
+            device_type: iscsi_boot
+            interface_name: iSCSI-A
             slot: MLOM
-          - interface_name: vHBA-A
+          - device_name: 06_Primary-A
+            device_type: san_boot
+            interface_name: vHBA-A
             lun: 0
-            name: Primary-A
-            object_type: boot.San
             slot: MLOM
-            wwpn: 50:00:00:25:B5:0A:00:01
-          - interface_name: vHBA-B
+            target_wwpn: 50:00:00:25:B5:0A:00:01
+          - device_name: 07_Primary-B
+            device_type: san_boot
+            interface_name: vHBA-B
             lun: 0
-            name: Primary-B
-            object_type: boot.San
             slot: MLOM
-            wwpn: 50:00:00:25:B5:0B:00:01
-          - interface_name: vHBA-A
+            target_wwpn: 50:00:00:25:B5:0B:00:01
+          - device_name: 08_Secondary-A
+            device_type: san_boot
+            interface_name: vHBA-A
             lun: 0
-            name: Secondary-A
-            object_type: boot.San
             slot: MLOM
-            wwpn: 50:00:00:25:B5:0A:00:02
-          - interface_name: vHBA-B
+            target_wwpn: 50:00:00:25:B5:0A:00:02
+          - device_name: 09_Secondary-B
+            device_type: san_boot
+            interface_name: vHBA-B
             lun: 0
-            name: Secondary-B
-            object_type: boot.San
             slot: MLOM
-            wwpn: 50:00:00:25:B5:0B:00:02
+            target_wwpn: 50:00:00:25:B5:0B:00:02
+          - device_name: 10_HTTP
+            device_type: http_boot
+            ip_config_type: Static
+            ipv4_config:
+              dns_ip: 208.67.220.220
+              gateway_ip: 198.18.0.1
+              network_mask: 255.255.255.0
+              static_ip: 198.18.0.10
+            uri: https://198.18.1.1/vmware.iso
         boot_mode: Uefi
         enable_secure_boot: false
         name: examples

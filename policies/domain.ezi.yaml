@@ -15,14 +15,14 @@ common:
         name: link-ctrl
     switch_control:
       - description: sw-ctrl Switch Control Policy
-        ethernet_switching_mode: end-host
-        fc_switching_mode: end-host
         name: sw-ctrl
+        switching_mode_ethernet: end-host
+        switching_mode_fc: end-host
         vlan_port_count_optimization: false
       - description: fc-switch Switch Control Policy
-        ethernet_switching_mode: end-host
-        fc_switching_mode: switch
         name: fc-switch
+        switching_mode_ethernet: end-host
+        switching_mode_fc: switch
         vlan_port_count_optimization: false
     system_qos:
       - configure_recommended_classes: true
