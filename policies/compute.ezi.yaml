@@ -133,13 +133,14 @@ default:
             target_wwpn: 50:00:00:25:B5:0B:00:02
           - device_name: 10_HTTP
             device_type: http_boot
+            interface_name: vnic0
             ip_config_type: Static
             ipv4_config:
               dns_ip: 208.67.220.220
               gateway_ip: 198.18.0.1
               network_mask: 255.255.255.0
               static_ip: 198.18.0.10
-            uri: https://198.18.1.1/vmware.iso
+            uri: https://server.example.com/vmware.iso
         boot_mode: Uefi
         enable_secure_boot: false
         name: examples
