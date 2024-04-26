@@ -7,41 +7,41 @@ common:
     bios:
       - baud_rate: '115200'
         bios_template: M5-intel-virtual
+        boot_performance_mode: Max Performance
         console_redirection: com-0
         description: M5-intel-virtual BIOS Policy
-        execute_disable_bit: disabled
-        lv_ddr_mode: auto
         name: M5-intel-virtual
         serial_port_aenable: enabled
         terminal_type: vt100
+        txt_support: enabled
       - baud_rate: '115200'
         bios_template: M5-intel-virtual-tpm
+        boot_performance_mode: Max Performance
         console_redirection: com-0
         description: M5-intel-virtual-tpm BIOS Policy
-        execute_disable_bit: disabled
-        lv_ddr_mode: auto
         name: M5-intel-virtual-tpm
         serial_port_aenable: enabled
         terminal_type: vt100
+        txt_support: enabled
       - baud_rate: '115200'
         bios_template: M6-intel-virtual-tpm
+        boot_performance_mode: Max Performance
         console_redirection: com-0
         description: M6-intel-virtual-tpm BIOS Policy
-        execute_disable_bit: disabled
-        lv_ddr_mode: auto
         name: M6-intel-virtual-tpm
         serial_port_aenable: enabled
         terminal_type: vt100
+        txt_support: enabled
     boot_order:
       - boot_devices:
-          - device_name: 0_KVM-DVD
+          - device_name: KVM-DVD
             device_type: virtual_media
             subtype: kvm-mapped-dvd
-          - device_name: 1_M2
+          - device_name: M2
             device_type: local_disk
             slot: MSTOR-RAID
           - interface_name: mgmt-a
-            device_name: 2_PXE
+            device_name: PXE
             device_type: pxe_boot
             slot: MLOM
         boot_mode: Uefi

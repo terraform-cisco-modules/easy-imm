@@ -1280,7 +1280,7 @@
                 "cpu_pa_limit": {
                     "type": "string",
                     "default": "platform-default",
-                    "description": "",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Limit CPU PA to 46 Bits configuration.",
                     "intersight_api": "CpuPaLimit",
                     "enum": [
                         "platform-default",
@@ -7724,12 +7724,13 @@
                 "device_model": {
                     "type": "string",
                     "default": "UCS-FI-6454",
-                    "description": "Default is `UCS-FI-6454`.  This field specifies the device model that this Port Policy is being configured for.\n  * `UCS-FI-6454` - The standard 4th generation UCS Fabric Interconnect with 54 ports.\n  * `UCS-FI-64108` - The expanded 4th generation UCS Fabric Interconnect with 108 ports.\n  * `UCS-FI-6536` - The standard 5th generation UCS Fabric Interconnect with 36 ports.\n  * `unknown` - Unknown device type, usage is TBD.",
+                    "description": "Default is `UCS-FI-6454`.  This field specifies the device model that this Port Policy is being configured for.\n  * `UCS-FI-6454` - The standard 4th generation UCS Fabric Interconnect with 54 ports.\n  * `UCS-FI-64108` - The expanded 4th generation UCS Fabric Interconnect with 108 ports.\n  * `UCS-FI-6536` - The standard 5th generation UCS Fabric Interconnect with 36 ports.\n  * `UCSX-S9108-100G` - Cisco UCS Fabric Interconnect 9108 100G with 8 ports.\n  * `unknown` - Unknown device type, usage is TBD.",
                     "intersight_api": "DeviceModel",
                     "enum": [
                         "UCS-FI-6454",
                         "UCS-FI-64108",
                         "UCS-FI-6536",
+                        "UCSX-S9108-100G",
                         "unknown"
                     ],
                     "title": "device_model"
@@ -8579,7 +8580,7 @@
                 "auto_allow_on_uplinks": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is `false`.  Enable to automatically allow this VLAN on all uplinks. Disable must be specified for Disjoint Layer 2 VLAN configuration. Default VLAN-1 cannot be configured as Disjoint Layer 2 VLAN.",
+                    "description": "Default is `false`.  Enable to automatically allow the VLAN(s) on all uplinks. It must set to false for Disjoint Layer 2 VLAN configuration. VLAN-1 cannot be configured with auto_allow_on_uplinks set to `False`.",
                     "intersight_api": "AutoAllowOnUplinks",
                     "title": "auto_allow_on_uplinks"
                 },
@@ -10999,13 +11000,6 @@
                     "description": "Default is `false`.  If enabled, updates the resource records to the DNS from Cisco IMC.",
                     "intersight_api": "EnableDynamicDns",
                     "title": "enable_dynamic_dns"
-                },
-                "enable_ipv6": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Default is `false`.  If enabled, allows to configure IPv6 properties.",
-                    "intersight_api": "EnableIpv6",
-                    "title": "enable_ipv6"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
@@ -14403,7 +14397,7 @@
                 "hostname": {
                     "type": "string",
                     "default": "syslog.example.com",
-                    "description": "Hostname or IP Address of the syslog server where log should be stored.",
+                    "description": "Hostname or IP Address of the syslog server where logs should be stored.",
                     "intersight_api": "Hostname",
                     "minLength": 1,
                     "maxLength": 255,

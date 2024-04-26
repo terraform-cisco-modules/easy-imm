@@ -36,11 +36,11 @@ content: |-
 
   Soon the Schema for these YAML Files have been registered with [*SchemaStore*](https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json) via utilizing this `.ezi.yaml` file extension.  But until that is complete, need to still add to settings.
 
-  ### Modify `global_settings.eza.yaml` to match environment
+  ### Modify `global_settings.ezi.yaml` to match environment
 
-  `global_settings.eza.yamls` contains variables related to authentication to Intersight and an optional global tags for tagging objects.
+  `global_settings.ezi.yamls` contains variables related to authentication to Intersight and an optional global tags for tagging objects.
 
-  #### Notes for the `global_settings.eza.yamls`
+  #### Notes for the `global_settings.ezi.yamls`
 
     * `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
     * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
