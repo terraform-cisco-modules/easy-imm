@@ -6520,11 +6520,11 @@
                 "mode": {
                     "type": "string",
                     "default": "trunk",
-                    "description": "Default is `trunk`.  Port mode to be set on the appliance port-channel.\n  * `trunk` - Trunk Mode Switch Port Type.\n  * `access` - Access Mode Switch Port Type.",
+                    "description": "Default is `trunk`.  Port mode to be set on the appliance port-channel.\n  * `access` - Access Mode Switch Port Type.\n  * `trunk` - Trunk Mode Switch Port Type.",
                     "intersight_api": "Mode",
                     "enum": [
-                        "trunk",
-                        "access"
+                        "access",
+                        "trunk"
                     ],
                     "title": "mode"
                 },
@@ -6706,7 +6706,7 @@
                 "cdp_enable": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is `false`.  Enables the CDP on an interface.",
+                    "description": "Default is `false`.  Enables CDP on an interface.",
                     "intersight_api": "CdpEnabled",
                     "title": "cdp_enable"
                 },
@@ -6777,11 +6777,11 @@
                 "allowed_vlans": {
                     "type": "string",
                     "default": "1-10",
-                    "description": "Allowed VLAN IDs of the virtual interface. A list of comma seperated VLAN ids and/or VLAN id ranges.",
+                    "description": "Allowed VLAN IDs of the vnic or ethernet uplink. A list of comma seperated VLAN ids and/or VLAN id ranges.",
                     "intersight_api": "$ref:fabric.VlanSettings:AllowedVlans",
                     "minLength": 1,
                     "maxLength": 1024,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,4})|(\\d{1,4}-\\d{1,4}))(,((\\d{1,4})|(\\d{1,4}-\\d{1,4})))*)$",
                     "title": "action_on_uplink_fail"
                 },
                 "description": {
@@ -6790,7 +6790,7 @@
                 "native_vlan": {
                     "type": "integer",
                     "default": 1,
-                    "description": "Default is `1`.  Native VLAN ID of the virtual interface or the corresponding vethernet on the peer Fabric Interconnect to which the virtual interface is connected. If the native VLAN is not a part of the allowed VLANs, it will automatically be added to the list of allowed VLANs.",
+                    "description": "Default is `1`.  Native VLAN ID of the vnic or ethernet uplink. If the native VLAN is not a part of the allowed VLANs, it will automatically be added to the list of allowed VLANs.",
                     "intersight_api": "$ref:fabric.VlanSettings:NativeVlan",
                     "minimum": 1,
                     "maximum": 4093,
@@ -13754,7 +13754,7 @@
                     "intersight_api": "NumDedicatedHotSpares",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,2})|(\\d{1,2}-\\d{1,2}))(,((\\d{1,2})|(\\d{1,2}-\\d{1,2})))*)$",
                     "title": "num_dedicated_hot_spares"
                 },
                 "number_of_spans": {
@@ -14002,7 +14002,7 @@
                     "intersight_api": "DedicatedHotSpares",
                     "minLength": 0,
                     "maxLength": 64,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,2})|(\\d{1,2}-\\d{1,2}))(,((\\d{1,2})|(\\d{1,2}-\\d{1,2})))*)$",
                     "title": "dedicated_hot_spares"
                 },
                 "drive_array_spans": {
@@ -14035,7 +14035,7 @@
                     "intersight_api": "DriveSlots",
                     "minLength": 0,
                     "maxLength": 64,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,2})|(\\d{1,2}-\\d{1,2}))(,((\\d{1,2})|(\\d{1,2}-\\d{1,2})))*)$",
                     "title": "drive_slots"
                 },
                 "virtual_drive_policy": {
@@ -14108,7 +14108,7 @@
                     "intersight_api": "GlobalHotSpares",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,2})|(\\d{1,2}-\\d{1,2}))(,((\\d{1,2})|(\\d{1,2}-\\d{1,2})))*)$",
                     "title": "global_hot_spares"
                 },
                 "hybrid_slot_configuration:direct_attached_nvme_slots": {
@@ -14118,7 +14118,7 @@
                     "intersight_api": "DirectAttachedNvmeSlots",
                     "minLength": 1,
                     "maxLength": 32,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,2})|(\\d{1,2}-\\d{1,2}))(,((\\d{1,2})|(\\d{1,2}-\\d{1,2})))*)$",
                     "title": "hybrid_slot_configuration:direct_attached_nvme_slots"
                 },
                 "hybrid_slot_configuration:raid_attached_nvme_slots": {
@@ -14128,7 +14128,7 @@
                     "intersight_api": "RaidAttachedNvmeSlots",
                     "minLength": 1,
                     "maxLength": 32,
-                    "pattern": "^$|^((\\d+\\-\\d+)|(\\d+))(,((\\d+\\-\\d+)|(\\d+)))*$",
+                    "pattern": "^$|^(((\\d{1,2})|(\\d{1,2}-\\d{1,2}))(,((\\d{1,2})|(\\d{1,2}-\\d{1,2})))*)$",
                     "title": "hybrid_slot_configuration:raid_attached_nvme_slots"
                 },
                 "name": {
