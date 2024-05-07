@@ -10,10 +10,8 @@ Asgard:
       default: ''
       domain: ''
       server: ''
-      template: ''
     name_suffix:
       chassis: ''
       default: ''
       domain: ''
       server: ''
-      template: ''

@@ -8,7 +8,7 @@
         "access.Policy": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Policy to configure server or chassis management options.",
+            "description": "Enables you to manage and configure your network through mapping of IP pools to the server profile. This policy allows you to configure a VLAN and associate it with an IP address through the IP pool address.  In-Band IP address, Out-of-Band IP address, or both In-Band and Out-of-Band IP addresses can be configured using IMC Access Policy and are supported on the following:\n  * Drive Security, SNMP, Syslog, and vMedia policies\n  * vKVM, IPMI, SOL, and vMedia policies using vKVM client",
             "easyimm": "access_policy",
             "intersightUri": "access/Policies",
             "ObjectType": "access.Policy",
@@ -38,14 +38,14 @@
                 "ipv4_address_configuration": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Default is `true`.  This flag enables the use of IPv4 address for end-point access.",
+                    "description": "Default is `true`.  This is only applicable to the `inband_ip_pool`.  This flag enables the use of IPv4 address for end-point access.",
                     "intersight_api": "$ref:access.AddressType:EnableIpV4",
                     "title": "ipv4_address_configuration"
                 },
                 "ipv6_address_configuration": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Default is `false`.  This flag enables the use of IPv6 address for end-point access.",
+                    "description": "Default is `false`.  This is only applicable to the `inband_ip_pool`.  This flag enables the use of IPv6 address for end-point access.",
                     "intersight_api": "$ref:access.AddressType:EnableIpV6",
                     "title": "ipv6_address_configuration"
                 },
@@ -7951,7 +7951,7 @@
                 "auto_negotiation": {
                     "type": "boolean",
                     "default": true,
-                    "description": "",
+                    "description": "Default is `true`.  Auto negotiation configuration for server port. This configuration is required only for FEX Model N9K-C93180YC-FX3 connected with 100G speed port on UCS-FI-6536 and should be set as True.",
                     "intersight_api": "AutoNegotiationDisabled",
                     "title": "auto_negotiation"
                 },
@@ -7959,7 +7959,7 @@
                     "type": "integer",
                     "default": 0,
                     "description": "Default is `0`.  Breakout port Identifier of the Switch Interface.  When a port is not configured as a breakout port, the aggregatePortId is set to 0, and unused.  When a port is configured as a breakout port, the 'aggregatePortId' port number as labeled on the equipment, e.g. the id of the port on the switch.",
-                    "intersight_api": "$ref:fabric.PortBase:AggregatePortId",
+                    "intersight_api": "AggregatePortId",
                     "minimum": 0,
                     "maximum": 108,
                     "title": "breakout_port_id"
@@ -7967,19 +7967,19 @@
                 "connected_device_type": {
                     "type": "string",
                     "default": "",
-                    "description": "",
+                    "description": "Device type for which preferred ID to be configured. If the actual connected device does not match the specified device type, the system ignores the 'PreferredDeviceId' property.\n  * `Auto` - Preferred Id will be ignored if specified with this type.\n  * `RackServer` - Connected device type is Rack Unit Server.\n  * `Chassis` - Connected device type is Chassis.",
                     "intersight_api": "PreferredDeviceType",
                     "enum": [
                         "Auto",
-                        "RackServer",
-                        "Chassis"
+                        "Chassis",
+                        "RackServer"
                     ],
                 "title": "connected_device_type"
                 },
                 "device_number": {
                     "type": "integer",
                     "default": 1,
-                    "description": "",
+                    "description": "Default is `1`.  Preferred device ID to be configured by user for the connected device. This ID must be specified together with the 'PreferredDeviceType' property. This ID will only takes effect if the actual connected device matches the 'PreferredDeviceType'. If the preferred ID is not available, the ID is automatically allocated and assigned by the system. If different preferred IDs are specified for the ports connected to the same device, only the preferred ID (if specified) of the port that is discovered first will be considered.",
                     "intersight_api": "PreferredDeviceId",
                     "minimum": 1,
                     "maximum": 160,
@@ -8001,7 +8001,7 @@
                     "type": "string",
                     "default": "5-10",
                     "description": "A string containing the List of Ports to Configure.\nIn example: '1-5', '1,3,5', '1-5,10-16', or just '1'.",
-                    "intersight_api": "not_applicable",
+                    "intersight_api": "PortId",
                     "minLength": 1,
                     "maxLength": 256,
                     "pattern": "^(((\\d+)|(\\d+-\\d+))(,((\\d+)|(\\d+-\\d+)))*)$",
@@ -8011,7 +8011,7 @@
                     "type": "integer",
                     "default": 1,
                     "description": "Default is `1`.  Slot Identifier of the Switch/FEX/Chassis Interface.",
-                    "intersight_api": "$ref:fabric.PortBase:SlotId",
+                    "intersight_api": "SlotId",
                     "minimum": 1,
                     "maximum": 64,
                     "title": "slot_id"
@@ -9534,7 +9534,7 @@
         "ipmioverlan.Policy": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Intelligent Platform Management Interface Over LAN Policy.",
+            "description": "Defines the protocols for interfacing with a service processor that is embedded in a server platform. The Intelligent Platform Management Interface (IPMI) enables an operating system to obtain information about the system health and control system hardware and directs the Cisco IMC to perform the required actions. You can create an IPMI Over LAN policy to manage the IPMI messages through Cisco Intersight. You can assign these user roles to an IPMI user per session:\n  * admin—IPMI users can perform all available actions. If you select this option, IPMI users with the `Administrator` user role can create admin, user, and read-only sessions on this server.\n  * read-only—Can view information but cannot make any changes. IPMI users with the `Administrator`, `Operator`, or `User` user roles can only create read-only IPMI sessions, regardless of their other IPMI privileges.\n  * user — IPMI users can perform some functions but cannot perform administrative tasks. If you select this option, IPMI users with the `Administrator` or `Operator` user role can create user and read-only sessions on this server.",
             "easyimm": "ipmi_over_lan",
             "intersightUri": "ipmioverlan/Policies",
             "ObjectType": "ipmioverlan.Policy",
@@ -11562,7 +11562,7 @@
                 },
                 "imc_access": {
                     "type": "array",
-                    "description": "\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * inband_ip_pool\n  * inband_vlan_id\n  * inband_vlan_id\n  * ipv4_address_configuration\n  * ipv6_address_configuration\n  * out_of_band_ip_pool\n  * tags",
+                    "description": "Enables you to manage and configure your network through mapping of IP pools to the server profile. This policy allows you to configure a VLAN and associate it with an IP address through the IP pool address.  In-Band IP address, Out-of-Band IP address, or both In-Band and Out-of-Band IP addresses can be configured using IMC Access Policy and are supported on the following:\n  * Drive Security, SNMP, Syslog, and vMedia policies\n  * vKVM, IPMI, SOL, and vMedia policies using vKVM client\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * inband_ip_pool\n  * inband_vlan_id\n  * inband_vlan_id\n  * ipv4_address_configuration\n  * ipv6_address_configuration\n  * out_of_band_ip_pool\n  * tags",
                     "intersightUri": "access/Policies",
                     "items": {
                         "$ref": "#/definitions/access.Policy"
@@ -11572,7 +11572,7 @@
                 },
                 "ipmi_over_lan": {
                     "type": "array",
-                    "description": "\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * enabled\n  * privilege\n  * tags",
+                    "description": "Defines the protocols for interfacing with a service processor that is embedded in a server platform. The Intelligent Platform Management Interface (IPMI) enables an operating system to obtain information about the system health and control system hardware and directs the Cisco IMC to perform the required actions. You can create an IPMI Over LAN policy to manage the IPMI messages through Cisco Intersight. You can assign these user roles to an IPMI user per session:\n  * admin—IPMI users can perform all available actions. If you select this option, IPMI users with the `Administrator` user role can create admin, user, and read-only sessions on this server.\n  * read-only—Can view information but cannot make any changes. IPMI users with the `Administrator`, `Operator`, or `User` user roles can only create read-only IPMI sessions, regardless of their other IPMI privileges.\n  * user — IPMI users can perform some functions but cannot perform administrative tasks. If you select this option, IPMI users with the `Administrator` or `Operator` user role can create user and read-only sessions on this server.\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * enabled\n  * privilege\n  * tags",
                     "intersightUri": "ipmioverlan/Policies",
                     "items": {
                         "$ref": "#/definitions/ipmioverlan.Policy"
@@ -12116,10 +12116,10 @@
                 },
                 "power_allocation": {
                     "type": "integer",
-                    "default": 1,
-                    "description": "Default is `1`.  Sets the Allocated Power Budget of the Chassis (in Watts). This field is only supported for Cisco UCS X series Chassis.",
+                    "default": 0,
+                    "description": "Default is `0`.  Sets the Allocated Power Budget of the Chassis (in Watts). This field is only supported for Cisco UCS X series Chassis.",
                     "intersight_api": "AllocatedBudget",
-                    "minimum": 1,
+                    "minimum": 0,
                     "maximum": 65535,
                     "title": "power_allocation"
                 },
@@ -12149,7 +12149,7 @@
                 "power_redundancy": {
                     "type": "string",
                     "default": "Grid",
-                    "description": "Default is `Grid`.  Sets the Power Redundancy Mode of the Chassis.  Redundancy Mode determines the number of PSUs the chassis keeps as redundant.  N+2 mode is only supported for Cisco UCS X series Chassis.\n  * `Grid` - Grid Mode requires two power sources. If one source fails, the surviving PSUs connected to the other source provides power to the chassis.\n  * `NotRedundant` - Power Manager turns on the minimum number of PSUs required to support chassis power requirements. No Redundant PSUs are maintained.\n  * `N+1` - Power Manager turns on the minimum number of PSUs required to support chassis power requirements plus one additional PSU for redundancy.\n  * `N+2` - Power Manager turns on the minimum number of PSUs required to support chassis power requirements plus two additional PSU for redundancy. This Mode is only supported for UCS X series Chassis.",
+                    "description": "Default is `Grid`.  Sets the Power Redundancy Mode of the Chassis/Server.  Redundancy Mode determines the number of PSUs the chassis keeps as redundant.  N+2 mode is only supported for Cisco UCS X series Chassis.\n  * `Grid` - Grid Mode requires two power sources. If one source fails, the surviving PSUs connected to the other source provides power to the chassis.\n  * `NotRedundant` - Power Manager turns on the minimum number of PSUs required to support chassis power requirements. No Redundant PSUs are maintained.\n  * `N+1` - Power Manager turns on the minimum number of PSUs required to support chassis power requirements plus one additional PSU for redundancy.\n  * `N+2` - Power Manager turns on the minimum number of PSUs required to support chassis power requirements plus two additional PSU for redundancy. This Mode is only supported for UCS X series Chassis.",
                     "intersight_api": "RedundancyMode",
                     "enum": [
                         "Grid",

@@ -54,9 +54,8 @@ module "profiles" {
   source  = "terraform-cisco-modules/profiles/intersight"
   version = "4.1.12"
   for_each = {
-    for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(lookup(local.model[e], "profiles", {}), "chassis", {})]
-      ) > 0 || length([for e in sort(keys(local.model)) : lookup(lookup(lookup(local.model[e], "profiles", {}), "templates", {}), "server", {})]
-    ) > 0 || length([for e in sort(keys(local.model)) : lookup(lookup(local.model[e], "profiles", {}), "server", {})]) > 0
+    for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(local.model[e], "profiles", {})]
+    ) > 0 || length([for e in sort(keys(local.model)) : lookup(local.model[e], "templates", {})]) > 0
   }
   global_settings = local.global_settings
   model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
