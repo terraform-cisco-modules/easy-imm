@@ -22,9 +22,7 @@ common:
                 - 0
                 - 1
             vhba_type: fc-initiator
-            wwpn_allocation_type: POOL
             wwpn_pools:
               - wwpn-a
               - wwpn-b
-        wwnn_allocation_type: POOL
         wwnn_pool: wwnn
