@@ -202,72 +202,19 @@
             "intersight_uri": "bios/Policies",
             "ObjectType": "bios.Policy",
             "properties": {
-                "bios_template": {
-                    "type": "string",
-                    "default": "",
-                    "description": "Name of a BIOS Template to Configure.  Options are:\n  * M5-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M5-intel-dss(-tpm) - Analytics Database Systems.\n  * M5-intel-hpc(-tpm) - High-Performance Computing.\n  * M5-intel-java(-tpm) - Java Application Servers.\n  * M5-intel-oltp(-tpm) - Online Transaction Processing.\n  * M5-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n  * M6-amd-hpc(-tpm) - High-Performance Computing with AMD Processor.\n  * M6-amd-vdi(-tpm) - Virtual Desktop Host with AMD Processor.\n  * M6-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M6-intel-analytical-db(-tpm) - M6 Analytical Database Systems with Intel Processor.\n  * M6-intel-azure(-tpm) - Azure HCI Host with Intel Processor.\n  * M6-intel-data-analytics(-tpm) - M6 Data Analytics with Intel Processor.\n  * M6-intel-hpc(-tpm) - High-Performance Computing with Intel Processor.\n  * M6-intel-relational-db(-tpm) - M6 Relational Database Systems with Intel Processor.\n  * M6-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n  * M7-amd-hpc(-tpm) - High-Performance Computing with AMD Processor.\n  * M7-amd-vdi(-tpm) - Virtual Desktop Host with AMD Processor.\n  * M7-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M7-intel-analytical-db(-tpm) - M6 Analytical Database Systems with Intel Processor.\n  * M7-intel-azure(-tpm) - Azure HCI Host with Intel Processor.\n  * M7-intel-data-analytics(-tpm) - M6 Data Analytics with Intel Processor.\n  * M7-intel-hpc(-tpm) - High-Performance Computing with Intel Processor.\n  * M7-intel-relational-db(-tpm) - M6 Relational Database Systems with Intel Processor.\n  * M7-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n Add `-tpm` to enable TPM.  Without `-tpm`, TPM is disabled.",
-                    "intersight_api": "AcsControlGpu1state",
-                    "enum": [
-                        "M5-amd-virtual",
-                        "M5-amd-virtual-tpm",
-                        "M5-intel-dss",
-                        "M5-intel-dss-tpm",
-                        "M5-intel-hpc",
-                        "M5-intel-hpc-tpm",
-                        "M5-intel-java",
-                        "M5-intel-java-tpm",
-                        "M5-intel-oltp",
-                        "M5-intel-oltp-tpm",
-                        "M5-intel-virtual",
-                        "M5-intel-virtual-tpm",
-                        "M6-amd-hpc",
-                        "M6-amd-hpc-tpm",
-                        "M6-amd-vdi",
-                        "M6-amd-vdi-tpm",
-                        "M6-amd-virtual",
-                        "M6-amd-virtual-tpm",
-                        "M6-intel-analytical-db",
-                        "M6-intel-analytical-db-tpm",
-                        "M6-intel-azure",
-                        "M6-intel-azure-tpm",
-                        "M6-intel-data-analytics",
-                        "M6-intel-data-analytics-tpm",
-                        "M6-intel-hpc",
-                        "M6-intel-hpc-tpm",
-                        "M6-intel-relational-db",
-                        "M6-intel-relational-db-tpm",
-                        "M6-intel-virtual",
-                        "M6-intel-virtual-tpm",
-                        "M7-amd-hpc-tpm",
-                        "M7-amd-vdi-tpm",
-                        "M7-amd-virtual-tpm",
-                        "M7-intel-analytical-db-tpm",
-                        "M7-intel-azure-tpm",
-                        "M7-intel-data-analytics-tpm",
-                        "M7-intel-hpc-tpm",
-                        "M7-intel-relational-db-tpm",
-                        "M7-intel-virtual",
-                        "M7-intel-virtual-tpm"
-                    ],
-                    "title": "bios_template"
-                },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
-                "acs_control_gpu1state": {
-                    "type": "string",
-                    "default": "platform-default",
-                    "description": "Default is `platform-default`.  BIOS Token for setting ACS Control GPU 1 configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
-                    "intersight_api": "AcsControlGpu1state",
-                    "enum": [
-                        "platform-default",
-                        "enabled",
-                        "disabled"
-                    ],
-                    "title": "acs_control_gpu1state"
+                "tags": {
+                    "type": "array",
+                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/mo.Tag"
+                    },
+                    "title": "tags - Tags"
                 },
                 "acs_control_gpu2state": {
                     "type": "string",
@@ -544,6 +491,54 @@
                     ],
                     "title": "baud_rate"
                 },
+                "bios_template": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Name of a BIOS Template to Configure.  Options are:\n  * M5-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M5-intel-dss(-tpm) - Analytics Database Systems.\n  * M5-intel-hpc(-tpm) - High-Performance Computing.\n  * M5-intel-java(-tpm) - Java Application Servers.\n  * M5-intel-oltp(-tpm) - Online Transaction Processing.\n  * M5-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n  * M6-amd-hpc(-tpm) - High-Performance Computing with AMD Processor.\n  * M6-amd-vdi(-tpm) - Virtual Desktop Host with AMD Processor.\n  * M6-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M6-intel-analytical-db(-tpm) - M6 Analytical Database Systems with Intel Processor.\n  * M6-intel-azure(-tpm) - Azure HCI Host with Intel Processor.\n  * M6-intel-data-analytics(-tpm) - M6 Data Analytics with Intel Processor.\n  * M6-intel-hpc(-tpm) - High-Performance Computing with Intel Processor.\n  * M6-intel-relational-db(-tpm) - M6 Relational Database Systems with Intel Processor.\n  * M6-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n  * M7-amd-hpc(-tpm) - High-Performance Computing with AMD Processor.\n  * M7-amd-vdi(-tpm) - Virtual Desktop Host with AMD Processor.\n  * M7-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M7-intel-analytical-db(-tpm) - M6 Analytical Database Systems with Intel Processor.\n  * M7-intel-azure(-tpm) - Azure HCI Host with Intel Processor.\n  * M7-intel-data-analytics(-tpm) - M6 Data Analytics with Intel Processor.\n  * M7-intel-hpc(-tpm) - High-Performance Computing with Intel Processor.\n  * M7-intel-relational-db(-tpm) - M6 Relational Database Systems with Intel Processor.\n  * M7-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n Add `-tpm` to enable TPM.  Without `-tpm`, TPM is disabled.",
+                    "intersight_api": "bios_template",
+                    "enum": [
+                        "M5-amd-virtual",
+                        "M5-amd-virtual-tpm",
+                        "M5-intel-dss",
+                        "M5-intel-dss-tpm",
+                        "M5-intel-hpc",
+                        "M5-intel-hpc-tpm",
+                        "M5-intel-java",
+                        "M5-intel-java-tpm",
+                        "M5-intel-oltp",
+                        "M5-intel-oltp-tpm",
+                        "M5-intel-virtual",
+                        "M5-intel-virtual-tpm",
+                        "M6-amd-hpc",
+                        "M6-amd-hpc-tpm",
+                        "M6-amd-vdi",
+                        "M6-amd-vdi-tpm",
+                        "M6-amd-virtual",
+                        "M6-amd-virtual-tpm",
+                        "M6-intel-analytical-db",
+                        "M6-intel-analytical-db-tpm",
+                        "M6-intel-azure",
+                        "M6-intel-azure-tpm",
+                        "M6-intel-data-analytics",
+                        "M6-intel-data-analytics-tpm",
+                        "M6-intel-hpc",
+                        "M6-intel-hpc-tpm",
+                        "M6-intel-relational-db",
+                        "M6-intel-relational-db-tpm",
+                        "M6-intel-virtual",
+                        "M6-intel-virtual-tpm",
+                        "M7-amd-hpc-tpm",
+                        "M7-amd-vdi-tpm",
+                        "M7-amd-virtual-tpm",
+                        "M7-intel-analytical-db-tpm",
+                        "M7-intel-azure-tpm",
+                        "M7-intel-data-analytics-tpm",
+                        "M7-intel-hpc-tpm",
+                        "M7-intel-relational-db-tpm",
+                        "M7-intel-virtual-tpm"
+                    ],
+                    "title": "bios_template"
+                },
                 "bme_dma_mitigation": {
                     "type": "string",
                     "default": "platform-default",
@@ -656,6 +651,19 @@
                     ],
                     "title": "cbs_cmn_apbdis"
                 },
+                "cbs_cmn_cpu_avx512": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting AVX512 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnCpuAvx512 token.\n* `disabled` - Value - disabled for configuring CbsCmnCpuAvx512 token.\n* `enabled` - Value - enabled for configuring CbsCmnCpuAvx512 token.",
+                    "intersight_api": "CbsCmnCpuAvx512",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_cmn_cpu_avx512"
+                },
                 "cbs_cmn_cpu_cpb": {
                     "type": "string",
                     "default": "platform-default",
@@ -724,6 +732,16 @@
                     ],
                     "title": "cbs_cmn_cpu_l2stream_hw_prefetcher"
                 },
+                "cbs_cmn_cpu_sev_asid_space_limit": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting SEV-ES ASID Space Limit configuration (1 - 1007 ASIDs).",
+                    "intersight_api": "CbsCmnCpuSevAsidSpaceLimit",
+                    "minLength": 1,
+                    "maxLength": 16,
+                    "pattern": "^([1-9]|[1-9]\\d|[1-9]\\d{2}|100[0-7])$|^(platform-default)$",
+                    "title": "cbs_cmn_cpu_sev_asid_space_limit"
+                },
                 "cbs_cmn_cpu_smee": {
                     "type": "string",
                     "default": "platform-default",
@@ -763,6 +781,19 @@
                     ],
                     "title": "cbs_cmn_determinism_slider"
                 },
+                "cbs_cmn_edc_control_throttle": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting EDC Control Throttle configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnEdcControlThrottle token.\n* `disabled` - Value - disabled for configuring CbsCmnEdcControlThrottle token.\n* `enabled` - Value - enabled for configuring CbsCmnEdcControlThrottle token.",
+                    "intersight_api": "CbsCmnEdcControlThrottle",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_cmn_edc_control_throttle"
+                },
                 "cbs_cmn_efficiency_mode_en": {
                     "type": "string",
                     "default": "platform-default",
@@ -774,6 +805,20 @@
                         "Enabled"
                     ],
                     "title": "cbs_cmn_efficiency_mode_en"
+                },
+                "cbs_cmn_efficiency_mode_en_rs": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Power Profile Selection F19h configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Balanced Memory Performance Mode` - Value - Balanced Memory Performance Mode for configuring CbsCmnEfficiencyModeEnRs token.\n* `Efficiency Mode` - Value - Efficiency Mode for configuring CbsCmnEfficiencyModeEnRs token.\n* `High Performance Mode` - Value - High Performance Mode for configuring CbsCmnEfficiencyModeEnRs token.\n* `Maximum IO Performance Mode` - Value - Maximum IO Performance Mode for configuring CbsCmnEfficiencyModeEnRs token.",
+                    "intersight_api": "CbsCmnEfficiencyModeEnRs",
+                    "enum": [
+                        "platform-default",
+                        "Balanced Memory Performance Mode",
+                        "Efficiency Mode",
+                        "High Performance Mode",
+                        "Maximum IO Performance Mode"
+                    ],
+                    "title": "cbs_cmn_efficiency_mode_en_rs"
                 },
                 "cbs_cmn_fixed_soc_pstate": {
                     "type": "string",
@@ -816,6 +861,32 @@
                     ],
                     "title": "cbs_cmn_gnb_smu_df_cstates"
                 },
+                "cbs_cmn_gnb_smu_dffo_rs": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting DF PState Frequency Optimizer configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnGnbSmuDffoRs token.\n* `disabled` - Value - disabled for configuring CbsCmnGnbSmuDffoRs token.\n* `enabled` - Value - enabled for configuring CbsCmnGnbSmuDffoRs token.",
+                    "intersight_api": "CbsCmnGnbSmuDffoRs",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_cmn_gnb_smu_dffo_rs"
+                },
+                "cbs_cmn_gnb_smu_dlwm_support": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting DLWM Support configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnGnbSmuDlwmSupport token.\n* `disabled` - Value - disabled for configuring CbsCmnGnbSmuDlwmSupport token.\n* `enabled` - Value - enabled for configuring CbsCmnGnbSmuDlwmSupport token.",
+                    "intersight_api": "CbsCmnGnbSmuDlwmSupport",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_cmn_gnb_smu_dlwm_support"
+                },
                 "cbs_cmn_gnb_smucppc": {
                     "type": "string",
                     "default": "platform-default",
@@ -842,6 +913,31 @@
                     ],
                     "title": "cbs_cmn_mem_ctrl_bank_group_swap_ddr4"
                 },
+                "cbs_cmn_mem_ctrller_pwr_dn_en_ddr": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Power Down Enable configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnMemCtrllerPwrDnEnDdr token.\n* `disabled` - Value - disabled for configuring CbsCmnMemCtrllerPwrDnEnDdr token.\n* `enabled` - Value - enabled for configuring CbsCmnMemCtrllerPwrDnEnDdr token.",
+                    "intersight_api": "CbsCmnMemCtrllerPwrDnEnDdr",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_cmn_mem_ctrller_pwr_dn_en_ddr"
+                },
+                "cbs_cmn_mem_dram_refresh_rate": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting DRAM Refresh Rate configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `3.9 usec` - Value - 3.9 usec for configuring CbsCmnMemDramRefreshRate token.\n* `7.8 usec` - Value - 7.8 usec for configuring CbsCmnMemDramRefreshRate token.",
+                    "intersight_api": "CbsCmnMemDramRefreshRate",
+                    "enum": [
+                        "platform-default",
+                        "3.9 usec",
+                        "7.8 usec"
+                    ],
+                    "title": "cbs_cmn_mem_dram_refresh_rate"
+                },
                 "cbs_cmn_mem_map_bank_interleave_ddr4": {
                     "type": "string",
                     "default": "platform-default",
@@ -854,6 +950,74 @@
                     ],
                     "title": "cbs_cmn_mem_map_bank_interleave_ddr4"
                 },
+                "cbs_cmn_mem_speed_ddr47xx2": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Memory Clock Speed 7xx2 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `667MHz` - Value - 667MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `800MHz` - Value - 800MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `933MHz` - Value - 933MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `1067MHz` - Value - 1067MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `1200MHz` - Value - 1200MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `1333MHz` - Value - 1333MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `1467MHz` - Value - 1467MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `1600MHz` - Value - 1600MHz for configuring CbsCmnMemSpeedDdr47xx2 token.\n* `Auto` - Value - Auto for configuring CbsCmnMemSpeedDdr47xx2 token.",
+                    "intersight_api": "CbsCmnMemSpeedDdr47xx2",
+                    "enum": [
+                        "platform-default",
+                        "667MHz",
+                        "800MHz",
+                        "933MHz",
+                        "1067MHz",
+                        "1200MHz",
+                        "1333MHz",
+                        "1467MHz",
+                        "1600MHz",
+                        "Auto"
+                    ],
+                    "title": "cbs_cmn_mem_speed_ddr47xx2"
+                },
+                "cbs_cmn_mem_speed_ddr47xx3": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Memory Clock Speed 7xx3 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `400MHz` - Value - 400MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `800MHz` - Value - 800MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `933MHz` - Value - 933MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1067MHz` - Value - 1067MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1200MHz` - Value - 1200MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1333MHz` - Value - 1333MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1467MHz` - Value - 1467MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1600MHz` - Value - 1600MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1633MHz` - Value - 1633MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1667MHz` - Value - 1667MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1700MHz` - Value - 1700MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1733MHz` - Value - 1733MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1767MHz` - Value - 1767MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `1800MHz` - Value - 1800MHz for configuring CbsCmnMemSpeedDdr47xx3 token.\n* `Auto` - Value - Auto for configuring CbsCmnMemSpeedDdr47xx3 token.",
+                    "intersight_api": "CbsCmnMemSpeedDdr47xx3",
+                    "enum": [
+                        "platform-default",
+                        "400MHz",
+                        "800MHz",
+                        "933MHz",
+                        "1067MHz",
+                        "1200MHz",
+                        "1333MHz",
+                        "1467MHz",
+                        "1600MHz",
+                        "1633MHz",
+                        "1667MHz",
+                        "1700MHz",
+                        "1733MHz",
+                        "1767MHz",
+                        "1800MHz",
+                        "Auto"
+                    ],
+                    "title": "cbs_cmn_mem_speed_ddr47xx3"
+                },
+                "cbs_cmn_preferred_io7xx2": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Preferred IO 7xx2 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnPreferredIo7xx2 token.\n* `Manual` - Value - Manual for configuring CbsCmnPreferredIo7xx2 token.",
+                    "intersight_api": "CbsCmnPreferredIo7xx2",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "Manual"
+                    ],
+                    "title": "cbs_cmn_preferred_io7xx2"
+                },
+                "cbs_cmn_preferred_io7xx3": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Preferred IO 7xx3 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCmnPreferredIo7xx3 token.\n* `Bus` - Value - Bus for configuring CbsCmnPreferredIo7xx3 token.",
+                    "intersight_api": "CbsCmnPreferredIo7xx3",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "Bus"
+                    ],
+                    "title": "cbs_cmn_preferred_io7xx3"
+                },
                 "cbs_cmnc_tdp_ctl": {
                     "type": "string",
                     "default": "platform-default",
@@ -865,6 +1029,20 @@
                         "Manual"
                     ],
                     "title": "cbs_cmnc_tdp_ctl"
+                },
+                "cbs_cmnx_gmi_force_link_width_rs": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting xGMI Force Link Width configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `0` - Value - 0 for configuring CbsCmnxGmiForceLinkWidthRs token.\n* `1` - Value - 1 for configuring CbsCmnxGmiForceLinkWidthRs token.\n* `2` - Value - 2 for configuring CbsCmnxGmiForceLinkWidthRs token.\n* `Auto` - Value - Auto for configuring CbsCmnxGmiForceLinkWidthRs token.",
+                    "intersight_api": "CbsCmnxGmiForceLinkWidthRs",
+                    "enum": [
+                        "platform-default",
+                        "0",
+                        "1",
+                        "2",
+                        "Auto"
+                    ],
+                    "title": "cbs_cmnx_gmi_force_link_width_rs"
                 },
                 "cbs_cpu_ccd_ctrl_ssp": {
                     "type": "string",
@@ -899,6 +1077,42 @@
                     ],
                     "title": "cbs_cpu_core_ctrl"
                 },
+                "cbs_cpu_down_core_ctrl_bergamo": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Downcore Control configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCpuDownCoreCtrlBergamo token.\n* `EIGHT (4 + 4)` - Value - EIGHT (4 + 4) for configuring CbsCpuDownCoreCtrlBergamo token.\n* `FOUR (2 + 2)` - Value - FOUR (2 + 2) for configuring CbsCpuDownCoreCtrlBergamo token.\n* `FOURTEEN (7 + 7)` - Value - FOURTEEN (7 + 7) for configuring CbsCpuDownCoreCtrlBergamo token.\n* `SIX (3 + 3)` - Value - SIX (3 + 3) for configuring CbsCpuDownCoreCtrlBergamo token.\n* `TEN (5 + 5)` - Value - TEN (5 + 5) for configuring CbsCpuDownCoreCtrlBergamo token.\n* `TWELVE (6 + 6)` - Value - TWELVE (6 + 6) for configuring CbsCpuDownCoreCtrlBergamo token.\n* `TWO (1 + 1)` - Value - TWO (1 + 1) for configuring CbsCpuDownCoreCtrlBergamo token.",
+                    "intersight_api": "CbsCpuDownCoreCtrlBergamo",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "EIGHT (4 + 4)",
+                        "FOUR (2 + 2)",
+                        "FOURTEEN (7 + 7)",
+                        "SIX (3 + 3)",
+                        "TEN (5 + 5)",
+                        "TWELVE (6 + 6)",
+                        "TWO (1 + 1)"
+                    ],
+                    "title": "cbs_cpu_down_core_ctrl_bergamo"
+                },
+                "cbs_cpu_down_core_ctrl_genoa": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting CPU Downcore control F19 M10h-1Fh configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsCpuDownCoreCtrlGenoa token.\n* `FIVE (5 + 0)` - Value - FIVE (5 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.\n* `FOUR (4 + 0)` - Value - FOUR (4 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.\n* `ONE (1 + 0)` - Value - ONE (1 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.\n* `SEVEN (7 + 0)` - Value - SEVEN (7 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.\n* `SIX (6 + 0)` - Value - SIX (6 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.\n* `THREE (3 + 0)` - Value - THREE (3 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.\n* `TWO (2 + 0)` - Value - TWO (2 + 0) for configuring CbsCpuDownCoreCtrlGenoa token.",
+                    "intersight_api": "CbsCpuDownCoreCtrlGenoa",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "FIVE (5 + 0)",
+                        "FOUR (4 + 0)",
+                        "ONE (1 + 0)",
+                        "SEVEN (7 + 0)",
+                        "SIX (6 + 0)",
+                        "THREE (3 + 0)",
+                        "TWO (2 + 0)"
+                    ],
+                    "title": "cbs_cpu_down_core_ctrl_genoa"
+                },
                 "cbs_cpu_smt_ctrl": {
                     "type": "string",
                     "default": "platform-default",
@@ -911,6 +1125,60 @@
                         "enabled"
                     ],
                     "title": "cbs_cpu_smt_ctrl"
+                },
+                "cbs_dbg_cpu_gen_cpu_wdt": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Core Watchdog Timer Enable configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsDbgCpuGenCpuWdt token.\n* `disabled` - Value - disabled for configuring CbsDbgCpuGenCpuWdt token.\n* `enabled` - Value - enabled for configuring CbsDbgCpuGenCpuWdt token.",
+                    "intersight_api": "CbsDbgCpuGenCpuWdt",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_dbg_cpu_gen_cpu_wdt"
+                },
+                "cbs_dbg_cpu_lapic_mode": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Local APIC Mode configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsDbgCpuLapicMode token.\n* `Compatibility` - Value - Compatibility for configuring CbsDbgCpuLapicMode token.\n* `X2APIC` - Value - X2APIC for configuring CbsDbgCpuLapicMode token.\n* `XAPIC` - Value - XAPIC for configuring CbsDbgCpuLapicMode token.",
+                    "intersight_api": "CbsDbgCpuLapicMode",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "Compatibility",
+                        "X2APIC",
+                        "XAPIC"
+                    ],
+                    "title": "cbs_dbg_cpu_lapic_mode"
+                },
+                "cbs_dbg_cpu_lapic_mode7xx2": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Local APIC Mode 7xx2 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsDbgCpuLapicMode7xx2 token.\n* `X2APIC` - Value - X2APIC for configuring CbsDbgCpuLapicMode7xx2 token.\n* `XAPIC` - Value - XAPIC for configuring CbsDbgCpuLapicMode7xx2 token.",
+                    "intersight_api": "CbsDbgCpuLapicMode7xx2",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "X2APIC",
+                        "XAPIC"
+                    ],
+                    "title": "cbs_dbg_cpu_lapic_mode7xx2"
+                },
+                "cbs_dbg_cpu_lapic_mode7xx3": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Local APIC Mode 7xx3 configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsDbgCpuLapicMode7xx3 token.\n* `Compatibility` - Value - Compatibility for configuring CbsDbgCpuLapicMode7xx3 token.\n* `X2APIC` - Value - X2APIC for configuring CbsDbgCpuLapicMode7xx3 token.\n* `XAPIC` - Value - XAPIC for configuring CbsDbgCpuLapicMode7xx3 token.",
+                    "intersight_api": "CbsDbgCpuLapicMode7xx3",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "Compatibility",
+                        "X2APIC",
+                        "XAPIC"
+                    ],
+                    "title": "cbs_dbg_cpu_lapic_mode7xx3"
                 },
                 "cbs_dbg_cpu_snp_mem_cover": {
                     "type": "string",
@@ -935,6 +1203,20 @@
                     "maxLength": 16,
                     "pattern": "^(\\d|[1-9]\\d|[1-9]\\d{2}|[1-9]\\d{3}|[1-9]\\d{4}|[1-9]\\d{5}|10[0-3]\\d{4}|104[0-7]\\d{3}|1048[0-4]\\d{2}|10485[0-6]\\d|104857[0-6])$|^(platform-default)$",
                     "title": "cbs_dbg_cpu_snp_mem_size_cover"
+                },
+                "cbs_df_cmn4link_max_xgmi_speed": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting 4-link xGMI max speed configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `20Gbps` - Value - 20Gbps for configuring CbsDfCmn4linkMaxXgmiSpeed token.\n* `25Gbps` - Value - 25Gbps for configuring CbsDfCmn4linkMaxXgmiSpeed token.\n* `32Gbps` - Value - 32Gbps for configuring CbsDfCmn4linkMaxXgmiSpeed token.\n* `Auto` - Value - Auto for configuring CbsDfCmn4linkMaxXgmiSpeed token.",
+                    "intersight_api": "CbsDfCmn4linkMaxXgmiSpeed",
+                    "enum": [
+                        "platform-default",
+                        "20Gbps",
+                        "25Gbps",
+                        "32Gbps",
+                        "Auto"
+                    ],
+                    "title": "cbs_df_cmn4link_max_xgmi_speed"
                 },
                 "cbs_df_cmn_acpi_srat_l3numa": {
                     "type": "string",
@@ -964,6 +1246,26 @@
                     ],
                     "title": "cbs_df_cmn_dram_nps"
                 },
+                "cbs_df_cmn_dram_scrub_time": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting DRAM Scrub Time configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `1 hour` - Value - 1 hour for configuring CbsDfCmnDramScrubTime token.\n* `4 hours` - Value - 4 hours for configuring CbsDfCmnDramScrubTime token.\n* `6 hours` - Value - 6 hours for configuring CbsDfCmnDramScrubTime token.\n* `8 hours` - Value - 8 hours for configuring CbsDfCmnDramScrubTime token.\n* `12 hours` - Value - 12 hours for configuring CbsDfCmnDramScrubTime token.\n* `16 hours` - Value - 16 hours for configuring CbsDfCmnDramScrubTime token.\n* `24 hours` - Value - 24 hours for configuring CbsDfCmnDramScrubTime token.\n* `48 hours` - Value - 48 hours for configuring CbsDfCmnDramScrubTime token.\n* `Auto` - Value - Auto for configuring CbsDfCmnDramScrubTime token.\n* `Disabled` - Value - Disabled for configuring CbsDfCmnDramScrubTime token.",
+                    "intersight_api": "CbsDfCmnDramScrubTime",
+                    "enum": [
+                        "platform-default",
+                        "1 hour",
+                        "4 hours",
+                        "6 hours",
+                        "8 hours",
+                        "12 hours",
+                        "16 hours",
+                        "24 hours",
+                        "48 hours",
+                        "Auto",
+                        "Disabled"
+                    ],
+                    "title": "cbs_df_cmn_dram_scrub_time"
+                },
                 "cbs_df_cmn_mem_intlv": {
                     "type": "string",
                     "default": "platform-default",
@@ -978,6 +1280,19 @@
                         "Socket"
                     ],
                     "title": "cbs_df_cmn_mem_intlv"
+                },
+                "cbs_df_cmn_mem_intlv_control": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Memory Interleaving configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsDfCmnMemIntlvControl token.\n* `disabled` - Value - disabled for configuring CbsDfCmnMemIntlvControl token.\n* `enabled` - Value - enabled for configuring CbsDfCmnMemIntlvControl token.",
+                    "intersight_api": "CbsDfCmnMemIntlvControl",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_df_cmn_mem_intlv_control"
                 },
                 "cbs_df_cmn_mem_intlv_size": {
                     "type": "string",
@@ -994,6 +1309,33 @@
                         "Auto"
                     ],
                     "title": "cbs_df_cmn_mem_intlv_size"
+                },
+                "cbs_df_dbg_xgmi_link_cfg": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting xGMI Link Configuration configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `2 xGMI Links` - Value - 2 xGMI Links for configuring CbsDfDbgXgmiLinkCfg token.\n* `3 xGMI Links` - Value - 3 xGMI Links for configuring CbsDfDbgXgmiLinkCfg token.\n* `4 xGMI Links` - Value - 4 xGMI Links for configuring CbsDfDbgXgmiLinkCfg token.\n* `Auto` - Value - Auto for configuring CbsDfDbgXgmiLinkCfg token.",
+                    "intersight_api": "CbsDfDbgXgmiLinkCfg",
+                    "enum": [
+                        "platform-default",
+                        "2 xGMI Links",
+                        "3 xGMI Links",
+                        "4 xGMI Links",
+                        "Auto"
+                    ],
+                    "title": "cbs_df_dbg_xgmi_link_cfg"
+                },
+                "cbs_gnb_dbg_pcie_tbt_support": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting PCIe Ten Bit Tag Support configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring CbsGnbDbgPcieTbtSupport token.\n* `disabled` - Value - disabled for configuring CbsGnbDbgPcieTbtSupport token.\n* `enabled` - Value - enabled for configuring CbsGnbDbgPcieTbtSupport token.",
+                    "intersight_api": "CbsGnbDbgPcieTbtSupport",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "cbs_gnb_dbg_pcie_tbt_support"
                 },
                 "cbs_sev_snp_support": {
                     "type": "string",
@@ -1389,6 +1731,19 @@
                         "disabled"
                     ],
                     "title": "demand_scrub"
+                },
+                "dfx_osb_en": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting DFX OSB configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `Auto` - Value - Auto for configuring DfxOsbEn token.\n* `disabled` - Value - disabled for configuring DfxOsbEn token.\n* `enabled` - Value - enabled for configuring DfxOsbEn token.",
+                    "intersight_api": "DfxOsbEn",
+                    "enum": [
+                        "platform-default",
+                        "Auto",
+                        "disabled",
+                        "enabled"
+                    ],
+                    "title": "dfx_osb_en"
                 },
                 "direct_cache_access": {
                     "type": "string",
@@ -1873,6 +2228,18 @@
                     ],
                     "title": "intel_vtdats_support"
                 },
+                "ioat_config_cpm": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting IOAT Configuration configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `enabled` - Enables the BIOS setting.\n* `disabled` - Disables the BIOS setting.",
+                    "intersight_api": "IoatConfigCpm",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "ioat_config_cpm"
+                },
                 "ioh_error_enable": {
                     "type": "string",
                     "default": "platform-default",
@@ -2216,6 +2583,41 @@
                         "Auto"
                     ],
                     "title": "mmcfg_base"
+                },
+                "mmioh_base": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting MMIO High Base configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `512G` - Value - 512G for configuring MmiohBase token.\n* `1T` - Value - 1T for configuring MmiohBase token.\n* `2T` - Value - 2T for configuring MmiohBase token.\n* `4T` - Value - 4T for configuring MmiohBase token.\n* `16T` - Value - 16T for configuring MmiohBase token.\n* `24T` - Value - 24T for configuring MmiohBase token.\n* `32T` - Value - 32T for configuring MmiohBase token.\n* `40T` - Value - 40T for configuring MmiohBase token.\n* `56T` - Value - 56T for configuring MmiohBase token.",
+                    "intersight_api": "MmiohBase",
+                    "enum": [
+                        "platform-default",
+                        "512G",
+                        "1T",
+                        "2T",
+                        "4T",
+                        "16T",
+                        "24T",
+                        "32T",
+                        "40T",
+                        "56T"
+                    ],
+                    "title": "mmioh_base"
+                },
+                "mmioh_size": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting MMIO High Granularity Size configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `1G` - Value - 1G for configuring MmiohSize token.\n* `4G` - Value - 4G for configuring MmiohSize token.\n* `16G` - Value - 16G for configuring MmiohSize token.\n* `64G` - Value - 64G for configuring MmiohSize token.\n* `256G` - Value - 256G for configuring MmiohSize token.\n* `1024G` - Value - 1024G for configuring MmiohSize token.",
+                    "intersight_api": "MmiohSize",
+                    "enum": [
+                        "platform-default",
+                        "1G",
+                        "4G",
+                        "16G",
+                        "64G",
+                        "256G",
+                        "1024G"
+                    ],
+                    "title": "mmioh_size"
                 },
                 "network_stack": {
                     "type": "string",
@@ -3099,6 +3501,30 @@
                     ],
                     "title": "redirection_after_post"
                 },
+                "resize_bar_support": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Re-Size BAR Support configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `enabled` - Enables the BIOS setting.\n* `disabled` - Disables the BIOS setting.",
+                    "intersight_api": "ResizeBarSupport",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "resize_bar_support"
+                },
+                "runtime_post_package_repair": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Runtime Post Package Repair configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `enabled` - Enables the BIOS setting.\n* `disabled` - Disables the BIOS setting.",
+                    "intersight_api": "RuntimePostPackageRepair",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "runtime_post_package_repair"
+                },
                 "sata_mode_select": {
                     "type": "string",
                     "default": "platform-default",
@@ -3141,6 +3567,18 @@
                         "Soft PPR"
                     ],
                     "title": "select_ppr_type"
+                },
+                "serial_mux": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Serial Mux configuration.\n* `platform-default` - Default value used by the platform for the BIOS setting.\n* `enabled` - Enables the BIOS setting.\n* `disabled` - Disables the BIOS setting.",
+                    "intersight_api": "SerialMux",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "serial_mux"
                 },
                 "serial_port_aenable": {
                     "type": "string",
@@ -5807,9 +6245,9 @@
                     "default": "",
                     "description": "Carries more information about the bootloader.  Optional for Uefi.\n\nRequired Attributes:\n  * name\n  * path\n\nOptional Attributes:\n  * description",
                     "intersight_api": "Description",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 128,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]+$",
+                    "pattern": "^$|^[a-zA-Z0-9_\\. :-]{1,128}$",
                     "title": "description"
                 },
                 "name": {
@@ -8280,6 +8718,9 @@
                 "description": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/description"
                 },
+                "name": {
+                    "$ref": "#/definitions/policy.AbstractProfile/properties/name"
+                },
                 "network_connectivity_policy": {
                     "type": "string",
                     "default": "default",
@@ -8314,14 +8755,6 @@
                         "title": "port_policy"
                     },
                     "title": "port_policies - A List of one or two Port Policies."
-                },
-                "serial_numbers": {
-                    "type": "array",
-                    "description": "A List of two Serial Numbers for Each Fabric Interconnect.",
-                    "items": {
-                        "$ref": "#/definitions/policy.AbstractProfile/properties/serial_number"
-                    },
-                    "title": "Serial Numbers"
                 },
                 "snmp_policy": {
                     "type": "string",
@@ -9945,8 +10378,8 @@
             },
             "required": [
                 "gateway",
-                "primary_dns",
-                "secondary_dns"
+                "netmask",
+                "primary_dns"
             ],
             "title": "ipv4_configuration - IPv4 Configuration Settings"
         },
@@ -10072,8 +10505,8 @@
             },
             "required": [
                 "gateway",
-                "primary_dns",
-                "secondary_dns"
+                "prefix",
+                "primary_dns"
             ],
             "title": "ipv6_configuration - IPv6 Configuration Settings"
         },

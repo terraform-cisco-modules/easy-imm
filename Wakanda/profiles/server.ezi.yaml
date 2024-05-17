@@ -13,14 +13,5 @@ Wakanda:
           - description: r143e-2-1-3 UCS Server Profile
             name: r143e-2-1-3
             serial_number: FCH26167LA9
-          #- description: r143e-2-1-4 UCS Server Profile
-          #  name: r143e-2-1-4
-          #  serial_number: FCH26167MFX
-          #- description: r143e-2-1-7 UCS Server Profile
-          #  name: r143e-2-1-7
-          #  serial_number: FCH26167MSB
-          #- description: r143e-2-1-8 UCS Server Profile
-          #  name: r143e-2-1-8
-          #  serial_number: FCH26167LRT
-        ucs_server_template: common/aci-M6-intel-virtual-tpm-M2-pxe
+        ucs_server_profile_template: common/aci-M6-intel-virtual-tpm-M2-pxe
         uuid_pool: common/uuid

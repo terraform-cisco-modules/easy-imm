@@ -6,6 +6,7 @@ Wakanda:
   profiles:
     chassis:
       - action: No-op
+        attach_template: false
         imc_access_policy: common/aci-kvm
         power_policy: common/9508
         snmp_policy: common/snmp

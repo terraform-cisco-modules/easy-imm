@@ -2,21 +2,17 @@
 #======================================
 #   Profiles -> Domain - Variables
 #======================================
-Wakanda:
-  profiles:
+common:
+  templates:
     domain:
-      - action: No-op
-        attach_template: false
-        description: r143e-2 UCS Domain Profile
-        name: r143e-2
+      - create_template: true
+        description: UCS Domain Profile Template
+        name: Wakanda
         network_connectivity_policy: common/dns
         ntp_policy: common/ntp
         port_policies:
           - common/r143e-2-a
           - common/r143e-2-b
-        serial_numbers:
-          - FDO23360XWU
-          - FDO23360Y8U
         snmp_policy: common/snmp
         switch_control_policy: common/sw-ctrl
         system_qos_policy: common/qos
