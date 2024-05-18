@@ -40,9 +40,9 @@ common:
           - device_name: M2
             device_type: local_disk
             slot: MSTOR-RAID
-          - interface_name: mgmt-a
-            device_name: PXE
+          - device_name: PXE
             device_type: pxe_boot
+            interface_name: mgmt-a
             slot: MLOM
         boot_mode: Uefi
         enable_secure_boot: true
@@ -99,9 +99,9 @@ default:
           - device_name: 03_Raid1
             device_type: local_disk
             slot: MRAID
-          - interface_name: MGMT-A
-            device_name: 04_PXE
+          - device_name: 04_PXE
             device_type: pxe_boot
+            interface_name: MGMT-A
             slot: MLOM
           - device_name: 05_iSCSI
             device_type: iscsi_boot

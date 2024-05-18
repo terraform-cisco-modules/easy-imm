@@ -16,8 +16,6 @@ Asgard:
         serial_numbers:
           - unknown
           - unknown
-        #  - FDO245219W2
-        #  - FDO23350SKV
         snmp_policy: common/snmp
         switch_control_policy: common/sw-ctrl
         system_qos_policy: common/qos

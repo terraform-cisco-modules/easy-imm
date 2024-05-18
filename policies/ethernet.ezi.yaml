@@ -6,7 +6,7 @@ common:
   policies:
     ethernet_adapter:
       - adapter_template: VMware
-        #description: VMware Ethernet Adapter
+        description: VMware Ethernet Adapter
         name: VMware
     ethernet_network_control:
       - cdp_enable: true

@@ -13,5 +13,4 @@ Asgard:
           - description: r143e-1-1 UCS Chassis Profile
             name: r143e-1-1
             serial_number: unknown
-            #serial_number: FOX2611P8N1
         thermal_policy: common/9508

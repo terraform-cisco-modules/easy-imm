@@ -1,0 +1,24 @@
+---
+common:
+  policies:
+    vhba_template:
+      - allow_override: true
+        description: vHBA Template
+        fibre_channel_adapter_policy: Initiator
+        fibre_channel_network_policy: vsan-a
+        fibre_channel_qos_policy: fc-qos
+        name: vHBA
+        persistent_lun_bindings: false
+        placement_switch_id: A
+        vhba_type: fc-initiator
+        wwpn_pool: wwpn-a
+    vnic_template:
+      - allow_override: true
+        description: aci-mgmt template
+        ethernet_adapter_policy: VMware
+        ethernet_network_control_policy: both
+        ethernet_network_group_policy: aci-mgmt
+        ethernet_qos_policy: silver
+        mac_address_pool: mgmt-a
+        name: aci-mgmt
+        placement_switch_id: A

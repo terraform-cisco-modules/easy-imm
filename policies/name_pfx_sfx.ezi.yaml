@@ -1,7 +1,7 @@
 ---
-#==================================================
-#   Policies -> Name Prefix/Suffix - Variables
-#==================================================
+#============================================
+#   Policies -> Name Pfx Sfx - Variables
+#============================================
 # If a prefix/suffix policy is undefined default will be used
 common:
   policies:

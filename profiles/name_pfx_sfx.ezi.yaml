@@ -1,7 +1,7 @@
 ---
-#==================================================
-#   Profiles -> Name Prefix/Suffix - Variables
-#==================================================
+#============================================
+#   Profiles -> Name Pfx Sfx - Variables
+#============================================
 # If a prefix/suffix policy is undefined default will be used
 Asgard:
   profiles:

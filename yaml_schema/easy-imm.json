@@ -6871,7 +6871,7 @@
                 },
                 "power_policy": {
                     "type": "string",
-                    "default": "",
+                    "default": "default",
                     "description": "The Name of the Power Policy to Assign to the Profile(s).  This is only Applicable to FIAttached Servers.",
                     "intersight_api": "$ref:power.Policy.Relationship:power.Policy",
                     "minLength": 1,

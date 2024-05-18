@@ -1,0 +1,14 @@
+---
+#========================================
+#   Templates -> Chassis - Variables
+#========================================
+common:
+  templates:
+    chassis:
+      - create_template: true
+        description: 9508 Chassis Profile Template
+        imc_access_policy: aci-kvm
+        name: '9508'
+        power_policy: '9508'
+        snmp_policy: snmp
+        thermal_policy: '9508'
