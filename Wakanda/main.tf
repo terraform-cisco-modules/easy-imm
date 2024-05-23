@@ -20,7 +20,7 @@ data "utils_yaml_merge" "model" {
 module "pools" {
   # source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-pools"
   source          = "terraform-cisco-modules/pools/intersight"
-  version         = "4.2.11-14238"
+  version         = "4.2.11-16342"
   for_each        = { for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(local.model[e], "pools", {})]) > 0 }
   global_settings = local.global_settings
   model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
@@ -35,7 +35,7 @@ module "pools" {
 module "policies" {
   # source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-policies"
   source             = "terraform-cisco-modules/policies/intersight"
-  version            = "4.2.11-14237"
+  version            = "4.2.11-16342"
   for_each           = { for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(local.model[e], "policies", {})]) > 0 }
   global_settings    = local.global_settings
   model              = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
@@ -52,7 +52,7 @@ module "policies" {
 module "profiles" {
   # source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-profiles"
   source  = "terraform-cisco-modules/profiles/intersight"
-  version = "4.2.11-14237"
+  version = "4.2.11-16342"
   for_each = {
     for i in ["map"] : i => i if length([for e in sort(keys(local.model)) : lookup(lookup(local.model[e], "profiles", {}), "chassis", {})]
       ) > 0 || length([for e in sort(keys(local.model)) : lookup(lookup(lookup(local.model[e], "profiles", {}), "templates", {}), "server", {})]

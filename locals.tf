@@ -7,7 +7,7 @@ locals {
       },
       {
         key   = "Version"
-        value = "4.2.11-14237"
+        value = "4.2.11-16342"
       }
     ])
   }
