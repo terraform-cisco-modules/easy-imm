@@ -8177,6 +8177,78 @@
             ],
             "title": "Interfaces - Port-Channel Member Interfaces"
         },
+        "fabric.PinGroup": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "PinGroup configuration sent by user for static pinning.",
+            "easyimm": "pin_groups",
+            "intersight_uri": "fabric/SanPinGroups",
+            "ObjectType": "fabric.SanPinGroup",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Default is `true`.  Enable/Disable the pin group.",
+                    "intersight_api": "Enabled",
+                    "title": "enabled"
+                },
+                "identifier": {
+                    "type": "string",
+                    "default": "1/1",
+                    "description": "Default is `1/1`.  Port-Channel Identifier or Port Identifier.  I.e. `1` for port_channel 1 or  1/1 for a port.",
+                    "intersight_api": "identifier",
+                    "minLength": 1,
+                    "maxLength": 7,
+                    "pattern": "^(\\d{1,3})|[1-2]/\\d{1,3}(/\\d{1,3})?$",
+                    "title": "identifier"
+                },
+                "interface_type": {
+                    "type": "string",
+                    "default": "port",
+                    "description": "Default is `port`.  Type of inteface to configure.\n  * `port` - Interface type is port.\n  * `port_channel` - Interface type is Port-Channel.",
+                    "intersight_api": "PinTargetInterfaceRole",
+                    "enum": [
+                        "port",
+                        "port_channel"
+                    ],
+                    "title": "interface_type"
+                },
+                "pin_group_names": {
+                    "type": "array",
+                    "description": "List of two Pin Group Names to Create.",
+                    "intersight_api": "Name",
+                    "items": {
+                        "type": "string",
+                        "default": "pg1",
+                        "description": "Default is `pg1`.  Name of the Pingroup for static pinning.",
+                        "intersight_api": "Name",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "pin_group_name"
+                    },
+                    "object_type": "",
+                    "title": "pin_group_names - Pin Group Names"
+                },
+                "pin_group_type": {
+                    "type": "string",
+                    "default": "san",
+                    "description": "Default is `san`.  Pin group configuration for LAN or SAN.\n  * `lan` - LAN pin group type.\n  * `san` - SAN pin group type.",
+                    "intersight_api": "PinTargetInterfaceRole",
+                    "enum": [
+                        "lan",
+                        "san"
+                    ],
+                    "title": "pin_group_type"
+                }
+            },
+            "required": [
+                "identifier",
+                "interface_type",
+                "pin_group_names"
+            ],
+            "title": "pin_groups - Fabric Pin Groups - Intersight Uri: fabric/LanPinGroups or fabric/SanPinGroups"
+        },
         "fabric.PortMode": {
             "type": "object",
             "additionalProperties": false,
@@ -8273,6 +8345,15 @@
                     "objectType": "Name",
                     "title": "names - Names"
                 },
+                "pin_groups": {
+                    "type": "array",
+                    "description": "Use this Map to Configure LAN/SAN Pin Groups.\n\nRequired Attributes:\n  * identifier\n  * interface_type\n  * pin_group_name\n\nOptional Attributes:\n  * enabled\n  * pin_group_type",
+                    "items": {
+                        "$ref": "#/definitions/fabric.PinGroup"
+                    },
+                    "objectType": "fabric.SanPinGroup",
+                    "title": "pin_groups - LAN/SAN Pin Groups - Intersight Uri: fabric/SanPinGroups"
+                },
                 "port_channel_appliances": {
                     "type": "array",
                     "description": "Use this Map to Configure Ports for Appliance Port-Channels.\n\nRequired Attributes:\n  * ethernet_network_control_policy\n  * ethernet_network_group_policy\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * link_aggregation_policy\n  * mode\n  * priority",
@@ -8338,7 +8419,7 @@
                 },
                 "port_role_fc_storage": {
                     "type": "array",
-                    "description": "Use this Map to Configure Ports for FC Storage.\n\nRequired Attributes:\n  * port_list\n\nOptional Attributes:\n  * admin_speed\n  * breakout_port_id\n  * slot_id\n  * vsan_ids",
+                    "description": "Use this Map to Configure Ports for FC Storage.\n\nRequired Attributes:\n  * port_list\n  * vsan_ids\n\nOptional Attributes:\n  * admin_speed\n  * breakout_port_id\n  * slot_id",
                     "items": {
                         "$ref": "#/definitions/fabric.FcStorageRole"
                     },
@@ -8347,7 +8428,7 @@
                 },
                 "port_role_fc_uplinks": {
                     "type": "array",
-                    "description": "Use this Map to Configure Ports for FC Uplinks.\n\nRequired Attributes:\n  * port_list\n\nOptional Attributes:\n  * admin_speed\n  * breakout_port_id\n  * slot_id\n  * vsan_id",
+                    "description": "Use this Map to Configure Ports for FC Uplinks.\n\nRequired Attributes:\n  * port_list\n  * vsan_ids\n\nOptional Attributes:\n  * admin_speed\n  * breakout_port_id\n  * slot_id",
                     "items": {
                         "$ref": "#/definitions/fabric.FcUplinkRole"
                     },
@@ -15843,6 +15924,23 @@
                     "objectType": "Name",
                     "title": "names - Names"
                 },
+                "pin_group_names": {
+                    "type": "array",
+                    "description": "The number of Pin Group Names should match the Names variable length (1 or 2).",
+                    "intersight_api": "PinGroupName",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Pingroup name associated to vNIC for static pinning. LCP deploy will resolve pingroup name and fetches the correspoding uplink port/port channel to pin the vNIC traffic.",
+                        "intersight_api": "PinGroupName",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "pin_group_name"
+                    },
+                    "objectType": "fabric.LanPinGroup",
+                    "title": "pin_group_names - Pin Groups - Intersight Object: fabric.LanPinGroup"
+                },
                 "placement": {
                     "$ref": "#/definitions/vnic.PlacementSettings"
                 },
@@ -15932,6 +16030,16 @@
                     "maxLength": 64,
                     "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "vnic_name"
+                },
+                "pin_group_name": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Pingroup name associated to vNIC for static pinning. LCP deploy will resolve pingroup name and fetches the correspoding uplink port/port channel to pin the vNIC traffic.",
+                    "intersight_api": "PinGroupName",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "pin_group_name"
                 },
                 "placement": {
                     "$ref": "#/definitions/vnic.PlacementSettings"
@@ -16450,6 +16558,23 @@
                     "intersight_api": "PersistentBindings",
                     "title": "persistent_lun_bindings"
                 },
+                "pin_group_names": {
+                    "type": "array",
+                    "description": "The number of Pin Group Names should match the Names variable length (1 or 2).",
+                    "intersight_api": "PinGroupName",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Pingroup name associated to vfc for static pinning. SCP deploy will resolve pingroup name and fetches the correspoding uplink port/port channel to pin the vfc traffic.",
+                        "intersight_api": "PinGroupName",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "pin_group_name"
+                    },
+                    "objectType": "fabric.SanPinGroup",
+                    "title": "pin_group_names - Pin Groups - Intersight Object: fabric.SanPinGroup"
+                },
                 "placement": {
                     "$ref": "#/definitions/vnic.PlacementSettings"
                 },
@@ -16562,6 +16687,16 @@
                     "maxLength": 64,
                     "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "vnic_name"
+                },
+                "pin_group_name": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Pingroup name associated to vfc for static pinning. SCP deploy will resolve pingroup name and fetches the correspoding uplink port/port channel to pin the vfc traffic.",
+                    "intersight_api": "PinGroupName",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "pin_group_name"
                 },
                 "placement": {
                     "$ref": "#/definitions/vnic.FromTemplatePlacementSettings"
@@ -17897,6 +18032,16 @@
                     "intersight_api": "PersistentBindings",
                     "title": "persistent_lun_bindings"
                 },
+                "pin_group_name": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Pingroup name associated to vfc for static pinning. SCP deploy will resolve pingroup name and fetches the correspoding uplink port/port channel to pin the vfc traffic.",
+                    "intersight_api": "PinGroupName",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "pin_group_name"
+                },
                 "placement_switch_id": {
                     "type": "string",
                     "default": "A",
@@ -18117,6 +18262,16 @@
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
+                },
+                "pin_group_name": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Pingroup name associated to vNIC for static pinning. LCP deploy will resolve pingroup name and fetches the correspoding uplink port/port channel to pin the vNIC traffic.",
+                    "intersight_api": "PinGroupName",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "pin_group_name"
                 },
                 "placement_switch_id": {
                     "type": "string",

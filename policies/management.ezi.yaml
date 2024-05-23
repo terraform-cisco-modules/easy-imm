@@ -102,7 +102,6 @@ default:
         dns_servers_v6:
           - 2620:119:35::35
           - 2620:119:53::53
-        enable_ipv6: true
         name: dns
     smtp:
       - description: smtp SMTP Policy
