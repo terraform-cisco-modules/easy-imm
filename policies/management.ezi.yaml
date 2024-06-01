@@ -102,7 +102,7 @@ default:
         dns_servers_v6:
           - 2620:119:35::35
           - 2620:119:53::53
-        name: dns
+        name: dns_with_v6
     smtp:
       - description: smtp SMTP Policy
         mail_alert_recipients:

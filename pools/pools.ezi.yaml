@@ -56,6 +56,10 @@ common:
           - from: 00:25:B5:C1:F0:00
             size: 255
         name: storage-b
+      - mac_blocks:
+          - from: 00:25:B5:C1:00:00
+            size: 255
+        name: dual-fabric
     uuid:
       - description: uuid UUID Pool
         name: uuid

@@ -3,11 +3,11 @@ locals {
     tags = lookup(local.model.global_settings, "tags", [
       {
         key   = "Module"
-        value = "terraform-intersight-easy-imm"
+        value = "easy-imm"
       },
       {
         key   = "Version"
-        value = "4.2.11-16342"
+        value = "4.2.11-17057"
       }
     ])
   }

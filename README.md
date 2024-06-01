@@ -7,10 +7,10 @@
 
 Examples are shown in the following directories:
 
-* `policies`
-* `pools`
-* `profiles`
-* `templates`
+  * `policies`
+  * `pools`
+  * `profiles`
+  * `templates`
 
 ### IMPORTANT NOTES
 
@@ -32,15 +32,15 @@ And Add the Following to `YAML: Schemas`.  In Visual Studio Code: Settings > Set
 
 Soon the Schema for these YAML Files have been registered with [*SchemaStore*](https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json) via utilizing this `.ezi.yaml` file extension.  But until that is complete, need to still add to settings.
 
-### Modify `global_settings.eza.yaml` to match environment
+### Modify `global_settings.ezi.yaml` to match environment
 
-`global_settings.eza.yamls` contains variables related to authentication to Intersight and an optional global tags for tagging objects.
+`global_settings.ezi.yamls` contains variables related to authentication to Intersight and an optional global tags for tagging objects.
 
-#### Notes for the `global_settings.eza.yamls`
+#### Notes for the `global_settings.ezi.yamls`
 
-* `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
-* `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
-* `tags`:  Not Required, but by default the version of the script is being flagged here.
+  * `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
+  * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
+  * `tags`:  Not Required, but by default the version of the script is being flagged here.
 
 #### Note: Modules can be added or removed dependent on the use case.  The primary example shown is consuming/showing a full environment deployment.
 
@@ -107,16 +107,16 @@ Note that all the variables in `variables.tf` are marked as sensitive.  Meaning 
 
 Take note of the `locals.tf` that currently has all the sensitive variables mapped:
 
-* `certificate_management`
-* `drive_security`
-* `firmware`
-* `ipmi_over_lan`
-* `iscsi_boot`
-* `ldap`
-* `local_user`
-* `persistent_memory`
-* `snmp`
-* `virtual_media`
+  * `certificate_management`
+  * `drive_security`
+  * `firmware`
+  * `ipmi_over_lan`
+  * `iscsi_boot`
+  * `ldap`
+  * `local_user`
+  * `persistent_memory`
+  * `snmp`
+  * `virtual_media`
 
 The Reason to add these variables as maps of string is to allow the flexibility to add or remove iterations of these sensitive variables as needed.  Sensitive Variables cannot be iterated with a `for_each` loop.  Thus instead of adding these variables to the YAML schema, directly, they are added to these seperate maps to allow lookup of the variable index.
 
@@ -129,7 +129,7 @@ In example, if you needed to add 100 iterations of the `certificate_management` 
 
 #### Add Other Variables as discussed below based on use cases
 
-## IMPORTANT:
+## IMPORTANT: 
 
 ALL EXAMPLES BELOW ASSUME USING `tfenv` in LINUX
 
@@ -159,8 +159,8 @@ The important point is that if you need more than is added by default you can ex
 
 ### Certificate Management
 
-* `cert_mgmt_certificate`: Options are by default 1-5 for Up to 5 Certificates.  Variable Should Point to the File Location of the PEM Certificate or be the value of the PEM certificate.
-* `cert_mgmt_private_key`: Options are by default 1-5 for Up to 5 Private Keys.  Variable Should Point to the File Location of the PEM Private Key or be the value of the PEM Private Key.
+  * `cert_mgmt_certificate`: Options are by default 1-5 for Up to 5 Certificates.  Variable Should Point to the File Location of the PEM Certificate or be the value of the PEM certificate.
+  * `cert_mgmt_private_key`: Options are by default 1-5 for Up to 5 Private Keys.  Variable Should Point to the File Location of the PEM Private Key or be the value of the PEM Private Key.
 
 #### Linux
 
@@ -182,8 +182,8 @@ $env:TF_VAR_cert_mgmt_private_key_1='<cert_mgmt_private_key_file_location>'
 
 ### Drive Security - KMIP Sensitive Variables
 
-* `drive_security_password`: If Authentication is supported/used by the KMIP Server, This is the User Password to Configure.
-* `drive_security_server_ca_certificate`: KMIP Server CA Certificate Contents.
+  * `drive_security_password`: If Authentication is supported/used by the KMIP Server, This is the User Password to Configure.
+  * `drive_security_server_ca_certificate`: KMIP Server CA Certificate Contents.
 
 #### Linux
 
@@ -205,8 +205,8 @@ $env:TF_VAR_drive_security_server_ca_certificate='<drive_security_server_ca_cert
 
 ### Firmware - CCO  Credentials
 
-* `cco_user`: If Configuring Firmware Policies, the CCO User for Firmware Downloads.
-* `cco_password`: If Configuring Firmware Policies, the CCO Password for Firmware Downloads.
+  * `cco_user`: If Configuring Firmware Policies, the CCO User for Firmware Downloads.
+  * `cco_password`: If Configuring Firmware Policies, the CCO Password for Firmware Downloads.
 
 #### Linux
 
@@ -257,22 +257,22 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | >=1.0.37 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.48 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.47 |
+| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.48 |
 | <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.5 |
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.1.9 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.1.9 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.1.9 |
+| <a name="module_pools"></a> [pools](#module\_pools) | /home/tyscott/terraform-cisco-modules/terraform-intersight-pools | n/a |
+| <a name="module_policies"></a> [policies](#module\_policies) | /home/tyscott/terraform-cisco-modules/terraform-intersight-policies | n/a |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-16342 |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**

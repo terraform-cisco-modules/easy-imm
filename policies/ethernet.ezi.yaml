@@ -5,6 +5,9 @@
 common:
   policies:
     ethernet_adapter:
+      - adapter_template: Win-AzureStack
+        description: Win-AzureStack Ethernet Adapter
+        name: Win-AzureStack
       - adapter_template: VMware
         description: VMware Ethernet Adapter
         name: VMware

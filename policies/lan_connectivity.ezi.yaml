@@ -1,11 +1,11 @@
 ---
 #================================================
-#   Policies -> Lan Connectivity - Variables
+#   Policies -> LAN Connectivity - Variables
 #================================================
 common:
   policies:
     lan_connectivity:
-      - description: lcp LAN Connectivity Policy
+      - description: aci-lcp LAN Connectivity Policy
         enable_azure_stack_host_qos: false
         name: aci-lcp
         target_platform: FIAttached
@@ -70,3 +70,19 @@ common:
               pci_order:
                 - 8
                 - 9
+      - description: aci-lcp-vnic0 LAN Connectivity Policy
+        name: aci-lcp-vnic0
+        vnics_from_template:
+          - name: vnic0
+            placement:
+              automatic_pci_link_assignment: true
+              automatic_slot_id_assignment: true
+              pci_order: 0
+            sriov:
+              completion_queue_count_per_vf: 5
+              enabled: true
+              interrupt_count_per_vf: 8
+              number_of_vfs: 64
+              receive_queue_count_per_vf: 4
+              transmit_queue_count_per_vf: 1
+            vnic_template: vnic0
