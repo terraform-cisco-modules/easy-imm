@@ -6775,7 +6775,7 @@
                 },
                 "targets": {
                     "type": "array",
-                    "description": "A List of Chassis' to Assign these policies/settings to.\n\nRequired Attributes:\n  * name\n  * serial_number\n\nOptional Attributes:\n  * description",
+                    "description": "A List of Chassis' to Assign these policies/settings to.\n\nRequired Attributes:\n  * name\n  * serial_number\n\nOptional Attributes:\n  * description\n  * user_label",
                     "items": {
                         "$ref": "#/definitions/chassis.Target"
                     },
@@ -6894,6 +6894,16 @@
                 },
                 "serial_number": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/serial_number"
+                },
+                "user_label": {
+                    "type": "string",
+                    "default": "",
+                    "description": "User label assigned to the chassis profile.",
+                    "intersight_api": "UserLabel",
+                    "minLength": 0,
+                    "maxLength": 64,
+                    "pattern": "^$|^[ !#$%&\\(\\)\\*\\+,\\-\\./:;\\?@\\[\\]_\\{\\|\\}~a-zA-Z0-9]+$",
+                    "title": "user_label"
                 }
             },
             "required": [
@@ -8719,6 +8729,16 @@
                     "maxLength": 129,
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ucs_domain_profile_template"
+                },
+                "user_label": {
+                    "type": "string",
+                    "default": "",
+                    "description": "User label assigned to the domain profile.",
+                    "intersight_api": "UserLabel",
+                    "minLength": 0,
+                    "maxLength": 64,
+                    "pattern": "^$|^[ !#$%&\\(\\)\\*\\+,\\-\\./:;\\?@\\[\\]_\\{\\|\\}~a-zA-Z0-9]+$",
+                    "title": "user_label"
                 },
                 "vlan_policies": {
                     "type": "array",
@@ -12019,7 +12039,7 @@
                     "default": "default",
                     "description": "Description of the policy.",
                     "intersight_api": "Description",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 1024,
                     "pattern": "^$|^[a-zA-Z0-9]+[\\x00-\\xFF]*$",
                     "title": "description"
@@ -12047,7 +12067,7 @@
                     "default": "default",
                     "description": "Description of the profile.",
                     "intersight_api": "Description",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 1024,
                     "pattern": "^$|^[a-zA-Z0-9]+[\\x00-\\xFF]*$",
                     "title": "description"
@@ -12616,7 +12636,7 @@
                     "default": "default",
                     "description": "Description of the Pool.",
                     "intersight_api": "Description",
-                    "minLength": 1,
+                    "minLength": 0,
                     "maxLength": 1024,
                     "pattern": "^$|^[a-zA-Z0-9]+[\\x00-\\xFF]*$",
                     "title": "description"
@@ -13003,7 +13023,7 @@
                 },
                 "domain": {
                     "type": "array",
-                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\n\nImportant:\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\n\nRequired Base Attributes:\n  * action\n  * attach_template\n  * name\n\nOptional Base Attributes:\n  * description\n  * tags\n  * ucs_domain_profile_template - to assign to a template\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required (If not attached to a domain template) - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required (If not attached to a domain template)\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required (If not attached to a domain template)",
+                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\n\nImportant:\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\n\nRequired Base Attributes:\n  * action\n  * attach_template\n  * name\n\nOptional Base Attributes:\n  * description\n  * tags\n  * user_label\n  * ucs_domain_profile_template - to assign to a template\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required (If not attached to a domain template) - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required (If not attached to a domain template)\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required (If not attached to a domain template)",
                     "intersight_uri": "fabric/SwitchClusterProfiles",
                     "items": {
                         "$ref": "#/definitions/fabric.SwitchClusterProfile"
@@ -13504,7 +13524,7 @@
                 },
                 "targets": {
                     "type": "array",
-                    "description": "A List of Servers to Assign these policies/settings to.\n\nRequired Attributes:\n  * name\n  * serial_number or pre_assign\n\nOptional Attributes:\n  * description\n  * static_uuid_address",
+                    "description": "A List of Servers to Assign these policies/settings to.\n\nRequired Attributes:\n  * name\n  * serial_number or pre_assign\n\nOptional Attributes:\n  * description\n  * static_uuid_address\n  * user_label",
                     "items": {
                         "$ref": "#/definitions/server.Target"
                     },
@@ -13675,13 +13695,23 @@
                 },
                 "static_uuid_address": {
                     "type": "string",
-                    "default": "default",
+                    "default": "",
                     "description": "A Static UUID Address to Assign to the Server Profile.",
                     "intersight_api": "StaticUuidAddress",
                     "minLength": 17,
                     "maxLength": 17,
                     "pattern": "^[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
                     "title": "static_uuid_address"
+                },
+                "user_label": {
+                    "type": "string",
+                    "default": "",
+                    "description": "User label assigned to the server profile.",
+                    "intersight_api": "UserLabel",
+                    "minLength": 0,
+                    "maxLength": 64,
+                    "pattern": "^$|^[ !#$%&\\(\\)\\*\\+,\\-\\./:;\\?@\\[\\]_\\{\\|\\}~a-zA-Z0-9]+$",
+                    "title": "user_label"
                 }
             },
             "required": [
