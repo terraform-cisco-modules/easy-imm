@@ -7,7 +7,7 @@ Asgard:
     server:
       - action: No-op
         attach_template: true
-        domain_name: example-ucs
+        domain_name: r143e-1
         target_platform: FIAttached
         targets:
           - name: r143e-1-1
@@ -22,4 +22,10 @@ Asgard:
             pre_assign:
               chassis_id: 1
               slot_id: 3
+          - name: r143e-1-1-5
+            serial_number: FCH26407DHP
+          - name: r143e-1-1-7
+            serial_number: FCH26407CXM
+          - name: r143e-1-1-8
+            serial_number: FCH26417734
         ucs_server_profile_template: common/aci-M6-intel-virtual-tpm-M2-pxe

@@ -3,6 +3,11 @@
 [![Developed by: Cisco](https://img.shields.io/badge/Developed%20by-Cisco-blue)](https://developer.cisco.com)
 
 # Easy IMM
+
+## Updates
+
+* 2024-07-18: Currently attachmenting Templates to Chassis/Domain/Server Profiles is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.1.12, works but newer releases are broken.
+
 ## Examples for Using the Easy IMM Terraform Modules
 
 Examples are shown in the following directories:
@@ -257,22 +262,22 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.49 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.50 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.47 |
-| <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.5 |
+| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.50 |
+| <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.6 |
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17059 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-17059 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-17059 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17227 |
+| <a name="module_policies"></a> [policies](#module\_policies) | /home/tyscott/terraform-cisco-modules/terraform-intersight-policies | n/a |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | /home/tyscott/terraform-cisco-modules/terraform-intersight-profiles | n/a |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**

@@ -501,48 +501,85 @@
                 "bios_template": {
                     "type": "string",
                     "default": "",
-                    "description": "Name of a BIOS Template to Configure.  Options are:\n  * M5-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M5-intel-dss(-tpm) - Analytics Database Systems.\n  * M5-intel-hpc(-tpm) - High-Performance Computing.\n  * M5-intel-java(-tpm) - Java Application Servers.\n  * M5-intel-oltp(-tpm) - Online Transaction Processing.\n  * M5-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n  * M6-amd-hpc(-tpm) - High-Performance Computing with AMD Processor.\n  * M6-amd-vdi(-tpm) - Virtual Desktop Host with AMD Processor.\n  * M6-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M6-intel-analytical-db(-tpm) - M6 Analytical Database Systems with Intel Processor.\n  * M6-intel-azure(-tpm) - Azure HCI Host with Intel Processor.\n  * M6-intel-data-analytics(-tpm) - M6 Data Analytics with Intel Processor.\n  * M6-intel-hpc(-tpm) - High-Performance Computing with Intel Processor.\n  * M6-intel-relational-db(-tpm) - M6 Relational Database Systems with Intel Processor.\n  * M6-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n  * M7-amd-hpc(-tpm) - High-Performance Computing with AMD Processor.\n  * M7-amd-vdi(-tpm) - Virtual Desktop Host with AMD Processor.\n  * M7-amd-virtual(-tpm) - Virtual Host with AMD Processor.\n  * M7-intel-analytical-db(-tpm) - M6 Analytical Database Systems with Intel Processor.\n  * M7-intel-azure(-tpm) - Azure HCI Host with Intel Processor.\n  * M7-intel-data-analytics(-tpm) - M6 Data Analytics with Intel Processor.\n  * M7-intel-hpc(-tpm) - High-Performance Computing with Intel Processor.\n  * M7-intel-relational-db(-tpm) - M6 Relational Database Systems with Intel Processor.\n  * M7-intel-virtual(-tpm) - Virtual Host with Intel Processor.\n Add `-tpm` to enable TPM.  Without `-tpm`, TPM is disabled.",
+                    "description": "Name of a BIOS Template to Configure.\n\nImportant Note: Add `-tpm/Tpm` to enable TPM.  Without `-tpm/Tpm`, TPM is disabled.\n\nOptions are:\n\n  * AnalyticalDatabaseSystems-M6-Intel(-Tpm) - BIOS Policy for Analytical Database Systems on Cisco UCS M6 Servers with Intel processors\n  * AnalyticalDatabaseSystems-M7-Intel(-Tpm) - BIOS Policy for Analytical Database Systems on Cisco UCS M7 Servers with Intel processors\n  * AnalyticsDatabaseSystems-M5-Intel(-Tpm) - BIOS Policy for Analytics Database Decision-Support System on Cisco UCS M5 Servers with Intel processors\n  * CPUIntensive-M6-Intel(-Tpm) - BIOS Policy for CPU Intensive on Cisco UCS M6 Servers with Intel processors\n  * CPUIntensive-M7-Intel(-Tpm) - BIOS Policy for CPU Intensive on Cisco UCS M7 Servers with Intel processors\n  * ComputationIntensive-M6-AMD(-Tpm) - BIOS Policy for CPU Intensive on Cisco UCS M6 Servers with AMD processors\n  * DataAnalytics-M6-Intel(-Tpm) - BIOS Policy for Data Analytics on Cisco UCS M6 Servers with Intel processors\n  * DataAnalytics-M7-Intel(-Tpm) - BIOS Policy for Data Analytics on Cisco UCS M7 Servers with Intel processors\n  * EnergyEfficiency-M5-Intel(-Tpm) - BIOS Policy for Energy Efficiency on Cisco UCS M5 Servers with Intel processors\n  * EnergyEfficiency-M6-AMD(-Tpm) - BIOS Policy for Energy Efficiency on Cisco UCS M6 Servers with AMD processors\n  * EnergyEfficiency-M6-Intel(-Tpm) - BIOS Policy for Energy Efficiency on Cisco UCS M6 Servers with Intel processors\n  * EnergyEfficient-M7-Intel(-Tpm) - BIOS Policy for Energy Efficiency on Cisco UCS M7 Servers with Intel processors\n  * HighPerformanceComputing-M5-Intel(-Tpm) - BIOS Policy for High-Performance Computing on Cisco UCS M5 Servers with Intel processors\n  * HighPerformanceComputing-M6-AMD(-Tpm) - BIOS Policy for High-Performance Computing on Cisco UCS M6 Servers with AMD processors\n  * HighPerformanceComputing-M6-Intel(-Tpm) - BIOS Policy for High-Performance Computing on Cisco UCS M6 Servers with Intel processors\n  * HighPerformanceComputing-M7-Intel(-Tpm) - BIOS Policy for High-Performance Computing on Cisco UCS M7 Servers with Intel processors\n  * IOIntensive-M6-AMD(-Tpm) - BIOS Policy for IO Intensive on Cisco UCS M6 Servers with AMD processors\n  * IOIntensive-M6-Intel(-Tpm) - BIOS Policy for IO Intensive on Cisco UCS M6 Servers with Intel processors\n  * JavaApplicationServer-M5-Intel(-Tpm) - BIOS Policy for Java Application Server on Cisco UCS M5 Servers with Intel processors\n  * LowLatency-M5-Intel(-Tpm) - BIOS Policy for Low Latency on Cisco UCS M5 Servers with Intel processors\n  * LowLatency-M6-AMD(-Tpm) - BIOS Policy for Low Latency on Cisco UCS M6 Servers with AMD processors\n  * LowLatency-M6-Intel(-Tpm) - BIOS Policy for Low Latency on Cisco UCS M6 Servers with Intel processors\n  * LowLatency-M7-Intel(-Tpm) - BIOS Policy for Low Latency on Cisco UCS M7 Servers with Intel processors\n  * M5-amd-virtual(-tpm) - BIOS Policy for Virtualization on Cisco UCS M5 Servers with AMD processors\n  * M5-intel-virtual(-tpm) - (Depricated - Use Virtualization-M5-Intel(-Tpm)) - BIOS Policy for Virtualization on Cisco UCS M5 Servers with Intel processors\n  * M6-amd-virtual(-tpm) - (Depricated - Use Virtualization-M6-AMD(-Tpm)) - BIOS Policy for Virtualization on Cisco UCS M6 Servers with AMD processors\n  * M6-intel-virtual(-tpm) - (Depricated - Use Virtualization-M6-Intel(-Tpm)) - BIOS Policy for Virtualization on Cisco UCS M6 Servers with Intel processors\n  * MaximumPerformance-M5-Intel(-Tpm) - BIOS Policy for Maximum Performance on Cisco UCS M5 Servers with Intel processors\n  * OnlineTransactionProcessing-M5-Intel(-Tpm) - BIOS Policy for Online Transaction Processing on Cisco UCS M5 Servers with Intel processors\n  * RelationalDatabaseSystems-M6-Intel(-Tpm) - BIOS Policy for Relational Database Systems on Cisco UCS M6 Servers with Intel processors\n  * RelationalDatabaseSystems-M7-Intel(-Tpm) - BIOS Policy for Relational Database Systems on Cisco UCS M7 Servers with Intel processors\n  * VDI-M6-AMD(-Tpm) - BIOS Policy for VDI on Cisco UCS M6 Servers with AMD processors\n  * Virtualization-M5-Intel(-Tpm) - BIOS Policy for Virtualization on Cisco UCS M5 Servers with Intel processors\n  * Virtualization-M6-AMD(-Tpm) - BIOS Policy for Virtualization on Cisco UCS M6 Servers with AMD processors\n  * Virtualization-M6-Intel(-Tpm) - BIOS Policy for Virtualization on Cisco UCS M6 Servers with Intel processors\n  * Virtualization-M7-Intel(-Tpm) - BIOS Policy for Virtualization on Cisco UCS M7 Servers with Intel processors",
                     "intersight_api": "bios_template",
                     "enum": [
+                        "AnalyticalDatabaseSystems-M5-Intel",
+                        "AnalyticalDatabaseSystems-M5-Intel-Tpm",
+                        "AnalyticalDatabaseSystems-M6-Intel",
+                        "AnalyticalDatabaseSystems-M6-Intel-Tpm",
+                        "AnalyticalDatabaseSystems-M7-Intel",
+                        "AnalyticalDatabaseSystems-M7-Intel-Tpm",
+                        "AzureStack-M6-Intel",
+                        "AzureStack-M6-Intel-Tpm",
+                        "AzureStack-M7-Intel",
+                        "AzureStack-M7-Intel-Tpm",
+                        "ComputationIntensive-M6-AMD",
+                        "ComputationIntensive-M6-AMD-Tpm",
+                        "CPUIntensive-M6-Intel",
+                        "CPUIntensive-M6-Intel-Tpm",
+                        "CPUIntensive-M7-Intel",
+                        "CPUIntensive-M7-Intel-Tpm",
+                        "DataAnalytics-M6-Intel",
+                        "DataAnalytics-M6-Intel-Tpm",
+                        "DataAnalytics-M7-Intel",
+                        "DataAnalytics-M7-Intel-Tpm",
+                        "EnergyEfficiency-M5-Intel",
+                        "EnergyEfficiency-M5-Intel-Tpm",
+                        "EnergyEfficiency-M6-AMD",
+                        "EnergyEfficiency-M6-AMD-Tpm",
+                        "EnergyEfficiency-M6-Intel",
+                        "EnergyEfficiency-M6-Intel-Tpm",
+                        "EnergyEfficient-M7-Intel",
+                        "EnergyEfficient-M7-Intel-Tpm",
+                        "HighPerformanceComputing-M5-Intel",
+                        "HighPerformanceComputing-M5-Intel-Tpm",
+                        "HighPerformanceComputing-M6-AMD",
+                        "HighPerformanceComputing-M6-AMD-Tpm",
+                        "HighPerformanceComputing-M6-Intel",
+                        "HighPerformanceComputing-M6-Intel-Tpm",
+                        "HighPerformanceComputing-M7-Intel",
+                        "HighPerformanceComputing-M7-Intel-Tpm",
+                        "IOIntensive-M6-AMD",
+                        "IOIntensive-M6-AMD-Tpm",
+                        "IOIntensive-M6-Intel",
+                        "IOIntensive-M6-Intel-Tpm",
+                        "JavaApplicationServer-M5-Intel",
+                        "JavaApplicationServer-M5-Intel-Tpm",
+                        "LowLatency-M5-Intel",
+                        "LowLatency-M5-Intel-Tpm",
+                        "LowLatency-M6-AMD",
+                        "LowLatency-M6-AMD-Tpm",
+                        "LowLatency-M6-Intel",
+                        "LowLatency-M6-Intel-Tpm",
+                        "LowLatency-M7-Intel",
+                        "LowLatency-M7-Intel-Tpm",
                         "M5-amd-virtual",
                         "M5-amd-virtual-tpm",
-                        "M5-intel-dss",
-                        "M5-intel-dss-tpm",
-                        "M5-intel-hpc",
-                        "M5-intel-hpc-tpm",
-                        "M5-intel-java",
-                        "M5-intel-java-tpm",
-                        "M5-intel-oltp",
-                        "M5-intel-oltp-tpm",
                         "M5-intel-virtual",
                         "M5-intel-virtual-tpm",
-                        "M6-amd-hpc",
-                        "M6-amd-hpc-tpm",
-                        "M6-amd-vdi",
-                        "M6-amd-vdi-tpm",
                         "M6-amd-virtual",
                         "M6-amd-virtual-tpm",
-                        "M6-intel-analytical-db",
-                        "M6-intel-analytical-db-tpm",
-                        "M6-intel-azure",
-                        "M6-intel-azure-tpm",
-                        "M6-intel-data-analytics",
-                        "M6-intel-data-analytics-tpm",
-                        "M6-intel-hpc",
-                        "M6-intel-hpc-tpm",
-                        "M6-intel-relational-db",
-                        "M6-intel-relational-db-tpm",
                         "M6-intel-virtual",
                         "M6-intel-virtual-tpm",
-                        "M7-amd-hpc-tpm",
-                        "M7-amd-vdi-tpm",
-                        "M7-amd-virtual-tpm",
-                        "M7-intel-analytical-db-tpm",
-                        "M7-intel-azure-tpm",
-                        "M7-intel-data-analytics-tpm",
-                        "M7-intel-hpc-tpm",
-                        "M7-intel-relational-db-tpm",
-                        "M7-intel-virtual-tpm"
+                        "MaximumPerformance-M5-Intel",
+                        "MaximumPerformance-M5-Intel-Tpm",
+                        "OnlineTransactionProcessing-M5-Intel",
+                        "OnlineTransactionProcessing-M5-Intel-Tpm",
+                        "RelationalDatabaseSystems-M6-Intel",
+                        "RelationalDatabaseSystems-M6-Intel-Tpm",
+                        "RelationalDatabaseSystems-M7-Intel",
+                        "RelationalDatabaseSystems-M7-Intel-Tpm",
+                        "VDI-M6-AMD",
+                        "VDI-M6-AMD-Tpm",
+                        "Virtualization-M5-Intel",
+                        "Virtualization-M5-Intel-Tpm",
+                        "Virtualization-M6-AMD",
+                        "Virtualization-M6-AMD-Tpm",
+                        "Virtualization-M6-Intel",
+                        "Virtualization-M6-Intel-Tpm",
+                        "Virtualization-M7-Intel",
+                        "Virtualization-M7-Intel-Tpm"
                     ],
                     "title": "bios_template"
                 },
@@ -5889,7 +5926,7 @@
                 "tpm_ppi_required": {
                     "type": "string",
                     "default": "platform-default",
-                    "description": "",
+                    "description": "Default is `platform-default`.  BIOS Token for setting TPM Minimal Physical Presence configuration.\n  * `platform-default` - Default value used by the platform for the BIOS setting.\n  * `enabled` - Enables the BIOS setting.\n  * `disabled` - Disables the BIOS setting.",
                     "intersight_api": "TpmPpiRequired",
                     "enum": [
                         "platform-default",
@@ -5901,7 +5938,7 @@
                 "tpm_support": {
                     "type": "string",
                     "default": "platform-default",
-                    "description": "Default is `platform-default`.  BIOS Token for setting TPM Support configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Security Device Support configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
                     "intersight_api": "TpmSupport",
                     "enum": [
                         "platform-default",
@@ -6804,9 +6841,7 @@
             },
             "required": [
                 "action",
-                "power_policy",
-                "targets",
-                "thermal_policy"
+                "targets"
             ],
             "title": "Chassis"
         },
@@ -6952,7 +6987,7 @@
             "type": "object",
             "description": "Intersight Organization Name",
             "patternProperties": {
-                "^(?!global_settings$)[a-zA-Z0-9_.:-]{1,64}$": {
+                "^(?!global_settings$)[a-zA-Z0-9_\\.:-]{1,64}$": {
                     "$ref": "#/definitions/organization"
                 }
             },
@@ -10354,7 +10389,7 @@
                     "intersight_api": "Gateway",
                     "minLength": 7,
                     "maxLength": 15,
-                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+                    "pattern": "^0.0.0.0|(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
                     "title": "gateway"
                 },
                 "netmask": {
@@ -10419,7 +10454,7 @@
                     "intersight_api": "Gateway",
                     "minLength": 7,
                     "maxLength": 15,
-                    "pattern": "^(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+                    "pattern": "^0.0.0.0|(([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
                     "title": "gateway"
                 },
                 "netmask": {
@@ -10455,8 +10490,7 @@
             },
             "required": [
                 "gateway",
-                "netmask",
-                "primary_dns"
+                "netmask"
             ],
             "title": "ipv4_configuration - IPv4 Configuration Settings"
         },
@@ -10481,9 +10515,9 @@
                     "default": "2001:db8::1",
                     "description": "Gateway to assign to the pool.  Example `2001:db8::1`.",
                     "intersight_api": "Gateway",
-                    "minLength": 6,
+                    "minLength": 2,
                     "maxLength": 39,
-                    "pattern": "^$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "pattern": "^::$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
                     "title": "gateway"
                 },
                 "prefix": {
@@ -10545,9 +10579,9 @@
                     "default": "2001:db8::1",
                     "description": "Gateway to assign to the pool.  Example `2001:db8::1`.",
                     "intersight_api": "Gateway",
-                    "minLength": 6,
+                    "minLength": 2,
                     "maxLength": 39,
-                    "pattern": "^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
+                    "pattern": "^::$|^(([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:([0-9A-Fa-f]{1,4}:[0-9A-Fa-f]{0,4}|:[0-9A-Fa-f]{1,4})?|(:[0-9A-Fa-f]{1,4}){0,2})|(:[0-9A-Fa-f]{1,4}){0,3})|(:[0-9A-Fa-f]{1,4}){0,4})|:(:[0-9A-Fa-f]{1,4}){0,5})((:[0-9A-Fa-f]{1,4}){2}|:(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])(\\.(25[0-5]|(2[0-4]|1[0-9]|[1-9])?[0-9])){3})|(([0-9A-Fa-f]{1,4}:){1,6}|:):[0-9A-Fa-f]{0,4}|([0-9A-Fa-f]{1,4}:){7}:)$",
                     "title": "gateway"
                 },
                 "prefix": {
@@ -10582,8 +10616,7 @@
             },
             "required": [
                 "gateway",
-                "prefix",
-                "primary_dns"
+                "prefix"
             ],
             "title": "ipv6_configuration - IPv6 Configuration Settings"
         },
@@ -11495,6 +11528,33 @@
             "additionalProperties": false,
             "description": "Name of the Intersight Organization.\nAttributes are:\n  * policies\n  * pools\n  * profiles\n  * templates",
             "properties": {
+                "create_resource_group": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Default is `true`.  Flag to tell the script to Create the resource group with the same name as the Organization.",
+                    "intersight_api": "create_resource_group",
+                    "title": "create_resource_group"
+                },
+                "description": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
+                },
+                "organizations_to_share_with": {
+                    "type": "array",
+                    "default": false,
+                    "description": "List of Organization(s) to Add to a Shared Organization.",
+                    "intersight_api": "organizations_to_share_with",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Organization to Add to a Shared Organization.",
+                        "intersight_api": "organization",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[a-zA-Z0-9_\\.:-]{1,64}$",
+                        "title": "organization"
+                    },
+                    "title": "organizations_to_share_with"
+                },
                 "policies": {
                     "$ref": "#/definitions/policies"
                 },
@@ -11503,6 +11563,21 @@
                 },
                 "profiles": {
                     "$ref": "#/definitions/profiles"
+                },
+                "resource_groups": {
+                    "type": "array",
+                    "description": "A List of Resource Groups to Assign to the Organization.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * resources.",
+                    "items": {
+                        "$ref": "#/definitions/resource.Group"
+                    },
+                    "title": "resource_groups"
+                },
+                "share_resources_with_other_organizations": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Flag to tell the script to Create the resource group with the same name as the Organization.",
+                    "intersight_api": "share_resources_with_other_organizations",
+                    "title": "share_resources_with_other_organizations"
                 },
                 "templates": {
                     "$ref": "#/definitions/templates"
@@ -12051,7 +12126,7 @@
                     "intersight_api": "Name",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]{1,64}$",
+                    "pattern": "^[a-zA-Z0-9_\\.:-]{1,64}$",
                     "title": "name"
                 }
             },
@@ -13049,6 +13124,39 @@
                 }
             },
             "title": "Profiles"
+        },
+        "resource.Group": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "description": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
+                },
+                "name": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
+                },
+                "organizations_to_share_with": {
+                    "type": "array",
+                    "default": false,
+                    "description": "List of Organization(s) to Add to a Shared Organization.",
+                    "intersight_api": "organizations_to_share_with",
+                    "items": {
+                        "type": "string",
+                        "default": "default",
+                        "description": "Default is 'default'.  Organization to Add to a Shared Organization.",
+                        "intersight_api": "organization",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[a-zA-Z0-9_\\.:-]{1,64}$",
+                        "title": "organization"
+                    },
+                    "title": "organizations_to_share_with"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "Resource Group"
         },
         "resourcepool.Pool": {
             "type": "object",

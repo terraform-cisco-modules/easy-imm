@@ -7,6 +7,11 @@ content: |-
   [![Developed by: Cisco](https://img.shields.io/badge/Developed%20by-Cisco-blue)](https://developer.cisco.com)
 
   # Easy IMM
+
+  ## Updates
+
+  * 2024-07-18: Currently attachmenting Templates to Chassis/Domain/Server Profiles is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.1.12, works but newer releases are broken.
+
   ## Examples for Using the Easy IMM Terraform Modules
 
   Examples are shown in the following directories:

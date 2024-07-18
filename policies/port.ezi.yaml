@@ -38,4 +38,4 @@ common:
               - 1
               - 8
         port_role_servers:
-          - port_list: 33,34
+          - port_list: 37,38
