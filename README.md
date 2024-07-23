@@ -13,7 +13,9 @@
 
 ## Updates
 
-* 2024-07-18: Currently attachmenting Templates to Chassis/Domain/Server Profiles is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.1.12, works but newer releases are broken.
+* 2024-07-23: Recommended releases are 4.2.11-17560 or 4.2.11-16711.  See Notes for 4.2.11-17560 in the Notes above.  Each has a caveat at this time.
+* 2024-07-18: Provider 1.0.50 Breaks Derive Profiles from Chassis/Domain/Server Templates is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.1.12, works but newer releases are broken.
+* 2024-07-16: Terraform Provider 1.0.48 and 1.0.49 depricated due to breaking BIOS changes.  Do not use those provider versions
 
 ## Examples for Using the Easy IMM Terraform Modules
 
