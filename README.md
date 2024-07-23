@@ -15,6 +15,9 @@
 * [Recommended Firmware](#recommended-firmware)
 * [Environment Variables/Sensitive Variables](#environment-variables)
 * [Execute Terraform Apply/Plan](#execute-the-terraform-applyplan)
+* [Terraform Inputs](#inputs)
+* [Terraform Outputs](#outputs)
+* [Sub Module - Terraform Registry](#sub-module---terraform-registry)
 
 ## Recommended Module Versions
 
@@ -390,17 +393,15 @@ terraform.exe apply "main.plan"
 
 ### [Back to Top](#table-of-content)
 
-# Sub Modules
+## Sub Module - Terraform Registry
 
 If you want to see documentation on Variables for Submodules use the links below:
 
-## Terraform Registry
+#### * [*Policies*](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
 
-### * [*Policies*](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
+#### * [*Pools*](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
 
-### * [*Pools*](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
-
-### * [*Profiles*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
+#### * [*Profiles*](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
 
 ### [Back to Top](#table-of-content)
 <!-- END_TF_DOCS -->
