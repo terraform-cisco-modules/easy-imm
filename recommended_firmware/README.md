@@ -38,4 +38,33 @@ recommended_firmware = {
       "UCSX-410C-M7",
     ])
   }
-}```
+  "Standalone" = {
+    "3.0(4r)" = tolist([
+      "UCSC-C220-M4",
+      "UCSC-C240-M4",
+      "UCSC-C460-M4",
+    ])
+    "4.0(2r)" = tolist([
+      "UCSC-C220-M4",
+      "UCSC-C240-M4",
+    ])
+    "4.1(2h)" = tolist([
+      "UCSC-C460-M4",
+    ])
+    "4.1(2m)" = tolist([
+      "UCSC-C220-M4",
+      "UCSC-C240-M4",
+    ])
+    "4.3(2.240053)" = tolist([
+      "HX220C-M5",
+      "HXAF220C-M5",
+      "UCSC-C220-M5",
+    ])
+    "4.3(4.240152)" = tolist([
+      "UCSC-C220-M6",
+      "UCSC-C240-M6",
+      "UCSC-C245-M6",
+    ])
+  }
+}
+```

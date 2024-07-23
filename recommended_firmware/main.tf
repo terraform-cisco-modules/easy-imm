@@ -27,20 +27,15 @@ provider "intersight" {
 locals {
   model           = yamldecode(data.utils_yaml_merge.model.output)
   intersight_fqdn = local.model.global_settings.intersight_fqdn
-  target_platforms = distinct(flatten([
-    for i in sort(keys(local.model)) : [
-      for e in lookup(lookup(local.model[i], "profiles", {}), "server", []
-      ) : lookup(e, "target_platform", "FIAttached")
-    ] if length(regexall("intersight|global_settings", i)) == 0
-  ]))
   recommended_firmware = {
-    for i in local.target_platforms : i => {
+    for i in ["FIAttached", "Standalone"] : i => {
       for fw in distinct(
         [for e in data.intersight_firmware_distributable.recommended[i].results : e.nr_version]
         ) : fw => distinct(sort(flatten([
           for r in data.intersight_firmware_distributable.recommended[i].results : [
-            for s in r.supported_models : trimsuffix(
-            trimsuffix(trimsuffix(trimsuffix(trimsuffix(trimsuffix(s, "L"), "D"), "X"), "N"), "S"), "M")
+            # for s in r.supported_models : s
+            for s in r.supported_models : trimsuffix(trimsuffix(trimsuffix(
+            trimsuffix(trimsuffix(trimsuffix(trimsuffix(trimsuffix(s, "L"), "D"), "X"), "N"), "S"), "M"), "SNEB"), "S2")
           ] if r.nr_version == fw
       ])))
     }
@@ -60,10 +55,9 @@ data "utils_yaml_merge" "model" {
 }
 
 data "intersight_firmware_distributable" "recommended" {
-  for_each          = { for v in local.target_platforms : v => v }
+  for_each          = { for v in ["FIAttached", "Standalone"] : v => v }
   recommended_build = "Y"
-  import_state      = "Imported"
-  image_type        = each.value == "Standalone" ? "Standalone" : "Intersight Managed Mode Server"
+  image_type        = each.value == "Standalone" ? "Standalone Server" : "Intersight Managed Mode Server"
 }
 
 output "recommended_firmware" {
