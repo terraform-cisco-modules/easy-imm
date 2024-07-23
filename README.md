@@ -4,17 +4,23 @@
 
 # Easy IMM
 
-## Module Version Compatibility
+## Recommended Module Version are 4.2.11-17560 and 4.2.11-16711
 
-| **Module** | **Module Version** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
-| :--------: | :----------------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| pools      | 4.2.11-17560       | 1.0.11-17560    | 1.0.50                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies   | 4.2.11-17560       | 1.0.11-17560    | 1.0.50                | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
-| profiles   | 4.2.11-17560       | 1.0.11-17560    | 1.0.50                | Not Supported         |  Adds Chassis/Domain Templates. Note: Derive Profiles is broken |
-| :--------: | :----------------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| pools      | 4.2.11-16711       | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  With IP Pools use Configuration outside IP Block. |
-| policies   | 4.2.11-16711       | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  Anything supported by YAML Schema Outside of New Features in 17560  |
-| profiles   | 4.2.11-16711       | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  Doesn't support Chassis and Domain Templates |
+## Module(s) Release 4.2.11-17560 Compatibility
+
+| **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
+| :--------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
+| pools      | 1.0.11-17560    | 1.0.50                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies   | 1.0.11-17560    | 1.0.50                | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
+| profiles   | 1.0.11-17560    | 1.0.50                | Not Supported         |  Adds Chassis/Domain Templates. Note: Derive Profiles is broken |
+
+## Module(s) Release 4.2.11-16711 Compatibility
+
+| **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
+| :--------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
+| pools      | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  With IP Pools use Configuration outside IP Block. |
+| policies   | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  Anything supported by YAML Schema Outside of New Features in 17560  |
+| profiles   | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  Doesn't support Chassis and Domain Templates |
 
 ## Updates
 
