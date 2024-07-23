@@ -5,6 +5,10 @@
 
 In the `recommended_firmware` folder is a simple terraform setup that you can use to query Intersight for the latest recommended firmware for servers.  
 
+## Updates
+
+* 2024-07-23: Output Below ran on July 23, 2024.
+
 Following is an example output:
 
 ```
