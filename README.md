@@ -4,6 +4,13 @@
 
 # Easy IMM
 
+## Module Version Compatibility
+
+| **Module Version** | **Intersight API Version** | **Intersight Appliance Version** | **Notes**
+| :----------------: | :------------------------: | :------------------------------: | :--------------------------: |
+| 4.2.11-17560       | 1.0.11-16711               | Not Supported                    |  Adds Chassis/Domain/vNIC/vHBA Templates.  Derive Profiles is broken |
+| 4.2.11-16711       | 1.0.11-16711               | 1.1.0-0                          |                              |
+
 ## Updates
 
 * 2024-07-18: Currently attachmenting Templates to Chassis/Domain/Server Profiles is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.1.12, works but newer releases are broken.
@@ -79,10 +86,10 @@ Additionally to Save time on typing commands I use the following aliases by edit
 ```bash
 alias tfa='tfenv terraform apply main.plan'
 alias tfap='tfenv terraform apply -parallelism=1 main.plan'
-alias tfd='terraform destroy'
+alias tfd='tfenv terraform destroy'
 alias tff='terraform fmt'
 alias tfi='terraform init'
-alias tfim='terraform import'
+alias tfim='tfenv terraform import'
 alias tfp='tfenv terraform plan -out=main.plan'
 alias tfu='terraform init -upgrade'
 alias tfv='terraform validate'
@@ -275,9 +282,9 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17227 |
-| <a name="module_policies"></a> [policies](#module\_policies) | /home/tyscott/terraform-cisco-modules/terraform-intersight-policies | n/a |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | /home/tyscott/terraform-cisco-modules/terraform-intersight-profiles | n/a |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17560 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-17560 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-17560 |
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
