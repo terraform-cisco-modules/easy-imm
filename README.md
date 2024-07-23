@@ -6,10 +6,10 @@
 
 ## Module Version Compatibility
 
-| **Module Version** | **Intersight API Version** | **Intersight Appliance Version** | **Notes**
-| :----------------: | :------------------------: | :------------------------------: | :--------------------------: |
-| 4.2.11-17560       | 1.0.11-16711               | Not Supported                    |  Adds Chassis/Domain/vNIC/vHBA Templates.  Derive Profiles is broken |
-| 4.2.11-16711       | 1.0.11-16711               | 1.1.0-0                          |                              |
+| **Module Version** | **API Version** | **Provider Version**  | **Appliance Version** | **Notes**
+| :----------------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
+| 4.2.11-17560       | 1.0.11-17560    | 1.0.50                | Not Supported         |  Adds Chassis/Domain/vNIC/vHBA Templates.  Derive Profiles is broken |
+| 4.2.11-16711       | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |                              |
 
 ## Updates
 
