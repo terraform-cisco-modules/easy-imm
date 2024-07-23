@@ -36,20 +36,26 @@ Examples are shown in the following directories:
   * `pools`
   * `profiles`
   * `templates`
+  * `recommended_firmware` - This is used to get the latest recommended firmware releases from Intersight
+  * `Wakanda` - To Show profiles using pools/policies/templates as Data Sources (Mostly)
+
+`policies/pools/profiles/templates` - Is the `common/default/Asgard` organizations in our lab environment.
+
+`Wakanda` - Is the Wakanda organization in our lab environment.
 
 ### IMPORTANT NOTES
 
-Take notice of the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model` is configured to recognize the files that should be imported with the module.
+Take notice of the `ezi.yaml` extension on the files.  This is how the  `data.utils_yaml_merge.model`, in the `main.tf`, is configured to recognize the files that should be imported with the module.
 
 The Structure of the YAML files is very flexible.  You can have all the YAML Data in a single file or you can have it in multiple individual folders like is shown in this module.  The important part is that the `data.utils_yaml_merge.model` is configured to read the folders that you put the Data into.
 
-When defining Identity reservations under a server profile.  See example in `profiles` folder.  Note the flag in the example with `ignore_reservations`.  Reservation records are ephimeral.  Meaning that as soon as the reservation is assigned to a server profile, the identity reservation record is removed from the API.  Thus, after you run the first plan and the identities are created, this flag should be configured to `true` or you need to remove the reservations from the servers.  Either way the reservations will only work on the first apply.  Subsequent applies with the reservations defined will cause the plan/apply to fail due to the identity being consumed.
+When defining Identity reservations under a server profile, see example in `profiles` folder, note the flag in the example with `ignore_reservations`.  Reservation records are ephimeral.  Meaning that as soon as the reservation is assigned to a server profile, the identity reservation record is removed from the API.  Thus, after you run the first plan and the identities are created, this flag should be configured to `true` or you need to remove the reservations from the `server_profiles`.  Either way the reservations will only work on the first apply.  Subsequent applies with the reservations defined will cause the plan/apply to fail due to the identity being consumed.
 
 ## YAML Schema Notes for auto-completion, Help, and Error Validation:
 
-If you would like to utilize Autocompletion, Help Context, and Error Validation, `(HIGHLY RECOMMENDED)` make sure the files all utilize the `.ezi.yaml` file extension.
+If you would like to utilize Autocomple, Help Context, and Error Validation, `(HIGHLY RECOMMENDED)` make sure the files all utilize the `.ezi.yaml` file extension.
 
-And Add the Following to `YAML: Schemas`.  In Visual Studio Code: Settings > Settings > Search for `YAML: Schema`: Click edit in `settings.json`.  In the `yaml.schemas` section:
+Add the Following to `YAML: Schemas`.  In Visual Studio Code: Settings > Settings > Search for `YAML: Schema`: Click edit in `settings.json`.  In the `yaml.schemas` section:
 
 ```bash
 "https://raw.githubusercontent.com/terraform-cisco-modules/easy-imm/main/yaml_schema/easy-imm.json": "*.ezi.yaml"
@@ -57,17 +63,16 @@ And Add the Following to `YAML: Schemas`.  In Visual Studio Code: Settings > Set
 
 Soon the Schema for these YAML Files have been registered with [*SchemaStore*](https://github.com/SchemaStore/schemastore/blob/master/src/api/json/catalog.json) via utilizing this `.ezi.yaml` file extension.  But until that is complete, need to still add to settings.
 
-### Modify `global_settings.ezi.yaml` to match environment
+### Modify `global_settings.ezi.yaml` for SaaS versus CVA/PVA FQDN
 
-`global_settings.ezi.yamls` contains variables related to authentication to Intersight and an optional global tags for tagging objects.
+`global_settings.ezi.yamls` contains variable `intersight_fqdn`.
 
 #### Notes for the `global_settings.ezi.yamls`
 
-  * `debugging`: This is used to enable the output of the keys for resources that are not defined in the YAML configuration but are consumed.
   * `intersight_fqdn`:  SaaS will by default be `intersight.com`.  Available in the event of CVA or PVA deployments.
   * `tags`:  Not Required, but by default the version of the script is being flagged here.
 
-#### Note: Modules can be added or removed dependent on the use case.  The primary example shown is consuming/showing a full environment deployment.
+#### Note: Modules can be added or removed dependent on the use case.  The primary example in this repository is consuming/showing a full environment deployment.
 
 ## [Cloud Posse `tfenv`](https://github.com/cloudposse/tfenv)
 
@@ -118,19 +123,11 @@ If you want to create server profiles from templates use the flag `create_from_t
 
 Do not create from template if you want to assign identity reservations to a server profile.  Instead set the `attach_template` flag in the server profile.  This will also attach the template to the profile but will reserve the identities to the profile prior to template attachement.
 
-## Updating Server Profile Templates attached to a Server Profiles
-
-There are a few situations where Terraform doesn't work well with Intersight.  One example is with Templates associated to Server Profiles.  In the Intersight GUI when a change is made to a template or the template associated to a server profile is updated the `bulk/MoMerger` API is called to make the update to all the servers associated to a template.  This API call is ephimeral, meaning the object is not maintained.  So to provide a quick way to work around this I have the example in the folder `update_server_template` that can be used to update the servers associated to a template when you make a change to the template or when you change the template associated to a servers.
-
-Unfortanately the other thing that would be nice to do along with this is to compare the template mod_time to timestamp(), but timestamp() doesn't take effect until apply so it fails on the plan.  For now this is the best workaround I could come up with.  If you have other thoughts feel free to submit a Pull request.
-
-If you do use this, simply delete the terraform.tfstate file in this folder each time you run it.  The objects don't actually exist so the state file provides no benefit.
-
 ## Environment Variables
 
 Note that all the variables in `variables.tf` are marked as sensitive.  Meaning these are variables that shouldn't be exposed due to the sensitive nature of them.
 
-Take note of the `locals.tf` that currently has all the sensitive variables mapped:
+Take note of the `locals.tf` that currently has the following sensitive variables defined:
 
   * `certificate_management`
   * `drive_security`
@@ -158,7 +155,7 @@ In example, if you needed to add 100 iterations of the `certificate_management` 
 
 ALL EXAMPLES BELOW ASSUME USING `tfenv` in LINUX
 
-#### Linux
+#### Linux - with tfenv
 
 ```bash
 export intersight_api_key_id="<your-api-key>"
@@ -187,7 +184,7 @@ The important point is that if you need more than is added by default you can ex
   * `cert_mgmt_certificate`: Options are by default 1-5 for Up to 5 Certificates.  Variable Should Point to the File Location of the PEM Certificate or be the value of the PEM certificate.
   * `cert_mgmt_private_key`: Options are by default 1-5 for Up to 5 Private Keys.  Variable Should Point to the File Location of the PEM Private Key or be the value of the PEM Private Key.
 
-#### Linux
+#### Linux - with tfenv
 
 ```bash
 export cert_mgmt_certificate_1='<cert_mgmt_certificate_file_location>'
@@ -210,7 +207,7 @@ $env:TF_VAR_cert_mgmt_private_key_1='<cert_mgmt_private_key_file_location>'
   * `drive_security_password`: If Authentication is supported/used by the KMIP Server, This is the User Password to Configure.
   * `drive_security_server_ca_certificate`: KMIP Server CA Certificate Contents.
 
-#### Linux
+#### Linux - with tfenv
 
 ```bash
 export drive_security_password='<drive_security_password>'
@@ -233,7 +230,7 @@ $env:TF_VAR_drive_security_server_ca_certificate='<drive_security_server_ca_cert
   * `cco_user`: If Configuring Firmware Policies, the CCO User for Firmware Downloads.
   * `cco_password`: If Configuring Firmware Policies, the CCO Password for Firmware Downloads.
 
-#### Linux
+#### Linux - with tfenv
 
 ```bash
 export cco_user='<cco_user>'
