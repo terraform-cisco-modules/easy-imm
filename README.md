@@ -24,9 +24,9 @@
 
 ## Updates
 
-* 2024-07-23: Recommended releases are 4.2.11-17560 or 4.2.11-16711.  See Notes for modules above.  Each has a caveat at this time.
+* 2024-07-23: 2024-07-23: Recommended releases are 4.2.11-17560 or 4.2.11-16711.  See Notes for modules above.  Each has a caveat at this time.
 * 2024-07-18: Provider 1.0.50 Breaks Derive Profiles for Chassis/Domain/Server Templates.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.2.11-16711 is an alternative but doesn't support new features listed in table above.
-* 2024-07-16: Terraform Provider 1.0.48 and 1.0.49 depricated due to breaking BIOS changes.  Do not use those provider versions
+* 2024-07-16: Terraform Provider 1.0.48 and 1.0.49 depricated due to breaking BIOS changes.  Do not use those provider versions.
 
 ## Examples for Using the Easy IMM Terraform Modules
 
@@ -35,13 +35,13 @@ Examples are shown in the following directories:
   * `policies`
   * `pools`
   * `profiles`
-  * `templates`
   * `recommended_firmware` - This is used to get the latest recommended firmware releases from Intersight
+  * `templates`
   * `Wakanda` - To Show profiles using pools/policies/templates as Data Sources (Mostly)
 
-`policies/pools/profiles/templates` - Is the `common/default/Asgard` organizations in our lab environment.
+`policies/pools/profiles/templates` Folders are the `common/default/Asgard` organizations in our lab environment.
 
-`Wakanda` - Is the Wakanda organization in our lab environment.
+`Wakanda` Folder is the Wakanda organization in our lab environment.
 
 ### IMPORTANT NOTES
 
