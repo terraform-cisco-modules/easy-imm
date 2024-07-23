@@ -4,7 +4,7 @@
 
 # Easy IMM
 
-## Recommended Module Version are 4.2.11-17560 and 4.2.11-16711
+## Recommended Module Versions are 4.2.11-17560 and 4.2.11-16711
 
 ## Module(s) Release 4.2.11-17560 Compatibility
 
