@@ -10,15 +10,18 @@ content: |-
 
   ## Module Version Compatibility
 
-  | **Module Version** | **API Version** | **Provider Version**  | **Appliance Version** | **Notes**
+  | **Module Version** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
   | :----------------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-  | 4.2.11-17560       | 1.0.11-17560    | 1.0.50                | Not Supported         |  Adds Chassis/Domain/vNIC/vHBA Templates.  Derive Profiles is broken |
-  | 4.2.11-16711       | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |                              |
+  |                    |                 |                       |                       |  pools - Adds IP Pool Block Level IP Configuration. |
+  | 4.2.11-17560       | 1.0.11-17560    | 1.0.50                | Not Supported         |  policies - adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
+  |                    |                 |                       |                       |  profiles - Adds Chassis/Domain Templates.   |
+  |                    |                 |                       |                       |  Note: Derive Profiles is broken |
+  | 4.2.11-16711       | 1.0.11-16711    | 1.0.47                | 1.1.0-0               |  Doesn't support New Templates |
 
   ## Updates
 
   * 2024-07-23: Recommended releases are 4.2.11-17560 or 4.2.11-16711.  See Notes for 4.2.11-17560 in the Notes above.  Each has a caveat at this time.
-  * 2024-07-18: Provider 1.0.50 Breaks Derive Profiles from Chassis/Domain/Server Templates is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.1.12, works but newer releases are broken.
+  * 2024-07-18: Provider 1.0.50 Breaks Derive Profiles from Chassis/Domain/Server Templates is broken.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.2.11-16711 is an alternative but doesn't support new template features, works but newer releases are broken.
   * 2024-07-16: Terraform Provider 1.0.48 and 1.0.49 depricated due to breaking BIOS changes.  Do not use those provider versions
 
   ## Examples for Using the Easy IMM Terraform Modules
