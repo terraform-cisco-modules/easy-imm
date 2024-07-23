@@ -14,7 +14,7 @@
 * [Cloud Posse `tfenv`](#cloud-posse-tfenv)
 * [Recommended Firmware](#recommended-firmware)
 * [Environment Variables/Sensitive Variables](#environment-variables)
-* [Execute Terraform Plan/Apply](#execute-the-terraform-plan)
+* [Execute Terraform Apply/Plan](#execute-the-terraform-applyplan)
 
 ## Recommended Module Versions
 
@@ -274,7 +274,7 @@ $env:TF_VAR_cco_password='<cco_password>'
 
 ### [Back to Top](#table-of-content)
 
-## Execute the Terraform Plan
+## Execute the Terraform Apply/Plan
 
 ### Terraform Cloud
 
