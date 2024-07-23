@@ -17,7 +17,7 @@
 * [Execute Terraform Apply/Plan](#execute-the-terraform-applyplan)
 * [Terraform Inputs](#inputs)
 * [Terraform Outputs](#outputs)
-* [Sub Module - Terraform Registry](#sub-module---terraform-registry)
+* [Sub Modules - Terraform Registry](#sub-modules---terraform-registry)
 
 ## Recommended Module Versions
 
@@ -393,7 +393,7 @@ terraform.exe apply "main.plan"
 
 ### [Back to Top](#table-of-content)
 
-## Sub Module - Terraform Registry
+## Sub Modules - Terraform Registry
 
 If you want to see documentation on Variables for Submodules use the links below:
 
