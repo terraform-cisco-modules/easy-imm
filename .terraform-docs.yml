@@ -321,8 +321,7 @@ content: |-
 
   {{ .Modules }}
   
-  ## NOTE:
-  **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
+  **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 
   ### [Back to Top](#easy-imm)
 
