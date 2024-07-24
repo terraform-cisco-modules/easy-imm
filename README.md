@@ -41,7 +41,7 @@
 | policies   | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17560  |
 | profiles   | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
 
@@ -49,7 +49,7 @@
 * 2024-07-18: Provider 1.0.50 Breaks Derive Profiles for Chassis/Domain/Server Templates.  Waiting for a fix for the provider.  [*BUG #276*](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/276).  Version 4.2.11-16711 is an alternative but doesn't support new features listed in table above.
 * 2024-07-16: Terraform Provider 1.0.48 and 1.0.49 depricated due to breaking BIOS changes.  Do not use those provider versions.
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Examples for Using the Easy IMM Terraform Modules
 
@@ -66,7 +66,7 @@ Examples are shown in the following directories:
 
 `Wakanda` Folder is the Wakanda organization in our lab environment.
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ### IMPORTANT NOTES
 
@@ -99,9 +99,9 @@ Soon the Schema for these YAML Files have been registered with [*SchemaStore*](h
 
 #### Note: Modules can be added or removed dependent on the use case.  The primary example in this repository is consuming/showing a full environment deployment.
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
-## [Cloud Posse `tfenv`](https://github.com/cloudposse/tfenv)
+## [<ins>Cloud Posse `tfenv`<ins>](https://github.com/cloudposse/tfenv)
 
 Command line utility to transform environment variables for use with Terraform. (e.g. HOSTNAME → TF_VAR_hostname)
 
@@ -140,7 +140,7 @@ alias tfu='terraform init -upgrade'
 alias tfv='terraform validate'
 ```
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Recommended Firmware
 
@@ -152,7 +152,7 @@ If you want to create server profiles from templates use the flag `create_from_t
 
 Do not create from template if you want to assign identity reservations to a server profile.  Instead set the `attach_template` flag in the server profile.  This will also attach the template to the profile but will reserve the identities to the profile prior to template attachement.
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Environment Variables
 
@@ -279,7 +279,7 @@ $env:TF_VAR_cco_user='<cco_user>'
 $env:TF_VAR_cco_password='<cco_password>'
 ```
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Execute the Terraform Apply/Plan
 
@@ -316,7 +316,7 @@ terraform.exe apply "main.plan"
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Providers
 
@@ -325,7 +325,7 @@ terraform.exe apply "main.plan"
 | <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.50 |
 | <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.6 |
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Modules
 
@@ -337,7 +337,7 @@ terraform.exe apply "main.plan"
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Inputs
 
@@ -394,7 +394,7 @@ terraform.exe apply "main.plan"
 | <a name="input_vmedia_password_4"></a> [vmedia\_password\_4](#input\_vmedia\_password\_4) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
 | <a name="input_vmedia_password_5"></a> [vmedia\_password\_5](#input\_vmedia\_password\_5) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Outputs
 
@@ -405,7 +405,7 @@ terraform.exe apply "main.plan"
 | <a name="output_pools"></a> [pools](#output\_pools) | The Name of Each Pool Created with it's respective Moid. |
 | <a name="output_profiles"></a> [profiles](#output\_profiles) | The Name of Each Profile Created with it's respective Moid. |
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Sub Modules - Terraform Registry
 
@@ -417,5 +417,5 @@ If you want to see documentation on Variables for Submodules use the links below
 
 #### * [<ins>Profiles<ins>](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
 
-### [Back to Top](#easy-imm)
+### [<ins>Back to Top<ins>](#easy-imm)
 <!-- END_TF_DOCS -->
