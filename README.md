@@ -411,11 +411,11 @@ terraform.exe apply "main.plan"
 
 If you want to see documentation on Variables for Submodules use the links below:
 
-#### * [<u>Policies<u>](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
+#### * [<ins>Policies<ins>](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
 
-#### * [<u>Pools<u>](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
+#### * [<ins>Pools<ins>](https://registry.terraform.io/modules/terraform-cisco-modules/pools/intersight/latest)
 
-#### * [<u>Profiles<u>](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
+#### * [<ins>Profiles<ins>](https://registry.terraform.io/modules/terraform-cisco-modules/profiles/intersight/latest)
 
 ### [Back to Top](#easy-imm)
 <!-- END_TF_DOCS -->
