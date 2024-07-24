@@ -13,8 +13,12 @@
 * [YAML Schema Notes](#yaml-schema-notes-for-auto-completion-help-and-error-validation)
 * [Cloud Posse `tfenv`](#cloud-posse-tfenv)
 * [Recommended Firmware](#recommended-firmware)
-* [Environment Variables/Sensitive Variables](#environment-variables)
+* [Environment Variables](#environment-variables)
+* [Sensitive Variables for the Policies Module](#sensitive-variables-for-the-policies-module)
 * [Execute Terraform Apply/Plan](#execute-the-terraform-applyplan)
+* [Terraform Requirements](#requirements)
+* [Terraform Providers](#providers)
+* [Terraform Modules](#modules)
 * [Terraform Inputs](#inputs)
 * [Terraform Outputs](#outputs)
 * [Sub Modules - Terraform Registry](#sub-modules---terraform-registry)
@@ -176,9 +180,17 @@ In example, if you needed to add 100 iterations of the `certificate_management` 
 - Add variable `intersight_api_key_id` with the value of <your-api-key>
 - Add variable `intersight_secret_key` with the value of <your-secret-file-content>
 
-#### Add Other Variables as discussed below based on use cases
+#### Add Other Variables as discussed below based on use cases.
 
-## IMPORTANT: 
+## Sensitive Variables for the Policies Module:
+
+Take note of the `locals.tf` that currently has all the sensitive variables mapped.
+
+This is the default sensitive variable mappings.  You can add or remove to these according to the needs of your environment.
+
+The important point is that if you need more than is added by default you can expand the locals.tf and variables.tf to accomodate your environment.
+
+### IMPORTANT: 
 
 ALL EXAMPLES BELOW ASSUME USING `tfenv` in LINUX
 
@@ -196,15 +208,7 @@ $env:TF_VAR_intersight_api_key_id="<your-api-key>"
 $env:TF_VAR_intersight_secret_key="<secret-key-file-location>"
 ```
 
-## Sensitive Variables for the Policies Module:
-
-Take note of the `locals.tf` that currently has all the sensitive variables mapped.
-
-This is the default sensitive variable mappings.  You can add or remove to these according to the needs of your environment.
-
-The important point is that if you need more than is added by default you can expand the locals.tf and variables.tf to accomodate your environment.
-
-## To Assign any of these values for consumption you can define them as discussed below.
+#### To Assign any of these values for consumption you can define them as discussed below.
 
 ### Certificate Management
 
@@ -311,12 +315,18 @@ terraform.exe apply "main.plan"
 | <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.50 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
+
+### [Back to Top](#easy-imm)
+
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.50 |
 | <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.6 |
+
+### [Back to Top](#easy-imm)
+
 ## Modules
 
 | Name | Source | Version |
@@ -327,6 +337,8 @@ terraform.exe apply "main.plan"
 
 ## NOTE:
 **When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
+
+### [Back to Top](#easy-imm)
 
 ## Inputs
 
