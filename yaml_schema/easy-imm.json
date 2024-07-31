@@ -15710,7 +15710,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - Completion Queue resource settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "completion",
-            "intersight_uri": "vnic/CompletionQueueSettings",
+            "intersight_api": "CompletionQueueSettings",
             "ObjectType": "vnic.CompletionQueueSettings",
             "properties": {
                 "queue_count": {
@@ -15784,7 +15784,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Default is `false`.  Status of Accelerated Receive Flow Steering on the virtual ethernet interface.",
-                    "intersight_api": "$ref:vnic.ArfsSettings:Enabled",
+                    "intersight_api": "$ref:ArfsSettings:vnic.ArfsSettings:Enabled",
                     "title": "enable_accelerated_receive_flow_steering"
                 },
                 "enable_advanced_filter": {
@@ -15812,21 +15812,21 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Default is `false`.  Network Virtualization using Generic Routing Encapsulation Settings.",
-                    "intersight_api": "NvgreSettings",
+                    "intersight_api": "$ref:NvgreSettings:vnic.NvgreSettings:Enabled",
                     "title": "enable_nvgre_offload"
                 },
                 "enable_precision_time_protocol": {
                     "type": "boolean",
                     "default": false,
                     "description": "Default is `false`.  Status of Precision Time Protocol (PTP) on the virtual ethernet interface. PTP can be enabled only on one vNIC on an adapter.",
-                    "intersight_api": "$ref:vnic.PtpSettings:Enabled",
+                    "intersight_api": "$ref:PtpSettings:vnic.PtpSettings:Enabled",
                     "title": "enable_precision_time_protocol"
                 },
                 "enable_vxlan_offload": {
                     "type": "boolean",
                     "default": false,
                     "description": "Default is `false`.  Status of the Virtual Extensible LAN Protocol on the virtual ethernet interface.",
-                    "intersight_api": "$ref:vnic.VxlanSettings:Enabled",
+                    "intersight_api": "$ref:VxlanSettings:vnic.VxlanSettings:Enabled",
                     "title": "enable_vxlan_offload"
                 },
                 "interrupt_settings": {
@@ -16190,7 +16190,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - Interupt Settings.  Otpions are:\n  * coalescing_type\n  * interrupts\n  * mode\n  * timer",
             "easyimm": "interrupt_settings",
-            "intersight_uri": "vnic/EthInterruptSettings",
+            "intersight_api": "InterruptSettings",
             "ObjectType": "vnic.EthInterruptSettings",
             "properties": {
                 "coalescing_type": {
@@ -16386,7 +16386,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - Receive Queue Settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "receive",
-            "intersight_uri": "vnic/EthRxQueueSettings",
+            "intersight_api": "RxQueueSettings",
             "ObjectType": "vnic.EthRxQueueSettings",
             "properties": {
                 "queue_count": {
@@ -16415,7 +16415,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - Transmit Queue Settings.  Options are:\n  * queue_count\n  * ring_size",
             "easyimm": "transmit",
-            "intersight_uri": "vnic/EthTxQueueSettings",
+            "intersight_api": "TxQueueSettings",
             "ObjectType": "vnic.EthTxQueueSettings",
             "properties": {
                 "queue_count": {
@@ -17701,7 +17701,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - RoCE Settings.  Options are:\n  * class_of_service\n  * enable_rdma_over_converged_ethernet\n  * memory_regions\n  * queue_pairs\n  * resource_groups\n  * version",
             "easyimm": "roce_settings",
-            "intersight_uri": "vnic/RoceSettings",
+            "intersight_api": "RoceSettings",
             "ObjectType": "vnic.RoceSettings",
             "properties": {
                 "class_of_service": {
@@ -17764,7 +17764,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - Receive Side Scaling Settings.  Options are:\n  * enable_ipv4_hash\n  * enable_ipv6_extensions_hash\n  * enable_ipv6_hash\n  * enable_receive_side_scaling\n  * enable_tcp_and_ipv4_hash\n  * enable_tcp_and_ipv6_extensions_hash\n  * enable_tcp_and_ipv6_hash\n  * enable_udp_and_ipv4_hash\n  * enable_udp_and_ipv6_hash",
             "easyimm": "receive_side_scaling",
-            "intersight_uri": "vnic/RssHashSettings",
+            "intersight_api": "RssHashSettings",
             "ObjectType": "vnic.RssHashSettings",
             "properties": {
                 "enable_ipv4_hash": {
@@ -18014,7 +18014,7 @@
             "additionalProperties": false,
             "description": "Ethernet Adapter Policy - TCP Offload Settings.  Options are:\n  * enable_large_receive_offload\n  * enable_large_send_offload\n  * enable_rx_checksum_offload\n  * enable_tx_checksum_offload",
             "easyimm": "tcp_offload",
-            "intersight_uri": "vnic/TcpOffloadSettings",
+            "intersight_api": "TcpOffloadSettings",
             "ObjectType": "vnic.TcpOffloadSettings",
             "properties": {
                 "enable_large_receive_offload": {

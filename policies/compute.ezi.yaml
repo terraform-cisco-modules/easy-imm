@@ -44,19 +44,21 @@ common:
             device_type: pxe_boot
             interface_name: mgmt-a
             slot: MLOM
+          - device_name: UEFI
+            device_type: uefi_shell
         boot_mode: Uefi
         enable_secure_boot: true
         name: M2-pxe
     firmware:
       - description: fw-domain-servers Firmware Policy
         model_bundle_version:
-          - firmware_version: 5.2(0.230092)
+          - firmware_version: 5.2(1.240010)
             server_models:
               - UCSX-210C-M6
-          - firmware_version: 5.2(0.230100)
+          - firmware_version: 5.2(0.230127)
             server_models:
               - UCSB-B200-M5
-          - firmware_version: 4.3(2.230270)
+          - firmware_version: 4.3(2.240009)
             server_models:
               - UCSC-C240-M5
         name: fw-domain-servers
