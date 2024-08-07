@@ -38,7 +38,7 @@
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :--------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
 | pools      | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  With IP Pools use Configuration outside IP Block. |
-| policies   | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17560  |
+| policies   | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
 | profiles   | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
