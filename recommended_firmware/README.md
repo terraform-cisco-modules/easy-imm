@@ -7,7 +7,7 @@ In the `recommended_firmware` folder is a simple terraform setup that you can us
 
 ## Updates
 
-* 2024-07-23: Output Below ran on July 23, 2024.
+* 2024-07-23: Output Below ran on August 22, 2024.
 
 Following is an example output:
 
