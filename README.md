@@ -311,7 +311,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.51 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.52 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 
@@ -321,7 +321,6 @@ terraform.exe apply "main.plan"
 
 | Name | Version |
 |------|---------|
-| <a name="provider_intersight"></a> [intersight](#provider\_intersight) | 1.0.51 |
 | <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.6 |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
@@ -330,6 +329,7 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | /home/tyscott/terraform-cisco-modules/terraform-intersight-organizations | n/a |
 | <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17769 |
 | <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-17769 |
 | <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-17769 |
@@ -399,10 +399,10 @@ terraform.exe apply "main.plan"
 
 | Name | Description |
 |------|-------------|
-| <a name="output_orgs"></a> [orgs](#output\_orgs) | Organization Moids |
-| <a name="output_policies"></a> [policies](#output\_policies) | The Name of Each Policy Created with it's respective Moid. |
-| <a name="output_pools"></a> [pools](#output\_pools) | The Name of Each Pool Created with it's respective Moid. |
-| <a name="output_profiles"></a> [profiles](#output\_profiles) | The Name of Each Profile Created with it's respective Moid. |
+| <a name="output_organizations"></a> [organizations](#output\_organizations) | Outputs from the organizations module. |
+| <a name="output_policies"></a> [policies](#output\_policies) | Outputs from the policies module. |
+| <a name="output_pools"></a> [pools](#output\_pools) | Outputs from the pools module. |
+| <a name="output_profiles"></a> [profiles](#output\_profiles) | Outputs from the profiles module. |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 

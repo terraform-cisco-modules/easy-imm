@@ -2,8 +2,6 @@
 #==================================
 #   Pools -> Pools - Variables
 #==================================
-testing123:
-  create_organization: true
 Asgard:
   create_organization: true
   resource_groups:
@@ -27,5 +25,5 @@ Wakanda:
   resource_groups:
     - name: Wakanda
       resources:
-        fabric_interconnects:
-          - FDO23360XWU
+        targets:
+          - r143e-2
