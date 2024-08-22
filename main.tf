@@ -2,14 +2,28 @@
 #
 # Data Model Merge Process - Merge YAML Files into HCL Format
 #_________________________________________________________________________________________
-data "intersight_organization_organization" "orgs" {}
 data "utils_yaml_merge" "model" {
   input = concat([
     for file in fileset(path.module, "*.ezi.yaml") : file(file)], [
+    for file in fileset(path.module, "o*/*.ezi.yaml") : file(file)], [
     for file in fileset(path.module, "p*/*.ezi.yaml") : file(file)], [
     for file in fileset(path.module, "t*/*.ezi.yaml") : file(file)]
   )
   merge_list_items = false
+}
+
+#_________________________________________________________________________________________
+#
+# Intersight:Organizations
+# GUI Location: Settings > Organizations/Resource Groups
+#_________________________________________________________________________________________
+module "organizations" {
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-organizations"
+  # source  = "terraform-cisco-modules/pools/intersight"
+  # version = "4.2.11-17769"
+  for_each        = { for i in ["map"] : i => i if length([setsubtract(keys(local.model), local.non_orgs)]) > 0 }
+  global_settings = local.global_settings
+  model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
 }
 
 #_________________________________________________________________________________________
@@ -31,7 +45,7 @@ module "pools" {
   }
   global_settings = local.global_settings
   model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
-  orgs            = local.orgs
+  orgs            = module.organizations["map"].organizations
 }
 
 #_________________________________________________________________________________________
@@ -51,7 +65,7 @@ module "policies" {
   }
   global_settings    = local.global_settings
   model              = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
-  orgs               = local.orgs
+  orgs               = module.organizations["map"].organizations
   policies_sensitive = local.policies_sensitive
   pools              = module.pools
 }
@@ -73,7 +87,7 @@ module "profiles" {
   }
   global_settings = local.global_settings
   model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }
-  orgs            = local.orgs
+  orgs            = module.organizations["map"].organizations
   policies        = module.policies
   pools           = module.pools
 }

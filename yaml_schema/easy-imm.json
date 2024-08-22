@@ -11528,12 +11528,12 @@
             "additionalProperties": false,
             "description": "Name of the Intersight Organization.\nAttributes are:\n  * policies\n  * pools\n  * profiles\n  * templates",
             "properties": {
-                "create_resource_group": {
+                "create_organization": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Default is `true`.  Flag to tell the script to Create the resource group with the same name as the Organization.",
-                    "intersight_api": "create_resource_group",
-                    "title": "create_resource_group"
+                    "default": false,
+                    "description": "Default is `false`.  Flag to tell the script to Create the organization with the same name as the Organization.",
+                    "intersight_api": "none",
+                    "title": "create_organization"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
@@ -11571,13 +11571,6 @@
                         "$ref": "#/definitions/resource.Group"
                     },
                     "title": "resource_groups"
-                },
-                "share_resources_with_other_organizations": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Flag to tell the script to Create the resource group with the same name as the Organization.",
-                    "intersight_api": "share_resources_with_other_organizations",
-                    "title": "share_resources_with_other_organizations"
                 },
                 "templates": {
                     "$ref": "#/definitions/templates"
@@ -13135,28 +13128,83 @@
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
-                "organizations_to_share_with": {
-                    "type": "array",
-                    "default": false,
-                    "description": "List of Organization(s) to Add to a Shared Organization.",
-                    "intersight_api": "organizations_to_share_with",
-                    "items": {
-                        "type": "string",
-                        "default": "default",
-                        "description": "Default is 'default'.  Organization to Add to a Shared Organization.",
-                        "intersight_api": "organization",
-                        "minLength": 1,
-                        "maxLength": 64,
-                        "pattern": "^[a-zA-Z0-9_\\.:-]{1,64}$",
-                        "title": "organization"
-                    },
-                    "title": "organizations_to_share_with"
+                "resources": {
+                    "$ref": "#/definitions/resource.Selector"
                 }
             },
             "required": [
                 "name"
             ],
             "title": "Resource Group"
+        },
+        "resource.Selector": {
+            "type": "object",
+            "description": "List of devices to assign to the resource group.  Options are:\n\n  * sub_targets\n  * targets",
+            "additionalProperties": false,
+            "properties": {
+                "sub_targets": {
+                    "$ref": "#/definitions/resource.Selector.SubTarget"
+                },
+                "targets": {
+                    "type": "array",
+                    "description": "Enter the Asset Target Name as they show under System -> Targets.",
+                    "intersight_api": "",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Asset.Target Name.",
+                        "intersight_api": "",
+                        "minLength": 3,
+                        "maxLength": 255,
+                        "pattern": "^\\S{3,255}$",
+                        "title": "Asset Name"
+                    },
+                    "title": "targets"
+                }
+            },
+            "required": [],
+            "title": "Resources"
+        },
+        "resource.Selector.SubTarget": {
+            "type": "object",
+            "description": "These are Blades or Rackmounts that are attached to a Domain, that you want to assign to a different organization.  This is typically used when you want RBAC control for a specific server within a domain.  Options are:\n\n * blades\n * rackmounts",
+            "additionalProperties": false,
+            "properties": {
+                "blades": {
+                    "type": "array",
+                    "description": "A List of Domain Attached Blade Serial Numbers to add to the Resource Group.",
+                    "intersight_api": "",
+                    "items": {
+                        "type": "string",
+                        "default": "FOX25415555",
+                        "description": "Serial Number.",
+                        "intersight_api": "",
+                        "minLength": 11,
+                        "maxLength": 11,
+                        "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
+                        "title": "serial_number"
+                    },
+                    "title": "sub_targets"
+                },
+                "rackmounts": {
+                    "type": "array",
+                    "description": "A List of Domain attached rackmount Serial Numbers to add to the Resource Group.",
+                    "intersight_api": "",
+                    "items": {
+                        "type": "string",
+                        "default": "FOX25415555",
+                        "description": "Serial Number.",
+                        "intersight_api": "",
+                        "minLength": 11,
+                        "maxLength": 11,
+                        "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
+                        "title": "serial_number"
+                    },
+                    "title": "rackmounts"
+                }
+            },
+            "required": [],
+            "title": "Resource - Sub-Targets"
         },
         "resourcepool.Pool": {
             "type": "object",

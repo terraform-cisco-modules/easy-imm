@@ -1,0 +1,31 @@
+---
+#==================================
+#   Pools -> Pools - Variables
+#==================================
+testing123:
+  create_organization: true
+Asgard:
+  create_organization: true
+  resource_groups:
+    - name: Asgard
+      resources:
+        targets:
+          - asgard-apic01
+          - asgard-vcenter.rich.ciscolabs.com
+          - LOKI01-CIMC
+          - LOKI02-CIMC
+          - LOKI03-CIMC
+          - LOKI04-CIMC
+          - r143e-1
+common:
+  create_organization: true
+  organizations_to_share_with:
+    - Asgard
+    - Wakanda
+Wakanda:
+  create_organization: true
+  resource_groups:
+    - name: Wakanda
+      resources:
+        fabric_interconnects:
+          - FDO23360XWU

@@ -2,10 +2,9 @@
 #
 # Module Outputs
 #__________________________________________________________
-
-output "orgs" {
-  description = "Organization Moids"
-  value       = local.orgs
+output "organizations" {
+  description = "The Name of Each Organization/Resource Groups Created with it's respective Moid."
+  value       = module.organizations
 }
 
 output "policies" {

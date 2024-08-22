@@ -14,7 +14,6 @@ locals {
   intersight_fqdn = lookup(local.model.global_settings, "intersight_fqdn", "intersight.com")
   model           = yamldecode(data.utils_yaml_merge.model.output)
   non_orgs        = ["global_settings", "intersight"]
-  orgs            = { for k, v in data.intersight_organization_organization.orgs.results : v.name => v.moid }
 
   #__________________________________________________________________
   #
