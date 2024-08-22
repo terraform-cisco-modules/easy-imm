@@ -55,6 +55,7 @@
 
 Examples are shown in the following directories:
 
+  * `organizations`
   * `policies`
   * `pools`
   * `profiles`
@@ -62,9 +63,9 @@ Examples are shown in the following directories:
   * `templates`
   * `Wakanda` - To Show profiles using pools/policies/templates as Data Sources (Mostly)
 
-`policies/pools/profiles/templates` Folders are the `common/default/Asgard` organizations in our lab environment.
+`organizations/policies/pools/profiles/templates` Folders are the `common/default/Asgard` organizations in our lab environment.
 
-`Wakanda` Folder is the Wakanda organization in our lab environment.
+`Wakanda` Folder is the Wakanda organization in our lab environment.  It is not using the organizations module.
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 
