@@ -25,15 +25,14 @@ provider "intersight" {
 }
 
 locals {
-  model           = yamldecode(data.utils_yaml_merge.model.output)
-  intersight_fqdn = local.model.global_settings.intersight_fqdn
+  settings        = yamldecode(file("../global_settings.ezi.yaml"))
+  intersight_fqdn = local.settings.global_settings.intersight_fqdn
   recommended_firmware = {
     for i in ["FIAttached", "Standalone"] : i => {
       for fw in distinct(
         [for e in data.intersight_firmware_distributable.recommended[i].results : e.nr_version]
         ) : fw => distinct(sort(flatten([
           for r in data.intersight_firmware_distributable.recommended[i].results : [
-            # for s in r.supported_models : s
             for s in r.supported_models : trimsuffix(trimsuffix(trimsuffix(
             trimsuffix(trimsuffix(trimsuffix(trimsuffix(trimsuffix(s, "L"), "D"), "X"), "N"), "S"), "M"), "SNEB"), "S2")
           ] if r.nr_version == fw
@@ -46,14 +45,6 @@ locals {
 #
 # Data Model Merge Process - Merge YAML Files into HCL Format
 #_________________________________________________________________________________________
-data "utils_yaml_merge" "model" {
-  input = concat([
-    for file in fileset(path.module, "../*.ezi.yaml") : file(file)], [
-    for file in fileset(path.module, "../*/*.ezi.yaml") : file(file)]
-  )
-  merge_list_items = false
-}
-
 data "intersight_firmware_distributable" "recommended" {
   for_each          = { for v in ["FIAttached", "Standalone"] : v => v }
   recommended_build = "Y"
