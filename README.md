@@ -28,10 +28,11 @@
 ## Module(s) Release 4.2.11-17769 Compatibility
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
-| :--------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| pools      | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies   | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
-| profiles   | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  Adds Chassis/Domain Templates. |
+| :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
+| organizations | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
+| profiles      | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  Adds Chassis/Domain Templates. |
 
 ## Module(s) Release 4.2.11-16711 Compatibility
 
@@ -409,6 +410,8 @@ terraform.exe apply "main.plan"
 ## Sub Modules - Terraform Registry
 
 If you want to see documentation on Variables for Submodules use the links below:
+
+#### * [<ins>Organizations<ins>](https://registry.terraform.io/modules/terraform-cisco-modules/organizations/intersight/latest)
 
 #### * [<ins>Policies<ins>](https://registry.terraform.io/modules/terraform-cisco-modules/policies/intersight/latest)
 
