@@ -52,7 +52,7 @@ common:
     firmware:
       - description: fw-domain-servers Firmware Policy
         model_bundle_version:
-          - firmware_version: 5.2(1.240010)
+          - firmware_version: 5.2(2.240053)
             server_models:
               - UCSX-210C-M6
           - firmware_version: 5.2(0.230127)
