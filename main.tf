@@ -18,9 +18,9 @@ data "utils_yaml_merge" "model" {
 # GUI Location: Settings > Organizations/Resource Groups
 #_________________________________________________________________________________________
 module "organizations" {
-  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-organizations"
-  # source  = "terraform-cisco-modules/pools/intersight"
-  # version = "4.2.11-17769"
+  # source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-organizations"
+  source          = "terraform-cisco-modules/organizations/intersight"
+  version         = "4.2.11-17769"
   for_each        = { for i in ["map"] : i => i if length([setsubtract(keys(local.model), local.non_orgs)]) > 0 }
   global_settings = local.global_settings
   model           = { for k, v in local.model : k => v if length(regexall("^global_settings|intersight$", k)) == 0 }

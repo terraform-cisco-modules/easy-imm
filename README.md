@@ -331,7 +331,7 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | /home/tyscott/terraform-cisco-modules/terraform-intersight-organizations | n/a |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-17769 |
 | <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17769 |
 | <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-17769 |
 | <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-17769 |
