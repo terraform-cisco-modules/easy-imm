@@ -223,6 +223,18 @@
                     },
                     "title": "tags - Tags"
                 },
+                "acs_control_gpu1state": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting ACS Control GPU 1 configuration.\n  * platform-default - Default value used by the platform for the BIOS setting.\n  * enabled - Enables the BIOS setting.\n  * disabled - Disables the BIOS setting.",
+                    "intersight_api": "AcsControlGpu1state",
+                    "enum": [
+                        "platform-default",
+                        "enabled",
+                        "disabled"
+                    ],
+                    "title": "acs_control_gpu1state"
+                },
                 "acs_control_gpu2state": {
                     "type": "string",
                     "default": "platform-default",
@@ -9573,7 +9585,7 @@
         "firmware.AdvancedMode": {
             "type": "object",
             "additionalProperties": false,
-            "description": "The components to be excluded in the server upgrade via policy.\n\nOptional Attributes:\n  * exclude_drives: false\n  * exclude_drives_except_boot_drives: false\n  * exclude_storage_controllers: false\n  * exclude_storage_sas_expander: false\n  * exclude_storage_u2: false",
+            "description": "The components to be excluded in the server upgrade via policy.\n\nOptional Attributes:\n  * exclude_drives: false\n  * exclude_drives_except_boot_drives: false\n  * exclude_storage_controllers: false\n  * exclude_storage_sasexpander: false\n  * exclude_storage_u2: false",
             "intersight_uri": "not_applicable",
             "ObjectType": "ExcludeComponentList",
             "properties": {
@@ -9598,12 +9610,12 @@
                     "intersight_api": "not_applicable",
                     "title": "exclude_storage_controllers"
                 },
-                "exclude_storage_sas_expander": {
+                "exclude_storage_sasexpander": {
                     "type": "boolean",
                     "default": true,
                     "description": "Component to be excluded is storage sas-expander.",
                     "intersight_api": "not_applicable",
-                    "title": "exclude_storage_sas_expander"
+                    "title": "exclude_storage_sasexpander"
                 },
                 "exclude_storage_u2": {
                     "type": "boolean",
@@ -11685,7 +11697,7 @@
                 },
                 "ethernet_qos": {
                     "type": "array",
-                    "description": "An Ethernet Quality of Service (QoS) policy assigns a system class to the outgoing traffic for a vNIC. This system class determines the quality of service for the outgoing traffic. For certain adapters, you can also specify additional controls like burst and rate on the outgoing traffic.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * burst\n  * cos\n  * description\n  * enable_trust_host_cos\n  * mtu\n  * priority\n  * rate_limit\n  * tags",
+                    "description": "An Ethernet Quality of Service (QoS) policy assigns a system class to the outgoing traffic for a vNIC. This system class determines the quality of service for the outgoing traffic. For certain adapters, you can also specify additional controls like burst and rate on the outgoing traffic.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * burst\n  * class_of_service\n  * description\n  * enable_trust_host_cos\n  * mtu\n  * priority\n  * rate_limit\n  * tags",
                     "intersight_uri": "vnic/EthQosPolicies",
                     "items": {
                         "$ref": "#/definitions/vnic.EthQosPolicy"
@@ -11715,7 +11727,7 @@
                 },
                 "fibre_channel_network": {
                     "type": "array",
-                    "description": "A Fibre Channel Network policy governs the Virtual Storage Area Network (VSAN) configuration for the virtual interfaces.\n\nRequired Attributes:\n  * name\n  * vsan_id\n\nOptional Attributes:\n  * default_vlan_id\n  * description\n  * tags",
+                    "description": "A Fibre Channel Network policy governs the Virtual Storage Area Network (VSAN) configuration for the virtual interfaces.\n\nRequired Attributes:\n  * name\n  * vsan_id\n\nOptional Attributes:\n  * default_vlan\n  * description\n  * tags",
                     "intersight_uri": "fabric/FcNetworkPolicies",
                     "items": {
                         "$ref": "#/definitions/vnic.FcNetworkPolicy"
@@ -11725,7 +11737,7 @@
                 },
                 "fibre_channel_qos": {
                     "type": "array",
-                    "description": "The Fibre Channel QoS policy assigns a system class to the outgoing traffic for a vHBA. This system class determines the quality of service for the outgoing traffic. For certain adapters, you can also specify additional controls like burst and rate on the outgoing traffic.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * burst\n  * cos\n  * description\n  * max_data_field_size\n  * rate_limit\n  * tags",
+                    "description": "The Fibre Channel QoS policy assigns a system class to the outgoing traffic for a vHBA. This system class determines the quality of service for the outgoing traffic. For certain adapters, you can also specify additional controls like burst and rate on the outgoing traffic.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * burst\n  * class_of_service\n  * description\n  * max_data_field_size\n  * rate_limit\n  * tags",
                     "intersight_uri": "vnic/FcQosPolicies",
                     "items": {
                         "$ref": "#/definitions/vnic.FcQosPolicy"
@@ -16360,14 +16372,14 @@
                     "maximum": 1000000,
                     "title": "burst"
                 },
-                "cos": {
+                "class_of_service": {
                     "type": "integer",
-                    "default": 1,
-                    "description": "Default is `1`.  Class of Service to be associated to the traffic on the virtual interface.",
+                    "default": 0,
+                    "description": "Default is `0`.  Class of Service to be associated to the traffic on the virtual interface.",
                     "intersight_api": "Cos",
-                    "minimum": 1,
+                    "minimum": 0,
                     "maximum": 6,
-                    "title": "cos"
+                    "title": "class_of_service"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
@@ -16941,14 +16953,14 @@
             "intersight_uri": "vnic/FcNetworkPolicies",
             "ObjectType": "vnic.FcNetworkPolicy",
             "properties": {
-                "default_vlan_id": {
+                "default_vlan": {
                     "type": "integer",
                     "default": 0,
                     "description": "Default is `0`.  Default VLAN of the virtual interface in Standalone Rack server. Setting the value to 0 is equivalent to None and will not associate any Default VLAN to the traffic on the virtual interface (0-4094).",
                     "intersight_api": "$ref:vnic.VsanSettings:DefaultVlanId",
                     "minimum": 0,
                     "maximum": 4094,
-                    "title": "default_vlan_id"
+                    "title": "default_vlan"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
@@ -16997,14 +17009,14 @@
                     "maximum": 1000000,
                     "title": "burst"
                 },
-                "cos": {
+                "class_of_service": {
                     "type": "integer",
                     "default": 3,
                     "description": "Default is `3`.  Class of Service to be associated to the traffic on the virtual interface.",
                     "intersight_api": "Cos",
                     "minimum": 0,
                     "maximum": 6,
-                    "title": "cos"
+                    "title": "class_of_service"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
