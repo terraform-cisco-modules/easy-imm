@@ -707,6 +707,16 @@
                     ],
                     "title": "cbs_cmn_apbdis"
                 },
+                "cbs_cmn_apbdis_df_pstate_rs": {
+                    "type": "string",
+                    "default": "platform-default",
+                    "description": "Default is `platform-default`.  BIOS Token for setting Fixed SOC P-State SP5 F19h configuration (0 - 2 P State).",
+                    "intersight_api": "CbsCmnApbdisDfPstateRs",
+                    "minLength": 1,
+                    "maxLength": 16,
+                    "pattern": "^([0-2])$|^(platform-default)$",
+                    "title": "cbs_cmn_apbdis_df_pstate_rs"
+                },
                 "cbs_cmn_cpu_avx512": {
                     "type": "string",
                     "default": "platform-default",
@@ -11647,7 +11657,7 @@
                 },
                 "drive_security": {
                     "type": "array",
-                    "description": "In Intersight Managed Mode, the Drive Security Policy allows you to specify the KMIP server details and attach the policy to the server profile.\n\nRequired Attributes:\n  * assigned_sensitive_data\n  * name\n  * primary_kmip_server\n\nOptional Attributes:\n  * description\n  * secondary_kmip_server\n  * tags\n  * username",
+                    "description": "In Intersight Managed Mode, the Drive Security Policy allows you to specify the KMIP server details and attach the policy to the server profile.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * manual_key\n  * remote_key_management\n  * tags",
                     "intersight_uri": "storage/DriveSecurityPolicies",
                     "items": {
                         "$ref": "#/definitions/storage.DriveSecurityPolicy"
@@ -14704,6 +14714,39 @@
             ],
             "title": "ssh - SSH - Intersight Uri: ssh/Policies"
         },
+        "storage.KmipAuthCredentials": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Definition of the list of properties defined in 'storage.KmipAuthCredentials', excluding properties defined in parent classes.\n\nRequired Attributes:\n  * password\n  * username",
+            "intersight_uri": "AuthCredentials",
+            "ObjectType": "storage.KmipAuthCredentials",
+            "properties": {
+                "password": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Password Sensitive Variable Identifier.  i.e. `var.drive_security_authentication_password`.",
+                    "intersight_api": "Password",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "password"
+                },
+                "username": {
+                    "type": "string",
+                    "default": "kmip_user",
+                    "description": "The user name for the KMIP server login.",
+                    "intersight_api": "Username",
+                    "minLength": 1,
+                    "maxLength": 64,
+                    "pattern": "^[a-zA-Z][a-zA-Z0-9_.-]{0,31}$",
+                    "title": "username"
+                }
+            },
+            "required": [
+                "password",
+                "username"
+            ],
+            "title": "enable_authentication - Enable Authentication - storage.KmipAuthCredentials."
+        },
         "storage.AutomaticDriveGroup": {
             "type": "object",
             "additionalProperties": false,
@@ -14814,6 +14857,13 @@
                     ],
                     "title": "raid_level"
                 },
+                "secure_drive_group": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Default is `false`.  Enables/disables the drive encryption on all the drives used in this policy. This flag just enables the drive security and only after remote key setting configured, the actual encryption will be done.",
+                    "intersight_api": "SecureDriveGroup",
+                    "title": "secure_drive_group"
+                },
                 "virtual_drive_policy": {
                     "$ref": "#/definitions/storage.VirtualDrivePolicy"
                 },
@@ -14840,42 +14890,17 @@
             "intersight_uri": "storage/DriveSecurityPolicies",
             "ObjectType": "storage.DriveSecurityPolicy",
             "properties": {
-                "assigned_sensitive_data": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Default is `false`.  Flag to confirm that you have set the file location of the PEM Certificate File.  If false the Drive Security Policy will not run.",
-                    "intersight_api": "not_applicable",
-                    "title": "assigned_sensitive_data"
-                },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
-                "password": {
-                    "type": "integer",
-                    "default": 1,
-                    "description": "Default is `1`.  The Password Sensitive Variable Identifier.  i.e. `var.drive_security_password`.",
-                    "intersight_api": "not_applicable",
-                    "minimum": 1,
-                    "maximum": 64,
-                    "title": "password"
+                "manual_key": {
+                    "$ref": "#/definitions/storage.LocalKeySetting"
                 },
-                "primary_kmip_server": {
-                    "$ref": "#/definitions/storage.KmipServer"
-                },
-                "secondary_kmip_server": {
-                    "$ref": "#/definitions/storage.KmipServer"
-                },
-                "server_public_root_ca_certificate": {
-                    "type": "integer",
-                    "default": 1,
-                    "description": "Default is `1`.  The Password Sensitive Variable Identifier.  i.e. `var.drive_security_server_ca_certificate`.",
-                    "intersight_api": "not_applicable",
-                    "minimum": 1,
-                    "maximum": 64,
-                    "title": "server_public_root_ca_certificate"
+                "remote_key_management": {
+                    "$ref": "#/definitions/storage.RemoteKeySettings"
                 },
                 "tags": {
                     "type": "array",
@@ -14887,32 +14912,27 @@
                 }
             },
             "required": [
-                "assigned_sensitive_data",
-                "name",
-                "primary_kmip_server"
+                "name"
             ],
             "title": "drive_security - Drive Security - Intersight Uri: storage/DriveSecurityPolicies"
         },
         "storage.KmipServer": {
             "type": "object",
             "additionalProperties": false,
-            "description": "Models the KMIP Server configuration used to fetch the encryption key.Required Attributes:\n  * ip_address_hostname\n\nOptional Attributes:\n  * description\n  * port\n  * tags\n  * timeout",
+            "description": "Models the KMIP Server configuration used to fetch the encryption key.Required Attributes:\n  * hostname_ip_address\n\nOptional Attributes:\n  * port\n  * timeout",
             "easyimm": "storage",
-            "intersight_uri": "storage/KmipServers",
+            "intersight_api": "PrimaryServer",
             "ObjectType": "storage.KmipServer",
             "properties": {
-                "description": {
-                    "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
-                },
-                "ip_address_hostname": {
+                "hostname_ip_address": {
                     "type": "string",
-                    "default": "syslog.example.com",
-                    "description": "The IP address of the KMIP server. It could be an IPv4 address, an IPv6 address, or a hostname. Hostnames are valid only when Inband is configured for the CIMC address.",
+                    "default": "kmip.example.com",
+                    "description": "The address of the KMIP server. It can be an IPv4 address, an IPv6 address, or a hostname. Hostnames are valid only when Inband Management is configured for Intersight Managed Mode servers.",
                     "intersight_api": "IpAddress",
                     "minLength": 1,
                     "maxLength": 255,
                     "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\\.?$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
-                    "title": "hostname"
+                    "title": "hostname_ip_address"
                 },
                 "port": {
                     "type": "integer",
@@ -14922,14 +14942,6 @@
                     "minLength": 1024,
                     "maxLength": 65535,
                     "title": "port"
-                },
-                "tags": {
-                    "type": "array",
-                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
-                    "items": {
-                        "$ref": "#/definitions/mo.Tag"
-                    },
-                    "title": "tags - Tags"
                 },
                 "timeout": {
                     "type": "integer",
@@ -14942,9 +14954,40 @@
                 }
             },
             "required": [
-                "name"
+                "hostname_ip_address"
             ],
             "title": "kmip_servers - Primary/Secondary KMIP Servers - Intersight Uri: storage/KmipServers"
+        },
+        "storage.LocalKeySetting": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Definition of the list of properties defined in 'storage.LocalKeySetting', excluding properties defined in parent classes.\n\nRequired Attributes:\n  * new_security_key_passphrase\n\nOptional Attributes:\n  * current_security_key_passphrase",
+            "intersight_api": "ManualKey",
+            "ObjectType": "storage.LocalKeySetting",
+            "properties": {
+                "current_security_key_passphrase": {
+                    "type": "integer",
+                    "default": 0,
+                    "description": "Default is `0`.  Current Security Key Passphrase which is already configured on the server. From the security context, the passphrase should be at least 8 characters long and should include at least one uppercase letter, one lowercase letter, one number, and one special character.  i.e. `var.drive_security_current_security_key_passphrase_1`.",
+                    "intersight_api": "ExistingKey",
+                    "minimum": 0,
+                    "maximum": 64,
+                    "title": "current_security_key_passphrase"
+                },
+                "new_security_key_passphrase": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  New Security Key Passphrase to be configured on the server. From the security context, the passphrase should be at least 8 characters long and should include at least one uppercase letter, one lowercase letter, one number, and one special character.  i.e. `var.drive_security_new_security_key_passphrase_1`.",
+                    "intersight_api": "NewKey",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "new_security_key_passphrase"
+                }
+            },
+            "required": [
+                "new_security_key_passphrase"
+            ],
+            "title": "manual_Key - Manual Key - storage.LocalKeySettings."
         },
         "storage.M2VirtualDriveConfig": {
             "type": "object",
@@ -14956,7 +14999,7 @@
                 "name": {
                     "type": "string",
                     "default": "MStorBootVd",
-                    "description": "The name of the virtual drive. The name can be between 1 and 15 alphanumeric characters. Spaces or any special characters other than - (hyphen), _ (underscore), : (colon), and . (period) are not allowed. This field will be pre-populated with the default or user configured value which can be edited.",
+                    "description": "Default value is `MStorBootVd`.  The name of the virtual drive. The name can be between 1 and 15 alphanumeric characters. Spaces or any special characters other than - (hyphen), _ (underscore), : (colon), and . (period) are not allowed. This field will be pre-populated with the default or user configured value which can be edited.",
                     "intersight_api": "Name",
                     "minLength": 1,
                     "maxLength": 15,
@@ -15016,7 +15059,7 @@
         "storage.R0Drive": {
             "type": "object",
             "additionalProperties": false,
-            "description": "This models a Single Drive RAID Configuration for creation of on RAID0 virtual drive per physical drive and occupying the full disk space on the same.",
+            "description": "This models a Single Drive RAID Configuration for creation of on RAID0 virtual drive per physical drive and occupying the full disk space on the same.\n\nRequired Attributes:\n  * drive_slots\n  * virtual_drive_policy",
             "intersight_uri": "storage/R0Drive",
             "ObjectType": "storage.R0Drive",
             "properties": {
@@ -15039,6 +15082,55 @@
                 "virtual_drive_policy"
             ],
             "title": "single_drive_raid0_configuration - Single Drive Raid0 Configuration."
+        },
+        "storage.RemoteKeySettings": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Models the remote key configuration required for the drive security.\n\nRequired Attributes:\n  * new_security_key_passphrase.\n\nOptional Attributes:\n  * current_security_key_passphrase",
+            "intersight_uri": "RemoteKey",
+            "ObjectType": "storage.RemoteKeySettings",
+            "properties": {
+                "assigned_sensitive_data": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Default is `false`.  Flag to confirm that you have set the file location of the PEM Certificate File.  If false the Drive Security Policy will not run.",
+                    "intersight_api": "not_applicable",
+                    "title": "assigned_sensitive_data"
+                },
+                "current_security_key_passphrase": {
+                    "type": "integer",
+                    "default": 0,
+                    "description": "Default is `0`.  Current Security Key Passphrase which is already configured on the server. From the security context, the passphrase should be at least 8 characters long and should include at least one uppercase letter, one lowercase letter, one number, and one special character.  i.e. `var.drive_security_current_security_key_passphrase_1`.",
+                    "intersight_api": "ExistingKey",
+                    "minimum": 0,
+                    "maximum": 64,
+                    "title": "current_security_key_passphrase"
+                },
+                "enable_authentication": {
+                    "$ref": "#/definitions/storage.KmipAuthCredentials"
+                },
+                "primary_server": {
+                    "$ref": "#/definitions/storage.KmipServer"
+                },
+                "secondary_server": {
+                    "$ref": "#/definitions/storage.KmipServer"
+                },
+                "server_public_root_ca_certificate": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Password Sensitive Variable Identifier.  i.e. `var.drive_security_server_ca_certificate`.",
+                    "intersight_api": "ServerCertificate",
+                    "minimum": 1,
+                    "maximum": 64,
+                    "title": "server_public_root_ca_certificate"
+                }
+            },
+            "required": [
+                "assigned_sensitive_data",
+                "primary_server",
+                "server_public_root_ca_certificate"
+            ],
+            "title": "remote_key_management- Remote Key Management - storage.RemoteKeySettings."
         },
         "storage.SpanDrives": {
             "type": "object",
@@ -15087,7 +15179,7 @@
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
                 },
                 "drive_groups": {
-                    "description": "A reusable RAID drive group configuration that specifies a pool of drives and a set of virtual drives that are to be created using this pool of drives.\n\n  * name\nOptional Attributes are:\n  * automatic_drive_group\n  * manual_drive_group\n  * raid_level\n  * virtual_drives",
+                    "description": "A reusable RAID drive group configuration that specifies a pool of drives and a set of virtual drives that are to be created using this pool of drives.\n\n  * name\nOptional Attributes are:\n  * automatic_drive_group\n  * manual_drive_group\n  * raid_level\n  * secure_drive_group\n  * virtual_drives",
                     "items": {
                         "$ref": "#/definitions/storage.DriveGroup"
                     },
@@ -15209,10 +15301,10 @@
                 },
                 "size": {
                     "type": "integer",
-                    "default": 1,
-                    "description": "Default is `1`.  Virtual drive size in MebiBytes. Size is mandatory field except when the Expand to Available option is enabled.",
+                    "default": 0,
+                    "description": "Default is `0`.  Virtual drive size in MebiBytes. Size is mandatory field except when the Expand to Available option is enabled.",
                     "intersight_api": "Size",
-                    "minimum": 1,
+                    "minimum": 0,
                     "maximum": 40000000000,
                     "title": "size"
                 },
@@ -15963,7 +16055,7 @@
                         "intersight_api": "$ref:Cdn:vnic.Cdn:Value",
                         "minLength": 1,
                         "maxLength": 31,
-                        "pattern": "^[a-zA-Z0-9\\-\\._:]*${1,31}",
+                        "pattern": "^[a-zA-Z0-9\\-\\._:]{1,31}$",
                         "title": "cdn_value"
                     },
                     "objectType": "vnic.Cdn",
@@ -17591,7 +17683,7 @@
                 },
                 "vnics": {
                     "type": "array",
-                    "description": "List of VNICs to add to the LAN Connectivity Policy.\n\nRequired Attributes:\n  * names\n  * placement\n\nRequired for FIAttached:\n  * ethernet_adapter_policy\n  * ethernet_network_control_policy\n  * ethernet_network_group_policies\n  * ethernet_qos_policy\n\nRequired for Standalone:\n  * ethernet_network_policy\n  * ethernet_qos_policy\n\nOptional Attributes:\n  * enable_failover\n  * cdn_source\n  * cdn_values\n  * iscsi_boot_policies\n  * mac_address_pools\n  * mac_addresses_static\n  * sriov\n  * usnic\n  * vmq",
+                    "description": "List of VNICs to add to the LAN Connectivity Policy.\n\nRequired Attributes:\n  * names\n  * placement\n\nRequired for FIAttached:\n  * ethernet_adapter_policy\n  * ethernet_network_control_policy\n  * ethernet_network_group_policies\n  * ethernet_qos_policy\n\nRequired for Standalone:\n  * ethernet_network_policy\n  * ethernet_qos_policy\n\nOptional Attributes:\n  * enable_failover\n  * cdn_source\n  * cdn_values\n  * iscsi_boot_policies\n  * mac_address_pools\n  * mac_addresses_static\n  * pin_group_names\n  * sriov\n  * usnic\n  * vmq",
                     "intersight_uri": "vnic/EthIfs",
                     "items": {
                         "$ref": "#/definitions/vnic.EthIf"

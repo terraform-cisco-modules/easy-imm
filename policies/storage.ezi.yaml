@@ -23,3 +23,18 @@ common:
         name: Raid1
         unused_disks_state: Jbod
         use_jbod_for_vd_creation: true
+default:
+  policies:
+    drive_security:
+      - description: default
+        name: default
+        remote_key_management:
+          assigned_sensitive_data: true
+          enable_authentication:
+            password: 1
+            username: kmip_user
+          primary_server:
+            hostname_ip_address: kmip-primary.example.com
+          secondary_server:
+            hostname_ip_address: kmip-secondary.example.com
+          server_public_root_ca_certificate: 1

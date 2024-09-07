@@ -25,14 +25,14 @@
 
 ## Recommended Module Versions
 
-## Module(s) Release 4.2.11-17769 Compatibility
+## Module(s) Release 4.2.11-18369 Compatibility
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
-| profiles      | >=1.0.11-17769  | >=1.0.51              | Not Supported         |  Adds Chassis/Domain Templates. |
+| organizations | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
+| profiles      | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  Adds Chassis/Domain Templates. |
 
 ## Module(s) Release 4.2.11-16711 Compatibility
 
@@ -46,7 +46,8 @@
 
 ## Updates
 
-* 2024-07-23: 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.  See Notes for modules above.
+* 2024-09-07: Recommended releases are 4.2.11-18369 or 4.2.11-16711.  This update changes the drive security policy to match the updated API of 1.0.11-18369.  Make sure to update your variables.tf, locals.tf from the eas-imm repository to get the updated sensitive variables for drive_security.  The variables have also been updated to do validation using the regular expression patterns from the API.
+* 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.  See Notes for modules above.
 * 2024-07-16: Terraform Provider 1.0.48, 1.0.49, and 1.0.50 depricated due to breaking BIOS changes and bulk_merger problems.  Do not use these provider versions.
 
 ### [<ins>Back to Top<ins>](#easy-imm)
@@ -235,14 +236,15 @@ $env:TF_VAR_cert_mgmt_private_key_1='<cert_mgmt_private_key_file_location>'
 ```
 
 ### Drive Security - KMIP Sensitive Variables
-
-  * `drive_security_password`: If Authentication is supported/used by the KMIP Server, This is the User Password to Configure.
+  * `drive_security_current_security_key_passphrase`: Used by Manual and Remote Key Management, if the server has a previous passphrase configured.
+  * `drive_security_new_security_key_passphrase`: Used by Manual Key Management to Assign a new passphrase to the server.
+  * `drive_security_authentication_password`: If Authentication is supported/used by the KMIP Server, This is the User Password to Configure.
   * `drive_security_server_ca_certificate`: KMIP Server CA Certificate Contents.
 
 #### Linux - with tfenv
 
 ```bash
-export drive_security_password='<drive_security_password>'
+export drive_security_authentication_password='<drive_security_authentication_password>'
 ```
 ```bash
 export drive_security_server_ca_certificate='<drive_security_server_ca_certificate_file_location>'
@@ -251,7 +253,7 @@ export drive_security_server_ca_certificate='<drive_security_server_ca_certifica
 #### Windows
 
 ```powershell
-$env:TF_VAR_drive_security_password='<drive_security_password>'
+$env:drive_security_authentication_password='<drive_security_authentication_password>'
 ```
 ```powershell
 $env:TF_VAR_drive_security_server_ca_certificate='<drive_security_server_ca_certificate_file_location>'
@@ -313,7 +315,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.52 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.54 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 
@@ -331,10 +333,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-17769 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-17769 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-17769 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-17769 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-18369 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-18369 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-18369 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-18369 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 
@@ -356,44 +358,46 @@ terraform.exe apply "main.plan"
 | <a name="input_cert_mgmt_private_key_3"></a> [cert\_mgmt\_private\_key\_3](#input\_cert\_mgmt\_private\_key\_3) | The Server Private Key, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
 | <a name="input_cert_mgmt_private_key_4"></a> [cert\_mgmt\_private\_key\_4](#input\_cert\_mgmt\_private\_key\_4) | The Server Private Key, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
 | <a name="input_cert_mgmt_private_key_5"></a> [cert\_mgmt\_private\_key\_5](#input\_cert\_mgmt\_private\_key\_5) | The Server Private Key, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
-| <a name="input_drive_security_password"></a> [drive\_security\_password](#input\_drive\_security\_password) | Drive Security User Password. | `string` | `""` | no |
+| <a name="input_drive_security_current_security_key_passphrase"></a> [drive\_security\_current\_security\_key\_passphrase](#input\_drive\_security\_current\_security\_key\_passphrase) | Drive Security Current Security Key Passphrase for Manual or Remote Key Management.  It must meet the following criteria:<br>  - One Uppercase Letter<br>  - One LowerCase Letter<br>  - One Number<br>  - One Special Character: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_drive_security_new_security_key_passphrase"></a> [drive\_security\_new\_security\_key\_passphrase](#input\_drive\_security\_new\_security\_key\_passphrase) | Drive Security New Security Key Passphrase for Manual Key Management.  It must meet the following criteria:<br>  - One Uppercase Letter<br>  - One LowerCase Letter<br>  - One Number<br>  - One Special Character: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_drive_security_authentication_password"></a> [drive\_security\_authentication\_password](#input\_drive\_security\_authentication\_password) | Drive Security User Password. | `string` | `""` | no |
 | <a name="input_drive_security_server_ca_certificate"></a> [drive\_security\_server\_ca\_certificate](#input\_drive\_security\_server\_ca\_certificate) | Drive Security Server CA Certificate, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
-| <a name="input_cco_password"></a> [cco\_password](#input\_cco\_password) | CCO User Account Password. | `string` | `""` | no |
+| <a name="input_cco_password"></a> [cco\_password](#input\_cco\_password) | CCO User Account Password.  It must meet the following criteria:<br>  - One Uppercase Letter<br>  - One Lowercase Letter<br>  - One Number<br>  - One Special Character: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 12 and 60 Characters in Length. | `string` | `""` | no |
 | <a name="input_cco_user"></a> [cco\_user](#input\_cco\_user) | CCO User Account Email for Firmware Policies. | `string` | `"cco_user"` | no |
-| <a name="input_ipmi_key"></a> [ipmi\_key](#input\_ipmi\_key) | Encryption key 1 to use for IPMI communication. It should have an even number of hexadecimal characters and not exceed 40 characters. | `string` | `""` | no |
-| <a name="input_iscsi_boot_password"></a> [iscsi\_boot\_password](#input\_iscsi\_boot\_password) | Password to Assign to the iSCSI Boot Policy if doing Authentication. | `string` | `""` | no |
-| <a name="input_binding_parameters_password"></a> [binding\_parameters\_password](#input\_binding\_parameters\_password) | The password of the user for initial bind process with an LDAP Policy. It can be any string that adheres to the following constraints. It can have character except spaces, tabs, line breaks. It cannot be more than 254 characters. | `string` | `""` | no |
-| <a name="input_local_user_password_1"></a> [local\_user\_password\_1](#input\_local\_user\_password\_1) | Password to assign to a Local User Policy -> user. | `string` | `""` | no |
-| <a name="input_local_user_password_2"></a> [local\_user\_password\_2](#input\_local\_user\_password\_2) | Password to assign to a Local User Policy -> user. | `string` | `""` | no |
-| <a name="input_local_user_password_3"></a> [local\_user\_password\_3](#input\_local\_user\_password\_3) | Password to assign to a Local User Policy -> user. | `string` | `""` | no |
-| <a name="input_local_user_password_4"></a> [local\_user\_password\_4](#input\_local\_user\_password\_4) | Password to assign to a Local User Policy -> user. | `string` | `""` | no |
-| <a name="input_local_user_password_5"></a> [local\_user\_password\_5](#input\_local\_user\_password\_5) | Password to assign to a Local User Policy -> user. | `string` | `""` | no |
-| <a name="input_persistent_passphrase"></a> [persistent\_passphrase](#input\_persistent\_passphrase) | Secure passphrase to be applied on the Persistent Memory Modules on the server. The allowed characters are:<br>  - a-z, A-Z, 0-9 and special characters: \u0021, &, #, $, %, +, ^, @, \_, *, -. | `string` | `""` | no |
-| <a name="input_access_community_string_1"></a> [access\_community\_string\_1](#input\_access\_community\_string\_1) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long. | `string` | `""` | no |
-| <a name="input_access_community_string_2"></a> [access\_community\_string\_2](#input\_access\_community\_string\_2) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long. | `string` | `""` | no |
-| <a name="input_access_community_string_3"></a> [access\_community\_string\_3](#input\_access\_community\_string\_3) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long. | `string` | `""` | no |
-| <a name="input_access_community_string_4"></a> [access\_community\_string\_4](#input\_access\_community\_string\_4) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long. | `string` | `""` | no |
-| <a name="input_access_community_string_5"></a> [access\_community\_string\_5](#input\_access\_community\_string\_5) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 18 characters long. | `string` | `""` | no |
-| <a name="input_snmp_auth_password_1"></a> [snmp\_auth\_password\_1](#input\_snmp\_auth\_password\_1) | SNMPv3 User Authentication Password. | `string` | `""` | no |
-| <a name="input_snmp_auth_password_2"></a> [snmp\_auth\_password\_2](#input\_snmp\_auth\_password\_2) | SNMPv3 User Authentication Password. | `string` | `""` | no |
-| <a name="input_snmp_auth_password_3"></a> [snmp\_auth\_password\_3](#input\_snmp\_auth\_password\_3) | SNMPv3 User Authentication Password. | `string` | `""` | no |
-| <a name="input_snmp_auth_password_4"></a> [snmp\_auth\_password\_4](#input\_snmp\_auth\_password\_4) | SNMPv3 User Authentication Password. | `string` | `""` | no |
-| <a name="input_snmp_auth_password_5"></a> [snmp\_auth\_password\_5](#input\_snmp\_auth\_password\_5) | SNMPv3 User Authentication Password. | `string` | `""` | no |
-| <a name="input_snmp_privacy_password_1"></a> [snmp\_privacy\_password\_1](#input\_snmp\_privacy\_password\_1) | SNMPv3 User Privacy Password. | `string` | `""` | no |
-| <a name="input_snmp_privacy_password_2"></a> [snmp\_privacy\_password\_2](#input\_snmp\_privacy\_password\_2) | SNMPv3 User Privacy Password. | `string` | `""` | no |
-| <a name="input_snmp_privacy_password_3"></a> [snmp\_privacy\_password\_3](#input\_snmp\_privacy\_password\_3) | SNMPv3 User Privacy Password. | `string` | `""` | no |
-| <a name="input_snmp_privacy_password_4"></a> [snmp\_privacy\_password\_4](#input\_snmp\_privacy\_password\_4) | SNMPv3 User Privacy Password. | `string` | `""` | no |
-| <a name="input_snmp_privacy_password_5"></a> [snmp\_privacy\_password\_5](#input\_snmp\_privacy\_password\_5) | SNMPv3 User Privacy Password. | `string` | `""` | no |
-| <a name="input_snmp_trap_community_1"></a> [snmp\_trap\_community\_1](#input\_snmp\_trap\_community\_1) | Community for a Trap Destination. | `string` | `""` | no |
-| <a name="input_snmp_trap_community_2"></a> [snmp\_trap\_community\_2](#input\_snmp\_trap\_community\_2) | Community for a Trap Destination. | `string` | `""` | no |
-| <a name="input_snmp_trap_community_3"></a> [snmp\_trap\_community\_3](#input\_snmp\_trap\_community\_3) | Community for a Trap Destination. | `string` | `""` | no |
-| <a name="input_snmp_trap_community_4"></a> [snmp\_trap\_community\_4](#input\_snmp\_trap\_community\_4) | Community for a Trap Destination. | `string` | `""` | no |
-| <a name="input_snmp_trap_community_5"></a> [snmp\_trap\_community\_5](#input\_snmp\_trap\_community\_5) | Community for a Trap Destination. | `string` | `""` | no |
-| <a name="input_vmedia_password_1"></a> [vmedia\_password\_1](#input\_vmedia\_password\_1) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
-| <a name="input_vmedia_password_2"></a> [vmedia\_password\_2](#input\_vmedia\_password\_2) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
-| <a name="input_vmedia_password_3"></a> [vmedia\_password\_3](#input\_vmedia\_password\_3) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
-| <a name="input_vmedia_password_4"></a> [vmedia\_password\_4](#input\_vmedia\_password\_4) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
-| <a name="input_vmedia_password_5"></a> [vmedia\_password\_5](#input\_vmedia\_password\_5) | Password for a Virtual Media Policy -> mapping target. | `string` | `""` | no |
+| <a name="input_ipmi_encryption_key"></a> [ipmi\_encryption\_key](#input\_ipmi\_encryption\_key) | Encryption key to use for IPMI communication. It should have an even number of hexadecimal characters and not exceed 40 characters. | `string` | `""` | no |
+| <a name="input_iscsi_boot_password"></a> [iscsi\_boot\_password](#input\_iscsi\_boot\_password) | Password to Assign to the iSCSI Boot Policy if doing Authentication. It can be any string that adheres to the following constraints.<br>  - Any non-white space character<br>  - Be between 12 and 16 Characters in Length. | `string` | `""` | no |
+| <a name="input_binding_parameters_password"></a> [binding\_parameters\_password](#input\_binding\_parameters\_password) | The password of the user for initial bind process with an LDAP Policy. It can be any string that adheres to the following constraints.<br>  - Any non-white space character<br>  - Be between 8 and 254 Characters in Length. | `string` | `""` | no |
+| <a name="input_local_user_password_1"></a> [local\_user\_password\_1](#input\_local\_user\_password\_1) | Password to assign to a Local User Policy -> User.<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 127 Characters in Length. | `string` | `""` | no |
+| <a name="input_local_user_password_2"></a> [local\_user\_password\_2](#input\_local\_user\_password\_2) | Password to assign to a Local User Policy -> User.<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 127 Characters in Length. | `string` | `""` | no |
+| <a name="input_local_user_password_3"></a> [local\_user\_password\_3](#input\_local\_user\_password\_3) | Password to assign to a Local User Policy -> User.<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 127 Characters in Length. | `string` | `""` | no |
+| <a name="input_local_user_password_4"></a> [local\_user\_password\_4](#input\_local\_user\_password\_4) | Password to assign to a Local User Policy -> User.<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 127 Characters in Length. | `string` | `""` | no |
+| <a name="input_local_user_password_5"></a> [local\_user\_password\_5](#input\_local\_user\_password\_5) | Password to assign to a Local User Policy -> User.<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 127 Characters in Length. | `string` | `""` | no |
+| <a name="input_persistent_passphrase"></a> [persistent\_passphrase](#input\_persistent\_passphrase) | Secure passphrase to be applied on the Persistent Memory Modules on the server. The allowed characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_access_community_string_1"></a> [access\_community\_string\_1](#input\_access\_community\_string\_1) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_access_community_string_2"></a> [access\_community\_string\_2](#input\_access\_community\_string\_2) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_access_community_string_3"></a> [access\_community\_string\_3](#input\_access\_community\_string\_3) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_access_community_string_4"></a> [access\_community\_string\_4](#input\_access\_community\_string\_4) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_access_community_string_5"></a> [access\_community\_string\_5](#input\_access\_community\_string\_5) | The default SNMPv1, SNMPv2c community name or SNMPv3 username to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_auth_password_1"></a> [snmp\_auth\_password\_1](#input\_snmp\_auth\_password\_1) | The SNMPv3 User Authorization password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_auth_password_2"></a> [snmp\_auth\_password\_2](#input\_snmp\_auth\_password\_2) | The SNMPv3 User Authorization password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_auth_password_3"></a> [snmp\_auth\_password\_3](#input\_snmp\_auth\_password\_3) | The SNMPv3 User Authorization password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_auth_password_4"></a> [snmp\_auth\_password\_4](#input\_snmp\_auth\_password\_4) | The SNMPv3 User Authorization password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_auth_password_5"></a> [snmp\_auth\_password\_5](#input\_snmp\_auth\_password\_5) | The SNMPv3 User Authorization password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_privacy_password_1"></a> [snmp\_privacy\_password\_1](#input\_snmp\_privacy\_password\_1) | The SNMPv3 User Privacy password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_privacy_password_2"></a> [snmp\_privacy\_password\_2](#input\_snmp\_privacy\_password\_2) | The SNMPv3 User Privacy password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_privacy_password_3"></a> [snmp\_privacy\_password\_3](#input\_snmp\_privacy\_password\_3) | The SNMPv3 User Privacy password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_privacy_password_4"></a> [snmp\_privacy\_password\_4](#input\_snmp\_privacy\_password\_4) | The SNMPv3 User Privacy password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_privacy_password_5"></a> [snmp\_privacy\_password\_5](#input\_snmp\_privacy\_password\_5) | The SNMPv3 User Privacy password.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `@`, `_`, `*`, `-`<br>  - Be between 8 and 64 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_trap_community_1"></a> [snmp\_trap\_community\_1](#input\_snmp\_trap\_community\_1) | The SNMPv1, SNMPv2c community name to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_trap_community_2"></a> [snmp\_trap\_community\_2](#input\_snmp\_trap\_community\_2) | The SNMPv1, SNMPv2c community name to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_trap_community_3"></a> [snmp\_trap\_community\_3](#input\_snmp\_trap\_community\_3) | The SNMPv1, SNMPv2c community name to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_trap_community_4"></a> [snmp\_trap\_community\_4](#input\_snmp\_trap\_community\_4) | The SNMPv1, SNMPv2c community name to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_snmp_trap_community_5"></a> [snmp\_trap\_community\_5](#input\_snmp\_trap\_community\_5) | The SNMPv1, SNMPv2c community name to include on any trap messages sent to the SNMP host. The name can be 32 characters long.  Allowed Characters are:<br>  - Lower or Upper Case Letters<br>  - Numbers<br>  - Special Characters: `.`, `=`, `!`, `&`, `#`, `$`, `%`, `+`, `^`, `_`, `*`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
+| <a name="input_vmedia_password_1"></a> [vmedia\_password\_1](#input\_vmedia\_password\_1) | Virtual Media Policy -> Mapping Target Password when authentication is enabled.  Allowed Characters are:<br>  - Any non-white space character<br>  - Be between 6 and 255 Characters in Length. | `string` | `""` | no |
+| <a name="input_vmedia_password_2"></a> [vmedia\_password\_2](#input\_vmedia\_password\_2) | Virtual Media Policy -> Mapping Target Password when authentication is enabled.  Allowed Characters are:<br>  - Any non-white space character<br>  - Be between 6 and 255 Characters in Length. | `string` | `""` | no |
+| <a name="input_vmedia_password_3"></a> [vmedia\_password\_3](#input\_vmedia\_password\_3) | Virtual Media Policy -> Mapping Target Password when authentication is enabled.  Allowed Characters are:<br>  - Any non-white space character<br>  - Be between 6 and 255 Characters in Length. | `string` | `""` | no |
+| <a name="input_vmedia_password_4"></a> [vmedia\_password\_4](#input\_vmedia\_password\_4) | Virtual Media Policy -> Mapping Target Password when authentication is enabled.  Allowed Characters are:<br>  - Any non-white space character<br>  - Be between 6 and 255 Characters in Length. | `string` | `""` | no |
+| <a name="input_vmedia_password_5"></a> [vmedia\_password\_5](#input\_vmedia\_password\_5) | Virtual Media Policy -> Mapping Target Password when authentication is enabled.  Allowed Characters are:<br>  - Any non-white space character<br>  - Be between 6 and 255 Characters in Length. | `string` | `""` | no |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 

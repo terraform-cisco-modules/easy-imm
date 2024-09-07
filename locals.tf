@@ -37,8 +37,14 @@ locals {
       }
     }
     drive_security = {
+      current_security_key_passphrase = {
+        1 = var.drive_security_current_security_key_passphrase
+      }
+      new_security_key_passphrase = {
+        1 = var.drive_security_new_security_key_passphrase
+      }
       password = {
-        1 = var.drive_security_password
+        1 = var.drive_security_authentication_password
       }
       server_public_root_ca_certificate = {
         1 = fileexists(var.drive_security_server_ca_certificate
@@ -49,7 +55,7 @@ locals {
       cco_password = { 1 = var.cco_password }
       cco_user     = { 1 = var.cco_user }
     }
-    ipmi_over_lan = { encryption_key = { 1 = var.ipmi_key } }
+    ipmi_over_lan = { encryption_key = { 1 = var.ipmi_encryption_key } }
     iscsi_boot    = { password = { 1 = var.iscsi_boot_password } }
     ldap          = { password = { 1 = var.binding_parameters_password } }
     local_user = {
