@@ -46,7 +46,7 @@
 
 ## Updates
 
-* 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version 4.2.11-18370 is on hold for now until provider fixed.
+* 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version v4.2.11-18369 and v4.2.11-18370 is on hold for now until provider fixed.
 * 2024-09-07: Recommended releases are 4.2.11-18369 or 4.2.11-16711.  This update changes the drive security policy to match the updated API of 1.0.11-18369.  Make sure to update your variables.tf, locals.tf from the eas-imm repository to get the updated sensitive variables for drive_security.  The variables have also been updated to do validation using the regular expression patterns from the API.
 * 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.  See Notes for modules above.
 * 2024-07-16: Terraform Provider 1.0.48, 1.0.49, and 1.0.50 depricated due to breaking BIOS changes and bulk_merger problems.  Do not use these provider versions.
