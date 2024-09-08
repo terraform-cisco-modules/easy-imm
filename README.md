@@ -25,14 +25,14 @@
 
 ## Recommended Module Versions
 
-## Module(s) Release 4.2.11-18369 Compatibility
+## Module(s) Release 4.2.11-17769 Compatibility
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
-| profiles      | >=1.0.11-18369  | >=1.0.54              | Not Supported         |  Adds Chassis/Domain Templates. |
+| organizations | >=1.0.11-17769  | 1.0.51              | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-17769  | 1.0.51              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | >=1.0.11-17769  | 1.0.51              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
+| profiles      | >=1.0.11-17769  | 1.0.51              | Not Supported         |  Adds Chassis/Domain Templates. |
 
 ## Module(s) Release 4.2.11-16711 Compatibility
 
@@ -46,6 +46,7 @@
 
 ## Updates
 
+* 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version 4.2.11-18370 is on hold for now until provider fixed.
 * 2024-09-07: Recommended releases are 4.2.11-18369 or 4.2.11-16711.  This update changes the drive security policy to match the updated API of 1.0.11-18369.  Make sure to update your variables.tf, locals.tf from the eas-imm repository to get the updated sensitive variables for drive_security.  The variables have also been updated to do validation using the regular expression patterns from the API.
 * 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.  See Notes for modules above.
 * 2024-07-16: Terraform Provider 1.0.48, 1.0.49, and 1.0.50 depricated due to breaking BIOS changes and bulk_merger problems.  Do not use these provider versions.
@@ -333,10 +334,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-18369 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-18369 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-18369 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-18369 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-18370 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-18370 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-18370 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-18370 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 

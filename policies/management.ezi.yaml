@@ -65,7 +65,7 @@ common:
 default:
   policies:
     device_connector:
-      - configuration_lockout: false
+      - configuration_from_intersight_only: false
         description: devcon Device Connector Policy
         name: devcon
     ldap:

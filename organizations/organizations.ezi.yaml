@@ -10,6 +10,7 @@ Asgard:
         targets:
           - asgard-apic01
           - asgard-vcenter.rich.ciscolabs.com
+          - LOKI
           - LOKI01-CIMC
           - LOKI02-CIMC
           - LOKI03-CIMC

@@ -65,8 +65,10 @@ default:
     adapter_configuration:
       - add_vic_adapter_configuration:
           - dce_interface_settings:
-              dce_interface_fec_modes:
-                - cl91
+              dce_interface_1_fec_mode: cl91
+              dce_interface_2_fec_mode: cl91
+              dce_interface_3_fec_mode: cl91
+              dce_interface_4_fec_mode: cl91
             enable_fip: true
             enable_lldp: true
             enable_port_channel: true

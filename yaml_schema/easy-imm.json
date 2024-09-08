@@ -176,28 +176,60 @@
             "easyimm": "dce_interface_settings",
             "ObjectType": "adapter.DceInterfaceSettings",
             "properties": {
-                "dce_interface_fec_modes": {
-                    "type": "array",
-                    "description": "\n\nRequired Attributes:\n  * name\n\nOptional Attributes:",
-                    "intersight_api": "DceInterfaceSettings",
-                    "items": {
-                        "type": "string",
-                        "default": "cl91",
-                        "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interfaces of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
-                        "intersight_api": "ConfiguredBootMode",
-                        "enum": [
-                            "cl74",
-                            "cl91",
-                            "Off"
-                        ],
-                        "title": "dce_interface_fec_mode"
-                    },
-                    "objectType": "adapter.DceInterfaceSettings",
-                    "title": "dce_interface_fec_modes - Dce Interface Fec Modes - Intersight Uri: adapter/DceInterfaceSettings"
+                "dce_interface_1_fec_mode": {
+                    "type": "string",
+                    "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
+                    "intersight_api": "FecMode",
+                    "enum": [
+                        "cl74",
+                        "cl91",
+                        "Off"
+                    ],
+                    "object_type": "adapter.DceInterfaceSettings",
+                    "title": "dce_interface_1_fec_mode - Dce Interface 1 Fec Mode - object_type: adapter.DceInterfaceSettings"
+                },
+                "dce_interface_2_fec_mode": {
+                    "type": "string",
+                    "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
+                    "intersight_api": "FecMode",
+                    "enum": [
+                        "cl74",
+                        "cl91",
+                        "Off"
+                    ],
+                    "object_type": "adapter.DceInterfaceSettings",
+                    "title": "dce_interface_2_fec_mode - Dce Interface 2 Fec Mode - object_type: adapter.DceInterfaceSettings"
+                },
+                "dce_interface_3_fec_mode": {
+                    "type": "string",
+                    "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
+                    "intersight_api": "FecMode",
+                    "enum": [
+                        "cl74",
+                        "cl91",
+                        "Off"
+                    ],
+                    "object_type": "adapter.DceInterfaceSettings",
+                    "title": "dce_interface_3_fec_mode - Dce Interface 3 Fec Mode - object_type: adapter.DceInterfaceSettings"
+                },
+                "dce_interface_4_fec_mode": {
+                    "type": "string",
+                    "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
+                    "intersight_api": "FecMode",
+                    "enum": [
+                        "cl74",
+                        "cl91",
+                        "Off"
+                    ],
+                    "object_type": "adapter.DceInterfaceSettings",
+                    "title": "dce_interface_4_fec_mode - Dce Interface 4 Fec Mode - object_type: adapter.DceInterfaceSettings"
                 }
             },
             "required": [
-                "dce_interface_fec_modes"
+                "dce_interface_1_fec_mode",
+                "dce_interface_2_fec_mode",
+                "dce_interface_3_fec_mode",
+                "dce_interface_4_fec_mode"
             ],
             "title": "dce_interface_settings"
         },
@@ -6568,8 +6600,8 @@
             "properties": {
                 "dns_ip": {
                     "type": "string",
-                    "default": "208.67.220.220",
-                    "description": "IP address for the DNS server.  Example `208.67.220.220`.",
+                    "default": "2620:119:53::53",
+                    "description": "IP address for the DNS server.  Example `2620:119:53::53`.",
                     "intersight_api": "DnsIp",
                     "minLength": 7,
                     "maxLength": 15,
@@ -6578,8 +6610,8 @@
                 },
                 "gateway_ip": {
                     "type": "string",
-                    "default": "198.18.0.1",
-                    "description": "IP address of the default gateway.  Example `198.18.0.1`.",
+                    "default": "2001:db8::1",
+                    "description": "IP address of the default gateway.  Example `2001:db8::1`.",
                     "intersight_api": "GatewayIp",
                     "minLength": 7,
                     "maxLength": 15,
@@ -6977,12 +7009,12 @@
             "intersight_uri": "deviceconnector/Policies",
             "ObjectType": "deviceconnector.Policy",
             "properties": {
-                "configuration_lockout": {
+                "configuration_from_intersight_only": {
                     "type": "boolean",
                     "default": false,
                     "description": "Default is `true`.  Enables configuration lockout on the endpoint.",
                     "intersight_api": "LockoutEnabled",
-                    "title": "configuration_lockout"
+                    "title": "configuration_from_intersight_only"
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
@@ -7000,7 +7032,7 @@
                 }
             },
             "required": [
-                "configuration_lockout",
+                "configuration_from_intersight_only",
                 "name"
             ],
             "title": "device_connector - Device Connector - Intersight Uri: deviceconnector/Policies"
@@ -7915,7 +7947,7 @@
                 "fc_target_zoning_type": {
                     "type": "string",
                     "default": "SIMT",
-                    "description": "Default is `SIMT`.  Type of FC zoning. Allowed values are SIST, SIMT and None.\n  * `SIST` - The system automatically creates one zone for each vHBA and storage port pair. Each zone has two members.\n  * `SIMT` - The system automatically creates one zone for each vHBA. Configure this type of zoning if the number of zones created is likely to exceed the maximum supported number of zones.\n  * `None` - FC zoning is not configured.",
+                    "description": "Default is `SIMT`.  Type of FC zoning. Allowed values are SIST, SIMT and None.\n  * `SIST` - `a.k.a - Single Initiator Single Target` The system automatically creates one zone for each vHBA and storage port pair. Each zone has two members.\n  * `SIMT` - `a.k.a - Single Initiator Multiple Targets` The system automatically creates one zone for each vHBA. Configure this type of zoning if the number of zones created is likely to exceed the maximum supported number of zones.\n  * `None` - FC zoning is not configured.",
                     "intersight_api": "FcTargetZoningType",
                     "enum": [
                         "SIST",
@@ -9548,6 +9580,8 @@
         "fcpool.Pool": {
             "type": "object",
             "additionalProperties": false,
+            "intersight_uri": "fcpool/Pools",
+            "object_type": "fcpool.Pool",
             "properties": {
                 "assignment_order": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
@@ -10089,8 +10123,8 @@
                 },
                 "search_forest": {
                     "type": "string",
-                    "default": "",
-                    "description": "Forest name that acts as a source for a DNS query.",
+                    "default": "example.com",
+                    "description": "Forest name that acts as a source for a DNS query.  An example would be `example.com`.",
                     "intersight_api": "SearchForest",
                     "minLength": 1,
                     "maxLength": 72,
@@ -10124,6 +10158,16 @@
             "intersight_uri": "iam/LdapGroups",
             "ObjectType": "iam.LdapGroup",
             "properties": {
+                "domain": {
+                    "type": "string",
+                    "default": "example.com",
+                    "description": "LDAP server domain the Group resides in.  If this is not defined the base domain from `base_settings` will be used.",
+                    "intersight_api": "Domain",
+                    "minLength": 1,
+                    "maxLength": 72,
+                    "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9\\.\\-]*[a-zA-Z0-9]))$",
+                    "title": "switch_id"
+                },
                 "name": {
                     "type": "string",
                     "default": "admin",
@@ -10646,6 +10690,7 @@
             "type": "object",
             "additionalProperties": false,
             "description": "Pool represents a collection of IPv4 and/or IPv6 addresses that can be allocated to other configuration entities like server profiles.",
+            "intersight_uri": "ippool/Pools",
             "OjbectType": "ippool.Pool",
             "properties": {
                 "assignment_order": {
@@ -10693,9 +10738,60 @@
             ],
             "title": "ip - IP Pool for Chassis and Server Address Allocation."
         },
-        "iqnpool.Block": {
+        "iqnpool.Pool": {
             "type": "object",
             "additionalProperties": false,
+            "intersight_uri": "iqnpool/Pools",
+            "object_type": "iqnpool.Pool",
+            "properties": {
+                "assignment_order": {
+                    "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
+                },
+                "description": {
+                    "$ref": "#/definitions/pool.AbstractPool/properties/description"
+                },
+                "name": {
+                    "$ref": "#/definitions/pool.AbstractPool/properties/name"
+                },
+                "iqn_blocks": {
+                    "type": "array",
+                    "description": "A block of IQN addresses.\n\nRequired Attributes:\n  * from\n  * suffix\n\nOptional Attributes:\n  * size\n  * to\nNote: Only assign either size or to, not both.",
+                    "items": {
+                        "$ref": "#/definitions/iqnpool.IqnSuffixBlock"
+                    },
+                    "title": "iqn_blocks"
+                },
+                "prefix": {
+                    "type": "string",
+                    "default": "iqn.1984-12.com.cisco",
+                    "description": "The prefix for any IQN blocks created for this pool. IQN Prefix must have the following format `iqn.yyyy-mm.naming-authority`, where naming-authority is usually the reverse syntax of the Internet domain name of the naming authority.  The default is `iqn.1984-12.com.cisco`.",
+                    "intersight_api": "Prefix",
+                    "minLength": 7,
+                    "maxLength": 64,
+                    "pattern": "^iqn\\.(\\d{4}-\\d{2})\\.([^:]+)$",
+                    "title": "prefix"
+                },
+                "tags": {
+                    "type": "array",
+                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/mo.Tag"
+                    },
+                    "title": "tags - Tags"
+                }
+            },
+            "required": [
+                "iqn_blocks",
+                "name"
+            ],
+            "title": "IQN Pool"
+        },
+        "iqnpool.IqnSuffixBlock": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The suffix block of iSCSI Qualified Names (IQNs).",
+            "intersight_api": "IqnSuffixBlocks",
+            "object_type": "iqnpool.IqnSuffixBlock",
             "properties": {
                 "from": {
                     "type": "integer",
@@ -10734,52 +10830,6 @@
                 "suffix"
             ],
             "title": "Block"
-        },
-        "iqnpool.Pool": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "assignment_order": {
-                    "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
-                },
-                "description": {
-                    "$ref": "#/definitions/pool.AbstractPool/properties/description"
-                },
-                "name": {
-                    "$ref": "#/definitions/pool.AbstractPool/properties/name"
-                },
-                "iqn_blocks": {
-                    "type": "array",
-                    "description": "A block of IQN addresses.\n\nRequired Attributes:\n  * from\n  * suffix\n\nOptional Attributes:\n  * size\n  * to\nNote: Only assign either size or to, not both.",
-                    "items": {
-                        "$ref": "#/definitions/iqnpool.Block"
-                    },
-                    "title": "iqn_blocks"
-                },
-                "prefix": {
-                    "type": "string",
-                    "default": "iqn.1984-12.com.cisco",
-                    "description": "The prefix for any IQN blocks created for this pool. IQN Prefix must have the following format `iqn.yyyy-mm.naming-authority`, where naming-authority is usually the reverse syntax of the Internet domain name of the naming authority.  The default is `iqn.1984-12.com.cisco`.",
-                    "intersight_api": "Prefix",
-                    "minLength": 7,
-                    "maxLength": 64,
-                    "pattern": "^iqn\\.(\\d{4}-\\d{2})\\.([^:]+)$",
-                    "title": "prefix"
-                },
-                "tags": {
-                    "type": "array",
-                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
-                    "items": {
-                        "$ref": "#/definitions/mo.Tag"
-                    },
-                    "title": "tags - Tags"
-                }
-            },
-            "required": [
-                "iqn_blocks",
-                "name"
-            ],
-            "title": "IQN Pool"
         },
         "kvm.Policy": {
             "type": "object",
@@ -10891,6 +10941,8 @@
         "macpool.Pool": {
             "type": "object",
             "additionalProperties": false,
+            "intersight_uri": "macpool/Pools",
+            "object_type": "macpool.Pool",
             "properties": {
                 "assignment_order": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
@@ -11647,7 +11699,7 @@
                 },
                 "device_connector": {
                     "type": "array",
-                    "description": "Device Connector Policy lets you choose the Configuration from Intersight only option to control configuration changes allowed from Cisco IMC. The Configuration from Intersight only option is enabled by default. You will observe the following changes when you deploy the Device Connector policy in Intersight:\n  * Validation tasks will fail:\n    * If Intersight Read-only mode is enabled in the claimed device.\n    * If the firmware version of the Cisco UCS Standalone C-Series Servers is lower than 4.0(1).\n  * If Intersight Read-only mode is enabled, firmware upgrades will be successful only when performed from Intersight. Firmware upgrade performed locally from Cisco IMC will fail.\n  * IPMI over LAN privileges will be reset to read-only level if Configuration from Intersight only is enabled through the Device Connector policy, or if the same configuration is enabled in the Device Connector in Cisco IMC.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * configuration_lockout\n  * description\n  * tags",
+                    "description": "Device Connector Policy lets you choose the Configuration from Intersight only option to control configuration changes allowed from Cisco IMC. The Configuration from Intersight only option is enabled by default. You will observe the following changes when you deploy the Device Connector policy in Intersight:\n  * Validation tasks will fail:\n    * If Intersight Read-only mode is enabled in the claimed device.\n    * If the firmware version of the Cisco UCS Standalone C-Series Servers is lower than 4.0(1).\n  * If Intersight Read-only mode is enabled, firmware upgrades will be successful only when performed from Intersight. Firmware upgrade performed locally from Cisco IMC will fail.\n  * IPMI over LAN privileges will be reset to read-only level if Configuration from Intersight only is enabled through the Device Connector policy, or if the same configuration is enabled in the Device Connector in Cisco IMC.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * configuration_from_intersight_only\n  * description\n  * tags",
                     "intersight_uri": "deviceconnector/Policies",
                     "items": {
                         "$ref": "#/definitions/deviceconnector.Policy"
@@ -12174,7 +12226,7 @@
                 },
                 "serial_number": {
                     "type": "string",
-                    "default": "default",
+                    "default": "unknown",
                     "description": "Serial Number of the Device.  You can assign unknown if you want to generate the Profile without assigning hardware.",
                     "intersight_api": "SerialNumber",
                     "minLength": 7,
@@ -13231,6 +13283,9 @@
         "resourcepool.Pool": {
             "type": "object",
             "additionalProperties": false,
+            "intersight_uri": "resourcepool/Pools",
+            "intersight_uri_serial": "compute/PhysicalSummaries",
+            "object_type": "resourcepool.Pool",
             "properties": {
                 "assignment_order": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
@@ -15621,6 +15676,8 @@
         "uuidpool.Pool": {
             "type": "object",
             "additionalProperties": false,
+            "intersight_uri": "uuidpool/Pools",
+            "object_type": "uuidpool.Pool",
             "properties": {
                 "assignment_order": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
@@ -17693,7 +17750,7 @@
                 },
                 "vnics_from_template": {
                     "type": "array",
-                    "description": "List of VNICs to add to the LAN Connectivity Policy that will use a vNIC template.\n\nRequired Attributes:\n  * name\n  * placement\n  * vnic_template\n\nOptional Attributes:\n  * ethernet_adapter_policy - If Allow Override Enabled on the template\n  * cdn_value - Only if Consistency Device Naming has been configured as User at the Template Level. \n  * iscsi_boot_policy - If Allow Override Enabled on the template\n  * mac_address_pool - If Allow Override Enabled on the template\n  * sriov\n  * usnic\n  * vmq",
+                    "description": "List of VNICs to add to the LAN Connectivity Policy that will use a vNIC template.\n\nRequired Attributes:\n  * name\n  * placement\n  * vnic_template\n\nOptional Attributes:\n  * ethernet_adapter_policy - If Allow Override Enabled on the template\n  * cdn_value - Only if Consistency Device Naming has been configured as User at the Template Level. \n  * iscsi_boot_policy - If Allow Override Enabled on the template\n  * mac_address_pool - If Allow Override Enabled on the template\n  * pin_group_name - If Allow Override Enabled on the template\n  * sriov\n  * usnic\n  * vmq",
                     "intersight_uri": "vnic/EthIfs",
                     "items": {
                         "$ref": "#/definitions/vnic.EthIfFromTemplate"
@@ -18031,13 +18088,23 @@
                 },
                 "vhbas": {
                     "type": "array",
-                    "description": "List of vHBAs to add to the SAN Connectivity Policy.\n\nRequired Attributes:\n  * names\n  * fibre_channel_adapter_policy\n  * fibre_channel_network_policies\n  * fibre_channel_qos_policy\n  * placement\n\nOptional Attributes:\n  * fc_zone_policies\n  * persistent_lun_bindings\n  * vhba_type\n  * wwpn_pools\n  * wwpn_static_addresses",
+                    "description": "List of vHBAs to add to the SAN Connectivity Policy.\n\nRequired Attributes:\n  * names\n  * fibre_channel_adapter_policy\n  * fibre_channel_network_policies\n  * fibre_channel_qos_policy\n  * placement\n\nOptional Attributes:\n  * fc_zone_policies\n  * persistent_lun_bindings\n  * pin_group_names\n  * vhba_type\n  * wwpn_pools\n  * wwpn_static_addresses",
                     "intersight_uri": "vnic/FcIfs",
                     "items": {
                         "$ref": "#/definitions/vnic.FcIf"
                     },
                     "objectType": "vnic.FcIf",
                     "title": "vhbas - Vhbas - Intersight Uri: vnic/FcIfs"
+                },
+                "vhbas_from_template": {
+                    "type": "array",
+                    "description": "List of vHBAs to add to the SAN Connectivity Policy that will use a vHBA template.\n\nRequired Attributes:\n  * name\n  * placement\n  * vhba_template\n\nOptional Attributes:\n  * fc_zone_policies - If Allow Override Enabled on the template\n  * fibre_channel_adapter_policy - If Allow Override Enabled on the template\n  * fibre_channel_network_policy - If Allow Override Enabled on the template\n  * pin_group_name - If Allow Override Enabled on the template\n  * wwpn_pool - If Allow Override Enabled on the template\n  * wwpn_static_address",
+                    "intersight_uri": "vnic/EthIfs",
+                    "items": {
+                        "$ref": "#/definitions/vnic.FcIfFromTemplate"
+                    },
+                    "objectType": "vnic.EthIf",
+                    "title": "vhbas_from_template - Vhbas with a Source Template - Intersight Uri: vnic/FcIfs"
                 },
                 "wwnn_pool": {
                     "type": "string",
@@ -18061,8 +18128,7 @@
                 }
             },
             "required": [
-                "name",
-                "vhbas"
+                "name"
             ],
             "title": "san_connectivity - SAN Connectivity - Intersight Uri: vnic/SanConnectivityPolicies"
         },
