@@ -71,6 +71,7 @@ default:
               dce_interface_4_fec_mode: cl91
             enable_fip: true
             enable_lldp: true
+            enable_physical_nic_mode: false
             enable_port_channel: true
             pci_slot: MLOM
         description: adapter Adapter Configuration Policy

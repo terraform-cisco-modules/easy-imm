@@ -174,7 +174,7 @@ variable "drive_security_server_ca_certificate" {
 variable "cco_password" {
   default     = ""
   description = <<-EOT
-    Cisco.com Authentication Password.  It must meet the following criteria:
+    CCO User Account Password.  It must meet the following criteria:
       - One Uppercase Letter
       - One Lowercase Letter
       - One Number

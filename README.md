@@ -25,14 +25,14 @@
 
 ## Recommended Module Versions
 
-## Module(s) Release 4.2.11-17769 Compatibility
+## Module(s) Release 4.2.11-18370 Compatibility
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-17769  | 1.0.51              | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-17769  | 1.0.51              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | >=1.0.11-17769  | 1.0.51              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
-| profiles      | >=1.0.11-17769  | 1.0.51              | Not Supported         |  Adds Chassis/Domain Templates. |
+| organizations | >=1.0.11-18371  | >=1.0.47            | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-18371  | 1.0.54              | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | >=1.0.11-18371  | 1.0.54              | Not Supported         |  adapter_config - Add physical_nic_mode_settings; bios - M8 AMD BIOS attributes; ethernet_network - QnQ capabilities; vnics - sriov; vnic/vhba templates  |
+| profiles      | >=1.0.11-18371  | 1.0.54              | Not Supported         |  Adds Chassis/Domain Templates. |
 
 ## Module(s) Release 4.2.11-16711 Compatibility
 
@@ -46,6 +46,7 @@
 
 ## Updates
 
+* 2024-09-13: Recommended releases are 4.2.11-18371 or 4.2.11-16711.  ISSUE 287 resolved
 * 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version v4.2.11-18369 and v4.2.11-18370 is on hold for now until provider fixed.
 * 2024-09-07: Recommended releases are 4.2.11-18369 or 4.2.11-16711.  This update changes the drive security policy to match the updated API of 1.0.11-18369.  Make sure to update your variables.tf, locals.tf from the eas-imm repository to get the updated sensitive variables for drive_security.  The variables have also been updated to do validation using the regular expression patterns from the API.
 * 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.  See Notes for modules above.
@@ -316,7 +317,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.54 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.55 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 
@@ -334,10 +335,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-18370 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-18370 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-18370 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-18370 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-18371 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-18371 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-18371 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-18371 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 
@@ -363,7 +364,7 @@ terraform.exe apply "main.plan"
 | <a name="input_drive_security_new_security_key_passphrase"></a> [drive\_security\_new\_security\_key\_passphrase](#input\_drive\_security\_new\_security\_key\_passphrase) | Drive Security New Security Key Passphrase for Manual Key Management.  It must meet the following criteria:<br>  - One Uppercase Letter<br>  - One LowerCase Letter<br>  - One Number<br>  - One Special Character: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 8 and 32 Characters in Length. | `string` | `""` | no |
 | <a name="input_drive_security_authentication_password"></a> [drive\_security\_authentication\_password](#input\_drive\_security\_authentication\_password) | Drive Security User Password. | `string` | `""` | no |
 | <a name="input_drive_security_server_ca_certificate"></a> [drive\_security\_server\_ca\_certificate](#input\_drive\_security\_server\_ca\_certificate) | Drive Security Server CA Certificate, in PEM Format, File Location. | `string` | `"blah.txt"` | no |
-| <a name="input_cco_password"></a> [cco\_password](#input\_cco\_password) | CCO User Account Password.  It must meet the following criteria:<br>  - One Uppercase Letter<br>  - One Lowercase Letter<br>  - One Number<br>  - One Special Character: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 12 and 60 Characters in Length. | `string` | `""` | no |
+| <a name="input_cco_password"></a> [cco\_password](#input\_cco\_password) | Cisco.com Authentication Password.  It must meet the following criteria:<br>  - One Uppercase Letter<br>  - One Lowercase Letter<br>  - One Number<br>  - One Special Character: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`<br>  - Be between 12 and 60 Characters in Length. | `string` | `""` | no |
 | <a name="input_cco_user"></a> [cco\_user](#input\_cco\_user) | CCO User Account Email for Firmware Policies. | `string` | `"cco_user"` | no |
 | <a name="input_ipmi_encryption_key"></a> [ipmi\_encryption\_key](#input\_ipmi\_encryption\_key) | Encryption key to use for IPMI communication. It should have an even number of hexadecimal characters and not exceed 40 characters. | `string` | `""` | no |
 | <a name="input_iscsi_boot_password"></a> [iscsi\_boot\_password](#input\_iscsi\_boot\_password) | Password to Assign to the iSCSI Boot Policy if doing Authentication. It can be any string that adheres to the following constraints.<br>  - Any non-white space character<br>  - Be between 12 and 16 Characters in Length. | `string` | `""` | no |

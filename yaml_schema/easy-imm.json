@@ -178,6 +178,7 @@
             "properties": {
                 "dce_interface_1_fec_mode": {
                     "type": "string",
+                    "default": "cl91",
                     "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
                     "intersight_api": "FecMode",
                     "enum": [
@@ -190,6 +191,7 @@
                 },
                 "dce_interface_2_fec_mode": {
                     "type": "string",
+                    "default": "cl91",
                     "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
                     "intersight_api": "FecMode",
                     "enum": [
@@ -202,6 +204,7 @@
                 },
                 "dce_interface_3_fec_mode": {
                     "type": "string",
+                    "default": "cl91",
                     "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
                     "intersight_api": "FecMode",
                     "enum": [
@@ -214,6 +217,7 @@
                 },
                 "dce_interface_4_fec_mode": {
                     "type": "string",
+                    "default": "cl91",
                     "description": "Default is 'cl91'.  Forward Error Correction (FEC) mode setting for the DCE interface of the adapter. FEC mode setting is supported only for Cisco VIC 14xx adapters. FEC mode 'cl74' is unsupported for Cisco VIC 1495/1497. This setting will be ignored for unsupported adapters and for unavailable DCE interfaces.\n  * `cl74` - Use cl74 standard as FEC mode setting. 'Clause 74' aka FC-FEC ('FireCode' FEC) offers simple, low-latency protection against 1 burst/sparse bit error, but it is not good for random errors.\n  * `cl91` - Use cl91 standard as FEC mode setting. 'Clause 91' aka RS-FEC ('ReedSolomon' FEC) offers better error protection against bursty and random errors but adds latency.\n  * `Off` - Disable FEC mode on the DCE Interface.",
                     "intersight_api": "FecMode",
                     "enum": [
@@ -15142,7 +15146,7 @@
             "type": "object",
             "additionalProperties": false,
             "description": "Models the remote key configuration required for the drive security.\n\nRequired Attributes:\n  * new_security_key_passphrase.\n\nOptional Attributes:\n  * current_security_key_passphrase",
-            "intersight_uri": "RemoteKey",
+            "intersight_api": "RemoteKey",
             "ObjectType": "storage.RemoteKeySettings",
             "properties": {
                 "assigned_sensitive_data": {

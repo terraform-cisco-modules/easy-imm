@@ -8,4 +8,4 @@ global_settings:
     - key: "Module"
       value: "easy-imm"
     - key: "Version"
-      value: "4.2.11-18371"
+      value: "4.2.11-18370"

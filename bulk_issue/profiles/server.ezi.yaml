@@ -1,0 +1,10 @@
+common:
+  profiles:
+    server:
+      - action: No-op
+        attach_template: true
+        target_platform: FIAttached
+        targets:
+          - name: bulk_issue
+            serial_number: unknown
+        ucs_server_profile_template: aci-M5-intel-virtual-M2-pxe
