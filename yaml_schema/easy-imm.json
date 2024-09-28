@@ -7094,6 +7094,18 @@
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_group_policy"
                 },
+                "fec": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Default is `Auto`.  Forward error correction configuration for the port.\n  * Auto - (Default).  Forward error correction option 'Auto'.\n  * Cl91 - Forward error correction option 'cl91'.\n  * Cl74 - Forward error correction option 'cl74'.",
+                    "intersight_api": "Fec",
+                    "enum": [
+                        "Auto",
+                        "Cl91",
+                        "Cl74"
+                    ],
+                    "title": "fec"
+                },
                 "interfaces": {
                     "type": "array",
                     "description": "List of interfaces to assign to the Port-Channel Policy.\n\nRequired Attributes:\n  * port_id\n\nOptional Attributes:\n  * breakout_port_id\n  * slot_id",
@@ -7524,6 +7536,18 @@
                         "100Gbps"
                     ],
                     "title": "admin_speed"
+                },
+                "fec": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Default is `Auto`.  Forward error correction configuration for the port.\n  * Auto - (Default).  Forward error correction option 'Auto'.\n  * Cl91 - Forward error correction option 'cl91'.\n  * Cl74 - Forward error correction option 'cl74'.",
+                    "intersight_api": "Fec",
+                    "enum": [
+                        "Auto",
+                        "Cl91",
+                        "Cl74"
+                    ],
+                    "title": "fec"
                 },
                 "interfaces": {
                     "type": "array",
@@ -8436,7 +8460,7 @@
                 },
                 "port_channel_appliances": {
                     "type": "array",
-                    "description": "Use this Map to Configure Ports for Appliance Port-Channels.\n\nRequired Attributes:\n  * ethernet_network_control_policy\n  * ethernet_network_group_policy\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * link_aggregation_policy\n  * mode\n  * priority",
+                    "description": "Use this Map to Configure Ports for Appliance Port-Channels.\n\nRequired Attributes:\n  * ethernet_network_control_policy\n  * ethernet_network_group_policy\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * fec\n  * link_aggregation_policy\n  * mode\n  * priority",
                     "items": {
                         "$ref": "#/definitions/fabric.AppliancePcRole"
                     },
@@ -8445,7 +8469,7 @@
                 },
                 "port_channel_ethernet_uplinks": {
                     "type": "array",
-                    "description": "Use this Map to Configure Ports for Ethernet Port-Channels.\n\nRequired Attributes:\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * ethernet_network_group_policy\n  * flow_control_policy\n  * link_aggregation_policy\n  * link_control_policy",
+                    "description": "Use this Map to Configure Ports for Ethernet Port-Channels.\n\nRequired Attributes:\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * ethernet_network_group_policy\n  * fec\n  * flow_control_policy\n  * link_aggregation_policy\n  * link_control_policy",
                     "items": {
                         "$ref": "#/definitions/fabric.UplinkPcRole"
                     },
@@ -8463,7 +8487,7 @@
                 },
                 "port_channel_fcoe_uplinks": {
                     "type": "array",
-                    "description": "Use this Map to Configure Ports for Appliance Port-Channels.\n\nRequired Attributes:\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * link_aggregation_policy\n  * link_control_policy",
+                    "description": "Use this Map to Configure Ports for Appliance Port-Channels.\n\nRequired Attributes:\n  * interfaces\n  * pc_ids\n\nOptional Attributes:\n  * admin_speed\n  * fec\n  * link_aggregation_policy\n  * link_control_policy",
                     "items": {
                         "$ref": "#/definitions/fabric.FcoeUplinkPcRole"
                     },
@@ -9255,6 +9279,18 @@
                     },
                     "objectType": "",
                     "title": "interfaces - Port-Channel Member Interfaces"
+                },
+                "fec": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Default is `Auto`.  Forward error correction configuration for the port.\n  * Auto - (Default).  Forward error correction option 'Auto'.\n  * Cl91 - Forward error correction option 'cl91'.\n  * Cl74 - Forward error correction option 'cl74'.",
+                    "intersight_api": "Fec",
+                    "enum": [
+                        "Auto",
+                        "Cl91",
+                        "Cl74"
+                    ],
+                    "title": "fec"
                 },
                 "flow_control_policy": {
                     "type": "string",
@@ -13169,7 +13205,7 @@
                 },
                 "domain": {
                     "type": "array",
-                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\n\nImportant:\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\n\nRequired Base Attributes:\n  * action\n  * attach_template\n  * name\n\nOptional Base Attributes:\n  * description\n  * tags\n  * user_label\n  * ucs_domain_profile_template - to assign to a template\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required (If not attached to a domain template) - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required (If not attached to a domain template)\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required (If not attached to a domain template)",
+                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\n\nImportant:\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\n\nRequired Base Attributes:\n  * action\n  * name\n  * serial_numbers\n\nOptional Base Attributes:\n  * attach_template\n  * description\n  * tags\n  * user_label\n  * ucs_domain_profile_template - to assign to a template\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required (If not attached to a domain template) - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required (If not attached to a domain template)\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required (If not attached to a domain template)",
                     "intersight_uri": "fabric/SwitchClusterProfiles",
                     "items": {
                         "$ref": "#/definitions/fabric.SwitchClusterProfile"
