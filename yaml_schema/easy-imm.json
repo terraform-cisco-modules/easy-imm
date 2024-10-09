@@ -7005,6 +7005,48 @@
             ],
             "title": "Target"
         },
+        "compute.ScrubPolicy": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Definition of the list of properties defined in 'compute.ScrubPolicy', excluding properties defined in parent classes.",
+            "easyimm": "scrub_policy",
+            "intersight_uri": "compute/ScrubPolicies",
+            "ObjectType": "compute.ScrubPolicy",
+            "properties": {
+                "bios": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "BIOS will be reset to factory defaults, if speficied in the scrub policy.",
+                    "intersight_api": "$ref:scrub.Targets.ScrubTargets:BIOS",
+                    "title": "bios"
+                },
+                "description": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
+                },
+                "disk": {
+                    "type": "boolean",
+                    "default": "false",
+                    "description": "Data is erased from all the local stroages, if specified in the scrub policy.",
+                    "intersight_api": "$ref:scrub.Targets.ScrubTargets:Disk",
+                    "title": "disk"
+                },
+                "name": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
+                },
+                "tags": {
+                    "type": "array",
+                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/mo.Tag"
+                    },
+                    "title": "tags - Tags"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "scrub_policy - Scrub Policy - Intersight Uri: compute/ScrubPolicies"
+        },
         "deviceconnector.Policy": {
             "type": "object",
             "additionalProperties": false,
@@ -12048,6 +12090,16 @@
                     "objectType": "vnic,SanConnectivityPolicy",
                     "title": "san_connectivity - San Connectivity - Intersight Uri: vnic/SanConnectivityPolicies"
                 },
+                "scrub": {
+                    "type": "array",
+                    "description": "The scrub policy models the data cleanup on the host. If scrub policy is associated, then its configuration will be used to initiate data erase during the server profile undeploy or disassociation.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * bios\n  * description\n  * disk\n  * tags",
+                    "intersight_uri": "compute/ScrubPolicies",
+                    "items": {
+                        "$ref": "#/definitions/compute.ScrubPolicy"
+                    },
+                    "objectType": "compute.ScrubPolicy",
+                    "title": "scrub - Scrub - Intersight Uri: compute/ScrubPolicies"
+                },
                 "sd_card": {
                     "type": "array",
                     "description": "Configures the Cisco FlexFlash and FlexUtil Secure Digital (SD) cards for the Cisco UCS C-Series Standalone M4 and M5 servers. This policy specifies details of virtual drives on the SD cards. You can configure the SD cards in the Operating System Only, Utility Only, or Operating System + Utility modes.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description: ''\n  * enable_diagnostics: false\n  * enable_drivers: false\n  * enable_huu: false\n  * enable_os: false\n  * enable_scu: false\n  * tags:",
@@ -13706,6 +13758,16 @@
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "san_connectivity_policy"
                 },
+                "scrub_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the Scrub Policy to Assign to the Profile(s).",
+                    "intersight_api": "$ref:compute.ScrubPolicy.Relationship:compute.ScrubPolicy",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "scrub_policy"
+                },
                 "serial_over_lan_policy": {
                     "type": "string",
                     "default": "default",
@@ -14178,6 +14240,16 @@
                     "maxLength": 129,
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "san_connectivity_policy"
+                },
+                "scrub_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the Scrub Policy to Assign to the Profile(s).",
+                    "intersight_api": "$ref:compute.ScrubPolicy.Relationship:compute.ScrubPolicy",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "scrub_policy"
                 },
                 "serial_over_lan_policy": {
                     "type": "string",
