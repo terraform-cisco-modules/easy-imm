@@ -66,6 +66,10 @@ common:
     firmware_authenticate:
       cco_password: 1
       cco_user: 1
+    scrub:
+      - bios: false
+        disk: false
+        name: scrub_default
     virtual_media:
       - description: vmedia Virtual Media Policy
         enable_low_power_usb: true

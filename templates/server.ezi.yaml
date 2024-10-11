@@ -57,6 +57,7 @@ common:
         name: aci-M6-intel-virtual-tpm-M2-pxe
         power_policy: server
         san_connectivity_policy: scp
+        scrub_policy: scrub_default
         serial_over_lan_policy: sol
         snmp_policy: snmp
         storage_policy: M2-Raid
