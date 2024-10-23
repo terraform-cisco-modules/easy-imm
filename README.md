@@ -29,24 +29,24 @@
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  * New Scrub Policy  |
-| profiles      | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  * Adds Scrub Policy to Server Profiles/Templates. |
+| organizations | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  * New Memory and Scrub Policies  |
+| profiles      | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  * Adds Memory/Scrub Policies to Server Profiles/Templates. |
 
 ## Module(s) Release 4.2.11-16712 Compatibility
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-16711  | 1.0.47                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  With IP Pools use Configuration outside IP Block. |
-| policies      | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
-| profiles      | >=1.0.11-16711  | 1.0.47                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
+| organizations | >=1.0.11-16711  | 1.0.51                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-16711  | 1.0.51                | >=1.1.0-0             |  With IP Pools use Configuration outside IP Block. |
+| policies      | >=1.0.11-16711  | 1.0.51                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
+| profiles      | >=1.0.11-16711  | 1.0.51                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
-
+* 2024-10-23: Recommended releases are 4.2.11-20241004054146474 or 4.2.11-17712.  Adding Memory Policy.  Intersight API versioning changed to include date.
 * 2024-10-11: Recommended releases are 4.2.11-18775 or 4.2.11-16712.  Adding Scrub Policy.
 * 2024-09-13: Recommended releases are 4.2.11-18371 or 4.2.11-16712.  ISSUE 287 resolved.
 * 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version v4.2.11-18369 and v4.2.11-18370 is on hold for now until provider fixed.
