@@ -66,6 +66,9 @@ common:
     firmware_authenticate:
       cco_password: 1
       cco_user: 1
+    memory:
+      - dimm_blocklisting: false
+        name: memory_default
     scrub:
       - bios: false
         disk: false

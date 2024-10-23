@@ -25,14 +25,14 @@
 
 ## Recommended Module Versions
 
-## Module(s) Release 4.2.11-18775 Compatibility
+## Module(s) Release 4.2.11-20241004054146474 Compatibility
 
 | **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-18775  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-18775  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | >=1.0.11-18775  | 1.0.57                | Not Supported         |  * New Scrub Policy  |
-| profiles      | >=1.0.11-18775  | 1.0.57                | Not Supported         |  * Adds Scrub Policy to Server Profiles/Templates. |
+| organizations | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  * New Scrub Policy  |
+| profiles      | >=1.0.11-20241004054146474  | 1.0.57                | Not Supported         |  * Adds Scrub Policy to Server Profiles/Templates. |
 
 ## Module(s) Release 4.2.11-16712 Compatibility
 
@@ -337,10 +337,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-18775 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-18775 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-18775 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-18775 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20241004054146474 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20241004054146474 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20241004054146474 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20241004054146474 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 

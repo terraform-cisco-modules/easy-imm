@@ -7,7 +7,7 @@ In the `recommended_firmware` folder is a simple terraform setup that you can us
 
 ## Updates
 
-* 2024-07-23: Output Below ran on August 22, 2024.
+* 2024-07-23: Output Below ran on October 23, 2024.
 
 Following is an example output:
 
@@ -66,6 +66,17 @@ recommended_firmware = {
       "UCSC-C220-M6",
       "UCSC-C240-M6",
       "UCSC-C245-M6",
+    ])
+    "4.3(4.241014)" = tolist([
+      "UCSC-C245-M8",
+    ])
+    "4.3(4.241063)" = tolist([
+      "UCSC-C220-M7",
+      "UCSC-C225-M6",
+      "UCSC-C240-M7",
+    ])
+    "4.3(4.242038)" = tolist([
+      "UCSC-C225-M6",
     ])
   }
 }

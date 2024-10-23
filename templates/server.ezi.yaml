@@ -54,6 +54,7 @@ common:
         ipmi_over_lan_policy: ipmi
         lan_connectivity_policy: aci-lcp
         local_user_policy: users
+        memory_policy: memory_default
         name: aci-M6-intel-virtual-tpm-M2-pxe
         power_policy: server
         san_connectivity_policy: scp
