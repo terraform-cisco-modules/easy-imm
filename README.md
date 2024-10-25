@@ -25,23 +25,23 @@
 
 ## Recommended Module Versions
 
-## Module(s) Release 4.2.11-20241004054146474 Compatibility
+## SaaS API Version >=1.0.11-20241004054146473
 
-| **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
-| :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  * New Memory and Scrub Policies  |
-| profiles      | >=1.0.11-20241004054146473  | 1.0.57                | Not Supported         |  * Adds Memory/Scrub Policies to Server Profiles/Templates. |
+| **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
+| :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
+| organizations | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  * New Memory and Scrub Policies  |
+| profiles      | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  * Adds Memory/Scrub Policies to Server Profiles/Templates. |
 
-## Module(s) Release 4.2.11-16712 Compatibility
+## CVA/PVA Version >=1.1.0-0 API Version >=1.0.11-16711
 
-| **Module** | **API Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
-| :-----------: | :-------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | >=1.0.11-16711  | 1.0.51                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | >=1.0.11-16711  | 1.0.51                | >=1.1.0-0             |  With IP Pools use Configuration outside IP Block. |
-| policies      | >=1.0.11-16711  | 1.0.51                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
-| profiles      | >=1.0.11-16711  | 1.0.51                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
+| **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
+| :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
+| organizations | 4.2.11-18775  | 1.0.51                | >=1.1.0-0             |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-16711  | 1.0.51                | >=1.1.0-0             |  With IP Pools use Configuration outside IP Block. |
+| policies      | 4.2.11-16713  | 1.0.51                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
+| profiles      | 4.2.11-16712  | 1.0.51                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 
