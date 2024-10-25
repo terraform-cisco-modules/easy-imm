@@ -46,7 +46,7 @@
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
-* 2024-10-23: Recommended releases are 4.2.11-20241004054146474 or 4.2.11-17712.  Adding Memory Policy.  Intersight API versioning changed to include date.
+* 2024-10-23: Recommended releases are 4.2.11-20241004054146474 or 4.2.11-16712.  Adding Memory Policy.  Intersight API versioning changed to include date.
 * 2024-10-11: Recommended releases are 4.2.11-18775 or 4.2.11-16712.  Adding Scrub Policy.
 * 2024-09-13: Recommended releases are 4.2.11-18371 or 4.2.11-16712.  ISSUE 287 resolved.
 * 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version v4.2.11-18369 and v4.2.11-18370 is on hold for now until provider fixed.
