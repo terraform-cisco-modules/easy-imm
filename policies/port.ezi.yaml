@@ -42,11 +42,10 @@ common:
 default:
   policies:
     port:
-      - description: ucsx-direct-example
+      - description: ucsx-direct-example with iSCSI-A
         device_model: UCSX-S9108-100G
         names:
           - ucsx-direct-example-a
-          - ucsx-direct-example-b
         port_channel_ethernet_uplinks:
           - admin_speed: 10Gbps
             interfaces:
@@ -57,27 +56,43 @@ default:
                 port_id: 1
             pc_ids:
               - 171 # for 1/7/1, but arbitrary number; for port-policy A
-              - 171 # for 1/7/1, but arbitrary number; for port-policy B
-        port_channel_fc_uplinks:
-          - admin_speed: 32Gbps
-            interfaces:
-              - breakout_port_id: 1 # This would be 1/1/1
-                port_id: 1
-                slot_id: 1 # Optional
-              - breakout_port_id: 2 # This would be 1/2/1
-                port_id: 1
-            pc_ids:
-              - 111 # for 1/1/1, but arbitrary number; for port-policy A
-              - 111 # for 1/1/1, but arbitrary number; for port-policy B
-            vsan_ids:
-              - 100 # VSAN For Fabric A / port-policy A
-              - 200 # VSAN For Fabric B / port-policy B
         port_modes:
-          - custom_mode: BreakoutFibreChannel32G # Fibre-Channel Breakout
-            port_list:
-              - 1
-              - 2
           - custom_mode: BreakoutEthernet10G # 10G Uplink Breakout
             port_list:
               - 7
               - 8
+        port_role_appliances:
+          - admin_speed: Auto
+            ethernet_network_control_policy: cdp
+            ethernet_network_group_policy: iSCSI-VLG-A
+            mode: trunk
+            port_list: "3"
+            priority: Best Effort
+            slot_id: 1
+      - description: ucsx-direct-example with iSCSI-B
+        device_model: UCSX-S9108-100G
+        names:
+          - ucsx-direct-example-b
+        port_channel_ethernet_uplinks:
+          - admin_speed: 10Gbps
+            interfaces:
+              - breakout_port_id: 7 # this would be port 1/7/1 {slot}/{breakout}/{port_id}
+                port_id: 1
+                slot_id: 1 # Optional
+              - breakout_port_id: 8 # This would be port 1/8/1
+                port_id: 1
+            pc_ids:
+              - 171 # for 1/7/1, but arbitrary number; for port-policy B
+        port_modes:
+          - custom_mode: BreakoutEthernet10G # 10G Uplink Breakout
+            port_list:
+              - 7
+              - 8
+        port_role_appliances:
+          - admin_speed: Auto
+            ethernet_network_control_policy: cdp
+            ethernet_network_group_policy: iSCSI-VLG-B
+            mode: trunk
+            port_list: "3"
+            priority: Best Effort
+            slot_id: 1
