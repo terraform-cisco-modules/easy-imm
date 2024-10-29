@@ -77,3 +77,7 @@ default:
             port_list:
               - 1
               - 2
+          - custom_mode: BreakoutEthernet10G
+            port_list:
+              - 7
+              - 8
