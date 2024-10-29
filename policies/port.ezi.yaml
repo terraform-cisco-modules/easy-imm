@@ -39,3 +39,41 @@ common:
               - 8
         port_role_servers:
           - port_list: 37,38
+default:
+  policies:
+    port:
+      - description: ucsx-direct-example
+        device_model: UCSX-S9108-100G
+        names:
+          - ucsx-direct-example-a
+          - ucsx-direct-example-b
+        port_channel_ethernet_uplinks:
+          - admin_speed: 10Gbps
+            interfaces:
+              - breakout_port_id: 7 # this would be port 1/7/1 {slot}/{breakout}/{port_id}
+                port_id: 1
+                slot_id: 1 # Optional
+              - breakout_port_id: 8 # This would be port 1/8/1
+                port_id: 1
+            pc_ids:
+              - 171 # for 1/7/1 but arbitrary
+              - 171 # for 1/7/1 but arbitrary
+        port_channel_fc_uplinks:
+          - admin_speed: 32Gbps
+            interfaces:
+              - breakout_port_id: 1 # This would be 1/1/1
+                port_id: 1
+                slot_id: 1 # Optional
+              - breakout_port_id: 2 # This would be 1/2/1
+                port_id: 1
+            pc_ids:
+              - 111
+              - 111
+            vsan_ids:
+              - 100 # VSAN For Fabric A
+              - 200 # VSAN For Fabric B
+        port_modes:
+          - custom_mode: BreakoutFibreChannel32G
+            port_list:
+              - 1
+              - 2
