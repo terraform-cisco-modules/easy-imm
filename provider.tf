@@ -8,7 +8,7 @@ terraform {
   required_providers {
     intersight = {
       source  = "CiscoDevNet/intersight"
-      version = "1.0.57"
+      version = "1.0.58"
     }
     time = {
       source  = "time"

@@ -29,10 +29,10 @@
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  * New Memory and Scrub Policies  |
-| profiles      | 4.2.11-20241004054146474  | 1.0.57                | Not Supported         |  * Adds Memory/Scrub Policies to Server Profiles/Templates. |
+| organizations | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  * New Memory and Scrub Policies  |
+| profiles      | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  * Adds Memory/Scrub Policies to Server Profiles/Templates. |
 
 ## CVA/PVA Version >=1.1.0-0 API Version >=1.0.11-16711
 
@@ -319,7 +319,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.57 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.58 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 

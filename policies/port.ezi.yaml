@@ -65,8 +65,8 @@ default:
           - admin_speed: Auto
             ethernet_network_control_policy: cdp
             ethernet_network_group_policy: iSCSI-VLG-A
-            mode: trunk
-            port_list: "3"
+            mode: access
+            port_list: "2"
             priority: Best Effort
             slot_id: 1
       - description: ucsx-direct-example with iSCSI-B
@@ -92,7 +92,7 @@ default:
           - admin_speed: Auto
             ethernet_network_control_policy: cdp
             ethernet_network_group_policy: iSCSI-VLG-B
-            mode: trunk
-            port_list: "3"
+            mode: access
+            port_list: "2"
             priority: Best Effort
             slot_id: 1

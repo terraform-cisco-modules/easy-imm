@@ -81,6 +81,17 @@ default:
         description: network Ethernet Network Policy
         name: network
         vlan_mode: ACCESS
+    ethernet_network_control:
+      - cdp_enable: true
+        description: cdp Ethernet Network Control Policy
+        name: cdp
+    ethernet_network_group:
+      - allowed_vlans: "15"
+        name: iSCSI-VLG-A
+        native_vlan: 15
+      - allowed_vlans: "16"
+        name: iSCSI-VLG-B
+        native_vlan: 16
     iscsi_adapter:
       - description: adapter iSCSI Adapter Policy
         dhcp_timeout: 60
