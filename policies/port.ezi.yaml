@@ -11,7 +11,8 @@ common:
           - r143e-1-b
         port_channel_ethernet_uplinks:
           - admin_speed: Auto
-            ethernet_network_group_policy: aci-uplink
+            ethernet_network_group_policies:
+              - aci-uplink
             flow_control_policy: flow-ctrl
             interfaces:
               - port_id: 53

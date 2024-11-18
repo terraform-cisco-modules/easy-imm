@@ -9303,15 +9303,22 @@
                     ],
                     "title": "admin_speed"
                 },
-                "ethernet_network_group_policy": {
-                    "type": "string",
-                    "default": "",
-                    "description": "The Name of the Ethernet Network Group Policy to Assign.",
-                    "intersight_api": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
-                    "minLength": 1,
-                    "maxLength": 129,
-                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
-                    "title": "ethernet_network_group_policy"
+                "ethernet_network_group_policies": {
+                    "type": "array",
+                    "description": "The Name(s) of the Ethernet Network Control Policy to Assign.  Can be a list of 1 or 2.",
+                    "intersight_api": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FabricEthNetworkGroupPolicy",
+                    "items": {
+                        "type": "string",
+                        "default": "default",
+                        "description": "The Name of the Ethernet Network Group Policy to Assign.",
+                        "intersight_api": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FabricEthNetworkGroupPolicy",
+                        "minLength": 1,
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "ethernet_network_group_policy"
+                    },
+                    "objectType": "fabric.EthNetworkGroupPolicy",
+                    "title": "ethernet_network_group_policies - Ethernet Network Group Policies"
                 },
                 "interfaces": {
                     "type": "array",
@@ -9418,15 +9425,22 @@
                     "maximum": 108,
                     "title": "breakout_port_id"
                 },
-                "ethernet_network_group_policy": {
-                    "type": "string",
-                    "default": "",
-                    "description": "The Name of the Ethernet Network Group Policy to Assign.",
-                    "intersight_api": "$ref:fabric.EthNetworkGroupPolicy.Relationship:EthNetworkGroupPolicy",
-                    "minLength": 1,
-                    "maxLength": 129,
-                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
-                    "title": "ethernet_network_group_policy"
+                "ethernet_network_group_policies": {
+                    "type": "array",
+                    "description": "The Name(s) of the Ethernet Network Group Policies to Assign.",
+                    "intersight_api": "$ref:EthNetworkGroupPolicy:fabric.EthNetworkGroupPolicy:Moid",
+                    "items": {
+                        "type": "string",
+                        "default": "default",
+                        "description": "The Name of the Ethernet Network Group Policy to Assign.",
+                        "intersight_api": "$ref:EthNetworkGroupPolicy:fabric.EthNetworkGroupPolicy:Moid",
+                        "minLength": 1,
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "ethernet_network_group_policy"
+                    },
+                    "objectType": "fabric.EthNetworkGroupPolicy",
+                    "title": "ethernet_network_group_policies - Ethernet Network Group Policies"
                 },
                 "fec": {
                     "type": "string",
@@ -11824,7 +11838,7 @@
                 },
                 "ethernet_adapter": {
                     "type": "array",
-                    "description": "An Ethernet adapter policy governs the host-side behavior of the adapter, including how the adapter handles traffic. For each VIC Virtual Ethernet Interface, you can configure various features like Virtual Extensible LAN (VXLAN), Network Virtualization using Generic Routing Encapsulation (NVGRE), Accelerated Receive Flow Steering (ARFS), Interrupt settings, and TCP Offload settings.\nThe Ethernet Adapter policy include the recommended settings for the virtual Ethernet interface, for each supported server operating system. Operating systems are sensitive to the settings in these policies. In general, the storage vendors require non-default adapter settings. You can find the details of these required settings on the support list provided by those vendors.\nIMPORTANT NOTE: If GENEVE Offload is Enabled be sure to Read the Following Guidance: https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/b_Intersight_Managed_Mode_Configuration_Guide/b_intersight_managed_mode_guide_chapter_0110.html#reference_ofm_khm_5jb\n\nRequired Attributes:\n  * name\n\nRecommended Attribute: adapter_template\n\nOptional Attributes:\n  * completion\n  * description\n  * enable_accelerated_receive_flow_steering\n  * enable_advanced_filter\n  * enable_geneve_offload\n  * enable_interrupt_scaling\n  * enable_nvgre_offload\n  * enable_precision_time_protocol\n  * enable_vxlan_offload\n  * interrupt_settings\n  * receive\n  * receive_side_scaling\n  * roce_settings\n  * tags\n  * tcp_offload\n  * transmit\n  * uplink_failback_timeout",
+                    "description": "An Ethernet adapter policy governs the host-side behavior of the adapter, including how the adapter handles traffic. For each VIC Virtual Ethernet Interface, you can configure various features like Virtual Extensible LAN (VXLAN), Network Virtualization using Generic Routing Encapsulation (NVGRE), Accelerated Receive Flow Steering (ARFS), Interrupt settings, and TCP Offload settings.\nThe Ethernet Adapter policy include the recommended settings for the virtual Ethernet interface, for each supported server operating system. Operating systems are sensitive to the settings in these policies. In general, the storage vendors require non-default adapter settings. You can find the details of these required settings on the support list provided by those vendors.\nIMPORTANT NOTE: If GENEVE Offload is Enabled be sure to Read the Following Guidance: https://www.cisco.com/c/en/us/td/docs/unified_computing/Intersight/b_Intersight_Managed_Mode_Configuration_Guide/b_intersight_managed_mode_guide_chapter_0110.html#reference_ofm_khm_5jb\n\nRequired Attributes:\n  * name\n\nRecommended Attribute: adapter_template\n\nOptional Attributes:\n  * completion\n  * description\n  * enable_accelerated_receive_flow_steering\n  * enable_advanced_filter\n  * enable_ether_channel_pinning\n  * enable_geneve_offload\n  * enable_interrupt_scaling\n  * enable_nvgre_offload\n  * enable_precision_time_protocol\n  * enable_vxlan_offload\n  * interrupt_settings\n  * receive\n  * receive_side_scaling\n  * roce_settings\n  * tags\n  * tcp_offload\n  * transmit\n  * uplink_failback_timeout",
                     "intersight_uri": "vnic/EthAdapterPolicies",
                     "items": {
                         "$ref": "#/definitions/vnic.EthAdapterPolicy"
@@ -16198,6 +16212,13 @@
                     "intersight_api": "AdvancedFilter",
                     "title": "enable_advanced_filter"
                 },
+                "enable_ether_channel_pinning": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Default is `false`.  Enables Ether Channel Pinning to combine multiple physical links between two network switches into a single logical link. Transmit Queue Count should be at least 2 to enable ether channel pinning.",
+                    "intersight_api": "EtherChannelPinningEnabled",
+                    "title": "enable_ether_channel_pinning"
+                },
                 "enable_geneve_offload": {
                     "type": "boolean",
                     "default": false,
@@ -16342,7 +16363,7 @@
                 },
                 "ethernet_network_group_policies": {
                     "type": "array",
-                    "description": "The Name(s) of the Ethernet Network Control Policy to Assign.  Can be a list of 1 or 2.",
+                    "description": "The Name(s) of the Ethernet Network Group Policy to Assign.  If it is a list of 1 then the policy will be used by all vNICs.  If the list is greater than 1, then the list must be an even number, and it will be split between the vNICs.",
                     "intersight_api": "$ref:fabric.EthNetworkGroupPolicy.Relationship:FabricEthNetworkGroupPolicy",
                     "items": {
                         "type": "string",
@@ -18757,15 +18778,22 @@
                     "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "ethernet_network_control_policy"
                 },
-                "ethernet_network_group_policy": {
-                    "type": "string",
-                    "default": "default",
-                    "description": "The Name of the Ethernet Network Group Policy to Assign to the vNIC Template.",
+                "ethernet_network_group_policies": {
+                    "type": "array",
+                    "description": "The Name(s) of the Ethernet Network Group Policy to Assign.  If it is a list of 1 then the policy will be used by all vNICs.  If the list is greater than 1, then the list must be an even number, and it will be split between the vNICs.",
                     "intersight_api": "$ref:FabricEthNetworkGroupPolicy:fabric.EthNetworkGroupPolicy:Moid",
-                    "minLength": 1,
-                    "maxLength": 129,
-                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
-                    "title": "ethernet_network_group_policy"
+                    "items": {
+                        "type": "string",
+                        "default": "default",
+                        "description": "The Name of the Ethernet Network Group Policy to Assign.",
+                        "intersight_api": "$ref:FabricEthNetworkGroupPolicy:fabric.EthNetworkGroupPolicy:Moid",
+                        "minLength": 1,
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "ethernet_network_group_policy"
+                    },
+                    "object_type": "fabric.EthNetworkGroupPolicy",
+                    "title": "ethernet_network_group_policies - Ethernet Network Group Policies"
                 },
                 "ethernet_qos_policy": {
                     "type": "string",
