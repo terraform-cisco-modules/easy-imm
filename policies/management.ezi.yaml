@@ -15,6 +15,31 @@ common:
       - description: ipmi IPMI over LAN Policy
         name: ipmi
         privilege: admin
+    ldap:
+      - base_settings:
+          domain: rich.ciscolabs.com
+        binding_parameters:
+          bind_method: LoginCredentials
+        description: RICH LDAP Policy
+        enable_group_authorization: true
+        ldap_groups:
+          - end_point_role: admin
+            group_dn: CN=Domain Admins,OU=Users,DC=rich,DC=ciscolabs,DC=com
+            name: Domain Admins
+        ldap_servers:
+          - port: 389
+            server: 10.101.128.15
+            vendor: MSAD
+          - port: 389
+            server: 10.101.128.16
+            vendor: MSAD
+        name: RICH
+        nested_group_search_depth: 128
+        search_parameters:
+          attribute: CiscoAvPair
+          filter: sAMAccountName
+          group_attribute: memberOf
+        user_search_precedence: LocalUserDb
     local_user:
       - description: users Local User Policy
         name: users
@@ -68,34 +93,8 @@ default:
       - configuration_from_intersight_only: false
         description: devcon Device Connector Policy
         name: devcon
-    ldap:
-      - base_settings:
-          base_dn: DC=example,DC=com
-          domain: example.com
-          timeout: 0
-        binding_parameters:
-          bind_method: LoginCredentials
-        description: ldap LDAP Policy
-        enable_encryption: true
-        enable_group_authorization: true
-        enable_ldap: true
-        ldap_groups:
-          - name: ucs-admins
-            role: admin
-          - name: netops
-            role: user
-        ldap_servers:
-          - port: 636
-            server: 198.18.6.36
-        name: ldap
-        nested_group_search_depth: 128
-        search_parameters:
-          attribute: CiscoAvPair
-          filter: sAMAccountName
-          group_attribute: memberOf
-        user_search_precedence: LocalUserDb
     network_connectivity:
-      - description: dns Network Connectivity Policy
+      - description: dns_with_v6 Network Connectivity Policy
         dns_servers_v4:
           - 208.67.220.220
           - 208.67.222.222

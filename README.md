@@ -25,16 +25,25 @@
 
 ## Recommended Module Versions
 
-## SaaS API Version >=1.0.11-20241004054146473
+## SaaS API Version >=1.0.11-20241017091918219
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  * New Memory and Scrub Policies  |
-| profiles      | 4.2.11-20241004054146474  | 1.0.58                | Not Supported         |  * Adds Memory/Scrub Policies to Server Profiles/Templates. |
+| organizations | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  * New Memory and Scrub Policies  |
+| profiles      | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
 
-## CVA/PVA Version >=1.1.0-0 API Version >=1.0.11-16711
+## CVA Version >=1.1.1-0 API Version >=1.0.11-18735
+
+| **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
+| :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
+| organizations | 4.2.11-18775  | 1.0.51                | >=1.1.1-0             |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-16711  | 1.0.51                | >=1.1.1-0             |  With IP Pools use Configuration outside IP Block. |
+| policies      | 4.2.11-16713  | 1.0.51                | >=1.1.1-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
+| profiles      | 4.2.11-16712  | 1.0.51                | >=1.1.1-0             |  * Adds Scrub Policies to Server Profiles/Templates. |
+
+## PVA Version >=1.1.0-0 API Version >=1.0.11-16711
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
@@ -46,12 +55,15 @@
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
+* 2024-11-12: Recommended releases are 4.2.11-20241004054146475 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0). 
+  <ins>IMPORTANT NOTE</ins>: 4.2.11-20241004054146475 introduces support for multi-ethernet network group policies for Ethernet Uplink Port-Channels and Ethernet Uplink.  If you are still using older module versions make sure to point to the older JSON Schema for Visual Studio Code.
+  For example: v4.2.11-18775 - https://github.com/terraform-cisco-modules/easy-imm/blob/39542dfc4ee2f368d42ff6a73ee4e08cb26a4c09/yaml_schema/easy-imm.json
 * 2024-10-23: Recommended releases are 4.2.11-20241004054146474 or 4.2.11-16712.  Adding Memory Policy.  Intersight API versioning changed to include date.
 * 2024-10-11: Recommended releases are 4.2.11-18775 or 4.2.11-16712.  Adding Scrub Policy.
 * 2024-09-13: Recommended releases are 4.2.11-18371 or 4.2.11-16712.  ISSUE 287 resolved.
 * 2024-09-08: Rolling back SaaS recommendation to 4.2.11-17769 since provider v1.0.54 is broken again for server templates [ISSUE 287](https://github.com/CiscoDevNet/terraform-provider-intersight/issues/287) .  Version v4.2.11-18369 and v4.2.11-18370 is on hold for now until provider fixed.
 * 2024-09-07: Recommended releases are 4.2.11-18369 or 4.2.11-16711.  This update changes the drive security policy to match the updated API of 1.0.11-18369.  Make sure to update your variables.tf, locals.tf from the eas-imm repository to get the updated sensitive variables for drive_security.  The variables have also been updated to do validation using the regular expression patterns from the API.
-* 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.  See Notes for modules above.
+* 2024-07-23: Recommended releases are 4.2.11-17769 or 4.2.11-16711.
 * 2024-07-16: Terraform Provider 1.0.48, 1.0.49, and 1.0.50 depricated due to breaking BIOS changes and bulk_merger problems.  Do not use these provider versions.
 
 ### [<ins>Back to Top<ins>](#easy-imm)
@@ -183,8 +195,9 @@ In example, if you needed to add 100 iterations of the `certificate_management` 
 
 ### Terraform Cloud/Enterprise - Workspace Variables
 
-- Add variable `intersight_api_key_id` with the value of <your-api-key>
-- Add variable `intersight_secret_key` with the value of <your-secret-file-content>
+- Add variable `intersight_api_key_id` with the value of <ins>your-intersight-api-key</ins>
+- Add variable `intersight_secret_key` with the value of <ins>your-intersight-secret-file-content</ins>
+- Add additional variables as required for the sensitive policy values
 
 #### Add Other Variables as discussed below based on use cases.
 
@@ -319,7 +332,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.58 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.59 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 
@@ -337,10 +350,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20241004054146474 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20241004054146474 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20241004054146474 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20241004054146474 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20241017091918219 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20241017091918219 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20241017091918219 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | /home/tyscott/terraform-cisco-modules/terraform-intersight-profiles | n/a |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 

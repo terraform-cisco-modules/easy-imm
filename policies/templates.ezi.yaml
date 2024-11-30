@@ -18,7 +18,8 @@ common:
         enable_failover: true
         ethernet_adapter_policy:  Win-AzureStack
         ethernet_network_control_policy: both
-        ethernet_network_group_policy: aci-mgmt
+        ethernet_network_group_policies:
+          - aci-mgmt
         ethernet_qos_policy: best-effort
         mac_address_pool: dual-fabric
         name: vnic0

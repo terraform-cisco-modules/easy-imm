@@ -8782,8 +8782,28 @@
                     "intersight_api": "not_applicable",
                     "title": "attach_template"
                 },
+                "certificate_management_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the Certificate Management Policy to Assign to the Domain Profile.",
+                    "intersight_api": "$ref:certificatemanagement.Policy.Relationship:certificatemanagement.Policy",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "certificate_management_policy"
+                },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/description"
+                },
+                "ldap_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the LDAP Policy to Assign to the Domain Profile.",
+                    "intersight_api": "$ref:iam.LdapPolicy.Relationship:iam.LdapPolicy",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "ldap_policy"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/name"
@@ -8945,6 +8965,16 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+                "certificate_management_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the Certificate Management Policy to Assign to the Domain Profile Template.",
+                    "intersight_api": "$ref:certificatemanagement.Policy.Relationship:certificatemanagement.Policy",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "certificate_management_policy"
+                },
                 "create_template": {
                     "type": "boolean",
                     "default": false,
@@ -8954,6 +8984,16 @@
                 },
                 "description": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/description"
+                },
+                "ldap_policy": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "The Name of the LDAP Policy to Assign to the Domain Profile Template.",
+                    "intersight_api": "$ref:iam.LdapPolicy.Relationship:iam.LdapPolicy",
+                    "minLength": 1,
+                    "maxLength": 129,
+                    "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                    "title": "ldap_policy"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractProfile/properties/name"
@@ -10113,27 +10153,27 @@
                     "type": "string",
                     "default": "",
                     "description": "Distinguished Name (DN) of the user, that is used to authenticate against LDAP servers.  An example would be `DC=example,DC=com`",
-                    "intersight_api": "",
+                    "intersight_api": "BaseDn",
                     "minLength": 1,
                     "maxLength": 254,
                     "pattern": "^((CN=([^,]*)),)?((((?:CN|OU)=[^,]+,?)+),)?((DC=[^,]+,?)+)$",
-                    "title": "switch_id"
+                    "title": "base_dn"
                 },
                 "domain": {
                     "type": "string",
                     "default": "example.com",
                     "description": "The LDAP domain that all users must be in.  An example would be `example.com`.",
-                    "intersight_api": "",
+                    "intersight_api": "Domain",
                     "minLength": 1,
                     "maxLength": 72,
                     "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9\\.\\-]*[a-zA-Z0-9]))$",
-                    "title": "switch_id"
+                    "title": "domain"
                 },
                 "timeout": {
                     "type": "integer",
                     "default": 0,
                     "description": "LDAP authentication timeout duration, in seconds.  Range is `0 to 180`.",
-                    "intersight_api": "",
+                    "intersight_api": "Timeout",
                     "minimum": 0,
                     "maximum": 180,
                     "title": "timeout"
@@ -10250,7 +10290,29 @@
                     "minLength": 1,
                     "maxLength": 72,
                     "pattern": "^(([a-zA-Z0-9])|([a-zA-Z0-9][a-zA-Z0-9\\.\\-]*[a-zA-Z0-9]))$",
-                    "title": "switch_id"
+                    "title": "domain"
+                },
+                "end_point_role": {
+                    "type": "string",
+                    "default": "readonly",
+                    "description": "Default is `readonly`.  The name of the end point role.\n  * admin\n  * readonly\n  * user",
+                    "intersight_api": "$ref:iam.EndPointRole:Name",
+                    "enum": [
+                        "admin",
+                        "readonly",
+                        "user"
+                    ],
+                    "title": "end_point_role"
+                },
+                "group_dn": {
+                    "type": "string",
+                    "default": "",
+                    "description": "LDAP Group DN in the LDAP server database..  An example would be `CN=admin,OU=Users,DC=example,DC=com`",
+                    "intersight_api": "GroupDn",
+                    "minLength": 1,
+                    "maxLength": 300,
+                    "pattern": "^((CN=([^,]*)),)?((((?:CN|OU)=[^,]+,?)+),)?((DC=[^,]+,?)+)$",
+                    "title": "group_dn"
                 },
                 "name": {
                     "type": "string",
@@ -10261,23 +10323,12 @@
                     "maxLength": 127,
                     "pattern": "^([^+\\-][a-zA-Z0-9=!#$%()*+,-.:;@ _{|}~?&]*)$",
                     "title": "username"
-                },
-                "role": {
-                    "type": "string",
-                    "default": "readonly",
-                    "description": "Default is `readonly`.  The name of the end point role.\n  * admin\n  * readonly\n  * user",
-                    "intersight_api": "$ref:iam.EndPointRole:Name",
-                    "enum": [
-                        "admin",
-                        "readonly",
-                        "user"
-                    ],
-                    "title": "role"
                 }
             },
             "required": [
-                "name",
-                "role"
+                "end_point_role",
+                "group_dn",
+                "name"
             ],
             "title": "ldap_groups - LDAP Groups - Intersight Uri: iam/LdapGroups"
         },
@@ -10325,7 +10376,7 @@
                 },
                 "ldap_groups": {
                     "type": "array",
-                    "description": "A List of LDAP Group resources.\n\nRequired Attributes:\n  * group\n  * role",
+                    "description": "A List of LDAP Groups.\n\nRequired Attributes:\n  * end_point_role\n  * group_dn\n  * name\n\nOptional Attributes:\n  * domain",
                     "intersight_uri": "iam/LdapGroups",
                     "items": {
                         "$ref": "#/definitions/iam.LdapGroup"
@@ -10335,7 +10386,7 @@
                 },
                 "ldap_servers": {
                     "type": "array",
-                    "description": "A List of LDAP Provider Servers.\n\nRequired Attributes:\n  * server\n\nOptional Attributes:\n  * port",
+                    "description": "A List of LDAP Provider Servers.\n\nRequired Attributes:\n  * server\n\nOptional Attributes:\n  * port\n  * vendor",
                     "intersight_uri": "iam/LdapProviders",
                     "items": {
                         "$ref": "#/definitions/iam.LdapProvider"
@@ -10412,6 +10463,17 @@
                     "maxLength": 255,
                     "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\\.?$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
                     "title": "server"
+                },
+                "vendor": {
+                    "type": "string",
+                    "default": "OpenLDAP",
+                    "description": "Default is `OpenLDAP`.  LDAP server vendor type used for authentication.\n  * `OpenLDAP` - Open source LDAP server for remote authentication.\n  * `MSAD` - Microsoft active directory for remote authentication.",
+                    "intersight_api": "Vendor",
+                    "enum": [
+                        "MSAD",
+                        "OpenLDAP"
+                    ],
+                    "title": "vendor"
                 }
             },
             "required": [
@@ -12119,7 +12181,7 @@
                 },
                 "power": {
                     "type": "array",
-                    "description": "Enables the management of power for FI-attached servers and chassis. This policy allows you to set the power profiling the power priority of the server, and the power restore state of the system.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * dynamic_power_rebalancing\n  * extended_power_capacity\n  * power_allocation\n  * power_priority\n  * power_profiling\n  * power_redundancy\n  * power_restore\n  * power_save_mode\n  * tags",
+                    "description": "Enables the management of power for FI-attached servers and chassis. This policy allows you to set the power profiling the power priority of the server, and the power restore state of the system.\n\nRequired Attributes:\n  * name\n\nOptional Attributes:\n  * description\n  * dynamic_power_rebalancing\n  * extended_power_capacity\n  * power_allocation\n  * power_priority\n  * power_profiling\n  * power_redundancy\n  * power_restore\n  * power_save_mode\n  * processor_package_power_limit\n  * tags",
                     "intersight_uri": "power/Policies",
                     "items": {
                         "$ref": "#/definitions/power.Policy"
@@ -13242,6 +13304,18 @@
                     ],
                     "title": "power_save_mode"
                 },
+                "processor_package_power_limit": {
+                    "type": "string",
+                    "default": "Default",
+                    "description": "Default is `Default`.  Sets the Processor Package Power Limit (PPL) of a server. PPL refers to the amount of power that a CPU can draw from the power supply. The Processor Package Power Limit (PPL) feature is currently available exclusively on Cisco UCS C225/C245 M8 servers.\n  * `Default` - Set the Package Power Limit to the platform defined default value.\n  * `Maximum` - Set the Package Power Limit to the platform defined maximum value.\n  * `Minimum` - Set the Package Power Limit to the platform defined minimum value.",
+                    "intersight_api": "ProcessorPackagePowerLimit",
+                    "enum": [
+                        "Default",
+                        "Maximum",
+                        "Minimum"
+                    ],
+                    "title": "processor_package_power_limit"
+                },
                 "tags": {
                     "type": "array",
                     "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
@@ -13324,7 +13398,7 @@
                 },
                 "domain": {
                     "type": "array",
-                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\n\nImportant:\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\n\nRequired Base Attributes:\n  * action\n  * name\n  * serial_numbers\n\nOptional Base Attributes:\n  * attach_template\n  * description\n  * tags\n  * user_label\n  * ucs_domain_profile_template - to assign to a template\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required (If not attached to a domain template) - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required (If not attached to a domain template)\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required (If not attached to a domain template)",
+                    "description": "A UCS Domain Profile configures a Fabric Interconnect pair through reusable policies, allows for configuration of the ports and port channels, and configures the VLANs and VSANs in the network. It defines the characteristics of, and configures ports on Fabric Interconnects. You can create a UCS Domain profile and associate it with a Fabric Interconnect Domain. The Domain-related policies can be attached to the profile either at the time of creation or later. One UCS Domain profile can be assigned to one Fabric Interconnect Domain.\n\nImportant:\n  * You can use a single port policy per UCS Domain profile or a port-policy per FI.\n  * Policies that are attached to a UCS Domain profile can be created ahead of creating a profile or during the creation of the profile.\n  * Policies that are attached to a UCS Domain and the global policies of all UCS Domain Profiles associated with a specific UCS Domain are shared.\n\nRequired Base Attributes:\n  * action\n  * name\n  * serial_numbers\n\nOptional Base Attributes:\n  * attach_template\n  * description\n  * tags\n  * user_label\n  * ucs_domain_profile_template - to assign to a template\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required (If not attached to a domain template) - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required (If not attached to a domain template)\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * certificate_management_policy\n  * ldap_policy\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required (If not attached to a domain template)",
                     "intersight_uri": "fabric/SwitchClusterProfiles",
                     "items": {
                         "$ref": "#/definitions/fabric.SwitchClusterProfile"
@@ -15808,7 +15882,7 @@
                 },
                 "domain": {
                     "type": "array",
-                    "description": "In Cisco Intersight, a Domain Profile Template enables resource management by streamlining policy alignment, and domain configuration. You can create Domain Profile Templates using the UCS Domain Profile Template wizard to provision Fabric Interconnects, create policies to ensure smooth deployment of a Pair of Fabric Interconnects, and eliminate failures that are caused by inconsistent configuration. The Domain Profile Templates wizard groups the domain policies into the following three categories to provide a quick Summary View of the policies that are attached to a template:\n  * VLAN & VSAN Configuration — VLAN and VSAN policies for Fabric Interconnect A and Fabric Interconnect B.\n     - Note: Both Fabrics can share the same policies or they can be distinct.\n  * Ports Configuration — Port policies.\n     - Note: Both Fabrics can share the same port policy or they can be distinct.\n  * UCS Domain Configuration — Management: NTP, Syslog, Network Connectivity and SNMP.  Network: System QoS and Switch Control.\n\nRequired Base Attributes:\n  * create_template\n  * name\n\nOptional Base Attributes:\n  * description\n  * tags\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required",
+                    "description": "In Cisco Intersight, a Domain Profile Template enables resource management by streamlining policy alignment, and domain configuration. You can create Domain Profile Templates using the UCS Domain Profile Template wizard to provision Fabric Interconnects, create policies to ensure smooth deployment of a Pair of Fabric Interconnects, and eliminate failures that are caused by inconsistent configuration. The Domain Profile Templates wizard groups the domain policies into the following three categories to provide a quick Summary View of the policies that are attached to a template:\n  * VLAN & VSAN Configuration — VLAN and VSAN policies for Fabric Interconnect A and Fabric Interconnect B.\n     - Note: Both Fabrics can share the same policies or they can be distinct.\n  * Ports Configuration — Port policies.\n     - Note: Both Fabrics can share the same port policy or they can be distinct.\n  * UCS Domain Configuration — Management: NTP, Syslog, Network Connectivity and SNMP.  Network: System QoS and Switch Control.\n\nRequired Base Attributes:\n  * create_template\n  * name\n\nOptional Base Attributes:\n  * description\n  * tags\n\n#=======================================\n# VLAN & VSAN Configuration\n#=======================================\n  * vlan_policies - required - A list of one or two VLAN policies.  A list of one will assign the same policy to both fabrics.\n  * vsan_policies - A list of one or two VSAN policies.  A list of one will assign the same policy to both fabrics.\n\n#=======================================\n# Ports Configuration\n#=======================================\n  * port_policies - required\n\n#=======================================\n# UCS Domain Configuration - Management\n#=======================================\n  * certificate_management_policy\n  * ldap_policy\n  * network_connectivity_policy\n  * ntp_policy\n  * snmp_policy\n  * syslog_policy\n\n#=======================================\n# UCS Domain Configuration - Network\n#=======================================\n  * switch_control_policy\n  * system_qos_policy - required",
                     "intersight_uri": "fabric/SwitchClusterProfiles",
                     "items": {
                         "$ref": "#/definitions/fabric.SwitchClusterProfileTemplate"
@@ -18870,7 +18944,7 @@
             },
             "required": [
                 "ethernet_network_control_policy",
-                "ethernet_network_group_policy",
+                "ethernet_network_group_policies",
                 "ethernet_qos_policy",
                 "name"
             ],

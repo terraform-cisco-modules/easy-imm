@@ -7,6 +7,7 @@ Asgard:
     domain:
       - action: No-op
         description: r143e-1 UCS Domain Profile
+        ldap_policy: common/RICH
         name: r143e-1
         network_connectivity_policy: common/dns
         ntp_policy: common/ntp
