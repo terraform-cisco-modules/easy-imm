@@ -1,0 +1,102 @@
+---
+intersight_api:
+  adapter_configuration:
+    add_vic_adapter_configuration:
+      dce_interface_settings:
+        dce_interface_1_fec_mode: FecMode0
+        dce_interface_2_fec_mode: FecMode1
+        dce_interface_3_fec_mode: FecMode2
+        dce_interface_4_fec_mode: FecMode3
+        object: DceInterfaceSettings
+        object_type: adapter.DceInterfaceSettings
+      enable_fip: $ref:FcSettings:adapter.FcSettings:FipEnabled
+      enable_lldp: $ref:EthSettings:adapter.EthSettings:LldpEnabled
+      enable_physical_nic_mode: $ref:PhysicalNicModeSettings:adapter.PhysicalNicModeSettings:PhyNicEnabled
+      enable_port_channel: $ref:PortChannelSettings:adapter.PortChannelSettings:Enabled
+      object: Settings
+      object_type: adapter.AdapterConfig
+      pci_slot: SlotId
+    description: Description
+    name: Name
+    object_type: adapter.ConfigPolicy
+    tags:
+      key: Key
+      value: Value
+  organization:
+    description: Description
+    name: Name
+    object_type: organization.Organization
+intersight_api_uri:
+  adapter_configuration: adapter/ConfigPolicies
+  bios: bios/Policies
+  boot_order: boot/PrecisionPolicies
+  certificate_management: certificatemanagement/Policies
+  organization: organization/Organizations
+intersight_type:
+  policies:
+    - adapter_configuration
+    - bios
+    - boot_order
+    - certificate_management
+    - device_connector
+    - drive_security
+    - ethernet_adapter
+    - ethernet_network
+    - ethernet_network_control
+    - ethernet_network_group
+    - ethernet_qos
+    - fibre_channel_adapter
+    - fibre_channel_network
+    - fibre_channel_qos
+    - firmware
+    - flow_control
+    - imc_access
+    - ipmi_over_lan
+    - iscsi_adapter
+    - iscsi_boot
+    - iscsi_static_target
+    - lan_connectivity
+    - ldap
+    - link_aggregation
+    - link_control
+    - local_user
+    - memory
+    - multicast
+    - network_connectivity
+    - ntp
+    - persistent_memory
+    - port
+    - power
+    - san_connectivity
+    - scrub
+    - sd_card
+    - serial_over_lan
+    - smtp
+    - snmp
+    - ssh
+    - storage
+    - switch_control
+    - syslog
+    - system_qos
+    - vhba_template
+    - virtual_kvm
+    - virtual_media
+    - vlan
+    - vnic_template
+    - vsan
+  pools:
+    - ip
+    - iqn
+    - mac
+    - resource
+    - uuid
+    - wwnn
+    - wwpn
+  profiles:
+    - profiles.chassis
+    - profiles.domain
+    - profiles.server
+  templates:
+    - templates.chassis
+    - templates.domain
+    - templates.server

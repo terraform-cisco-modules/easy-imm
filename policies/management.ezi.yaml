@@ -19,9 +19,10 @@ common:
       - base_settings:
           domain: rich.ciscolabs.com
         binding_parameters:
-          bind_method: LoginCredentials
+          bind_dn: CN=Tyson Scott,OU=Cisco Employees,DC=rich,DC=ciscolabs,DC=com
+          bind_method: ConfiguredCredentials
         description: RICH LDAP Policy
-        enable_group_authorization: true
+        enable_group_authorization: false
         ldap_groups:
           - end_point_role: admin
             group_dn: CN=Domain Admins,OU=Users,DC=rich,DC=ciscolabs,DC=com
@@ -36,9 +37,9 @@ common:
         name: RICH
         nested_group_search_depth: 128
         search_parameters:
-          attribute: CiscoAvPair
-          filter: sAMAccountName
-          group_attribute: memberOf
+          attribute: memberof
+          filter: sAMAccountName=$userid
+          group_attribute: memberof
         user_search_precedence: LocalUserDb
     local_user:
       - description: users Local User Policy
