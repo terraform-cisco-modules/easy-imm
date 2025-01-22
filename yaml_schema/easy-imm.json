@@ -11355,7 +11355,7 @@
                 "value": {
                     "type": "string",
                     "default": "value",
-                    "description": "A list of all Tag values that have been assigned to this tag Key.",
+                    "description": "The tag value that has been assigned to this Key.",
                     "intersight_api": "Value",
                     "minLength": 1,
                     "maxLength": 128,
@@ -12228,6 +12228,16 @@
                     },
                     "objectType": "sol.Policy",
                     "title": "serial_over_lan - Serial Over Lan - Intersight Uri: sol/Policies"
+                },
+                "server_pool_qualification": {
+                    "type": "array",
+                    "description": "A server will be included in the resource pool if it matches the conditions of all the qualifiers present in the policy. The qualifiers are of four types:\n  * Domain — All FI-attached servers in any domain that match the provided Fabric Interconnect PID and domain name qualify under this type.\n  * Server — All blade and/or rack servers that match the provided server IDs, PIDs, tags, user labels, and chassis IDs qualify under this type.\n  * Tag — All servers that match any of the provided server tags, domain profile, and chassis tags qualify under this type. Domain profile and chassis tags are applicable only for FI-attached servers.\n  * Hardware — All servers with hardware components that match the provided CPU, memory, GPU, and Network adapters qualify under this type.\n\nThis policy is applicable for Intersight Managed Mode and Standalone servers.\n\nRequired Attributes:\n  * `name`\n\nOptional Attributes:\n  * `description`\n  * `domain_qualifiers`\n  * `hardware_qualifiers`\n  * `server_qualifiers`\n  * `tag_qualifiers`\n  * `tags`",
+                    "intersight_uri": "resourcepool/QualificationPolicies",
+                    "items": {
+                        "$ref": "#/definitions/resourcepool.QualificationPolicy"
+                    },
+                    "objectType": "resourcepool.QualificationPolicy",
+                    "title": "server_pool_qualification - Server Pool Qualification - Intersight Uri: resourcepool/QualificationPolicies"
                 },
                 "smtp": {
                     "type": "array",
@@ -13425,6 +13435,50 @@
             },
             "title": "Profiles"
         },
+        "resource.DomainQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "domain_names": {
+                    "type": "array",
+                    "description": "A List of Domain Names to add to the Domain Qualifier for server qualification.  These must be pre-existing domains.  These are the domain system names that show up under targets, not the name of the profile.  The maximum limit is 100",
+                    "intersight_api": "DomainNames",
+                    "items": {
+                        "type": "string",
+                        "default": "example",
+                        "description": "An Existing domain system name in the Intersight Organization.",
+                        "intersight_api": "DomainNames",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
+                        "title": "domain_name"
+                    },
+                    "title": "domain_names"
+                },
+                "fabric_interconnect_pids": {
+                    "type": "array",
+                    "description": "A list of Fabric Interconnect product identifiers for the server qualification.\n\nOptions are:\n  * UCS-FI-6454\n  * UCS-FI-64108\n  * UCS-FI-6536\n  * UCSX-S9108-100G",
+                    "intersight_api": "FabricInterConnectPids",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Fabric Interconnect Product ID.",
+                        "intersight_api": "FabricInterConnectPids",
+                        "enum": [
+                            "UCS-FI-6454",
+                            "UCS-FI-64108",
+                            "UCS-FI-6536",
+                            "UCSX-S9108-100G"
+                        ],
+                        "title": "fabric_interconnect_pid"
+                    },
+                    "title": "fabric_interconnect_pids"
+                }
+            },
+            "required": [
+            ],
+            "title": "Domain Qualifiers"
+        },
         "resource.Group": {
             "type": "object",
             "additionalProperties": false,
@@ -13581,6 +13635,79 @@
                 "serial_number_list"
             ],
             "title": "Resource"
+        },
+        "resourcepool.QualificationPolicy": {
+            "type": "object",
+            "additionalProperties": false,
+            "intersight_uri": "resourcepool/QualificationPolicies",
+            "object_type": "resourcepool.QualificationPolicy",
+            "properties": {
+                "description": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
+                },
+                "domain_qualifiers": {
+                    "type": "array",
+                    "description": "Attributes to match all FI-attached servers in any domain that match the provided Fabric Interconnect PID and/or domain name qualifiers under this type.\n\nOptional Attributes:\n  * domain_names\n  * fabric_interconnect_pids",
+                    "items": {
+                        "$ref": "#/definitions/resource.DomainQualifier"
+                    },
+                    "title": "domain_qualifiers - Domain Qualifiers"
+                },
+                "name": {
+                    "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
+                },
+                "pool_type": {
+                    "type": "string",
+                    "default": "Static",
+                    "description": "The resource management type in the pool, it can be either static or dynamic.\n  * Static - The resources in the pool will not be changed until user manually update it. (default)\n  * Dynamic - The resources in the pool will be updated dynamically based on the condition.",
+                    "intersight_api": "PoolType",
+                    "enum": [
+                        "Dynamic",
+                        "Static"
+                    ],
+                    "title": "pool_type"
+                },
+                "resource_type": {
+                    "type": "string",
+                    "default": "Server",
+                    "description": "The type of the resource present in the pool, example 'server' its combination of RackUnit and Blade.\n  * None - The resource cannot consider for Resource Pool.\n  * Server - Resource Pool holds the server kind of resources, example - RackServer, Blade. (default)",
+                    "intersight_api": "ResourceType",
+                    "enum": [
+                        "None",
+                        "Server"
+                    ],
+                    "title": "resource_type"
+                },
+                "serial_number_list": {
+                    "type": "array",
+                    "description": "A List of Compute Serial Numbers to assign to the policy.  These must be the same type of server. Cannot be some blades and some rackmounts.",
+                    "intersight_api": "",
+                    "items": {
+                        "type": "string",
+                        "default": "FOX25415555",
+                        "description": "Server Serial Number.",
+                        "intersight_api": "",
+                        "minLength": 11,
+                        "maxLength": 11,
+                        "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
+                        "title": "serial_number"
+                    },
+                    "title": "serial_number_list"
+                },
+                "tags": {
+                    "type": "array",
+                    "description": "An arbitrary key and value pair that can be used to tag REST resources and organize managed objects by\nassigning meta-data tags to any object.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/mo.Tag"
+                    },
+                    "title": "tags - Tags"
+                }
+            },
+            "required": [
+                "name",
+                "serial_number_list"
+            ],
+            "title": "Server Pool Qualification"
         },
         "sdcard.Policy": {
             "type": "object",

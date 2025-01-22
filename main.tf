@@ -32,12 +32,15 @@ module "organizations" {
 # GUI Location: Infrastructure Service > Configure > Pools
 #_________________________________________________________________________________________
 module "pools" {
-  # source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-pools"
-  source  = "terraform-cisco-modules/pools/intersight"
-  version = "4.2.11-20241017091918219"
+  source = "/home/tyscott/terraform-cisco-modules/terraform-intersight-pools"
+  # source  = "terraform-cisco-modules/pools/intersight"
+  # version = "4.2.11-20241017091918219"
   for_each = {
     for i in ["map"] : i => i if length(flatten([for org in setsubtract(keys(local.model), local.non_orgs) : [
-      for e in keys(lookup(local.model[org], "pools", {})) : e]])) > 0 || length(
+      for e in keys(lookup(local.model[org], "pools", {})) : e]])) > 0 || length(flatten([
+      for org in setsubtract(keys(local.model), local.non_orgs) : [
+        for e in lookup(lookup(local.model[org], "policies", {}), "server_pool_qualification", []) : e
+      ]])) > 0 || length(
       flatten([for org in setsubtract(keys(local.model), local.non_orgs) : [for e in lookup(lookup(local.model[org], "profiles", {}), "server", []) : [
         for d in e["targets"] : lookup(d, "reservations", [])
       ]]])
