@@ -60,6 +60,12 @@ common:
           - from: 00:25:B5:C1:00:00
             size: 255
         name: dual-fabric
+    resource:
+      - description: default
+        name: default
+        server_pool_qualification_policies:
+          - SPQ-Blade
+        target_platform: FIAttached
     uuid:
       - description: uuid UUID Pool
         name: uuid

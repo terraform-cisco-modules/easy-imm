@@ -62,8 +62,8 @@ module "policies" {
   version = "4.2.11-20241017091918219"
   for_each = {
     for i in ["map"] : i => i if length(flatten([for org in keys(local.model) : [
-      for e in keys(lookup(local.model[org], "policies", {})) : local.model[org].policies[e] if length(lookup(lookup(
-      local.model[org], "policies", {}), e, [])) > 0]])
+      for e in setsubtract(keys(lookup(local.model[org], "policies", {})), ["server_pool_qualification"]
+      ) : local.model[org].policies[e] if length(lookup(lookup(local.model[org], "policies", {}), e, [])) > 0]])
     ) > 0
   }
   global_settings    = local.global_settings

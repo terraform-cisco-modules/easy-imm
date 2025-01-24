@@ -6665,6 +6665,8 @@
                     "items": {
                         "$ref": "#/definitions/boot.DeviceBase"
                     },
+                    "maxItems": 255,
+                    "minItems": 1,
                     "objectType": "boot.DeviceBase",
                     "title": "boot_devices - Boot Devices"
                 },
@@ -6729,6 +6731,8 @@
                     "items": {
                         "$ref": "#/definitions/certificatemanagement.Policy.Certificates"
                     },
+                    "maxItems": 2550,
+                    "minItems": 1,
                     "title": "certificates"
                 },
                 "description": {
@@ -11495,6 +11499,8 @@
                         "pattern": "^((([1-9]|[1-9][0-9]{1}|1[0-9]{2}|2[0-1][0-9]|22[0-3])\\.)(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\\.){2}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$|^(?=.{1,255}$)[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:(?:[0-9A-Za-z]|-){0,61}[0-9A-Za-z])?)*\\.?$|^(([a-fA-F]|[a-fA-F][a-fA-F0-9\\-]*[a-fA-F0-9])\\.)*([A-Fa-f]|[A-Fa-f][A-Fa-f0-9\\-]*[A-Fa-f0-9])$|^(?:(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){6})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:::(?:(?:(?:[0-9a-fA-F]{1,4})):){5})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){4})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,1}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){3})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,2}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:(?:[0-9a-fA-F]{1,4})):){2})(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,3}(?:(?:[0-9a-fA-F]{1,4})))?::(?:(?:[0-9a-fA-F]{1,4})):)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,4}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9]))\\.){3}(?:(?:25[0-5]|(?:[1-9]|1[0-9]|2[0-4])?[0-9])))))))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,5}(?:(?:[0-9a-fA-F]{1,4})))?::)(?:(?:[0-9a-fA-F]{1,4})))|(?:(?:(?:(?:(?:(?:[0-9a-fA-F]{1,4})):){0,6}(?:(?:[0-9a-fA-F]{1,4})))?::)))))$",
                         "title": "ntp_server"
                     },
+                    "maxItems": 4,
+                    "minItems": 1,
                     "objectType": "not_applicable",
                     "title": "ntp_servers - Ntp Servers"
                 },
@@ -12404,7 +12410,7 @@
                     "intersight_api": "Name",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\.:-]{1,64}$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "name"
                 }
             },
@@ -12432,7 +12438,7 @@
                     "intersight_api": "Name",
                     "minLength": 1,
                     "maxLength": 64,
-                    "pattern": "^[a-zA-Z0-9_\\. :-]{1,64}$",
+                    "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                     "title": "name"
                 },
                 "serial_number": {
@@ -13435,9 +13441,344 @@
             },
             "title": "Profiles"
         },
+        "resource.AdaptorsRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources is based on the number of network adapters in the servers between minimum and maximum value.\n\nRequired Attributes:\n  * minimum\n  * maximum",
+            "intersight_api": "AdaptorsRange",
+            "object_type": "resource.AdaptorsRangeFilter",
+            "required": [
+                "maximum",
+                "minimum"
+            ],
+            "title": "number_of_network_adapters - Number of Network Adapters",
+            "properties": {
+                "maximum": {
+                    "type": "integer",
+                    "default": 16,
+                    "description": "Default is `16`.  The maximum number of network adapters to qualify the server.  Number between 1-16.  Must be greater than or equal to the minimum value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 99,
+                    "title": "maximum"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The maximum number of network adapters to qualify the server.  Number between 1-16.  Must be less than or equal to the maximum value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 16,
+                    "title": "minimum"
+                }
+            }
+        },
+        "resource.BladeQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes to match blade server parameters.\n\nOptional Attributes:\n  * `asset_tags`\n  * `blade_pids`\n  * `chassis_pids`\n  * `chassis_slot_qualifier`\n  * `user_labels`",
+            "intersight_api": "BladeQualifier",
+            "object_type": "resource.BladeQualifier",
+            "required": [
+            ],
+            "title": "blade_server - Blade Server Qualifiers",
+            "properties": {
+                "asset_tags": {
+                    "type": "array",
+                    "description": "A List of asset tags to add to the blade qualifier for server qualification.  These must be pre-existing.  These are asset tags that have been assigned to the physical devices.  The maximum limit is 20",
+                    "intersight_api": "AssetTags",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "An Existing asset tag assigned to a blade server.",
+                        "intersight_api": "AssetTags",
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "^[ #$%\\(\\)\\*\\+,\\-\\.\\/:\\?@\\[\\]_\\{\\}\\^\\`\\>\\<~a-zA-Z0-9]*$",
+                        "title": "asset_tag"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "asset_tags"
+                },
+                "blade_pids": {
+                    "type": "array",
+                    "description": "A list of Blade/Node product identifiers for server qualification.\n\nOptions are:\n  * `UCSB-B200-M5`\n  * `UCSB-B200-M6`\n  * `UCSB-B480-M5`\n  * `UCSX-210C-M6`\n  * `UCSX-210C-M7`\n  * `UCSX-215C-M8`\n  * `UCSX-410C-M7`",
+                    "intersight_api": "Pids",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Blade/Node Product ID.",
+                        "intersight_api": "Pids",
+                        "enum": [
+                            "UCSB-B200-M5",
+                            "UCSB-B200-M6",
+                            "UCSB-B480-M5",
+                            "UCSX-210C-M6",
+                            "UCSX-210C-M7",
+                            "UCSX-215C-M8",
+                            "UCSX-410C-M7"
+                        ],
+                        "title": "blade_pid"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "blade_pids"
+                },
+                "chassis_pids": {
+                    "type": "array",
+                    "description": "A list of chassis product identifiers for server qualification.\n\nOptions are:\n  * `N20-C6508`\n  * `UCSC-C3X60-BASE`\n  * `UCSB-5108-AC2`\n  * `UCSB-5108-DC`\n  * `UCSB-5108-DC2`\n  * `UCSX-9508`",
+                    "intersight_api": "ChassisPids",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Chassis Product ID.",
+                        "intersight_api": "ChassisPids",
+                        "enum": [
+                            "N20-C6508",
+                            "UCSC-C3X60-BASE",
+                            "UCSB-5108-AC2",
+                            "UCSB-5108-DC",
+                            "UCSB-5108-DC2",
+                            "UCSX-9508"
+                        ],
+                        "title": "chassis_pid"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "chassis_pids"
+                },
+                "chassis_slot_qualifier": {
+                    "type": "array",
+                    "description": "The qualification of resources based on the chassis/slot values.\n\nRequired Attributes:\n  * chassis_ids\n\nOptional Attributes:\n  * slot_ids",
+                    "items": {
+                        "$ref": "#/definitions/resource.ChassisAndSlotQualification"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "object_type": "resource.ChassisAndSlotQualification",
+                    "title": "chassis_slot_qualifier - Chassis/Slot Qualifiers"
+                },
+                "user_labels": {
+                    "type": "array",
+                    "description": "A List of user labels to add to the blade qualifier for server qualification.  These must be pre-existing.  These are user labels that have been assigned to the physical devices.  The maximum limit is 20",
+                    "intersight_api": "UserLabel",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "An Existing user label assigned to a physcial blade server.",
+                        "intersight_api": "UserLabel",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^$|^[ !#$%&\\(\\)\\*\\+,\\-\\./:;\\?@\\[\\]_\\{\\|\\}~a-zA-Z0-9]+$",
+                        "title": "user_label"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "user_labels"
+                }
+            }
+        },
+        "resource.ChassisAndSlotQualification": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources based on the chassis/slot values.",
+            "intersight_api": "ChassisAndSlotIdRange",
+            "object_type": "resource.ChassisAndSlotQualification",
+            "required": [
+                "chassis_ids"
+            ],
+            "title": "Chassis/Slot Qualifiers",
+            "properties": {
+                "chassis_ids": {
+                    "$ref": "#/definitions/resource.ChassisIdRangeFilter"
+                },
+                "slot_ids": {
+                    "type": "array",
+                    "description": "The qualification of servers based on the chassis identifiers.\n\nRequired Attributes:\n  * minimum\n  * maximum",
+                    "items": {
+                        "$ref": "#/definitions/resource.SlotIdRangeFilter"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "object_type": "resource.SlotIdRangeFilter",
+                    "title": "slot_ids - Slot Identifiers"
+                }
+            }
+        },
+        "resource.ChassisIdRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of servers based on the chassis identifiers.\n\nRequired Attributes:\n  * from\n  * to.",
+            "intersight_api": "ChassisIdRange",
+            "object_type": "resource.ChassisIdRangeFilter",
+            "required": [
+                "from",
+                "to"
+            ],
+            "title": "chassis_ids - Chassis Identifiers",
+            "properties": {
+                "from": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The starting chassis identifier for server qualification.  A number between 1-20.  Must be less than or equal to the ending value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "title": "from"
+                },
+                "to": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The ending chassis identifier for server qualification.  A number between 1-20.  Must be greater than or equal to the starting value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 20,
+                    "title": "to"
+                }
+            }
+        },
+        "resource.ChassisTags": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of servers based on chassis key/value pairs.  Only Applicable for domain attached servers.",
+            "intersight_api": "ChassisTags",
+            "object_type": "resource.TagQualifier",
+            "required": [
+                "key",
+                "value"
+            ],
+            "title": "chassis_tags",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "default": "key",
+                    "description": "The tag key for which usage information is provided.",
+                    "intersight_api": "Key",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[\\S]+$",
+                    "title": "key"
+                },
+                "value": {
+                    "type": "string",
+                    "default": "value",
+                    "description": "The tag value that has been assigned to this Key.",
+                    "intersight_api": "Value",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[\\S]+$",
+                    "title": "value"
+                }
+            }
+        },
+        "resource.CPUCoreRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources is based on number of CPU cores between minimum and maximum value.\n\nRequired Attributes:\n  * `minimum`\n  * `maximum`",
+            "intersight_api": "CpuCoresRange",
+            "object_type": "resource.CpuCoreRangeFilter",
+            "required": [
+                "maximum",
+                "minimum"
+            ],
+            "title": "number_of_cores - Number of Cores",
+            "properties": {
+                "maximum": {
+                    "type": "integer",
+                    "default": 9999,
+                    "description": "Default is `9999`.  The Maximum CPU Core value for server qualification.  A number between 1-9999.  Must be greater than or equal to the minimum value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 9999,
+                    "title": "maximum"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Minimum CPU Core value for server qualification.  A number between 1-9999.  Must be less than or equal to the maximum value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 9999,
+                    "title": "minimum"
+                }
+            }
+        },
+        "resource.CpuSpeedRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources is based on speed of the processor between minimum and maximum value in GHz.\n\nRequired Attributes:\n  * `minimum`\n  * `maximum`",
+            "intersight_api": "SpeedRange",
+            "object_type": "resource.CpuSpeedRangeFilter",
+            "required": [
+                "maximum",
+                "minimum"
+            ],
+            "title": "speed - Speed in Ghz",
+            "properties": {
+                "maximum": {
+                    "type": "integer",
+                    "default": 99,
+                    "description": "Default is `99`.  The Maximum CPU Speed Range in Ghz.  Number between 1-99.  Must be greater than or equal to the minimum value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 99,
+                    "title": "maximum"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The Minimum CPU Speed Range in Ghz.  Number between 1-99.  Must be less than or equal to the maximum value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 99,
+                    "title": "minimum"
+                }
+            }
+        },
+        "resource.DomainProfileTags": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of servers based on domain profile key/value pairs.  Only Applicable for domain attached servers.",
+            "intersight_api": "DomainProfileTags",
+            "object_type": "resource.TagQualifier",
+            "required": [
+                "key",
+                "value"
+            ],
+            "title": "domain_profile_tags",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "default": "key",
+                    "description": "The tag key for which usage information is provided.",
+                    "intersight_api": "Key",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[\\S]+$",
+                    "title": "key"
+                },
+                "value": {
+                    "type": "string",
+                    "default": "value",
+                    "description": "The tag value that has been assigned to this Key.",
+                    "intersight_api": "Value",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[\\S]+$",
+                    "title": "value"
+                }
+            }
+        },
         "resource.DomainQualifier": {
             "type": "object",
             "additionalProperties": false,
+            "description": "Attributes for all FI-attached servers in any domain that match the provided Fabric Interconnect PID and/or domain name qualify under this type.\n\nOptional Attributes:\n  * `domain_names`\n  * `fabric_interconnect_pids`",
+            "intersight_api": "DomainQualifiers",
+            "object_type": "resource.DomainQualifier",
+            "required": [
+            ],
+            "title": "domain_qualifiers - Domain Qualifiers",
             "properties": {
                 "domain_names": {
                     "type": "array",
@@ -13450,14 +13791,16 @@
                         "intersight_api": "DomainNames",
                         "minLength": 1,
                         "maxLength": 64,
-                        "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
+                        "pattern": "^([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
                         "title": "domain_name"
                     },
+                    "maxItems": 100,
+                    "minItems": 1,
                     "title": "domain_names"
                 },
                 "fabric_interconnect_pids": {
                     "type": "array",
-                    "description": "A list of Fabric Interconnect product identifiers for the server qualification.\n\nOptions are:\n  * UCS-FI-6454\n  * UCS-FI-64108\n  * UCS-FI-6536\n  * UCSX-S9108-100G",
+                    "description": "A list of Fabric Interconnect product identifiers for the server qualification.\n\nOptions are:\n  * `UCS-FI-6454`\n  * `UCS-FI-64108`\n  * `UCS-FI-6536`\n  * `UCSX-S9108-100G`",
                     "intersight_api": "FabricInterConnectPids",
                     "items": {
                         "type": "string",
@@ -13472,12 +13815,134 @@
                         ],
                         "title": "fabric_interconnect_pid"
                     },
+                    "maxItems": 20,
+                    "minItems": 1,
                     "title": "fabric_interconnect_pids"
                 }
-            },
+            }
+        },
+        "resource.GpuControllersRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources is based on number of GPUs between minimum and maximum value.\n\nRequired Attributes:\n  * minimum\n  * maximum",
+            "intersight_api": "GpuControllersRange",
+            "object_type": "resource.GpuControllersRangeFilter",
             "required": [
+                "maximum",
+                "minimum"
             ],
-            "title": "Domain Qualifiers"
+            "title": "number_of_gpus - Number of GPUs",
+            "properties": {
+                "maximum": {
+                    "type": "integer",
+                    "default": 16,
+                    "description": "Default is `16`.  The maximum number of GPUs in the server for qualification.  A number between 1-16.  Must be greater than or equal to the minimum value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 16,
+                    "title": "maximum"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The minimum number of GPUs in the server for qualification.  A number between 1-16.  Must be less than or equal to the maximum value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 16,
+                    "title": "minimum"
+                }
+            }
+        },
+        "resource.GpuQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes to match all servers with the provided GPU parameters qualify under this type.\n\nRequired Attributes:\n  * `evaluation_type`\n\nOptional Attributes:\n  * `number_of_gpus`\n  * `pids`\n  * `vendor`",
+            "intersight_api": "GpuQualifier",
+            "object_type": "resource.GpuQualifier",
+            "required": [
+                "evaluation_type"
+            ],
+            "title": "gpu - GPU Qualifiers",
+            "properties": {
+                "number_of_gpus": {
+                    "$ref": "#/definitions/resource.GpuControllersRangeFilter"
+                },
+                "evaluation_type": {
+                    "type": "string",
+                    "default": "Unspecified",
+                    "description": "Default is `Unspecified`.  The GPU qualifier used for resource qualification is based on gpuEvaluationType.\n  * `ServerWithoutGpu` - It is used to specify the evaluation of a resource without a GPU.\n  * `ServerWithGpu` - It is used to specify the evaluation of a resource with a GPU.\n  * `Unspecified` - It is used to specify that the GPU qualifier should be ignored for the evaluation of a resource.",
+                    "intersight_api": "GpuEvaluationType",
+                    "enum": [
+                        "ServerWithGpu",
+                        "ServerWithoutGPU",
+                        "Unspecified"
+                    ],
+                    "title": "evaluation_type"
+                },
+                "pids": {
+                    "type": "array",
+                    "description": "A list of GPU product identifiers for the server qualification.\n\nOptions are:\n  * `UCSB-GPU-P6`\n  * `UCSC-GPU-7150X2`\n  * `UCSC-GPU-A10`\n  * `UCSC-GPU-A100`\n  * `UCSC-GPU-A100-80`\n  * `UCSC-GPU-A16`\n  * `UCSC-GPU-A30`\n  * `UCSC-GPU-A40`\n  * `UCSC-GPU-FLEX140`\n  * `UCSC-GPU-FLEX170`\n  * `UCSC-GPU-H100-80`\n  * `UCSC-GPU-H100-NVL`\n  * `UCSC-GPU-L4`\n  * `UCSC-GPU-L40`\n  * `UCSC-GPU-L40S`\n  * `UCSC-GPU-M10`\n  * `UCSC-GPU-M60`\n  * `UCSC-GPU-MI210`\n  * `UCSC-GPU-P100-12G`\n  * `UCSC-GPU-P100-16G`\n  * `UCSC-GPU-P4`\n  * `UCSC-GPU-P40`\n  * `UCSC-GPU-RTX6000`\n  * `UCSC-GPU-RTX8000`\n  * `UCSC-GPU-T4-16`\n  * `UCSC-GPU-V100`\n  * `UCSC-GPU-V100-32G`\n  * `UCSC-GPU-V340`\n  * `UCSC-GPUV100SXM32`\n  * `UCSC-P-MI210`\n  * `UCSX-GPU-L4-MEZZ`\n  * `UCSX-GPU-T4-MEZZ`\n  * `UCSX-GPU-FLX140MZ`\n  * `V100-SXM2-16GB`",
+                    "intersight_api": "Pids",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "GPU Product ID.",
+                        "intersight_api": "Pids",
+                        "enum": [
+                            "UCSB-GPU-P6",
+                            "UCSC-GPU-7150X2",
+                            "UCSC-GPU-A10",
+                            "UCSC-GPU-A100",
+                            "UCSC-GPU-A100-80",
+                            "UCSC-GPU-A16",
+                            "UCSC-GPU-A30",
+                            "UCSC-GPU-A40",
+                            "UCSC-GPU-FLEX140",
+                            "UCSC-GPU-FLEX170",
+                            "UCSC-GPU-H100-80",
+                            "UCSC-GPU-H100-NVL",
+                            "UCSC-GPU-L4",
+                            "UCSC-GPU-L40",
+                            "UCSC-GPU-L40S",
+                            "UCSC-GPU-M10",
+                            "UCSC-GPU-M60",
+                            "UCSC-GPU-MI210",
+                            "UCSC-GPU-P100-12G",
+                            "UCSC-GPU-P100-16G",
+                            "UCSC-GPU-P4",
+                            "UCSC-GPU-P40",
+                            "UCSC-GPU-RTX6000",
+                            "UCSC-GPU-RTX8000",
+                            "UCSC-GPU-T4-16",
+                            "UCSC-GPU-V100",
+                            "UCSC-GPU-V100-32G",
+                            "UCSC-GPU-V340",
+                            "UCSC-GPUV100SXM32",
+                            "UCSC-P-MI210",
+                            "UCSX-GPU-L4-MEZZ",
+                            "UCSX-GPU-T4-MEZZ",
+                            "UCSX-GPU-FLX140MZ",
+                            "V100-SXM2-16GB"
+                        ],
+                        "title": "pid"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "pids"
+                },
+                "vendor": {
+                    "type": "string",
+                    "default": "NVIDIA",
+                    "description": "Default is `NVIDIA`.  The qualification of resources is based on the vendor of the GPU.\n\nOptions are:\n  * AMD\n  * Intel\n  * NVIDIA",
+                    "intersight_api": "Vendor",
+                    "enum": [
+                        "AMD",
+                        "Intel",
+                        "NVIDIA"
+                    ],
+                    "title": "vendor"
+                }
+            }
         },
         "resource.Group": {
             "type": "object",
@@ -13497,6 +13962,795 @@
                 "name"
             ],
             "title": "Resource Group"
+        },
+        "resource.HardwareQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes for all servers with hardware components that match the provided CPU, memory, GPU, and Network adapters qualify under this type.\n\nOptional Attributes:\n  * `cpu`\n  * `gpu`\n  * `memory`\n  * `network_adapter`",
+            "intersight_api": "HardwareQualifier",
+            "object_type": "resource.HardwareQualifier",
+            "required": [
+            ],
+            "title": "hardware_qualifiers - Hardware Qualifiers",
+            "properties": {
+                "cpu": {
+                    "$ref": "#/definitions/resource.ProcessorQualifier"
+                },
+                "gpu": {
+                    "$ref": "#/definitions/resource.GpuQualifier"
+                },
+                "memory": {
+                    "$ref": "#/definitions/resource.MemoryQualifier"
+                },
+                "network_adapter": {
+                    "$ref": "#/definitions/resource.NetworkAdaptorQualifier"
+                }
+            }
+        },
+        "resource.MemoryCapacityRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources is based on the amount of memory between minimum and maximum value.\n\nRequired Attributes:\n  * minimum\n  * maximum",
+            "intersight_api": "MemoryCapacityRange",
+            "object_type": "resource.MemoryCapacityRangeFilter",
+            "required": [
+                "maximum",
+                "minimum"
+            ],
+            "title": "capacity - Capacity (GiB)",
+            "properties": {
+                "maximum": {
+                    "type": "integer",
+                    "default": 99999,
+                    "description": "Default is `99999`.  The maximum memmory capacity (GiB) for server qualification.  A number between 1-99999.  Must be greater than or equal to the minimum value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 99999,
+                    "title": "maximum"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The minimum memmory capacity (GiB) for server qualification.  A number between 1-99999.  Must be less than or equal to the maximum value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 99999,
+                    "title": "minimum"
+                }
+            }
+        },
+        "resource.MemoryQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes to match all servers with the provided Memory parameters qualify under this type.\n\nOptional Attributes:\n  * `capacity`\n  * `number_of_units`",
+            "intersight_api": "MemoryQualifier",
+            "object_type": "resource.MemoryQualifier",
+            "required": [
+            ],
+            "title": "memory - Memory Qualifiers",
+            "properties": {
+                "capacity": {
+                    "$ref": "#/definitions/resource.MemoryCapacityRangeFilter"
+                },
+                "number_of_units": {
+                    "$ref": "#/definitions/resource.MemoryUnitsRangeFilter"
+                }
+            }
+        },
+        "resource.MemoryUnitsRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of resources is based on the number of DIMMs in the servers between minimum and maximum value.\n\nRequired Attributes:\n  * minimum\n  * maximum",
+            "intersight_api": "MemoryUnitsRange",
+            "object_type": "resource.MemoryUnitsRangeFilter",
+            "required": [
+                "maximum",
+                "minimum"
+            ],
+            "title": "number_of_units - Number of DIMMs",
+            "properties": {
+                "maximum": {
+                    "type": "integer",
+                    "default": 99999,
+                    "description": "Default is `99`.  The maximum number of DIMMs installed for server qualification.  Number between 1-99999.  Must be greater than or equal to the minimum value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 99999,
+                    "title": "maximum"
+                },
+                "minimum": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The minimum number of DIMMs installed for server qualification.  Number between 1-99999.  Must be less than or equal to the maximum value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 99999,
+                    "title": "minimum"
+                }
+            }
+        },
+        "resource.NetworkAdaptorQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes to match all servers with the provided Network Adapter parameters qualify under this type.\n\nRequired Attributes:\n  * `number_of_network_adapters`",
+            "intersight_api": "NetworkAdaptorQualifier",
+            "object_type": "resource.NetworkAdaptorQualifier",
+            "required": [
+            ],
+            "title": "network_adapter - Network Adapter Qualifiers",
+            "properties": {
+                "number_of_network_adapters": {
+                    "$ref": "#/definitions/resource.AdaptorsRangeFilter"
+                }
+            }
+        },
+        "resource.ProcessorQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes to match all servers with the provided CPU parameters qualify under this type.\n\nOptional Attributes:\n  * `number_of_cores`\n  * `pids`\n  * `speed`\n  * `vendor`",
+            "intersight_api": "ProcessorQualifiers",
+            "object_type": "resource.ProcessorQualifier",
+            "required": [
+            ],
+            "title": "cpu - CPU Qualifiers",
+            "properties": {
+                "number_of_cores": {
+                    "$ref": "#/definitions/resource.CPUCoreRangeFilter"
+                },
+                "pids": {
+                    "type": "array",
+                    "description": "A list of CPU product identifiers for the server qualification.\n\nOptions are:\n  * `UCS-CPU-3104`\n  * `UCS-CPU-3106`\n  * `UCS-CPU-4108`\n  * `UCS-CPU-4110`\n  * `UCS-CPU-4112`\n  * `UCS-CPU-4114`\n  * `UCS-CPU-4116`\n  * `UCS-CPU-5115`\n  * `UCS-CPU-5117`\n  * `UCS-CPU-5118`\n  * `UCS-CPU-5120`\n  * `UCS-CPU-5122`\n  * `UCS-CPU-6126`\n  * `UCS-CPU-6128`\n  * `UCS-CPU-6130`\n  * `UCS-CPU-6132`\n  * `UCS-CPU-6134`\n  * `UCS-CPU-6134M`\n  * `UCS-CPU-6136`\n  * `UCS-CPU-6138`\n  * `UCS-CPU-6138T`\n  * `UCS-CPU-6140`\n  * `UCS-CPU-6140M`\n  * `UCS-CPU-6144`\n  * `UCS-CPU-6146`\n  * `UCS-CPU-6148`\n  * `UCS-CPU-6150`\n  * `UCS-CPU-6152`\n  * `UCS-CPU-6154`\n  * `UCS-CPU-7251`\n  * `UCS-CPU-7261`\n  * `UCS-CPU-7281`\n  * `UCS-CPU-7301`\n  * `UCS-CPU-7351`\n  * `UCS-CPU-7351P`\n  * `UCS-CPU-7401`\n  * `UCS-CPU-7401P`\n  * `UCS-CPU-7451`\n  * `UCS-CPU-7501`\n  * `UCS-CPU-7551`\n  * `UCS-CPU-7551P`\n  * `UCS-CPU-7601`\n  * `UCS-CPU-8153`\n  * `UCS-CPU-8156`\n  * `UCS-CPU-8158`\n  * `UCS-CPU-8160`\n  * `UCS-CPU-8160M`\n  * `UCS-CPU-8160T`\n  * `UCS-CPU-8164`\n  * `UCS-CPU-8168`\n  * `UCS-CPU-8170`\n  * `UCS-CPU-8170M`\n  * `UCS-CPU-8176`\n  * `UCS-CPU-8176M`\n  * `UCS-CPU-8180`\n  * `UCS-CPU-8180M`\n  * `UCS-CPU-A7232P`\n  * `UCS-CPU-A7252`\n  * `UCS-CPU-A7262`\n  * `UCS-CPU-A7272`\n  * `UCS-CPU-A7282`\n  * `UCS-CPU-A72F3`\n  * `UCS-CPU-A7302`\n  * `UCS-CPU-A7302P`\n  * `UCS-CPU-A7313`\n  * `UCS-CPU-A7313P`\n  * `UCS-CPU-A7343`\n  * `UCS-CPU-A7352`\n  * `UCS-CPU-A7373X`\n  * `UCS-CPU-A73F3`\n  * `UCS-CPU-A7402`\n  * `UCS-CPU-A7402P`\n  * `UCS-CPU-A7413`\n  * `UCS-CPU-A7443`\n  * `UCS-CPU-A7443P`\n  * `UCS-CPU-A7452`\n  * `UCS-CPU-A7453`\n  * `UCS-CPU-A7473X`\n  * `UCS-CPU-A74F3`\n  * `UCS-CPU-A7502`\n  * `UCS-CPU-A7502P`\n  * `UCS-CPU-A7513`\n  * `UCS-CPU-A7532`\n  * `UCS-CPU-A7543`\n  * `UCS-CPU-A7543P`\n  * `UCS-CPU-A7552`\n  * `UCS-CPU-A7573X`\n  * `UCS-CPU-A75F3`\n  * `UCS-CPU-A7643`\n  * `UCS-CPU-A7662`\n  * `UCS-CPU-A7663`\n  * `UCS-CPU-A7702`\n  * `UCS-CPU-A7702P`\n  * `UCS-CPU-A7713`\n  * `UCS-CPU-A7713P`\n  * `UCS-CPU-A7763`\n  * `UCS-CPU-A7773X`\n  * `UCS-CPU-A7F32`\n  * `UCS-CPU-A9015`\n  * `UCS-CPU-A9115`\n  * `UCS-CPU-A9124`\n  * `UCS-CPU-A9135`\n  * `UCS-CPU-A9174F`\n  * `UCS-CPU-A9175F`\n  * `UCS-CPU-A9184X`\n  * `UCS-CPU-A9224`\n  * `UCS-CPU-A9254`\n  * `UCS-CPU-A9255`\n  * `UCS-CPU-A9274F`\n  * `UCS-CPU-A9275F`\n  * `UCS-CPU-A9334`\n  * `UCS-CPU-A9335`\n  * `UCS-CPU-A9354`\n  * `UCS-CPU-A9354P`\n  * `UCS-CPU-A9355`\n  * `UCS-CPU-A9355P`\n  * `UCS-CPU-A9365`\n  * `UCS-CPU-A9374F`\n  * `UCS-CPU-A9375F`\n  * `UCS-CPU-A9384X`\n  * `UCS-CPU-A9454`\n  * `UCS-CPU-A9454P`\n  * `UCS-CPU-A9455`\n  * `UCS-CPU-A9455P`\n  * `UCS-CPU-A9474F`\n  * `UCS-CPU-A9475F`\n  * `UCS-CPU-A9534`\n  * `UCS-CPU-A9554P`\n  * `UCS-CPU-A9555`\n  * `UCS-CPU-A9555P`\n  * `UCS-CPU-A9565`\n  * `UCS-CPU-A9575F`\n  * `UCS-CPU-A9634`\n  * `UCS-CPU-A9654`\n  * `UCS-CPU-A9654P`\n  * `UCS-CPU-A9655`\n  * `UCS-CPU-A9655P`\n  * `UCS-CPU-A9734`\n  * `UCS-CPU-A9745`\n  * `UCS-CPU-A9754`\n  * `UCS-CPU-A9755`\n  * `UCS-CPU-A9825`\n  * `UCS-CPU-A9845`\n  * `UCS-CPU-A9965`\n  * `UCS-CPU-A99684X`\n  * `UCS-CPU-I3204`\n  * `UCS-CPU-I3206R`\n  * `UCS-CPU-I3408U`\n  * `UCS-CPU-I3508U`\n  * `UCS-CPU-I4208`\n  * `UCS-CPU-I4208R`\n  * `UCS-CPU-I4210`\n  * `UCS-CPU-I4210R`\n  * `UCS-CPU-I4214`\n  * `UCS-CPU-I4214R`\n  * `UCS-CPU-I4214Y`\n  * `UCS-CPU-I4215`\n  * `UCS-CPU-I4215R`\n  * `UCS-CPU-I4216`\n  * `UCS-CPU-I4216R`\n  * `UCS-CPU-I4309Y`\n  * `UCS-CPU-I4310`\n  * `UCS-CPU-I4310T`\n  * `UCS-CPU-I4314`\n  * `UCS-CPU-I4316`\n  * `UCS-CPU-I4410T`\n  * `UCS-CPU-I4410Y`\n  * `UCS-CPU-I4416+`\n  * `UCS-CPU-I4509Y`\n  * `UCS-CPU-I4510`\n  * `UCS-CPU-I4510T`\n  * `UCS-CPU-I4514Y`\n  * `UCS-CPU-I4516Y+`\n  * `UCS-CPU-I5215`\n  * `UCS-CPU-I5215L`\n  * `UCS-CPU-I5215M`\n  * `UCS-CPU-I5215R`\n  * `UCS-CPU-I5217`\n  * `UCS-CPU-I5218`\n  * `UCS-CPU-I5218B`\n  * `UCS-CPU-I5218N`\n  * `UCS-CPU-I5218R`\n  * `UCS-CPU-I5220`\n  * `UCS-CPU-I5220R`\n  * `UCS-CPU-I5220S`\n  * `UCS-CPU-I5222`\n  * `UCS-CPU-I5315Y`\n  * `UCS-CPU-I5317`\n  * `UCS-CPU-I5318N`\n  * `UCS-CPU-I5318S`\n  * `UCS-CPU-I5318Y`\n  * `UCS-CPU-I5320`\n  * `UCS-CPU-I5320T`\n  * `UCS-CPU-I5411N`\n  * `UCS-CPU-I5412U`\n  * `UCS-CPU-I5415+`\n  * `UCS-CPU-I5416S`\n  * `UCS-CPU-I5418N`\n  * `UCS-CPU-I5418Y`\n  * `UCS-CPU-I5420+`\n  * `UCS-CPU-I5512U`\n  * `UCS-CPU-I5515+`\n  * `UCS-CPU-I5520+`\n  * `UCS-CPU-I6222V`\n  * `UCS-CPU-I6226`\n  * `UCS-CPU-I6226R`\n  * `UCS-CPU-I6230`\n  * `UCS-CPU-I6230N`\n  * `UCS-CPU-I6230R`\n  * `UCS-CPU-I6234`\n  * `UCS-CPU-I6238`\n  * `UCS-CPU-I6238L`\n  * `UCS-CPU-I6238M`\n  * `UCS-CPU-I6238R`\n  * `UCS-CPU-I6240`\n  * `UCS-CPU-I6240L`\n  * `UCS-CPU-I6240M`\n  * `UCS-CPU-I6240R`\n  * `UCS-CPU-I6240Y`\n  * `UCS-CPU-I6242`\n  * `UCS-CPU-I6242R`\n  * `UCS-CPU-I6244`\n  * `UCS-CPU-I6246`\n  * `UCS-CPU-I6246R`\n  * `UCS-CPU-I6248`\n  * `UCS-CPU-I6248R`\n  * `UCS-CPU-I6250`\n  * `UCS-CPU-I6252`\n  * `UCS-CPU-I6252N`\n  * `UCS-CPU-I6254`\n  * `UCS-CPU-I6256`\n  * `UCS-CPU-I6258R`\n  * `UCS-CPU-I6262V`\n  * `UCS-CPU-I6312U`\n  * `UCS-CPU-I6314U`\n  * `UCS-CPU-I6326`\n  * `UCS-CPU-I6330`\n  * `UCS-CPU-I6330N`\n  * `UCS-CPU-I6334`\n  * `UCS-CPU-I6336Y`\n  * `UCS-CPU-I6338`\n  * `UCS-CPU-I6338N`\n  * `UCS-CPU-I6338T`\n  * `UCS-CPU-I6342`\n  * `UCS-CPU-I6346`\n  * `UCS-CPU-I6348`\n  * `UCS-CPU-I6354`\n  * `UCS-CPU-I6414U`\n  * `UCS-CPU-I6416H`\n  * `UCS-CPU-I6418H`\n  * `UCS-CPU-I6421N`\n  * `UCS-CPU-I6426Y`\n  * `UCS-CPU-I6428N`\n  * `UCS-CPU-I6430`\n  * `UCS-CPU-I6434`\n  * `UCS-CPU-I6434H`\n  * `UCS-CPU-I6438M`\n  * `UCS-CPU-I6438N`\n  * `UCS-CPU-I6438Y+`\n  * `UCS-CPU-I6442Y`\n  * `UCS-CPU-I6444Y`\n  * `UCS-CPU-I6448H`\n  * `UCS-CPU-I6448Y`\n  * `UCS-CPU-I6454S`\n  * `UCS-CPU-I6526Y`\n  * `UCS-CPU-I6530`\n  * `UCS-CPU-I6538N`\n  * `UCS-CPU-I6538Y+`\n  * `UCS-CPU-I6542Y`\n  * `UCS-CPU-I6544Y`\n  * `UCS-CPU-I6548N`\n  * `UCS-CPU-I6548Y+`\n  * `UCS-CPU-I6554`\n  * `UCS-CPU-I6554S`\n  * `UCS-CPU-I8253`\n  * `UCS-CPU-I8260`\n  * `UCS-CPU-I8260L`\n  * `UCS-CPU-I8260M`\n  * `UCS-CPU-I8260Y`\n  * `UCS-CPU-I8268`\n  * `UCS-CPU-I8270`\n  * `UCS-CPU-I8276`\n  * `UCS-CPU-I8276L`\n  * `UCS-CPU-I8276M`\n  * `UCS-CPU-I8280`\n  * `UCS-CPU-I8280L`\n  * `UCS-CPU-I8280M`\n  * `UCS-CPU-I8351N`\n  * `UCS-CPU-I8352M`\n  * `UCS-CPU-I8352S`\n  * `UCS-CPU-I8352V`\n  * `UCS-CPU-I8352Y`\n  * `UCS-CPU-I8358`\n  * `UCS-CPU-I8358P`\n  * `UCS-CPU-I8360Y`\n  * `UCS-CPU-I8362`\n  * `UCS-CPU-I8368`\n  * `UCS-CPU-I8368Q`\n  * `UCS-CPU-I8380`\n  * `UCS-CPU-I8444H`\n  * `UCS-CPU-I8450H`\n  * `UCS-CPU-I8452Y`\n  * `UCS-CPU-I8454H`\n  * `UCS-CPU-I8458P`\n  * `UCS-CPU-I8460H`\n  * `UCS-CPU-I8460Y+`\n  * `UCS-CPU-I8461V`\n  * `UCS-CPU-I8462Y+`\n  * `UCS-CPU-I8468`\n  * `UCS-CPU-I8468H`\n  * `UCS-CPU-I8468V`\n  * `UCS-CPU-I8470`\n  * `UCS-CPU-I8470N`\n  * `UCS-CPU-I8471N`\n  * `UCS-CPU-I8480+`\n  * `UCS-CPU-I8490H`\n  * `UCS-CPU-I8558`\n  * `UCS-CPU-I8558U`\n  * `UCS-CPU-I8562Y+`\n  * `UCS-CPU-I8568Y+`\n  * `UCS-CPU-I8570`\n  * `UCS-CPU-I8571N`\n  * `UCS-CPU-I8580`\n  * `UCS-CPU-I8581V`\n  * `UCS-CPU-I8592+`\n  * `UCS-CPU-I8592V`\n  * `UCSX-CPU-A9015`\n  * `UCSX-CPU-A9115`\n  * `UCSX-CPU-A9124`\n  * `UCSX-CPU-A9135`\n  * `UCSX-CPU-A9174F`\n  * `UCSX-CPU-A9175F`\n  * `UCSX-CPU-A9184X`\n  * `UCSX-CPU-A9224`\n  * `UCSX-CPU-A9254`\n  * `UCSX-CPU-A9255`\n  * `UCSX-CPU-A9274F`\n  * `UCSX-CPU-A9275F`\n  * `UCSX-CPU-A9334`\n  * `UCSX-CPU-A9335`\n  * `UCSX-CPU-A9354`\n  * `UCSX-CPU-A9354P`\n  * `UCSX-CPU-A9355`\n  * `UCSX-CPU-A9355P`\n  * `UCSX-CPU-A9365`\n  * `UCSX-CPU-A9374F`\n  * `UCSX-CPU-A9375F`\n  * `UCSX-CPU-A9384X`\n  * `UCSX-CPU-A9454`\n  * `UCSX-CPU-A9454P`\n  * `UCSX-CPU-A9455`\n  * `UCSX-CPU-A9455P`\n  * `UCSX-CPU-A9474F`\n  * `UCSX-CPU-A9475F`\n  * `UCSX-CPU-A9534`\n  * `UCSX-CPU-A9535`\n  * `UCSX-CPU-A9554`\n  * `UCSX-CPU-A9554P`\n  * `UCSX-CPU-A9555`\n  * `UCSX-CPU-A9555P`\n  * `UCSX-CPU-A9565`\n  * `UCSX-CPU-A9575F`\n  * `UCSX-CPU-A9634`\n  * `UCSX-CPU-A9645`\n  * `UCSX-CPU-A9654`\n  * `UCSX-CPU-A9654P`\n  * `UCSX-CPU-A9655`\n  * `UCSX-CPU-A9655P`\n  * `UCSX-CPU-A9684X`\n  * `UCSX-CPU-A9734`\n  * `UCSX-CPU-A9745`\n  * `UCSX-CPU-A9754`\n  * `UCSX-CPU-A9755`\n  * `UCSX-CPU-A9825`\n  * `UCSX-CPU-A9845`\n  * `UCSX-CPU-A9965`\n  * `UCSX-CPU-I3408U`\n  * `UCSX-CPU-I3508U`\n  * `UCSX-CPU-I4309Y`\n  * `UCSX-CPU-I4310`\n  * `UCSX-CPU-I4310T`\n  * `UCSX-CPU-I4314`\n  * `UCSX-CPU-I4316`\n  * `UCSX-CPU-I4410T`\n  * `UCSX-CPU-I4410Y`\n  * `UCSX-CPU-I4416+`\n  * `UCSX-CPU-I4509Y`\n  * `UCSX-CPU-I4510`\n  * `UCSX-CPU-I4510T`\n  * `UCSX-CPU-I4514Y`\n  * `UCSX-CPU-I4516Y+`\n  * `UCSX-CPU-I5315Y`\n  * `UCSX-CPU-I5317`\n  * `UCSX-CPU-I5318N`\n  * `UCSX-CPU-I5318S`\n  * `UCSX-CPU-I5318Y`\n  * `UCSX-CPU-I5320`\n  * `UCSX-CPU-I5320T`\n  * `UCSX-CPU-I5411N`\n  * `UCSX-CPU-I5412U`\n  * `UCSX-CPU-I5415+`\n  * `UCSX-CPU-I5416S`\n  * `UCSX-CPU-I5418N`\n  * `UCSX-CPU-I5418Y`\n  * `UCSX-CPU-I5420+`\n  * `UCSX-CPU-I5512U`\n  * `UCSX-CPU-I5515+`\n  * `UCSX-CPU-I5520+`\n  * `UCSX-CPU-I6312U`\n  * `UCSX-CPU-I6314U`\n  * `UCSX-CPU-I6326`\n  * `UCSX-CPU-I6330`\n  * `UCSX-CPU-I6330N`\n  * `UCSX-CPU-I6334`\n  * `UCSX-CPU-I6336Y`\n  * `UCSX-CPU-I6338`\n  * `UCSX-CPU-I6338N`\n  * `UCSX-CPU-I6338T`\n  * `UCSX-CPU-I6342`\n  * `UCSX-CPU-I6346`\n  * `UCSX-CPU-I6348`\n  * `UCSX-CPU-I6354`\n  * `UCSX-CPU-I6414U`\n  * `UCSX-CPU-I6416H`\n  * `UCSX-CPU-I6418H`\n  * `UCSX-CPU-I6421N`\n  * `UCSX-CPU-I6426Y`\n  * `UCSX-CPU-I6428N`\n  * `UCSX-CPU-I6430`\n  * `UCSX-CPU-I6434`\n  * `UCSX-CPU-I6434H`\n  * `UCSX-CPU-I6438M`\n  * `UCSX-CPU-I6438N`\n  * `UCSX-CPU-I6438Y+`\n  * `UCSX-CPU-I6442Y`\n  * `UCSX-CPU-I6444Y`\n  * `UCSX-CPU-I6448H`\n  * `UCSX-CPU-I6448Y`\n  * `UCSX-CPU-I6454S`\n  * `UCSX-CPU-I6526Y`\n  * `UCSX-CPU-I6530`\n  * `UCSX-CPU-I6534`\n  * `UCSX-CPU-I6538N`\n  * `UCSX-CPU-I6538Y+`\n  * `UCSX-CPU-I6542Y`\n  * `UCSX-CPU-I6544Y`\n  * `UCSX-CPU-I6548N`\n  * `UCSX-CPU-I6548Y+`\n  * `UCSX-CPU-I6554S`\n  * `UCSX-CPU-I8351N`\n  * `UCSX-CPU-I8352M`\n  * `UCSX-CPU-I8352S`\n  * `UCSX-CPU-I8352V`\n  * `UCSX-CPU-I8352Y`\n  * `UCSX-CPU-I8358`\n  * `UCSX-CPU-I8358P`\n  * `UCSX-CPU-I8360Y`\n  * `UCSX-CPU-I8362`\n  * `UCSX-CPU-I8368`\n  * `UCSX-CPU-I8380`\n  * `UCSX-CPU-I8444H`\n  * `UCSX-CPU-I8450H`\n  * `UCSX-CPU-I8452Y`\n  * `UCSX-CPU-I8454H`\n  * `UCSX-CPU-I8458P`\n  * `UCSX-CPU-I8460H`\n  * `UCSX-CPU-I8460Y+`\n  * `UCSX-CPU-I8461V`\n  * `UCSX-CPU-I8462Y+`\n  * `UCSX-CPU-I8468`\n  * `UCSX-CPU-I8468H`\n  * `UCSX-CPU-I8468V`\n  * `UCSX-CPU-I8470`\n  * `UCSX-CPU-I8470N`\n  * `UCSX-CPU-I8471N`\n  * `UCSX-CPU-I8480+`\n  * `UCSX-CPU-I8490H`\n  * `UCSX-CPU-I8558`\n  * `UCSX-CPU-I8558P`\n  * `UCSX-CPU-I8558U`\n  * `UCSX-CPU-I8562Y+`\n  * `UCSX-CPU-I8568Y+`\n  * `UCSX-CPU-I8570`\n  * `UCSX-CPU-I8571N`\n  * `UCSX-CPU-I8580`\n  * `UCSX-CPU-I8581V`\n  * `UCSX-CPU-I8592+`\n  * `UCSX-CPU-I8592V`",
+                    "intersight_api": "Pids",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "CPU Product ID.",
+                        "intersight_api": "Pids",
+                        "enum": [
+                            "UCS-CPU-3104",
+                            "UCS-CPU-3106",
+                            "UCS-CPU-4108",
+                            "UCS-CPU-4110",
+                            "UCS-CPU-4112",
+                            "UCS-CPU-4114",
+                            "UCS-CPU-4116",
+                            "UCS-CPU-5115",
+                            "UCS-CPU-5117",
+                            "UCS-CPU-5118",
+                            "UCS-CPU-5120",
+                            "UCS-CPU-5122",
+                            "UCS-CPU-6126",
+                            "UCS-CPU-6128",
+                            "UCS-CPU-6130",
+                            "UCS-CPU-6132",
+                            "UCS-CPU-6134",
+                            "UCS-CPU-6134M",
+                            "UCS-CPU-6136",
+                            "UCS-CPU-6138",
+                            "UCS-CPU-6138T",
+                            "UCS-CPU-6140",
+                            "UCS-CPU-6140M",
+                            "UCS-CPU-6144",
+                            "UCS-CPU-6146",
+                            "UCS-CPU-6148",
+                            "UCS-CPU-6150",
+                            "UCS-CPU-6152",
+                            "UCS-CPU-6154",
+                            "UCS-CPU-7251",
+                            "UCS-CPU-7261",
+                            "UCS-CPU-7281",
+                            "UCS-CPU-7301",
+                            "UCS-CPU-7351",
+                            "UCS-CPU-7351P",
+                            "UCS-CPU-7401",
+                            "UCS-CPU-7401P",
+                            "UCS-CPU-7451",
+                            "UCS-CPU-7501",
+                            "UCS-CPU-7551",
+                            "UCS-CPU-7551P",
+                            "UCS-CPU-7601",
+                            "UCS-CPU-8153",
+                            "UCS-CPU-8156",
+                            "UCS-CPU-8158",
+                            "UCS-CPU-8160",
+                            "UCS-CPU-8160M",
+                            "UCS-CPU-8160T",
+                            "UCS-CPU-8164",
+                            "UCS-CPU-8168",
+                            "UCS-CPU-8170",
+                            "UCS-CPU-8170M",
+                            "UCS-CPU-8176",
+                            "UCS-CPU-8176M",
+                            "UCS-CPU-8180",
+                            "UCS-CPU-8180M",
+                            "UCS-CPU-A7232P",
+                            "UCS-CPU-A7252",
+                            "UCS-CPU-A7262",
+                            "UCS-CPU-A7272",
+                            "UCS-CPU-A7282",
+                            "UCS-CPU-A72F3",
+                            "UCS-CPU-A7302",
+                            "UCS-CPU-A7302P",
+                            "UCS-CPU-A7313",
+                            "UCS-CPU-A7313P",
+                            "UCS-CPU-A7343",
+                            "UCS-CPU-A7352",
+                            "UCS-CPU-A7373X",
+                            "UCS-CPU-A73F3",
+                            "UCS-CPU-A7402",
+                            "UCS-CPU-A7402P",
+                            "UCS-CPU-A7413",
+                            "UCS-CPU-A7443",
+                            "UCS-CPU-A7443P",
+                            "UCS-CPU-A7452",
+                            "UCS-CPU-A7453",
+                            "UCS-CPU-A7473X",
+                            "UCS-CPU-A74F3",
+                            "UCS-CPU-A7502",
+                            "UCS-CPU-A7502P",
+                            "UCS-CPU-A7513",
+                            "UCS-CPU-A7532",
+                            "UCS-CPU-A7543",
+                            "UCS-CPU-A7543P",
+                            "UCS-CPU-A7552",
+                            "UCS-CPU-A7573X",
+                            "UCS-CPU-A75F3",
+                            "UCS-CPU-A7643",
+                            "UCS-CPU-A7662",
+                            "UCS-CPU-A7663",
+                            "UCS-CPU-A7702",
+                            "UCS-CPU-A7702P",
+                            "UCS-CPU-A7713",
+                            "UCS-CPU-A7713P",
+                            "UCS-CPU-A7763",
+                            "UCS-CPU-A7773X",
+                            "UCS-CPU-A7F32",
+                            "UCS-CPU-A9015",
+                            "UCS-CPU-A9115",
+                            "UCS-CPU-A9124",
+                            "UCS-CPU-A9135",
+                            "UCS-CPU-A9174F",
+                            "UCS-CPU-A9175F",
+                            "UCS-CPU-A9184X",
+                            "UCS-CPU-A9224",
+                            "UCS-CPU-A9254",
+                            "UCS-CPU-A9255",
+                            "UCS-CPU-A9274F",
+                            "UCS-CPU-A9275F",
+                            "UCS-CPU-A9334",
+                            "UCS-CPU-A9335",
+                            "UCS-CPU-A9354",
+                            "UCS-CPU-A9354P",
+                            "UCS-CPU-A9355",
+                            "UCS-CPU-A9355P",
+                            "UCS-CPU-A9365",
+                            "UCS-CPU-A9374F",
+                            "UCS-CPU-A9375F",
+                            "UCS-CPU-A9384X",
+                            "UCS-CPU-A9454",
+                            "UCS-CPU-A9454P",
+                            "UCS-CPU-A9455",
+                            "UCS-CPU-A9455P",
+                            "UCS-CPU-A9474F",
+                            "UCS-CPU-A9475F",
+                            "UCS-CPU-A9534",
+                            "UCS-CPU-A9554P",
+                            "UCS-CPU-A9555",
+                            "UCS-CPU-A9555P",
+                            "UCS-CPU-A9565",
+                            "UCS-CPU-A9575F",
+                            "UCS-CPU-A9634",
+                            "UCS-CPU-A9654",
+                            "UCS-CPU-A9654P",
+                            "UCS-CPU-A9655",
+                            "UCS-CPU-A9655P",
+                            "UCS-CPU-A9734",
+                            "UCS-CPU-A9745",
+                            "UCS-CPU-A9754",
+                            "UCS-CPU-A9755",
+                            "UCS-CPU-A9825",
+                            "UCS-CPU-A9845",
+                            "UCS-CPU-A9965",
+                            "UCS-CPU-A99684X",
+                            "UCS-CPU-I3204",
+                            "UCS-CPU-I3206R",
+                            "UCS-CPU-I3408U",
+                            "UCS-CPU-I3508U",
+                            "UCS-CPU-I4208",
+                            "UCS-CPU-I4208R",
+                            "UCS-CPU-I4210",
+                            "UCS-CPU-I4210R",
+                            "UCS-CPU-I4214",
+                            "UCS-CPU-I4214R",
+                            "UCS-CPU-I4214Y",
+                            "UCS-CPU-I4215",
+                            "UCS-CPU-I4215R",
+                            "UCS-CPU-I4216",
+                            "UCS-CPU-I4216R",
+                            "UCS-CPU-I4309Y",
+                            "UCS-CPU-I4310",
+                            "UCS-CPU-I4310T",
+                            "UCS-CPU-I4314",
+                            "UCS-CPU-I4316",
+                            "UCS-CPU-I4410T",
+                            "UCS-CPU-I4410Y",
+                            "UCS-CPU-I4416+",
+                            "UCS-CPU-I4509Y",
+                            "UCS-CPU-I4510",
+                            "UCS-CPU-I4510T",
+                            "UCS-CPU-I4514Y",
+                            "UCS-CPU-I4516Y+",
+                            "UCS-CPU-I5215",
+                            "UCS-CPU-I5215L",
+                            "UCS-CPU-I5215M",
+                            "UCS-CPU-I5215R",
+                            "UCS-CPU-I5217",
+                            "UCS-CPU-I5218",
+                            "UCS-CPU-I5218B",
+                            "UCS-CPU-I5218N",
+                            "UCS-CPU-I5218R",
+                            "UCS-CPU-I5220",
+                            "UCS-CPU-I5220R",
+                            "UCS-CPU-I5220S",
+                            "UCS-CPU-I5222",
+                            "UCS-CPU-I5315Y",
+                            "UCS-CPU-I5317",
+                            "UCS-CPU-I5318N",
+                            "UCS-CPU-I5318S",
+                            "UCS-CPU-I5318Y",
+                            "UCS-CPU-I5320",
+                            "UCS-CPU-I5320T",
+                            "UCS-CPU-I5411N",
+                            "UCS-CPU-I5412U",
+                            "UCS-CPU-I5415+",
+                            "UCS-CPU-I5416S",
+                            "UCS-CPU-I5418N",
+                            "UCS-CPU-I5418Y",
+                            "UCS-CPU-I5420+",
+                            "UCS-CPU-I5512U",
+                            "UCS-CPU-I5515+",
+                            "UCS-CPU-I5520+",
+                            "UCS-CPU-I6222V",
+                            "UCS-CPU-I6226",
+                            "UCS-CPU-I6226R",
+                            "UCS-CPU-I6230",
+                            "UCS-CPU-I6230N",
+                            "UCS-CPU-I6230R",
+                            "UCS-CPU-I6234",
+                            "UCS-CPU-I6238",
+                            "UCS-CPU-I6238L",
+                            "UCS-CPU-I6238M",
+                            "UCS-CPU-I6238R",
+                            "UCS-CPU-I6240",
+                            "UCS-CPU-I6240L",
+                            "UCS-CPU-I6240M",
+                            "UCS-CPU-I6240R",
+                            "UCS-CPU-I6240Y",
+                            "UCS-CPU-I6242",
+                            "UCS-CPU-I6242R",
+                            "UCS-CPU-I6244",
+                            "UCS-CPU-I6246",
+                            "UCS-CPU-I6246R",
+                            "UCS-CPU-I6248",
+                            "UCS-CPU-I6248R",
+                            "UCS-CPU-I6250",
+                            "UCS-CPU-I6252",
+                            "UCS-CPU-I6252N",
+                            "UCS-CPU-I6254",
+                            "UCS-CPU-I6256",
+                            "UCS-CPU-I6258R",
+                            "UCS-CPU-I6262V",
+                            "UCS-CPU-I6312U",
+                            "UCS-CPU-I6314U",
+                            "UCS-CPU-I6326",
+                            "UCS-CPU-I6330",
+                            "UCS-CPU-I6330N",
+                            "UCS-CPU-I6334",
+                            "UCS-CPU-I6336Y",
+                            "UCS-CPU-I6338",
+                            "UCS-CPU-I6338N",
+                            "UCS-CPU-I6338T",
+                            "UCS-CPU-I6342",
+                            "UCS-CPU-I6346",
+                            "UCS-CPU-I6348",
+                            "UCS-CPU-I6354",
+                            "UCS-CPU-I6414U",
+                            "UCS-CPU-I6416H",
+                            "UCS-CPU-I6418H",
+                            "UCS-CPU-I6421N",
+                            "UCS-CPU-I6426Y",
+                            "UCS-CPU-I6428N",
+                            "UCS-CPU-I6430",
+                            "UCS-CPU-I6434",
+                            "UCS-CPU-I6434H",
+                            "UCS-CPU-I6438M",
+                            "UCS-CPU-I6438N",
+                            "UCS-CPU-I6438Y+",
+                            "UCS-CPU-I6442Y",
+                            "UCS-CPU-I6444Y",
+                            "UCS-CPU-I6448H",
+                            "UCS-CPU-I6448Y",
+                            "UCS-CPU-I6454S",
+                            "UCS-CPU-I6526Y",
+                            "UCS-CPU-I6530",
+                            "UCS-CPU-I6538N",
+                            "UCS-CPU-I6538Y+",
+                            "UCS-CPU-I6542Y",
+                            "UCS-CPU-I6544Y",
+                            "UCS-CPU-I6548N",
+                            "UCS-CPU-I6548Y+",
+                            "UCS-CPU-I6554",
+                            "UCS-CPU-I6554S",
+                            "UCS-CPU-I8253",
+                            "UCS-CPU-I8260",
+                            "UCS-CPU-I8260L",
+                            "UCS-CPU-I8260M",
+                            "UCS-CPU-I8260Y",
+                            "UCS-CPU-I8268",
+                            "UCS-CPU-I8270",
+                            "UCS-CPU-I8276",
+                            "UCS-CPU-I8276L",
+                            "UCS-CPU-I8276M",
+                            "UCS-CPU-I8280",
+                            "UCS-CPU-I8280L",
+                            "UCS-CPU-I8280M",
+                            "UCS-CPU-I8351N",
+                            "UCS-CPU-I8352M",
+                            "UCS-CPU-I8352S",
+                            "UCS-CPU-I8352V",
+                            "UCS-CPU-I8352Y",
+                            "UCS-CPU-I8358",
+                            "UCS-CPU-I8358P",
+                            "UCS-CPU-I8360Y",
+                            "UCS-CPU-I8362",
+                            "UCS-CPU-I8368",
+                            "UCS-CPU-I8368Q",
+                            "UCS-CPU-I8380",
+                            "UCS-CPU-I8444H",
+                            "UCS-CPU-I8450H",
+                            "UCS-CPU-I8452Y",
+                            "UCS-CPU-I8454H",
+                            "UCS-CPU-I8458P",
+                            "UCS-CPU-I8460H",
+                            "UCS-CPU-I8460Y+",
+                            "UCS-CPU-I8461V",
+                            "UCS-CPU-I8462Y+",
+                            "UCS-CPU-I8468",
+                            "UCS-CPU-I8468H",
+                            "UCS-CPU-I8468V",
+                            "UCS-CPU-I8470",
+                            "UCS-CPU-I8470N",
+                            "UCS-CPU-I8471N",
+                            "UCS-CPU-I8480+",
+                            "UCS-CPU-I8490H",
+                            "UCS-CPU-I8558",
+                            "UCS-CPU-I8558U",
+                            "UCS-CPU-I8562Y+",
+                            "UCS-CPU-I8568Y+",
+                            "UCS-CPU-I8570",
+                            "UCS-CPU-I8571N",
+                            "UCS-CPU-I8580",
+                            "UCS-CPU-I8581V",
+                            "UCS-CPU-I8592+",
+                            "UCS-CPU-I8592V",
+                            "UCSX-CPU-A9015",
+                            "UCSX-CPU-A9115",
+                            "UCSX-CPU-A9124",
+                            "UCSX-CPU-A9135",
+                            "UCSX-CPU-A9174F",
+                            "UCSX-CPU-A9175F",
+                            "UCSX-CPU-A9184X",
+                            "UCSX-CPU-A9224",
+                            "UCSX-CPU-A9254",
+                            "UCSX-CPU-A9255",
+                            "UCSX-CPU-A9274F",
+                            "UCSX-CPU-A9275F",
+                            "UCSX-CPU-A9334",
+                            "UCSX-CPU-A9335",
+                            "UCSX-CPU-A9354",
+                            "UCSX-CPU-A9354P",
+                            "UCSX-CPU-A9355",
+                            "UCSX-CPU-A9355P",
+                            "UCSX-CPU-A9365",
+                            "UCSX-CPU-A9374F",
+                            "UCSX-CPU-A9375F",
+                            "UCSX-CPU-A9384X",
+                            "UCSX-CPU-A9454",
+                            "UCSX-CPU-A9454P",
+                            "UCSX-CPU-A9455",
+                            "UCSX-CPU-A9455P",
+                            "UCSX-CPU-A9474F",
+                            "UCSX-CPU-A9475F",
+                            "UCSX-CPU-A9534",
+                            "UCSX-CPU-A9535",
+                            "UCSX-CPU-A9554",
+                            "UCSX-CPU-A9554P",
+                            "UCSX-CPU-A9555",
+                            "UCSX-CPU-A9555P",
+                            "UCSX-CPU-A9565",
+                            "UCSX-CPU-A9575F",
+                            "UCSX-CPU-A9634",
+                            "UCSX-CPU-A9645",
+                            "UCSX-CPU-A9654",
+                            "UCSX-CPU-A9654P",
+                            "UCSX-CPU-A9655",
+                            "UCSX-CPU-A9655P",
+                            "UCSX-CPU-A9684X",
+                            "UCSX-CPU-A9734",
+                            "UCSX-CPU-A9745",
+                            "UCSX-CPU-A9754",
+                            "UCSX-CPU-A9755",
+                            "UCSX-CPU-A9825",
+                            "UCSX-CPU-A9845",
+                            "UCSX-CPU-A9965",
+                            "UCSX-CPU-I3408U",
+                            "UCSX-CPU-I3508U",
+                            "UCSX-CPU-I4309Y",
+                            "UCSX-CPU-I4310",
+                            "UCSX-CPU-I4310T",
+                            "UCSX-CPU-I4314",
+                            "UCSX-CPU-I4316",
+                            "UCSX-CPU-I4410T",
+                            "UCSX-CPU-I4410Y",
+                            "UCSX-CPU-I4416+",
+                            "UCSX-CPU-I4509Y",
+                            "UCSX-CPU-I4510",
+                            "UCSX-CPU-I4510T",
+                            "UCSX-CPU-I4514Y",
+                            "UCSX-CPU-I4516Y+",
+                            "UCSX-CPU-I5315Y",
+                            "UCSX-CPU-I5317",
+                            "UCSX-CPU-I5318N",
+                            "UCSX-CPU-I5318S",
+                            "UCSX-CPU-I5318Y",
+                            "UCSX-CPU-I5320",
+                            "UCSX-CPU-I5320T",
+                            "UCSX-CPU-I5411N",
+                            "UCSX-CPU-I5412U",
+                            "UCSX-CPU-I5415+",
+                            "UCSX-CPU-I5416S",
+                            "UCSX-CPU-I5418N",
+                            "UCSX-CPU-I5418Y",
+                            "UCSX-CPU-I5420+",
+                            "UCSX-CPU-I5512U",
+                            "UCSX-CPU-I5515+",
+                            "UCSX-CPU-I5520+",
+                            "UCSX-CPU-I6312U",
+                            "UCSX-CPU-I6314U",
+                            "UCSX-CPU-I6326",
+                            "UCSX-CPU-I6330",
+                            "UCSX-CPU-I6330N",
+                            "UCSX-CPU-I6334",
+                            "UCSX-CPU-I6336Y",
+                            "UCSX-CPU-I6338",
+                            "UCSX-CPU-I6338N",
+                            "UCSX-CPU-I6338T",
+                            "UCSX-CPU-I6342",
+                            "UCSX-CPU-I6346",
+                            "UCSX-CPU-I6348",
+                            "UCSX-CPU-I6354",
+                            "UCSX-CPU-I6414U",
+                            "UCSX-CPU-I6416H",
+                            "UCSX-CPU-I6418H",
+                            "UCSX-CPU-I6421N",
+                            "UCSX-CPU-I6426Y",
+                            "UCSX-CPU-I6428N",
+                            "UCSX-CPU-I6430",
+                            "UCSX-CPU-I6434",
+                            "UCSX-CPU-I6434H",
+                            "UCSX-CPU-I6438M",
+                            "UCSX-CPU-I6438N",
+                            "UCSX-CPU-I6438Y+",
+                            "UCSX-CPU-I6442Y",
+                            "UCSX-CPU-I6444Y",
+                            "UCSX-CPU-I6448H",
+                            "UCSX-CPU-I6448Y",
+                            "UCSX-CPU-I6454S",
+                            "UCSX-CPU-I6526Y",
+                            "UCSX-CPU-I6530",
+                            "UCSX-CPU-I6534",
+                            "UCSX-CPU-I6538N",
+                            "UCSX-CPU-I6538Y+",
+                            "UCSX-CPU-I6542Y",
+                            "UCSX-CPU-I6544Y",
+                            "UCSX-CPU-I6548N",
+                            "UCSX-CPU-I6548Y+",
+                            "UCSX-CPU-I6554S",
+                            "UCSX-CPU-I8351N",
+                            "UCSX-CPU-I8352M",
+                            "UCSX-CPU-I8352S",
+                            "UCSX-CPU-I8352V",
+                            "UCSX-CPU-I8352Y",
+                            "UCSX-CPU-I8358",
+                            "UCSX-CPU-I8358P",
+                            "UCSX-CPU-I8360Y",
+                            "UCSX-CPU-I8362",
+                            "UCSX-CPU-I8368",
+                            "UCSX-CPU-I8380",
+                            "UCSX-CPU-I8444H",
+                            "UCSX-CPU-I8450H",
+                            "UCSX-CPU-I8452Y",
+                            "UCSX-CPU-I8454H",
+                            "UCSX-CPU-I8458P",
+                            "UCSX-CPU-I8460H",
+                            "UCSX-CPU-I8460Y+",
+                            "UCSX-CPU-I8461V",
+                            "UCSX-CPU-I8462Y+",
+                            "UCSX-CPU-I8468",
+                            "UCSX-CPU-I8468H",
+                            "UCSX-CPU-I8468V",
+                            "UCSX-CPU-I8470",
+                            "UCSX-CPU-I8470N",
+                            "UCSX-CPU-I8471N",
+                            "UCSX-CPU-I8480+",
+                            "UCSX-CPU-I8490H",
+                            "UCSX-CPU-I8558",
+                            "UCSX-CPU-I8558P",
+                            "UCSX-CPU-I8558U",
+                            "UCSX-CPU-I8562Y+",
+                            "UCSX-CPU-I8568Y+",
+                            "UCSX-CPU-I8570",
+                            "UCSX-CPU-I8571N",
+                            "UCSX-CPU-I8580",
+                            "UCSX-CPU-I8581V",
+                            "UCSX-CPU-I8592+",
+                            "UCSX-CPU-I8592V"
+                        ],
+                        "title": "pid"
+                    },
+                    "maxItems": 100,
+                    "minItems": 1,
+                    "title": "pids"
+                },
+                "speed": {
+                    "$ref": "#/definitions/resource.CpuSpeedRangeFilter"
+                },
+                "vendor": {
+                    "type": "string",
+                    "default": "Intel(R) Corporation",
+                    "description": "Default is `Intel(R) Corporation`.  The qualification of resources is based on the vendor of the processor.\n\nOptions are:\n  * `AMD`\n  * `Intel(R) Corporation`",
+                    "intersight_api": "Vendor",
+                    "enum": [
+                        "AMD",
+                        "Intel(R) Corporation"
+                    ],
+                    "title": "vendor"
+                }
+            }
+        },
+        "resource.RackIdRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of servers based on the rack server identifier values.",
+            "intersight_api": "RackIdRange",
+            "object_type": "resource.RackIdRangeFilter",
+            "required": [
+                "from",
+                "to"
+            ],
+            "title": "rack_ids",
+            "properties": {
+                "from": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The starting rack identifier for server qualification.  A number between 1-256.  Must be less than or equal to the ending value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 256,
+                    "title": "from"
+                },
+                "to": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The ending rack identifier for server qualification.  A number between 1-256.  Must be greater than or equal to the starting value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 256,
+                    "title": "to"
+                }
+            }
+        },
+        "resource.RackServerQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes to match rack server parameters.\n\nOptional Attributes:\n  * `asset_tags`\n  * `rack_ids`\n  * `rack_pids`\n  * `user_labels`",
+            "intersight_api": "RackServerQualifier",
+            "object_type": "resource.RackServerQualifier",
+            "required": [
+            ],
+            "title": "rack_server - Rack Server Qualifiers",
+            "properties": {
+                "asset_tags": {
+                    "type": "array",
+                    "description": "A List of asset tags to add to the rack qualifier for server qualification.  These must be pre-existing.  These are asset tags that have been assigned to the physical devices.  The maximum limit is 20",
+                    "intersight_api": "AssetTags",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "An Existing asset tag assigned to a rack server.",
+                        "intersight_api": "AssetTags",
+                        "minLength": 1,
+                        "maxLength": 32,
+                        "pattern": "^[ #$%\\(\\)\\*\\+,\\-\\.\\/:\\?@\\[\\]_\\{\\}\\^\\`\\>\\<~a-zA-Z0-9]*$",
+                        "title": "asset_tag"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "asset_tags"
+                },
+                "rack_pids": {
+                    "type": "array",
+                    "description": "A list of rack server product identifiers for server qualification.\n\nOptions are:\n  * `UCSC-C220-M5L`\n  * `UCSC-C220-M5SN`\n  * `UCSC-C220-M5SX`\n  * `UCSC-C220-M6N`\n  * `UCSC-C220-M6S`\n  * `UCSC-C220-M7N`\n  * `UCSC-C220-M7S`\n  * `UCSC-C225-M6N`\n  * `UCSC-C225-M6S`\n  * `UCSC-C225-M8N`\n  * `UCSC-C225-M8S`\n  * `UCSC-C240-M5L`\n  * `UCSC-C240-M5S`\n  * `UCSC-C240-M5SD`\n  * `UCSC-C240-M5SN`\n  * `UCSC-C240-M5SX`\n  * `UCSC-C240-M6L`\n  * `UCSC-C240-M6N`\n  * `UCSC-C240-M6S`\n  * `UCSC-C240-M6SN`\n  * `UCSC-C240-M6SX`\n  * `UCSC-C240-M7SN`\n  * `UCSC-C240-M7SX`\n  * `UCSC-C245-M6SX`\n  * `UCSC-C245-M8SX`\n  * `UCSC-C480-M5`",
+                    "intersight_api": "Pids",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "Blade/Node Product ID.",
+                        "intersight_api": "Pids",
+                        "enum": [
+                            "UCSC-C220-M5L",
+                            "UCSC-C220-M5SN",
+                            "UCSC-C220-M5SX",
+                            "UCSC-C220-M6N",
+                            "UCSC-C220-M6S",
+                            "UCSC-C220-M7N",
+                            "UCSC-C220-M7S",
+                            "UCSC-C225-M6N",
+                            "UCSC-C225-M6S",
+                            "UCSC-C225-M8N",
+                            "UCSC-C225-M8S",
+                            "UCSC-C240-M5L",
+                            "UCSC-C240-M5S",
+                            "UCSC-C240-M5SD",
+                            "UCSC-C240-M5SN",
+                            "UCSC-C240-M5SX",
+                            "UCSC-C240-M6L",
+                            "UCSC-C240-M6N",
+                            "UCSC-C240-M6S",
+                            "UCSC-C240-M6SN",
+                            "UCSC-C240-M6SX",
+                            "UCSC-C240-M7SN",
+                            "UCSC-C240-M7SX",
+                            "UCSC-C245-M6SX",
+                            "UCSC-C245-M8SX",
+                            "UCSC-C480-M5"
+                        ],
+                        "title": "rack_pid"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "rack_pids"
+                },
+                "rack_ids": {
+                    "type": "array",
+                    "description": "The qualification of servers based on the rack server identifier values.\n\nRequired Attributes:\n  * from\n  * to",
+                    "items": {
+                        "$ref": "#/definitions/resource.RackIdRangeFilter"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "object_type": "resource.RackIdRangeFilter",
+                    "title": "rack_ids - Rack Identifiers"
+                },
+                "user_labels": {
+                    "type": "array",
+                    "description": "A List of user labels to add to the rack server qualifier for server qualification.  These must be pre-existing.  These are user labels that have been assigned to the physical devices.  The maximum limit is 20",
+                    "intersight_api": "UserLabel",
+                    "items": {
+                        "type": "string",
+                        "default": "",
+                        "description": "An Existing user label assigned to a physical rack server.",
+                        "intersight_api": "UserLabel",
+                        "minLength": 1,
+                        "maxLength": 64,
+                        "pattern": "^$|^[ !#$%&\\(\\)\\*\\+,\\-\\./:;\\?@\\[\\]_\\{\\|\\}~a-zA-Z0-9]+$",
+                        "title": "user_label"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "title": "user_labels"
+                }
+            }
         },
         "resource.Selector": {
             "type": "object",
@@ -13567,6 +14821,135 @@
             "required": [],
             "title": "Resource - Sub-Targets"
         },
+        "resource.ServerQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes for all blade and/or rack servers that match the provided server IDs, PIDs, tags, user labels, and chassis IDs qualify under this type.\n\nOptional Attributes:\n  * `blade_server`\n  * `rack_server`",
+            "intersight_api": "ServerQualifier",
+            "object_type": "resource.ServerQualifier",
+            "required": [
+            ],
+            "title": "server_qualifiers - Server Qualifiers",
+            "properties": {
+                "blade_server": {
+                    "$ref": "#/definitions/resource.BladeQualifier"
+                },
+                "rack_server": {
+                    "$ref": "#/definitions/resource.RackServerQualifier"
+                }
+            }
+        },
+        "resource.ServerTags": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of servers based on physical server key/value pairs.",
+            "intersight_api": "ServerTags",
+            "object_type": "resource.TagQualifier",
+            "required": [
+                "key",
+                "value"
+            ],
+            "title": "server_tags",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "default": "key",
+                    "description": "The tag key for which usage information is provided.",
+                    "intersight_api": "Key",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[\\S]+$",
+                    "title": "key"
+                },
+                "value": {
+                    "type": "string",
+                    "default": "value",
+                    "description": "The tag value that has been assigned to this Key.",
+                    "intersight_api": "Value",
+                    "minLength": 1,
+                    "maxLength": 128,
+                    "pattern": "^[\\S]+$",
+                    "title": "value"
+                }
+            }
+        },
+        "resource.SlotIdRangeFilter": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The qualification of servers based on the slot identifiers.",
+            "intersight_api": "SlotIdRanges",
+            "object_type": "resource.SlotIdRangeFilter",
+            "required": [
+                "from",
+                "to"
+            ],
+            "title": "slot_ids",
+            "properties": {
+                "from": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The starting slot identifier for server qualification.  A number between 1-8.  Must be less than or equal to the ending value.",
+                    "intersight_api": "MinValue",
+                    "minimum": 1,
+                    "maximum": 8,
+                    "title": "from"
+                },
+                "to": {
+                    "type": "integer",
+                    "default": 1,
+                    "description": "Default is `1`.  The ending slot identifier for server qualification.  A number between 1-8.  Must be greater than or equal to the starting value.",
+                    "intersight_api": "MaxValue",
+                    "minimum": 1,
+                    "maximum": 8,
+                    "title": "to"
+                }
+            }
+        },
+        "resource.TagQualifier": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Attributes for all servers that match any of the provided server tags, domain profile, and chassis tags qualify under this type. Domain profile and chassis tags are applicable only for FI-attached servers.\n\nOptional Attributes:\n  * `chassis_tags`\n  * `domain_profile_tags`\n  * `server_tags`",
+            "intersight_api": "TagQualifier",
+            "object_type": "resource.TagQualifier",
+            "required": [
+            ],
+            "title": "tag_qualifiers - Tag Qualifiers",
+            "properties": {
+                "chassis_tags": {
+                    "type": "array",
+                    "description": "The qualification of servers based on chassis key/value pairs.  Only Applicable for domain attached servers.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/resource.ChassisTags"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "object_type": "resource.Tag",
+                    "title": "chassis_tags - Chassis Tags - key/value pairs"
+                },
+                "domain_profile_tags": {
+                    "type": "array",
+                    "description": "The qualification of servers based on domain profile key/value pairs.  Only Applicable for domain attached servers.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/resource.DomainProfileTags"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "object_type": "resource.Tag",
+                    "title": "domain_profile_tags - Domain Profile Tags - key/value pairs"
+                },
+                "server_tags": {
+                    "type": "array",
+                    "description": "The qualification of servers based on physical server key/value pairs.\n\nRequired Attributes:\n  * key\n  * value",
+                    "items": {
+                        "$ref": "#/definitions/resource.ServerTags"
+                    },
+                    "maxItems": 20,
+                    "minItems": 1,
+                    "object_type": "resource.Tag",
+                    "title": "server_tags - Server Tags - key/value pairs"
+                }
+            }
+        },
         "resourcepool.Pool": {
             "type": "object",
             "additionalProperties": false,
@@ -13574,25 +14957,11 @@
             "intersight_uri_serial": "compute/PhysicalSummaries",
             "object_type": "resourcepool.Pool",
             "properties": {
-                "assignment_order": {
-                    "$ref": "#/definitions/pool.AbstractPool/properties/assignment_order"
-                },
                 "description": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/description"
                 },
                 "name": {
                     "$ref": "#/definitions/pool.AbstractPool/properties/name"
-                },
-                "pool_type": {
-                    "type": "string",
-                    "default": "Static",
-                    "description": "The resource management type in the pool, it can be either static or dynamic.\n  * Static - The resources in the pool will not be changed until user manually update it. (default)\n  * Dynamic - The resources in the pool will be updated dynamically based on the condition.",
-                    "intersight_api": "PoolType",
-                    "enum": [
-                        "Dynamic",
-                        "Static"
-                    ],
-                    "title": "pool_type"
                 },
                 "resource_type": {
                     "type": "string",
@@ -13605,21 +14974,37 @@
                     ],
                     "title": "resource_type"
                 },
-                "serial_number_list": {
+                "server_pool_qualification_policies": {
                     "type": "array",
-                    "description": "A List of Compute Serial Numbers to assign to the policy.  These must be the same type of server. Cannot be some blades and some rackmounts.",
-                    "intersight_api": "",
+                    "description": "A list of Server Pool Qualification Policies to assign to the pool.  These must be for the same type of server, cannot be a mix of policies for blades and some rackmounts.",
+                    "intersight_api": "server_pool_qualification_policies",
+                    "items": {
+                        "type": "string",
+                        "default": "example",
+                        "description": "Server Pool Qualification Policy Name.",
+                        "intersight_api": "server_pool_qualification_policy",
+                        "minLength": 1,
+                        "maxLength": 129,
+                        "pattern": "^(([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]\\/)?([a-zA-Z0-9][a-zA-Z0-9_\\.:-]{0,62})?[a-zA-Z0-9]$",
+                        "title": "server_pool_qualification_policy"
+                    },
+                    "title": "server_pool_qualification_policies"
+                },
+                "static_resource_selection": {
+                    "type": "array",
+                    "description": "A list of compute Serial Numbers to assign to the pool.  These must be the same type of server, cannot be some blades and some rackmounts.",
+                    "intersight_api": "static_resource_selection",
                     "items": {
                         "type": "string",
                         "default": "FOX25415555",
                         "description": "Server Serial Number.",
-                        "intersight_api": "",
+                        "intersight_api": "static_resource_selection",
                         "minLength": 11,
                         "maxLength": 11,
                         "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
                         "title": "serial_number"
                     },
-                    "title": "serial_number_list"
+                    "title": "static_resource_selection"
                 },
                 "tags": {
                     "type": "array",
@@ -13628,11 +15013,22 @@
                         "$ref": "#/definitions/mo.Tag"
                     },
                     "title": "tags - Tags"
+                },
+                "target_platform": {
+                    "type": "string",
+                    "default": "FIAttached",
+                    "description": "Default is `FIAttached`.  The platform for which the resource pool is applicable. It can either be a server that is operating in standalone mode or which is attached to a Fabric Interconnect managed by Intersight.\n  * `Standalone` - Servers which are operating in standalone mode i.e. not connected to a Fabric Interconnected.\n  * `FIAttached` - Servers which are connected to a Fabric Interconnect that is managed by Intersight.",
+                    "intersight_api": "TargetPlatform",
+                    "enum": [
+                        "FIAttached",
+                        "Standalone"
+                    ],
+                    "title": "target_platform"
                 }
             },
             "required": [
                 "name",
-                "serial_number_list"
+                "target_platform"
             ],
             "title": "Resource"
         },
@@ -13646,53 +15042,19 @@
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/description"
                 },
                 "domain_qualifiers": {
-                    "type": "array",
-                    "description": "Attributes to match all FI-attached servers in any domain that match the provided Fabric Interconnect PID and/or domain name qualifiers under this type.\n\nOptional Attributes:\n  * domain_names\n  * fabric_interconnect_pids",
-                    "items": {
-                        "$ref": "#/definitions/resource.DomainQualifier"
-                    },
-                    "title": "domain_qualifiers - Domain Qualifiers"
+                    "$ref": "#/definitions/resource.DomainQualifier"
+                },
+                "hardware_qualifiers": {
+                    "$ref": "#/definitions/resource.HardwareQualifier"
                 },
                 "name": {
                     "$ref": "#/definitions/policy.AbstractPolicy/properties/name"
                 },
-                "pool_type": {
-                    "type": "string",
-                    "default": "Static",
-                    "description": "The resource management type in the pool, it can be either static or dynamic.\n  * Static - The resources in the pool will not be changed until user manually update it. (default)\n  * Dynamic - The resources in the pool will be updated dynamically based on the condition.",
-                    "intersight_api": "PoolType",
-                    "enum": [
-                        "Dynamic",
-                        "Static"
-                    ],
-                    "title": "pool_type"
+                "server_qualifiers": {
+                    "$ref": "#/definitions/resource.ServerQualifier"
                 },
-                "resource_type": {
-                    "type": "string",
-                    "default": "Server",
-                    "description": "The type of the resource present in the pool, example 'server' its combination of RackUnit and Blade.\n  * None - The resource cannot consider for Resource Pool.\n  * Server - Resource Pool holds the server kind of resources, example - RackServer, Blade. (default)",
-                    "intersight_api": "ResourceType",
-                    "enum": [
-                        "None",
-                        "Server"
-                    ],
-                    "title": "resource_type"
-                },
-                "serial_number_list": {
-                    "type": "array",
-                    "description": "A List of Compute Serial Numbers to assign to the policy.  These must be the same type of server. Cannot be some blades and some rackmounts.",
-                    "intersight_api": "",
-                    "items": {
-                        "type": "string",
-                        "default": "FOX25415555",
-                        "description": "Server Serial Number.",
-                        "intersight_api": "",
-                        "minLength": 11,
-                        "maxLength": 11,
-                        "pattern": "^[A-Z]{3}[1-3][\\d]([0][1-9]|[1-4][0-9]|[5][0-3])[\\dA-Z]{4}$",
-                        "title": "serial_number"
-                    },
-                    "title": "serial_number_list"
+                "tag_qualifiers": {
+                    "$ref": "#/definitions/resource.TagQualifier"
                 },
                 "tags": {
                     "type": "array",
@@ -13704,8 +15066,7 @@
                 }
             },
             "required": [
-                "name",
-                "serial_number_list"
+                "name"
             ],
             "title": "Server Pool Qualification"
         },
@@ -14847,6 +16208,8 @@
                     "items": {
                         "$ref": "#/definitions/snmp.Trap"
                     },
+                    "maxItems": 15,
+                    "minItems": 1,
                     "objectType": "snmp.Trap",
                     "title": "snmp_trap_destinations - Snmp Trap Destinations - Intersight Uri: snmp/Traps"
                 },
@@ -14856,6 +16219,8 @@
                     "items": {
                         "$ref": "#/definitions/snmp.User"
                     },
+                    "maxItems": 15,
+                    "minItems": 1,
                     "objectType": "snmp.User",
                     "title": "snmp_users - Snmp Users - Intersight Uri: snmp/Users"
                 },
