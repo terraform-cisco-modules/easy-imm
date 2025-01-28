@@ -25,16 +25,16 @@
 
 ## Recommended Module Versions
 
-## SaaS API Version >=1.0.11-20241017091918219
+## SaaS API Version >=1.0.11-20241204094351081
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  * New Memory and Scrub Policies  |
-| profiles      | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
+| organizations | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+| policies      | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  * New Memory and Scrub Policies  |
+| profiles      | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
 
-## CVA Version >=1.1.1-0 API Version >=1.0.11-18735
+## CVA Version >=1.1.1-1 API Version >=1.0.11-18735
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
@@ -55,6 +55,7 @@
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
+* 2025-01-21: Recommended releases are 4.2.11-20241204094351081 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0)
 * 2024-11-12: Recommended releases are 4.2.11-20241004054146475 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0). 
   <ins>IMPORTANT NOTE</ins>: 4.2.11-20241004054146475 introduces support for multi-ethernet network group policies for Ethernet Uplink Port-Channels and Ethernet Uplink.  If you are still using older module versions make sure to point to the older JSON Schema for Visual Studio Code.
   For example: v4.2.11-18775 - https://github.com/terraform-cisco-modules/easy-imm/blob/39542dfc4ee2f368d42ff6a73ee4e08cb26a4c09/yaml_schema/easy-imm.json
@@ -332,7 +333,7 @@ terraform.exe apply "main.plan"
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=1.3.0 |
-| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.59 |
+| <a name="requirement_intersight"></a> [intersight](#requirement\_intersight) | 1.0.61 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | 0.9.1 |
 | <a name="requirement_utils"></a> [utils](#requirement\_utils) | >= 0.1.3 |
 
@@ -350,10 +351,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20241017091918219 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20241017091918219 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20241017091918219 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | /home/tyscott/terraform-cisco-modules/terraform-intersight-profiles | n/a |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20241204094351081 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20241204094351081 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20241204094351081 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20241204094351081 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 

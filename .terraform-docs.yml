@@ -29,16 +29,16 @@ content: |-
 
   ## Recommended Module Versions
 
-  ## SaaS API Version >=1.0.11-20241017091918219
+  ## SaaS API Version >=1.0.11-20241204094351081
 
   | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
   | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-  | organizations | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-  | pools         | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-  | policies      | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  * New Memory and Scrub Policies  |
-  | profiles      | 4.2.11-20241017091918219  | 1.0.59                | Not Supported         |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
+  | organizations | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
+  | pools         | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
+  | policies      | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  * New Memory and Scrub Policies  |
+  | profiles      | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
 
-  ## CVA Version >=1.1.1-0 API Version >=1.0.11-18735
+  ## CVA Version >=1.1.1-1 API Version >=1.0.11-18735
 
   | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
   | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
@@ -59,6 +59,7 @@ content: |-
   ### [<ins>Back to Top<ins>](#easy-imm)
 
   ## Updates
+  * 2025-01-21: Recommended releases are 4.2.11-20241204094351081 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0)
   * 2024-11-12: Recommended releases are 4.2.11-20241004054146475 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0). 
     <ins>IMPORTANT NOTE</ins>: 4.2.11-20241004054146475 introduces support for multi-ethernet network group policies for Ethernet Uplink Port-Channels and Ethernet Uplink.  If you are still using older module versions make sure to point to the older JSON Schema for Visual Studio Code.
     For example: v4.2.11-18775 - https://github.com/terraform-cisco-modules/easy-imm/blob/39542dfc4ee2f368d42ff6a73ee4e08cb26a4c09/yaml_schema/easy-imm.json
