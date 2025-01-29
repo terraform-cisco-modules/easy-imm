@@ -61,8 +61,8 @@ common:
             size: 255
         name: dual-fabric
     resource:
-      - description: default
-        name: default
+      - description: SPQ-Blade
+        name: SPQ-Blade
         server_pool_qualification_policies:
           - SPQ-Blade
         target_platform: FIAttached
