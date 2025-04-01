@@ -1,0 +1,68 @@
+---
+#======================================
+#   Policies -> Domain - Variables
+#======================================
+common:
+  policies:
+    flow_control:
+      - description: flow-ctrl Flow Control Policy
+        name: flow-ctrl
+    link_aggregation:
+      - description: link-agg Link Aggregation Policy
+        name: link-agg
+    link_control:
+      - description: link-ctrl Link Control Policy
+        name: link-ctrl
+    switch_control:
+      - description: sw-ctrl Switch Control Policy
+        name: sw-ctrl
+        switching_mode_ethernet: end-host
+        switching_mode_fc: end-host
+        vlan_port_count_optimization: false
+      - description: fc-switch Switch Control Policy
+        name: fc-switch
+        switching_mode_ethernet: end-host
+        switching_mode_fc: switch
+        vlan_port_count_optimization: false
+    system_qos:
+      - configure_recommended_classes: true
+        description: qos System QoS Policy
+        jumbo_mtu: true
+        name: qos
+default:
+  policies:
+    system_qos:
+      - classes:
+          - cos: 255
+            packet_drop: true
+            priority: Best Effort
+            state: Enabled
+            weight: 5
+          - cos: 1
+            packet_drop: true
+            priority: Bronze
+            state: Enabled
+            weight: 7
+          - cos: 4
+            packet_drop: true
+            priority: Gold
+            state: Enabled
+            weight: 9
+          - cos: 3
+            packet_drop: false
+            priority: FC
+            state: Enabled
+            weight: 10
+          - cos: 5
+            packet_drop: false
+            priority: Platinum
+            state: Enabled
+            weight: 10
+          - cos: 2
+            packet_drop: true
+            priority: Silver
+            state: Enabled
+            weight: 8
+        description: qos System QoS Policy
+        jumbo_mtu: true
+        name: qos

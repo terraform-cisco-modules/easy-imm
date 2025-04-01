@@ -3,7 +3,7 @@
 #   Global Settings
 #========================================
 global_settings:
-  intersight_fqdn: intersight.com
+  intersight_fqdn: cva.rich.ciscolabs.com
   tags:
     - key: "Module"
       value: "easy-imm"

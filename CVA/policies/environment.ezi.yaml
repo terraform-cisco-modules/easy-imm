@@ -1,0 +1,28 @@
+---
+#===========================================
+#   Policies -> Environment - Variables
+#===========================================
+common:
+  policies:
+    power:
+      - description: 5108 Power Policy
+        name: '5108'
+        power_redundancy: Grid
+      - description: 9508 Power Policy
+        name: '9508'
+        power_allocation: 5600
+        power_redundancy: Grid
+      - description: server Power Policy
+        name: server
+        power_redundancy: Grid
+        power_restore: LastState
+    thermal:
+      - description: 5108 Thermal Policy
+        fan_control_mode: Balanced
+        name: '5108'
+      - description: 9508 Thermal Policy
+        fan_control_mode: Balanced
+        name: '9508'
+      - description: server Thermal Policy
+        fan_control_mode: Balanced
+        name: server

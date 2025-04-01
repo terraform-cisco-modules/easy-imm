@@ -1,0 +1,18 @@
+---
+#==================================
+#   Pools -> Pools - Variables
+#==================================
+Asgard:
+  create_organization: true
+  resource_groups:
+    - name: Asgard
+common:
+  create_organization: true
+  organizations_to_share_with:
+    - Asgard
+    - Wakanda
+Wakanda:
+  create_organization: true
+  resource_groups:
+    - name: Wakanda
+          

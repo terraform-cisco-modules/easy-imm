@@ -1,0 +1,16 @@
+---
+#====================================
+#   Policies -> VSAN - Variables
+#====================================
+common:
+  policies:
+    vsan:
+      - name: vsan-a
+        vsans:
+          - fcoe_vlan_id: 100
+            name: vsan-a
+            vsan_id: 100
+      - name: vsan-b
+        vsans:
+          - name: vsan-b
+            vsan_id: 200

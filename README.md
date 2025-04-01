@@ -25,36 +25,21 @@
 
 ## Recommended Module Versions
 
-## SaaS API Version >=1.0.11-20241204094351081
+## SaaS API Version >=v1.0.11-20250122215055407
+## CVA  API Version >=v1.0.11-20250122215055407.hotfix.20250205093545023
+## PVA  API Version >=v1.0.11-20250122215055407.hotfix.20250205093545023
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  New Module to Manage Organizations/Resource Groups. |
-| pools         | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  Adds IP Pool Block Level IP Configuration. |
-| policies      | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  * New Memory and Scrub Policies  |
-| profiles      | 4.2.11-20241204094351081  | 1.0.61                | Not Supported         |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
-
-## CVA Version >=1.1.1-1 API Version >=1.0.11-18735
-
-| **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
-| :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-18775  | 1.0.51                | >=1.1.1-0             |  New Module to Manage Organizations/Resource Groups. |
-| pools         | 4.2.11-16711  | 1.0.51                | >=1.1.1-0             |  With IP Pools use Configuration outside IP Block. |
-| policies      | 4.2.11-16713  | 1.0.51                | >=1.1.1-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
-| profiles      | 4.2.11-16712  | 1.0.51                | >=1.1.1-0             |  * Adds Scrub Policies to Server Profiles/Templates. |
-
-## PVA Version >=1.1.0-0 API Version >=1.0.11-16711
-
-| **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
-| :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-18775  | 1.0.51                | >=1.1.0-0             |  New Module to Manage Organizations/Resource Groups. |
-| pools         | 4.2.11-16711  | 1.0.51                | >=1.1.0-0             |  With IP Pools use Configuration outside IP Block. |
-| policies      | 4.2.11-16713  | 1.0.51                | >=1.1.0-0             |  Anything supported by YAML Schema Outside of New Features in 17769  |
-| profiles      | 4.2.11-16712  | 1.0.51                | >=1.1.0-0             |  Doesn't support Chassis and Domain Templates |
+| organizations | 4.2.11-20250122215055407  | 1.0.61                | CVA/PVA 1.1.2-0       |  New Module to Manage Organizations/Resource Groups. |
+| pools         | 4.2.11-20250122215055407  | 1.0.61                | CVA/PVA 1.1.2-0       |  Adds IP Pool Block Level IP Configuration. |
+| policies      | 4.2.11-20250122215055407  | 1.0.61                | CVA/PVA 1.1.2-0       |  * New Memory and Scrub Policies  |
+| profiles      | 4.2.11-20250122215055407  | 1.0.61                | CVA/PVA 1.1.2-0       |  * Adds Support for Certificate Management/LDAP to Domain Profiles/Templates. |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
+* 2025-04-01: Recommended release is 4.2.11-20250122215055407 SaaS/CVA/PVA
 * 2025-01-21: Recommended releases are 4.2.11-20241204094351081 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0)
 * 2024-11-12: Recommended releases are 4.2.11-20241004054146475 (SaaS) or 4.2.11-18775 (CVA 1.1.1-0). 
   <ins>IMPORTANT NOTE</ins>: 4.2.11-20241004054146475 introduces support for multi-ethernet network group policies for Ethernet Uplink Port-Channels and Ethernet Uplink.  If you are still using older module versions make sure to point to the older JSON Schema for Visual Studio Code.
@@ -351,10 +336,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20241204094351081 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20241204094351081 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20241204094351081 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20241204094351081 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20250122215055407 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20250122215055407 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20250122215055407 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20250122215055407 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 

@@ -1,0 +1,100 @@
+---
+#==================================
+#   Pools -> Pools - Variables
+#==================================
+common:
+  pools:
+    ip:
+      - ipv4_blocks:
+          - from: 198.18.101.64
+            size: 32
+        ipv4_configuration:
+          gateway: 198.18.101.254
+          netmask: 255.255.255.0
+          primary_dns: 10.101.128.15
+          secondary_dns: 10.101.128.16
+        name: aci-kvm-inband
+      - ipv4_blocks:
+          - from: 192.168.64.160
+            size: 64
+        ipv4_configuration:
+          gateway: 192.168.64.1
+          netmask: 255.255.254.0
+          primary_dns: 10.101.128.15
+          secondary_dns: 10.101.128.16
+        name: kvm-ooband
+    mac:
+      - mac_blocks:
+          - from: 00:25:B5:C1:10:00
+            size: 255
+        name: dvs-a
+      - mac_blocks:
+          - from: 00:25:B5:C1:20:00
+            size: 255
+        name: dvs-b
+      - mac_blocks:
+          - from: 00:25:B5:C1:A0:00
+            size: 255
+        name: mgmt-a
+      - mac_blocks:
+          - from: 00:25:B5:C1:B0:00
+            size: 255
+        name: mgmt-b
+      - mac_blocks:
+          - from: 00:25:B5:C1:C0:00
+            size: 255
+        name: migration-a
+      - mac_blocks:
+          - from: 00:25:B5:C1:D0:00
+            size: 255
+        name: migration-b
+      - mac_blocks:
+          - from: 00:25:B5:C1:E0:00
+            size: 255
+        name: storage-a
+      - mac_blocks:
+          - from: 00:25:B5:C1:F0:00
+            size: 255
+        name: storage-b
+      - mac_blocks:
+          - from: 00:25:B5:C1:00:00
+            size: 255
+        name: dual-fabric
+    resource:
+      - description: SPQ-Blade
+        name: SPQ-Blade
+        server_pool_qualification_policies:
+          - SPQ-Blade
+        target_platform: FIAttached
+    uuid:
+      - description: uuid UUID Pool
+        name: uuid
+        prefix: 000025B5-C15C-0000
+        uuid_blocks:
+          - from: 25B5-000000000000
+            size: 255
+    wwnn:
+      - id_blocks:
+          - from: 20:00:00:25:B5:C1:00:00
+            size: 255
+        name: wwnn
+    wwpn:
+      - id_blocks:
+          - from: 20:00:00:25:B5:C1:A0:00
+            size: 255
+        name: wwpn-a
+      - id_blocks:
+          - from: 20:00:00:25:B5:C1:B0:00
+            size: 255
+        name: wwpn-b
+default:
+  pools:
+    iqn:
+      - assignment_order: sequential
+        description: default
+        iqn_blocks:
+          - from: 0
+            size: 255
+            suffix: ucs-host
+        name: default
+        prefix: iqn.1984-12.com.cisco

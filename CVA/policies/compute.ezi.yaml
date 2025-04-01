@@ -1,0 +1,167 @@
+---
+#=======================================
+#   Policies -> Compute - Variables
+#=======================================
+common:
+  policies:
+    bios:
+      - baud_rate: '115200'
+        latency_optimized_mode: enabled
+        bios_template: M5-intel-virtual
+        boot_performance_mode: Max Performance
+        console_redirection: com-0
+        description: M5-intel-virtual BIOS Policy
+        name: M5-intel-virtual
+        serial_port_aenable: enabled
+        terminal_type: vt100
+        txt_support: enabled
+      - baud_rate: '115200'
+        bios_template: M5-intel-virtual-tpm
+        boot_performance_mode: Max Performance
+        console_redirection: com-0
+        description: M5-intel-virtual-tpm BIOS Policy
+        name: M5-intel-virtual-tpm
+        serial_port_aenable: enabled
+        terminal_type: vt100
+        txt_support: enabled
+      - baud_rate: '115200'
+        bios_template: M6-intel-virtual-tpm
+        boot_performance_mode: Max Performance
+        console_redirection: com-0
+        description: M6-intel-virtual-tpm BIOS Policy
+        name: M6-intel-virtual-tpm
+        serial_port_aenable: enabled
+        terminal_type: vt100
+        txt_support: enabled
+    boot_order:
+      - boot_devices:
+          - device_name: KVM-DVD
+            device_type: virtual_media
+            subtype: kvm-mapped-dvd
+          - device_name: M2
+            device_type: local_disk
+            slot: MSTOR-RAID
+          - device_name: PXE
+            device_type: pxe_boot
+            interface_name: mgmt-a
+            slot: MLOM
+          - device_name: UEFI
+            device_type: uefi_shell
+        boot_mode: Uefi
+        enable_secure_boot: true
+        name: M2-pxe
+    firmware:
+      - description: fw-domain-servers Firmware Policy
+        model_bundle_version:
+          - firmware_version: 5.2(2.240053)
+            server_models:
+              - UCSX-210C-M6
+          - firmware_version: 5.2(0.230127)
+            server_models:
+              - UCSB-B200-M5
+          - firmware_version: 4.3(2.240009)
+            server_models:
+              - UCSC-C240-M5
+        name: fw-domain-servers
+        target_platform: FIAttached
+    firmware_authenticate:
+      cco_password: 1
+      cco_user: 1
+    memory:
+      - dimm_blocklisting: false
+        name: memory_default
+    scrub:
+      - bios: false
+        disk: false
+        name: scrub_default
+    virtual_media:
+      - description: vmedia Virtual Media Policy
+        enable_low_power_usb: true
+        enable_virtual_media_encryption: true
+        name: vmedia
+default:
+  policies:
+    boot_order:
+      - boot_devices:
+          - device_name: 0_KVM-DVD
+            device_type: virtual_media
+            subtype: kvm-mapped-dvd
+          - device_name: 1_Raid1
+            device_type: local_disk
+            slot: MRAID
+          - device_name: 2_PXE
+            device_type: pxe_boot
+            interface_name: MGMT-A
+            slot: MLOM
+        boot_mode: Uefi
+        enable_secure_boot: false
+        name: Raid-pxe
+      - boot_devices:
+          - device_name: 00_KVM-DVD
+            device_type: virtual_media
+            subtype: kvm-mapped-dvd
+          - device_name: 01_CIMC-DVD
+            device_type: virtual_media
+            subtype: cimc-mapped-dvd
+          - device_name: 02_M2
+            device_type: local_disk
+            slot: MSTOR-RAID
+          - device_name: 03_Raid1
+            device_type: local_disk
+            slot: MRAID
+          - device_name: 04_PXE
+            device_type: pxe_boot
+            interface_name: MGMT-A
+            slot: MLOM
+          - device_name: 05_iSCSI
+            device_type: iscsi_boot
+            interface_name: iSCSI-A
+            slot: MLOM
+          - device_name: 06_Primary-A
+            device_type: san_boot
+            interface_name: vHBA-A
+            lun: 0
+            slot: MLOM
+            target_wwpn: 50:00:00:25:B5:0A:00:01
+          - device_name: 07_Primary-B
+            device_type: san_boot
+            interface_name: vHBA-B
+            lun: 0
+            slot: MLOM
+            target_wwpn: 50:00:00:25:B5:0B:00:01
+          - device_name: 08_Secondary-A
+            device_type: san_boot
+            interface_name: vHBA-A
+            lun: 0
+            slot: MLOM
+            target_wwpn: 50:00:00:25:B5:0A:00:02
+          - device_name: 09_Secondary-B
+            device_type: san_boot
+            interface_name: vHBA-B
+            lun: 0
+            slot: MLOM
+            target_wwpn: 50:00:00:25:B5:0B:00:02
+          - device_name: 10_HTTP
+            device_type: http_boot
+            interface_name: vnic0
+            ip_config_type: Static
+            ipv4_config:
+              dns_ip: 208.67.220.220
+              gateway_ip: 198.18.0.1
+              network_mask: 255.255.255.0
+              static_ip: 198.18.0.10
+            uri: https://server.example.com/vmware.iso
+        boot_mode: Uefi
+        enable_secure_boot: false
+        name: examples
+    virtual_media:
+      - add_virtual_media:
+          - device_type: cdd
+            file_location: https://198.18.1.1/vmware.iso
+            mount_options: noauto
+            name: https-map
+            protocol: https
+        description: vmedia Virtual Media Policy
+        enable_low_power_usb: true
+        enable_virtual_media_encryption: true
+        name: vmedia

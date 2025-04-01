@@ -1,0 +1,40 @@
+---
+#=======================================
+#   Policies -> Storage - Variables
+#=======================================
+common:
+  policies:
+    storage:
+      - m2_raid_configuration:
+          slot: MSTOR-RAID-1
+        name: M2-Raid
+        use_jbod_for_vd_creation: true
+      - description: Raid1 Storage Policy
+        drive_groups:
+          - manual_drive_group:
+              drive_array_spans:
+                - slots: 1-2
+            name: dg0
+            raid_level: Raid1
+            virtual_drives:
+              - boot_drive: true
+                expand_to_available: true
+                name: vd0
+        name: Raid1
+        unused_disks_state: Jbod
+        use_jbod_for_vd_creation: true
+default:
+  policies:
+    drive_security:
+      - description: default
+        name: default
+        remote_key_management:
+          assigned_sensitive_data: true
+          enable_authentication:
+            password: 1
+            username: kmip_user
+          primary_server:
+            hostname_ip_address: kmip-primary.example.com
+          secondary_server:
+            hostname_ip_address: kmip-secondary.example.com
+          server_public_root_ca_certificate: 1

@@ -1,0 +1,54 @@
+common:
+  policies:
+    # ISSUE With SPQ https://github.com/CiscoDevNet/terraform-provider-intersight/issues/311
+    server_pool_qualification:
+      - #domain_qualifiers:
+        #  domain_names:
+        #    - r143e-1
+        #  fabric_interconnect_pids:
+        #    - UCS-FI-6454
+        description: SPQ-Blade
+        hardware_qualifiers:
+          cpu:
+            number_of_cores:
+              maximum: 32
+              minimum: 8
+            pids:
+              - UCSX-CPU-I8592V
+            speed:
+              maximum: 99
+              minimum: 1
+            vendor: Intel(R) Corporation
+          memory:
+            capacity:
+              maximum: 2048
+              minimum: 256
+            number_of_units:
+              maximum: 32
+              minimum: 2
+        name: SPQ-Blade
+        #server_qualifiers:
+        #  blade_server:
+        #    blade_pids:
+        #      - UCSX-210C-M6
+        #    chassis_pids:
+        #      - UCSX-9508
+        #tag_qualifiers:
+        #  chassis_tags:
+        #    - key: key
+        #      value: value
+        #  domain_profile_tags:
+        #    - key: key
+        #      value: value
+        #  server_tags:
+        #    - key: key
+        #      value: value
+      #- description: SPQ-Rack
+      #  name: SPQ-Rack
+      #  server_qualifiers:
+      #    rack_server:
+      #      rack_ids:
+      #        - from: 1
+      #          to: 1
+      #      rack_pids:
+      #        - UCSC-C220-M6N

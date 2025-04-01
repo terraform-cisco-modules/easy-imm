@@ -1,0 +1,33 @@
+---
+common:
+  policies:
+    vhba_template:
+      - allow_override: true
+        description: vHBA Template
+        fibre_channel_adapter_policy: Initiator
+        fibre_channel_network_policy: vsan-a
+        fibre_channel_qos_policy: fc-qos
+        name: vHBA
+        persistent_lun_bindings: false
+        placement_switch_id: A
+        vhba_type: fc-initiator
+        wwpn_pool: wwpn-a
+    vnic_template:
+      - allow_override: true
+        description: vnic0 template
+        enable_failover: true
+        ethernet_adapter_policy:  Win-AzureStack
+        ethernet_network_control_policy: both
+        ethernet_network_group_policies:
+          - aci-mgmt
+        ethernet_qos_policy: best-effort
+        mac_address_pool: dual-fabric
+        name: vnic0
+        placement_switch_id: A
+        sriov:
+          completion_queue_count_per_vf: 5
+          enabled: true
+          interrupt_count_per_vf: 8
+          number_of_vfs: 64
+          receive_queue_count_per_vf: 4
+          transmit_queue_count_per_vf: 1

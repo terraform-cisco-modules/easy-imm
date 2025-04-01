@@ -90,15 +90,6 @@ common:
         remote_port: 2068
 default:
   policies:
-    certificate_management:
-      - assigned_sensitive_data: true
-        certificates:
-          - type: IMC
-            variable_id: 1
-          - name: RootExample
-            type: RootCA
-            variable_id: 2
-        name: Example_Certificates
     device_connector:
       - configuration_from_intersight_only: false
         description: devcon Device Connector Policy
