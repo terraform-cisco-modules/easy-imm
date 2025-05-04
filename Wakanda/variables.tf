@@ -174,7 +174,7 @@ variable "drive_security_server_ca_certificate" {
 variable "cco_password" {
   default     = ""
   description = <<-EOT
-    CCO User Account Password.  It must meet the following criteria:
+    Cisco.com Authentication Password.  It must meet the following criteria:
       - One Uppercase Letter
       - One Lowercase Letter
       - One Number
@@ -346,6 +346,262 @@ variable "local_user_password_5" {
     error_message = "Must match the following regular expression: ```^[a-zA-Z0-9!@#$%^&\\*+_=-]{8,127}$```."
   }
 }
+
+#__________________________________________________________________
+#
+# MACsec Sensitive Variables
+#__________________________________________________________________
+
+variable "mac_sec_fallback_key_chain_secret_1" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_fallback_key_chain_secret_1)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_fallback_key_chain_secret_2" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_fallback_key_chain_secret_2)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_fallback_key_chain_secret_3" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_fallback_key_chain_secret_3)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_fallback_key_chain_secret_4" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_fallback_key_chain_secret_4)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_fallback_key_chain_secret_5" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_fallback_key_chain_secret_5)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_primary_key_chain_secret_1" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_primary_key_chain_secret_1)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_primary_key_chain_secret_2" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_primary_key_chain_secret_2)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_primary_key_chain_secret_3" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_primary_key_chain_secret_3)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_primary_key_chain_secret_4" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_primary_key_chain_secret_4)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
+variable "mac_sec_primary_key_chain_secret_5" {
+  default     = ""
+  description = <<-EOT
+    The key octet string is a shared secret used in cryptographic operations.
+    The valid size and format of the octet string depend on the selected KeyCryptographicAlgorithm and KeyEncryptionType.
+    The allowed characters are:
+      - Must start with the character 'J'
+      - Lower or Upper Case Letters
+      - Numbers
+      - Special Characters: `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `+`, `_`, `=`, `-`
+      - Be 144 characters in Length.
+  EOT
+  sensitive   = true
+  type        = string
+  validation {
+    condition     = length(regexall("^$|^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$", var.mac_sec_primary_key_chain_secret_5)) > 0
+    error_message = <<-EOT
+      Must meet the following criteria:
+        - Must start with the character 'J'
+        - Be 144 characters in length
+        - Match the following regular expression: ```^J[a-zA-Z0-9=!&#$%+^@_*-]{143,143}$```.
+    EOT
+  }
+}
+
 
 #__________________________________________________________________
 #

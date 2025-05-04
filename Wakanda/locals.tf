@@ -3,7 +3,7 @@ locals {
     tags = lookup(local.model.global_settings, "tags", [
       {
         key   = "Module"
-        value = "terraform-intersight-easy-imm"
+        value = "easy-imm"
       },
       {
         key   = "Version"
@@ -12,8 +12,8 @@ locals {
     ])
   }
   intersight_fqdn = lookup(local.model.global_settings, "intersight_fqdn", "intersight.com")
-  non_orgs        = ["global_settings", "intersight"]
   model           = yamldecode(data.utils_yaml_merge.model.output)
+  non_orgs        = ["global_settings", "intersight"]
   orgs            = { for k, v in data.intersight_organization_organization.orgs.results : v.name => v.moid }
 
   #__________________________________________________________________
@@ -66,6 +66,22 @@ locals {
         3 = var.local_user_password_3
         4 = var.local_user_password_4
         5 = var.local_user_password_5
+      }
+    }
+    mac_sec = {
+      fallback_key_chain = {
+        1 = var.mac_sec_fallback_key_chain_secret_1
+        2 = var.mac_sec_fallback_key_chain_secret_2
+        3 = var.mac_sec_fallback_key_chain_secret_3
+        4 = var.mac_sec_fallback_key_chain_secret_4
+        5 = var.mac_sec_fallback_key_chain_secret_5
+      }
+      primary_key_chain = {
+        1 = var.mac_sec_primary_key_chain_secret_1
+        2 = var.mac_sec_primary_key_chain_secret_2
+        3 = var.mac_sec_primary_key_chain_secret_3
+        4 = var.mac_sec_primary_key_chain_secret_4
+        5 = var.mac_sec_primary_key_chain_secret_5
       }
     }
     persistent_memory = { passphrase = { 1 = var.persistent_passphrase } }

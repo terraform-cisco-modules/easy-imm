@@ -67,6 +67,22 @@ locals {
         5 = var.local_user_password_5
       }
     }
+    mac_sec = {
+      fallback_key_chain = {
+        1 = var.mac_sec_fallback_key_chain_secret_1
+        2 = var.mac_sec_fallback_key_chain_secret_2
+        3 = var.mac_sec_fallback_key_chain_secret_3
+        4 = var.mac_sec_fallback_key_chain_secret_4
+        5 = var.mac_sec_fallback_key_chain_secret_5
+      }
+      primary_key_chain = {
+        1 = var.mac_sec_primary_key_chain_secret_1
+        2 = var.mac_sec_primary_key_chain_secret_2
+        3 = var.mac_sec_primary_key_chain_secret_3
+        4 = var.mac_sec_primary_key_chain_secret_4
+        5 = var.mac_sec_primary_key_chain_secret_5
+      }
+    }
     persistent_memory = { passphrase = { 1 = var.persistent_passphrase } }
     snmp = {
       access_community_string = {
@@ -98,6 +114,7 @@ locals {
         5 = var.snmp_trap_community_5
       }
     }
+    switch_control = { aes_primary_key = { 1 = var.switch_control_aes_primary_key_1 } }
     virtual_media = {
       password = {
         1 = var.vmedia_password_1
