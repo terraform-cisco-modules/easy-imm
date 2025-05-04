@@ -3,11 +3,11 @@
 # Data Model Merge Process - Merge YAML Files into HCL Format
 #_________________________________________________________________________________________
 data "utils_yaml_merge" "model" {
-  input = concat([
-    for file in fileset(path.module, "*.ezi.yaml") : file(file)], [
-    for file in fileset(path.module, "o*/*.ezi.yaml") : file(file)], [
-    for file in fileset(path.module, "p*/*.ezi.yaml") : file(file)], [
-    for file in fileset(path.module, "t*/*.ezi.yaml") : file(file)]
+  input = concat(
+    [for file in fileset(path.module, "*.ezi.yaml") : file(file)],
+    [for file in fileset(path.module, "o*/*.ezi.yaml") : file(file)],
+    [for file in fileset(path.module, "p*/*.ezi.yaml") : file(file)],
+    [for file in fileset(path.module, "t*/*.ezi.yaml") : file(file)]
   )
   merge_list_items = false
 }
