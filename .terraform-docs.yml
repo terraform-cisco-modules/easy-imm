@@ -29,14 +29,14 @@ content: |-
 
   ## Recommended Module Versions
 
-  ## SaaS API Version >=v1.0.11-20250410042505149
+  ## SaaS API Version >=v1.0.11-20250512205939815
 
   | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
   | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-  | organizations | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |   |
-  | pools         | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |   |
-  | policies      | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |  * New Module to Manage MacSec Policies  |
-  | profiles      | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |   |
+  | organizations | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |   |
+  | pools         | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |   |
+  | policies      | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |  * New Module to Manage MacSec Policies  |
+  | profiles      | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |   |
 
   ## CVA  API Version >=v1.0.11-20250122215055407.hotfix.20250205093545023
   ## PVA  API Version >=v1.0.11-20250122215055407.hotfix.20250205093545023
