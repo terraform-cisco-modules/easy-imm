@@ -47,6 +47,7 @@
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
+* 2025-06-30: Recommended release is 4.2.11-20250512205939815 SaaS, Found a mistake in the previous release.  This provides a fix for the MacSec Policy.
 * 2025-05-05: Recommended release is 4.2.11-20250410042505151 SaaS, Found a mistake in the previous release.  This provides a fix for the MacSec Policy.
 * 2025-05-03: Recommended release is 4.2.11-20250410042505149 SaaS, note there are new sensitive attributes for MacSec and Switch control, please replace your local copy of locals.tf, and variables.tf with the updates in this repository.
 * 2025-04-01: Recommended release is 4.2.11-20250122215055407 SaaS/CVA/PVA
