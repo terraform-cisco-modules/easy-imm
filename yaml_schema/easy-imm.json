@@ -8228,7 +8228,7 @@
                                 "description": "Allowed VLAN IDs of the vnic or ethernet uplink. A list of comma seperated VLAN ids and/or VLAN id ranges.",
                                 "intersight_api": "$ref:VlanSettings:fabric.VlanSettings:AllowedVlans",
                                 "minLength": 1,
-                                "maxLength": 1024,
+                                "maxLength": 2048,
                                 "pattern": "^$|^(((\\d{1,4})|(\\d{1,4}-\\d{1,4}))(,((\\d{1,4})|(\\d{1,4}-\\d{1,4})))*)$",
                                 "title": "action_on_uplink_fail"
                             },
@@ -11221,7 +11221,7 @@
             },
             "ldap.ldap_groups": {
                 "type": "object",
-                "description": "Endpoint User or Local User.",
+                "description": "LDAP Groups.",
                 "intersight_api": "ldap_groups",
                 "intersight_uri": "iam/LdapGroups",
                 "object_type": "iam.LdapGroup",
@@ -19693,7 +19693,6 @@
                         "intersight_api": "AuthType",
                         "enum": [
                             "MD5",
-                            "SHA",
                             "SHA",
                             "SHA-224",
                             "SHA-256",
