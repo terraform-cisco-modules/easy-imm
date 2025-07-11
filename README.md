@@ -25,14 +25,14 @@
 
 ## Recommended Module Versions
 
-## SaaS API Version >=v1.0.11-20250410042505149
+## SaaS API Version >=v1.0.11-20250512205939815
 
 | **Module** | **Module Version** | **Provider Version**  | **Appliance Version** | **Module Notes**
 | :-----------: | :----------------: | :------------------:  | :-------------------: | :--------------------------: |
-| organizations | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |   |
-| pools         | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |   |
-| policies      | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |  * New Module to Manage MacSec Policies  |
-| profiles      | 4.2.11-20250410042505151  | 1.0.64                | Not supported         |   |
+| organizations | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |   |
+| pools         | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |   |
+| policies      | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |  * New Module to Manage MacSec Policies  |
+| profiles      | 4.2.11-20250512205939815  | 1.0.64                | Not supported         |   |
 
 ## CVA  API Version >=v1.0.11-20250122215055407.hotfix.20250205093545023
 ## PVA  API Version >=v1.0.11-20250122215055407.hotfix.20250205093545023
@@ -47,6 +47,7 @@
 ### [<ins>Back to Top<ins>](#easy-imm)
 
 ## Updates
+* 2025-06-30: Recommended release is 4.2.11-20250512205939815 SaaS, Found a mistake in the previous release.  This provides a fix for the MacSec Policy.
 * 2025-05-05: Recommended release is 4.2.11-20250410042505151 SaaS, Found a mistake in the previous release.  This provides a fix for the MacSec Policy.
 * 2025-05-03: Recommended release is 4.2.11-20250410042505149 SaaS, note there are new sensitive attributes for MacSec and Switch control, please replace your local copy of locals.tf, and variables.tf with the updates in this repository.
 * 2025-04-01: Recommended release is 4.2.11-20250122215055407 SaaS/CVA/PVA
@@ -338,7 +339,7 @@ terraform.exe apply "main.plan"
 
 | Name | Version |
 |------|---------|
-| <a name="provider_utils"></a> [utils](#provider\_utils) | 0.2.6 |
+| <a name="provider_utils"></a> [utils](#provider\_utils) | 1.0.2 |
 
 ### [<ins>Back to Top<ins>](#easy-imm)
 
@@ -346,10 +347,10 @@ terraform.exe apply "main.plan"
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20250410042505151 |
-| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20250410042505151 |
-| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20250410042505151 |
-| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20250410042505151 |
+| <a name="module_organizations"></a> [organizations](#module\_organizations) | terraform-cisco-modules/organizations/intersight | 4.2.11-20250512205939815 |
+| <a name="module_pools"></a> [pools](#module\_pools) | terraform-cisco-modules/pools/intersight | 4.2.11-20250512205939815 |
+| <a name="module_policies"></a> [policies](#module\_policies) | terraform-cisco-modules/policies/intersight | 4.2.11-20250512205939815 |
+| <a name="module_profiles"></a> [profiles](#module\_profiles) | terraform-cisco-modules/profiles/intersight | 4.2.11-20250512205939815 |
 
 **NOTE: When the Data is merged from the YAML files, it will run through the modules using for_each loop(s).  Sensitive Variables cannot be added to a for_each loop, instead use the variables below to add sensitive values for policies.**
 
