@@ -1,7 +1,14 @@
 ---
-#=======================================
+#===============================================================================================
+# File: compute.ezi.yaml
 #   Policies -> Compute - Variables
-#=======================================
+#
+# This file contains variables for policies related to compute policies. For more information,
+# clone the repository and utilize the JSON schema for more detailed documentation.
+#
+# Refer to the README.md in the root of the repository for instructions to setup JSON Schema.
+#
+#===============================================================================================
 common:
   policies:
     bios:

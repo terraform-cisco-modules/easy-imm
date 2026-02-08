@@ -16,6 +16,13 @@ Asgard:
           - LOKI03-CIMC
           - LOKI04-CIMC
           - r143e-1
+        sub_targets:
+          blades:
+            - FCH26407DHP
+            - FCH26407DH1
+          rackmounts:
+            - FCH26407DH2
+            - FCH26407DH3
 common:
   create_organization: true
   organizations_to_share_with:
